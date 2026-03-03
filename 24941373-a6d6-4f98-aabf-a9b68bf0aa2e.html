@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Results &mdash; Gairy</title>
+<style>
+
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.timer-line {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.timer-active { background: #e8f5e9; color: var(--green); }
+.timer-warning { background: #fff8e1; color: var(--amber); }
+.timer-expired { background: #ffebee; color: var(--red); }
+
+/* Intro */
+.intro-section {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-card);
+}
+.intro-section p { margin-bottom: 8px; }
+.intro-section p:last-child { margin-bottom: 0; }
+.home-note {
+  background: #e8f5e9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--green);
+}
+
+/* Track & Zone Headers */
+.track-section { margin-bottom: 24px; }
+.track-header {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.zone-header {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+/* Job Cards */
+.job-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.job-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 2px 8px rgba(15, 52, 96, 0.1);
+}
+.job-card.selected {
+  border-color: var(--border-selected);
+  background: var(--bg-selected);
+}
+.job-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.job-checkbox {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--brand-blue);
+}
+.job-content { flex: 1; min-width: 0; }
+.job-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.job-number { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.job-title { font-size: 16px; font-weight: 600; color: var(--brand-dark); }
+.job-employer { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.job-snippet { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-link {
+  font-size: 13px;
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.job-link:hover { text-decoration: underline; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-strong { background: #e8f5e9; color: var(--green); }
+.badge-considering { background: #fff8e1; color: var(--amber); }
+.pathway-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #e3f2fd;
+  color: var(--brand-blue);
+}
+
+/* Submit */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.selection-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Expiry Banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .job-title { font-size: 14px; }
+  .submit-btn { width: 100%; }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Job Search Results for Gairy</h1>
+    <div class="meta-line">Generated: March 03, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="intro-section">
+    <p>We&#x27;ve been searching for opportunities that match your background. Jobs close to home, we package up right away. When local options are limited, we also look further out — specifically at RCIP communities and AIP provinces across Canada, since those are the areas that support your permanent residency pathway.</p>
+    <p class="home-note">We prepared application packages for 1 local job(s) &mdash; check your inbox for those.</p>
+    <p>We found <strong>15</strong> additional opportunities worth looking at. Check the ones you're interested in and we'll build application packages for your selections.</p>
+  </div>
+
+  <div id="pick-form">
+    <div class="cards-container">
+<div class="track-section">
+<h2 class="track-header">PRIMARY</h2>
+<h3 class="zone-header">Relocation Opportunities (RCIP/AIP):</h3>
+<div class="job-card" data-job-id="1">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="1" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#1</span>
+        <span class="job-title">Sterile Processing Technician</span>
+      </div>
+      <div class="job-employer">Dynamics ATS &middot; NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">$26 - $31 per hour | &amp;nbsp;...Processing &lt;b&gt;Technician&lt;/b&gt;...&amp;nbsp;&amp;nbsp;...Our &lt;b&gt;client &lt;/b&gt;is a nationally...&amp;nbsp;&amp;nbsp;.... &lt;b&gt;Supported &lt;/b&gt;by an exceptional...&amp;nbsp;&amp;nbsp;...&lt;b&gt;services &lt;/b&gt;acr</div>
+      <a href="https://jooble.org/jdp/758652744573478274" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="2">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="2" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#2</span>
+        <span class="job-title">Heavy Duty Mechanic - Brandon, MB</span>
+      </div>
+      <div class="job-employer">KAG Canada &middot; Brandon, MB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">The Kenan Advantage Group Inc., (KAG), is North America’s largest tank truck transporter and logistics provider, delivering energy commodities, specialty products, merchant gases, and food products ac</div>
+      <a href="https://ca.indeed.com/viewjob?jk=34366f5630ff2345" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="3">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="3" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#3</span>
+        <span class="job-title">Journeyman Industrial Refrigeration Mechanic (R717 / Ammonia)</span>
+      </div>
+      <div class="job-employer">Pennlite Electrical and Mechanical &middot; Steinbach, MB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">**Journeyman Industrial Refrigeration Mechanic (R\-717 / Ammonia)**  
+**Malnar Industries**
+
+Malnar is looking for a solid **Ammonia (R\-717\) Journeyman Mechanic** who knows their way around industri</div>
+      <a href="https://ca.indeed.com/viewjob?jk=a4825c0113d037e3" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="4">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="4" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#4</span>
+        <span class="job-title">Agricultural Equipment Mechanic</span>
+      </div>
+      <div class="job-employer">Lindsay Lake Farms &amp; Lodge Ltd. &middot; Middle Musquodoboit, NS</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">* Education:
+* Expérience:
+* **Education**
+-------------
+* No degree, certificate or diploma
+* **Supervision**
+---------------
+* Electrical mechanics
+* **Instrument experience**
+----------------------</div>
+      <a href="https://ca.indeed.com/viewjob?jk=33f87b17d72a5dee" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+<div class="track-section">
+<h2 class="track-header">SECONDARY</h2>
+<h3 class="zone-header">Relocation Opportunities (RCIP/AIP):</h3>
+<div class="job-card" data-job-id="5">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="5" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#5</span>
+        <span class="job-title">Electrical Mechanical Technician</span>
+      </div>
+      <div class="job-employer">Jule &middot; NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">&amp;nbsp;...Electrical &lt;b&gt;Mechanical Technician &lt;/b&gt;
+ Job...&amp;nbsp;&amp;nbsp;...energy &lt;b&gt;management&lt;/b&gt;...&amp;nbsp;&amp;nbsp;...including &lt;b&gt;community &lt;/b&gt;energy...&amp;nbsp;&amp;nbsp;...microgrid &lt;b&gt;development.&lt;/b&gt; It h</div>
+      <a href="https://jooble.org/jdp/6077570463598819229" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="6">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="6" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#6</span>
+        <span class="job-title">Automotive Service Technician - Hourly Security, Flat Rate Potential!</span>
+      </div>
+      <div class="job-employer">Bonnyville Dodge &middot; NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">$60 per hour | &amp;nbsp;...well under $500,000, easy access to the outdoors, a great &lt;b&gt;community &lt;/b&gt;within 2.5 hours of Edmonton, and a family owned business are...&amp;nbsp;&amp;nbsp;...the lifestyle!
+ Quali</div>
+      <a href="https://jooble.org/jdp/8951416780859624849" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="7">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="7" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#7</span>
+        <span class="job-title">Truck &amp; Trailer Mechanic - 310t / Red Seal</span>
+      </div>
+      <div class="job-employer">Kal Tire &middot; Saint John, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Ready to drive your career forward and take the wheel of your future? If you love working with vehicles and take pride in delivering top\-notch service, Kal Tire has the perfect opportunity for you! W</div>
+      <a href="https://ca.indeed.com/viewjob?jk=45e0bc2feea08593" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="8">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="8" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#8</span>
+        <span class="job-title">Journeyperson Automotive Service Technician</span>
+      </div>
+      <div class="job-employer">Kal Tire &middot; Grand Falls, NL</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Ready to drive your career forward and take the wheel of your future? If you love working with vehicles and take pride in delivering top\-notch service, Kal Tire has the perfect opportunity for you! W</div>
+      <a href="https://ca.indeed.com/viewjob?jk=d020c7d361ba824c" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+<div class="track-section">
+<h2 class="track-header">PRIMARY</h2>
+<h3 class="zone-header">Near You:</h3>
+<div class="job-card" data-job-id="9">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="9" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#9</span>
+        <span class="job-title">Heavy-duty Equipment Mechanic</span>
+      </div>
+      <div class="job-employer">Vale Base Metals &middot; Greater Sudbury, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">Vale Base Metals | Greater Sudbury (ON) | $23.87 to $55.00 hourly</div>
+      <a href="https://www.jobbank.gc.ca/jobsearch/jobposting/49011444" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<h3 class="zone-header">Your Region:</h3>
+<div class="job-card" data-job-id="10">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="10" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#10</span>
+        <span class="job-title">(310 T) Truck and Coach Technician, Highway Maintenance *** Relocation Packages Available</span>
+      </div>
+      <div class="job-employer">Ledcor &middot; Sault Ste. Marie, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">Location: Sault Ste. Marie, ON, Canada  
+
+Date Posted: Feb 27, 2026  
+
+Job ID: R27655
+  
+
+Job Status: Full\-Time
+
+
+  
+Description
+
+
+Ledcor Highways is now hiring skilled Truck and Coach Technicians/He</div>
+      <a href="https://ca.indeed.com/viewjob?jk=f3d5f8bd14f7ab5f" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="11">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="11" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#11</span>
+        <span class="job-title">Shop Technician / Diesel Mechanic Helper</span>
+      </div>
+      <div class="job-employer">Bakke&#x27;s Trucking Ltd &middot; North Bay, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">Bakke’s Trucking Ltd is currently looking for a reliable and hardworking individual to join our shop team. We operate a fleet of semi\-trucks and are seeking someone to assist with maintenance and rep</div>
+      <a href="https://ca.indeed.com/viewjob?jk=0c70028fb4a1efdd" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="12">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="12" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#12</span>
+        <span class="job-title">GSE Technician (Entry-Level Mechanic)</span>
+      </div>
+      <div class="job-employer">Maintair Aviation &middot; Timmins, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">**MAINTAIR AVIATION is currently seeking qualified individuals for a part\-time niche role within our Ground Service Equipment (GSE) Team. This position is ideally suited to someone who is flexible, w</div>
+      <a href="https://ca.indeed.com/viewjob?jk=0dee4a7256479bcc" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<h3 class="zone-header">Relocation Opportunities (RCIP/AIP):</h3>
+<div class="job-card" data-job-id="13">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="13" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#13</span>
+        <span class="job-title">Infrastructure Services Associate Facility Maintenance Technician</span>
+      </div>
+      <div class="job-employer">Dynamics ATS &middot; NB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">$26.16 - $34.16 per hour | &amp;nbsp;...Infrastructure &lt;b&gt;Services &lt;/b&gt;Associate...&amp;nbsp;&amp;nbsp;...Facility &lt;b&gt;Maintenance Technician&lt;/b&gt;...&amp;nbsp;&amp;nbsp;...enterprise, our &lt;b&gt;client &lt;/b&gt;is...&amp;nbsp;&amp;nbsp;...</div>
+      <a href="https://jooble.org/jdp/3800917927135353303" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="14">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="14" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#14</span>
+        <span class="job-title">3rd or 4th Year Apprentice Automotive Service Technician</span>
+      </div>
+      <div class="job-employer">Bonnyville Dodge &middot; NB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">$40.5 per hour | &amp;nbsp;...working, motivated, and &lt;b&gt;mechanically &lt;/b&gt;inclined or...&amp;nbsp;&amp;nbsp;...to join our team as an &lt;b&gt;Automotive &lt;/b&gt;Apprentice! We&#x27;ll help...&amp;nbsp;&amp;nbsp;...in your new trade wi</div>
+      <a href="https://jooble.org/jdp/1931042016850825335" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="15">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="15" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#15</span>
+        <span class="job-title">Fleet Chrysler Automotive Technician - Ft. McMurray, AB - 2026</span>
+      </div>
+      <div class="job-employer">Legacy Automotive Group &middot; NB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">&amp;nbsp;...Calling All &lt;b&gt;Automotive Technicians &lt;/b&gt;&amp; Chrysler Master Certified Technicians! 
+Are you an Automotive...&amp;nbsp;&amp;nbsp;...or undervalued?
+• Getting sent &lt;b&gt;home &lt;/b&gt;early because the shop </div>
+      <a href="https://jooble.org/jdp/-8175828995986673430" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+    </div>
+
+    <div class="submit-section" id="submit-section">
+      <div class="selection-count" id="selection-count">0 jobs selected</div>
+      <button type="button" class="submit-btn" id="submit-btn" disabled>
+        Submit My Selections
+      </button>
+      <p class="submit-help">We'll build application packages for your selected jobs.</p>
+    </div>
+  </div>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This search has expired.</strong> Jobs may have closed since this list was generated.
+    Contact Barker HR Solutions for a new search.
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Reply to your search email.</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry48h = new Date("2026-03-05T15:51:40.801613+00:00");
+  var expiry7d  = new Date("2026-03-10T15:51:40.801613+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var submitBtn = document.getElementById("submit-btn");
+  var submitSection = document.getElementById("submit-section");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var selectionCount = document.getElementById("selection-count");
+  var checkboxes = document.querySelectorAll(".job-checkbox");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry7d) {
+      timerLine.className = "timer-line timer-expired";
+      timerText.textContent = "This search has expired.";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Search Expired";
+      expiryBanner.style.display = "block";
+      return;
+    }
+    if (now >= expiry48h) {
+      timerLine.className = "timer-line timer-warning";
+      timerText.textContent = "Active window closed. Jobs may have been filled.";
+      return;
+    }
+    var diff = expiry48h - now;
+    var hours = Math.floor(diff / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    timerText.textContent = "Active for " + hours + "h " + mins + "m";
+    timerLine.className = "timer-line timer-active";
+  }
+
+  function updateSelectionCount() {
+    var count = document.querySelectorAll(".job-checkbox:checked").length;
+    selectionCount.textContent = count + " job" + (count !== 1 ? "s" : "") + " selected";
+    submitBtn.disabled = count === 0;
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener("change", function() {
+      this.closest(".job-card").classList.toggle("selected", this.checked);
+      updateSelectionCount();
+    });
+  });
+
+  submitBtn.addEventListener("click", function() {
+    var now = new Date();
+    if (now >= expiry7d) {
+      alert("This search has expired. Please contact Barker HR Solutions for a new search.");
+      return;
+    }
+    var selected = [];
+    var lines = [];
+    checkboxes.forEach(function(cb) {
+      if (cb.checked) {
+        selected.push(cb.value);
+        var card = cb.closest(".job-card");
+        var title = card.querySelector(".job-title") ? card.querySelector(".job-title").textContent.trim() : "";
+        var employer = card.querySelector(".job-employer") ? card.querySelector(".job-employer").textContent.trim() : "";
+        lines.push(cb.value + ". " + title + " — " + employer);
+      }
+    });
+    if (selected.length === 0) {
+      alert("Please select at least one job.");
+      return;
+    }
+    var subject = encodeURIComponent("Selections — 24941373-a6d6-4f98-aabf-a9b68bf0aa2e");
+    var body = encodeURIComponent(
+      "Ref: 24941373-a6d6-4f98-aabf-a9b68bf0aa2e\n\n" +
+      lines.join("\n")
+    );
+    window.location.href = "mailto:jay@barkerhrs.com?subject=" + subject + "&body=" + body;
+    submitBtn.textContent = "Email Opened \u2713";
+    submitBtn.style.background = "#2e7d32";
+  });
+
+  updateTimer();
+  setInterval(updateTimer, 60000);
+  updateSelectionCount();
+})();
+</script>
+</body>
+</html>

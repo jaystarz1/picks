@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Profile Review for Rekha &mdash; Rekha</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+}
+
+.profile-display {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.profile-display .label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.profile-display .value {
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.achievement-list {
+  list-style: disc;
+  margin-left: 20px;
+  margin-top: 4px;
+}
+.achievement-list li {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.tier-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.tier-1 { background: #e8f5e9; color: #2e7d32; }
+.tier-2 { background: #e3f2fd; color: #1565c0; }
+.tier-3 { background: #fff3e0; color: #ef6c00; }
+.tier-4 { background: #fce4ec; color: #c62828; }
+.domain-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.domain-titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.title-chip {
+  background: #eef6ff;
+  border: 1px solid #c8ddf0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 13px;
+  color: var(--brand-blue);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Profile Review for Rekha</h1>
+    <div class="meta-line">Generated: March 19, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Profile Review for Rekha</h2>
+    <p>We've built your complete career profile from your intake information
+    and achievement responses. Please review each section below and let us
+    know if anything needs to be added or corrected.</p>
+    <p>Once you approve, we'll build your master resume and begin your
+    tailored job search.</p>
+    <p>This takes about 5 minutes.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="f9b341ee-d4ce-4a3d-a0f3-c4561f8c5b64">
+    <input type="hidden" name="client_name" value="Rekha_Chakrapani_Vollapu">
+    <input type="hidden" name="_client_email" value="">
+  <div class="section-card">
+    <h2>1. Personal Information</h2>
+    <div class="profile-display">
+      <div class="label">Full Name</div>
+      <div class="value">Rekha Chakrapani Vollapu</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Location</div>
+      <div class="value">Edmonton, AB (Source: Form)</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Work Authorization</div>
+      <div class="value">Open Work Permit, expires Jan 2029 (Source: Form + Kari)</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Languages</div>
+      <div class="value">English, Telugu, Kannada, Hindi</div>
+    </div>
+    <div class="form-group">
+  <label>Anything to add or correct about your personal information?</label>
+  
+  <textarea name="personal_comments" rows="4" placeholder="Leave blank if everything looks correct."></textarea>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>2. Career History</h2>
+    <p>Below are the roles we have on file. Please review each one.</p>
+    <h3>Personal Loan Officer — CitiFinancial Ltd (India) | 2004-2007</h3>
+    <ul class="achievement-list">
+      <li>Processed 6-7 personal loan and credit card applications daily</li>
+      <li>Loan values ranged from 50,000-300,000 INR</li>
+      <li>Achieved 90% approval rate while maintaining compliance standards</li>
+      <li>Managed portfolio of 25 active clients</li>
+      <li>Coordinated with sales team on collections and payment for personal loan products</li>
+    </ul>
+    <div class="form-group">
+  <label>Anything to add or correct about this role?</label>
+  
+  <textarea name="career_comments_0" rows="3" placeholder="Leave blank if everything looks correct."></textarea>
+</div>
+    <h3>Customer Service Representative — Health for All Medical Center (India/Jamaica) | 2007-2014</h3>
+    <ul class="achievement-list">
+      <li>Managed 100+ patient records in medical office database</li>
+      <li>Served 20-25 patients per day with appointment scheduling and follow-up</li>
+      <li>Handled 30-40 incoming calls daily</li>
+      <li>Trained 15 new staff members on call handling protocols</li>
+      <li>Focus on reducing escalations through standardized procedures</li>
+      <li>Sole IT support for small medical office (4 Windows laptops, 3 users)</li>
+      <li>Resolved approximately 3 technical issues per day</li>
+      <li>Supported 1 doctor and 2 nurses</li>
+      <li>Implemented and maintained backup systems for 500 MB of client data</li>
+      <li>Maintained recovery plans for all patient and operational data</li>
+      <li>Administered Windows environment plus PAS2 (Provider Access System)</li>
+      <li>Managed security including antivirus scans, vulnerability resolution, and access permissions for 100+ patient records</li>
+    </ul>
+    <div class="form-group">
+  <label>Anything to add or correct about this role?</label>
+  
+  <textarea name="career_comments_1" rows="3" placeholder="Leave blank if everything looks correct."></textarea>
+</div>
+    <h3>System Administrator — Health for All Medical Center (India/Jamaica) | 2014-2022</h3>
+    <ul class="achievement-list">
+      <li>Managed 100+ patient records in medical office database</li>
+      <li>Served 20-25 patients per day with appointment scheduling and follow-up</li>
+      <li>Handled 30-40 incoming calls daily</li>
+      <li>Trained 15 new staff members on call handling protocols</li>
+      <li>Focus on reducing escalations through standardized procedures</li>
+      <li>Sole IT support for small medical office (4 Windows laptops, 3 users)</li>
+      <li>Resolved approximately 3 technical issues per day</li>
+      <li>Supported 1 doctor and 2 nurses</li>
+      <li>Implemented and maintained backup systems for 500 MB of client data</li>
+      <li>Maintained recovery plans for all patient and operational data</li>
+      <li>Administered Windows environment plus PAS2 (Provider Access System)</li>
+      <li>Managed security including antivirus scans, vulnerability resolution, and access permissions for 100+ patient records</li>
+    </ul>
+    <div class="form-group">
+  <label>Anything to add or correct about this role?</label>
+  
+  <textarea name="career_comments_2" rows="3" placeholder="Leave blank if everything looks correct."></textarea>
+</div>
+    <h3>Owner/Operator — Jewellery Retail Store (Jamaica) | 2018-2021</h3>
+    <ul class="achievement-list">
+      <li>Founded and operated retail jewellery store for 4 years</li>
+      <li>Managed 3 employees</li>
+      <li>Generated revenue of 600,000 JMD</li>
+      <li>Microsoft Excel — confirmed proficient (achievement form)</li>
+      <li>Microsoft PowerPoint — confirmed proficient (achievement form)</li>
+      <li>PAS2 (Provider Access System) — daily use in medical office</li>
+      <li>**Avoid industries:** Accounting</li>
+      <li>**Schedule preference:** 8-4 or 9-5 (deal breaker)</li>
+      <li>**Certifications:** Manual testing complete (no cert yet), Automation testing in progress</li>
+    </ul>
+    <div class="form-group">
+  <label>Anything to add or correct about this role?</label>
+  
+  <textarea name="career_comments_3" rows="3" placeholder="Leave blank if everything looks correct."></textarea>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>3. Education &amp; Certifications</h2>
+    <div class="profile-display">
+      <div class="label">Credential</div>
+      <div class="value">Post Baccalaureate Diploma in Marketing — Thompson Rivers University (Kamloops, BC) | Graduated Dec 2024</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Credential</div>
+      <div class="value">Bachelor of Sciences — Gulbarga University (India) | April 2001</div>
+    </div>
+    <div class="form-group">
+  <label>Any additional education, certifications, or training to add?</label>
+  
+  <textarea name="education_comments" rows="4" placeholder="Include anything we may have missed."></textarea>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>4. Job Search Focus</h2>
+    <p>We've organized your job search into tiers based on your experience. Tier 1 is your strongest fit; Tier 4 is a fallback if needed.</p>
+    <span class="tier-badge tier-1">TIER 1</span>
+    <h3>Bullseye - Core Expertise</h3>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">IT Support / Systems Administration</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">IT Support Technician</span>
+        <span class="title-chip">Help Desk Analyst</span>
+        <span class="title-chip">Desktop Support Specialist</span>
+        <span class="title-chip">Junior System Administrator</span>
+        <span class="title-chip">User Support Technician</span>
+        <span class="title-chip">IT Support Analyst</span>
+        <span class="title-chip">Technical Support Specialist</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">8 years system administration at Health for All Medical Center (2014-2022). Windows + PAS2, 4 workstations, backup/recovery, security, sole IT support. NOC 22221.</div>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">Medical Office Administration</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Medical Office Administrator</span>
+        <span class="title-chip">Medical Receptionist</span>
+        <span class="title-chip">Health Records Clerk</span>
+        <span class="title-chip">Clinic Administrator</span>
+        <span class="title-chip">Patient Services Coordinator</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">7 years CSR at Health for All (2007-2014). 100+ patient records, 20-25 patients/day, 30-40 calls/day, trained 15 staff. PAS2 system.</div>
+      </div>
+    </div>
+    <div class="form-group">
+  <label>Tier 1 — Bullseye - Core Expertise</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="tier_1_status" value="This looks right"> This looks right</label>
+    <label><input type="radio" name="tier_1_status" value="I&#x27;d like to adjust"> I&#x27;d like to adjust</label>
+  </div>
+</div>
+    <div id="tier-1-adjust-wrapper" class="tier-adjust-wrapper" style="display:none;">
+      <div class="form-group">
+  <label>What would you change?</label>
+  
+  <textarea name="tier_1_adjustments" rows="3" placeholder="Describe what you&#x27;d add, remove, or change about this tier."></textarea>
+</div>
+    </div>
+    <span class="tier-badge tier-2">TIER 2</span>
+    <h3>Adjacent - Related Skills</h3>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">QA Testing / Software Testing</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Junior QA Tester</span>
+        <span class="title-chip">QA Analyst</span>
+        <span class="title-chip">Manual Test Analyst</span>
+        <span class="title-chip">Software Tester</span>
+        <span class="title-chip">Quality Assurance Technician</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">Manual Testing course complete (2026), Automation Testing course finishing March 2026. IT sysadmin background provides troubleshooting foundation. NOC 22222.</div>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">Office Administration / Administrative Assistant</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Administrative Assistant</span>
+        <span class="title-chip">Office Administrator</span>
+        <span class="title-chip">Office Coordinator</span>
+        <span class="title-chip">Records Management Clerk</span>
+        <span class="title-chip">Administrative Officer</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">15 years combined office operations (Health for All). Patient records, scheduling, staff training, facility management. Excel/PowerPoint proficient. NOC 13100/13110.</div>
+      </div>
+    </div>
+    <div class="form-group">
+  <label>Tier 2 — Adjacent - Related Skills</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="tier_2_status" value="This looks right"> This looks right</label>
+    <label><input type="radio" name="tier_2_status" value="I&#x27;d like to adjust"> I&#x27;d like to adjust</label>
+  </div>
+</div>
+    <div id="tier-2-adjust-wrapper" class="tier-adjust-wrapper" style="display:none;">
+      <div class="form-group">
+  <label>What would you change?</label>
+  
+  <textarea name="tier_2_adjustments" rows="3" placeholder="Describe what you&#x27;d add, remove, or change about this tier."></textarea>
+</div>
+    </div>
+    <span class="tier-badge tier-3">TIER 3</span>
+    <h3>Stretch - Transferable Skills</h3>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">Financial Services / Loan Processing</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Loan Processing Officer</span>
+        <span class="title-chip">Credit Analyst</span>
+        <span class="title-chip">Financial Services Representative</span>
+        <span class="title-chip">Lending Associate</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">3 years at CitiFinancial Ltd (2004-2007). 6-7 apps/day, 90% approval rate, 25-client portfolio, 50K-300K INR loan values. Compliance standards maintained.</div>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">Retail / Small Business Management</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Retail Store Manager</span>
+        <span class="title-chip">Assistant Store Manager</span>
+        <span class="title-chip">Retail Operations Coordinator</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">4-year jewellery retail business owner (2018-2021, Jamaica). 3 employees, 600K JMD revenue. Full P&amp;L, inventory, staff supervision. NOC 62020.</div>
+      </div>
+    </div>
+    <div class="form-group">
+  <label>Tier 3 — Stretch - Transferable Skills</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="tier_3_status" value="This looks right"> This looks right</label>
+    <label><input type="radio" name="tier_3_status" value="I&#x27;d like to adjust"> I&#x27;d like to adjust</label>
+  </div>
+</div>
+    <div id="tier-3-adjust-wrapper" class="tier-adjust-wrapper" style="display:none;">
+      <div class="form-group">
+  <label>What would you change?</label>
+  
+  <textarea name="tier_3_adjustments" rows="3" placeholder="Describe what you&#x27;d add, remove, or change about this tier."></textarea>
+</div>
+    </div>
+    <span class="tier-badge tier-4">TIER 4</span>
+    <h3>Fallback - If Needed</h3>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">Technical Customer Service (TEER 3)</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Technical Customer Service Representative</span>
+        <span class="title-chip">Technical Support Representative</span>
+        <span class="title-chip">Customer Support Specialist</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">TEER 3 acceptable per Kari Davis. Rekha has 10 years customer-facing experience (CitiFinancial + Health for All CSR). Only technical CS — general TEER 4/5 customer service excluded.</div>
+      </div>
+    </div>
+    <div class="domain-card">
+      <div class="profile-display">
+        <div class="label">Domain</div>
+        <div class="value">Data Entry / Records Management</div>
+      </div>
+      <div class="label" style="font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Target Titles</div>
+      <div class="domain-titles">
+        <span class="title-chip">Data Entry Clerk</span>
+        <span class="title-chip">Records Management Clerk</span>
+        <span class="title-chip">Information Processing Clerk</span>
+      </div>
+      <div class="profile-display" style="margin-top:8px;">
+        <div class="label">Evidence</div>
+        <div class="value">Fallback only — may be TEER 4 depending on specific role. Must verify NOC code is TEER 3+ before applying. Evidence: 100+ patient records management, database work.</div>
+      </div>
+    </div>
+    <div class="form-group">
+  <label>Tier 4 — Fallback - If Needed</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="tier_4_status" value="This looks right"> This looks right</label>
+    <label><input type="radio" name="tier_4_status" value="I&#x27;d like to adjust"> I&#x27;d like to adjust</label>
+  </div>
+</div>
+    <div id="tier-4-adjust-wrapper" class="tier-adjust-wrapper" style="display:none;">
+      <div class="form-group">
+  <label>What would you change?</label>
+  
+  <textarea name="tier_4_adjustments" rows="3" placeholder="Describe what you&#x27;d add, remove, or change about this tier."></textarea>
+</div>
+    </div>
+  </div>
+  <div class="section-card">
+    <h2>5. Search Preferences</h2>
+    <div class="profile-display">
+      <div class="label">Salary Range</div>
+      <div class="value">$33,000 CAD - $52,000 CAD</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Location Preference</div>
+      <div class="value">Edmonton, AB (no relocation)</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Open to Remote</div>
+      <div class="value">Yes</div>
+    </div>
+    <div class="profile-display">
+      <div class="label">Hard Nos</div>
+      <div class="value">TEER 4/5 clerical roles; TEER 4/5 customer service (except Technical Customer Service TEER 3); Roles outside Edmonton (no relocation)</div>
+    </div>
+    <div class="form-group">
+  <label>Any changes to your search preferences?</label>
+  
+  <textarea name="preferences_comments" rows="4" placeholder="Salary, location, schedule, or anything else you&#x27;d like to adjust."></textarea>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>6. Final Approval</h2>
+    <p>Please confirm whether you're ready to proceed or if you have changes for us to review.</p>
+    <div class="form-group">
+  <label class="required">Your decision</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="final_approval" value="Everything looks good — proceed with my job search" required> Everything looks good — proceed with my job search</label>
+    <label><input type="radio" name="final_approval" value="I have changes — please review my notes above before proceeding" required> I have changes — please review my notes above before proceeding</label>
+  </div>
+</div>
+    <div class="form-group">
+  <label>Any final thoughts or things we should know?</label>
+  
+  <textarea name="final_thoughts" rows="4" placeholder="Optional — anything else on your mind."></textarea>
+</div>
+  </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Profile Review</button>
+      <p class="submit-help">Your responses will be sent to our team for review.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-02T04:19:14.472899+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+(function() {
+  var radios = document.querySelectorAll('input[name="tier_1_status"]');
+  var wrapper = document.getElementById("tier-1-adjust-wrapper");
+  if (!radios.length || !wrapper) return;
+  radios.forEach(function(r) {
+    r.addEventListener("change", function() {
+      wrapper.style.display = (this.value === "I'd like to adjust") ? "block" : "none";
+    });
+  });
+})();
+(function() {
+  var radios = document.querySelectorAll('input[name="tier_2_status"]');
+  var wrapper = document.getElementById("tier-2-adjust-wrapper");
+  if (!radios.length || !wrapper) return;
+  radios.forEach(function(r) {
+    r.addEventListener("change", function() {
+      wrapper.style.display = (this.value === "I'd like to adjust") ? "block" : "none";
+    });
+  });
+})();
+(function() {
+  var radios = document.querySelectorAll('input[name="tier_3_status"]');
+  var wrapper = document.getElementById("tier-3-adjust-wrapper");
+  if (!radios.length || !wrapper) return;
+  radios.forEach(function(r) {
+    r.addEventListener("change", function() {
+      wrapper.style.display = (this.value === "I'd like to adjust") ? "block" : "none";
+    });
+  });
+})();
+(function() {
+  var radios = document.querySelectorAll('input[name="tier_4_status"]');
+  var wrapper = document.getElementById("tier-4-adjust-wrapper");
+  if (!radios.length || !wrapper) return;
+  radios.forEach(function(r) {
+    r.addEventListener("change", function() {
+      wrapper.style.display = (this.value === "I'd like to adjust") ? "block" : "none";
+    });
+  });
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "profile_confirmation",
+    token: "f9b341ee-d4ce-4a3d-a0f3-c4561f8c5b64",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+(function() {
+  var successMsg = document.getElementById("success-message");
+  if (successMsg) {
+    successMsg.innerHTML = '<h2>Thank You!</h2>' +
+      '<p>We\u2019ve received your profile review. Your master resume and ' +
+      'tailored documents will be ready within 24\u201348 hours.</p>';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Resume Package for Rekha &mdash; Rekha</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+}
+
+.package-intro {
+  background: #f0f7ff;
+  border: 1px solid #c8ddf0;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.package-intro p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.doc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.doc-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 17px;
+  color: var(--text-primary);
+}
+.doc-card .doc-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+.doc-card .doc-emphasis {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.download-btn {
+  display: inline-block;
+  background: var(--brand-blue, #1a73e8);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.download-btn:hover {
+  opacity: 0.9;
+}
+.download-btn.secondary {
+  background: #5f6368;
+}
+.variant-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.instructions-card {
+  background: #fffde7;
+  border: 1px solid #fff9c4;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.instructions-card h3 {
+  margin: 0 0 10px 0;
+  color: #f57f17;
+}
+.instructions-card ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.instructions-card li {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.target-titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 10px;
+}
+.title-chip {
+  background: #eef6ff;
+  border: 1px solid #c8ddf0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 13px;
+  color: var(--brand-blue, #1a73e8);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Resume Package for Rekha</h1>
+    <div class="meta-line">Generated: March 19, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card package-intro">
+    <h2>Your Resume Package, Rekha</h2>
+    <p>Below you'll find your complete resume package. It includes:</p>
+    <ul>
+      <li><strong>Master Resume</strong> &mdash; your comprehensive career document with all verified experience</li>
+      <li><strong>Variant Resumes</strong> &mdash; tailored versions that emphasize different parts of your background for specific job types</li>
+      <li><strong>Cover Letter Templates</strong> &mdash; ready-to-customize letters for each job type with [Company] and [Role] placeholders</li>
+    </ul>
+    <p>All documents are in DOCX format so you can edit them in Word or Google Docs.</p>
+  </div>
+  <div class="section-card">
+    <h2>Master Resume</h2>
+    <div class="doc-card">
+      <h3>Comprehensive Career Document</h3>
+      <div class="doc-description">
+        This is your full career resume with all verified experience, education,
+        and achievements. You can modify and customize it for any application
+        throughout the first year of service.
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1VP75Cg6cO-rihY6mTnP_yUMSVrh0YFRL/view?usp=sharing" target="_blank">Download Master Resume (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 1</span>
+    <h2>IT Support / Systems Administration</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; IT Support / Systems Administration</h3>
+      <div class="doc-description">Roles in desktop support, help desk, system administration</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">IT Support Technician</span>
+        <span class="title-chip">Help Desk Analyst</span>
+        <span class="title-chip">Desktop Support Specialist</span>
+        <span class="title-chip">Junior System Administrator</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/11bKK1PT06cy4c1OT3TRhgOwVX7G92nSQ/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; IT Support / Systems Administration</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/128K9H391fUlJaOnHt6bHwHruZSqBvB2a/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 2</span>
+    <h2>Medical Office Administration</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; Medical Office Administration</h3>
+      <div class="doc-description">Roles in medical reception, clinic administration, health records</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Medical Office Administrator</span>
+        <span class="title-chip">Medical Receptionist</span>
+        <span class="title-chip">Health Records Clerk</span>
+        <span class="title-chip">Clinic Administrator</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/15SsR6dM9iI-6aYB-mJ1VCIuRDwA8l93d/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; Medical Office Administration</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1YJ2lx7olsdnWZl0i0zieu6njicPXc489/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 3</span>
+    <h2>QA Testing / Software Testing</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; QA Testing / Software Testing</h3>
+      <div class="doc-description">Roles in manual testing, QA analysis, software testing</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Junior QA Tester</span>
+        <span class="title-chip">QA Analyst</span>
+        <span class="title-chip">Manual Test Analyst</span>
+        <span class="title-chip">Software Tester</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1gZOtCo8UimuRLKVDGAj16oDHAjEs3AsM/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; QA Testing / Software Testing</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1suP4ThZ0d6Pqfac70XygX_nOVxEF6z3R/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 4</span>
+    <h2>Office Administration / Administrative Assistant</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; Office Administration / Administrative Assistant</h3>
+      <div class="doc-description">Roles in general office administration, records management</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Administrative Assistant</span>
+        <span class="title-chip">Office Administrator</span>
+        <span class="title-chip">Office Coordinator</span>
+        <span class="title-chip">Records Management Clerk</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1Hxb5d4NySncTHHFwniQGTlfG9uE76crU/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; Office Administration / Administrative Assistant</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1yL6wd9Ettsv_3J6YZDSf1OVIBUVVrWrh/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="instructions-card">
+    <h3>How to Use Your Package</h3>
+    <ol>
+      <li><strong>Download</strong> the variant resume and cover letter that best match the job you're applying for.</li>
+      <li><strong>Open</strong> the DOCX file in Word or Google Docs.</li>
+      <li><strong>Customize the cover letter:</strong> Replace [Company Name] with the employer's name and [Position Title] with the job title.</li>
+      <li><strong>Review</strong> the resume to ensure the emphasized experience matches the specific job posting.</li>
+      <li><strong>Submit</strong> both the resume and cover letter together with your application.</li>
+    </ol>
+    <p style="margin-top:12px;font-size:13px;color:#795548;">
+      <strong>Tip:</strong> For jobs that fall between two variants, start with the closest match
+      and adjust the professional summary to better fit the specific role.
+    </p>
+  </div>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-18T19:53:48.105843+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+</script>
+</body>
+</html>

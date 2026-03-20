@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career Details for Trudy-Ann &mdash; Trudy-Ann</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Career Details for Trudy-Ann</h1>
+    <div class="meta-line">Generated: March 18, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Career Details</h2>
+    <p>We've analyzed your resume and have some specific questions. Each
+    question references the relevant job &mdash; just answer what you can.
+    Your best estimates are fine. Skip anything you genuinely can't
+    remember.</p>
+    <p>This should take about 15-20 minutes (24 questions).</p>
+    <p class="hint">Fields marked with
+    <span style="color: var(--brand-accent);">*</span> are required.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="4be1c281-84ea-4855-9462-1603b1605d78">
+    <input type="hidden" name="client_name" value="Trudy-Ann_Miller">
+    <input type="hidden" name="form_mode" value="personalized">
+    <div class="section-card">
+      <h2>Business Analyst — Jamaica National Bank (2022–Present)</h2>
+      <div class="form-group">
+  <label class="required">1. You transitioned request submissions from email to a ticketing system, reducing completion time by 50%. How many requests per month were you handling before vs. after? Which ticketing system did you implement?</label>
+  <div class="hint">e.g., &#x27;Went from ~200 email requests/month to 200 tickets/month in ServiceNow, average resolution dropped from 10 days to 5 days.&#x27;</div>
+  <textarea name="ba_ticketing_details" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">2. You onboarded all IT units onto the IT service portal. How many units/teams was that? How long did the rollout take?</label>
+  <div class="hint">e.g., &#x27;8 IT units, ~120 staff, rolled out over 4 months.&#x27;</div>
+  <textarea name="ba_it_units_onboarded" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>3. How many change requests do you manage per month through the UAT-to-deployment cycle? What&#x27;s your approval rate or success rate?</label>
+  <div class="hint">e.g., &#x27;15-20 change requests/month, 95% first-pass approval rate.&#x27;</div>
+  <textarea name="ba_change_requests" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>4. You collaborate with vendors on contracts and delivery. How many vendors do you manage? What&#x27;s the approximate total contract value?</label>
+  <div class="hint">e.g., &#x27;5 technology vendors, contracts totalling ~$2M USD annually.&#x27;</div>
+  <textarea name="ba_vendor_contracts" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>5. You coordinate IT audit sessions with external auditors. What were the outcomes? Any findings resolved or compliance scores achieved?</label>
+  <div class="hint">e.g., &#x27;Zero critical findings in last 2 audit cycles&#x27; or &#x27;Resolved 3 findings within 30 days.&#x27;</div>
+  <textarea name="ba_audit_results" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">6. What&#x27;s the biggest process redesign or future-state project you guided stakeholders through? What was the business impact?</label>
+  <div class="hint">Describe the before/after and any measurable improvement.</div>
+  <textarea name="ba_stakeholder_projects" rows="4" required></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Service Desk Supervisor — Jamaica National Bank (2021–2022)</h2>
+      <div class="form-group">
+  <label class="required">7. How many service desk staff did you supervise?</label>
+  <div class="hint">e.g., &#x27;6 analysts&#x27; or &#x27;4 direct reports plus 2 contractors.&#x27;</div>
+  <input type="text" name="sd_team_size" required>
+</div>
+      <div class="form-group">
+  <label class="required">8. What was the monthly ticket volume your team handled?</label>
+  <div class="hint">e.g., &#x27;500-700 tickets/month.&#x27;</div>
+  <input type="text" name="sd_ticket_volume" required>
+</div>
+      <div class="form-group">
+  <label class="required">9. You led IT training that improved staff knowledge by 30% and increased accurate ticket submissions by 40%. How did you measure those improvements? How many staff were trained?</label>
+  <div class="hint">e.g., &#x27;Trained 45 staff across 6 departments. Measured via pre/post assessment scores and ticket quality audits.&#x27;</div>
+  <textarea name="sd_training_details" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>10. You reduced user access requests by 60% with FAQs and knowledge articles. How many articles did you create? What was the call volume before and after?</label>
+  <div class="hint">e.g., &#x27;Created 25 KB articles. Inbound calls dropped from 300/month to 120/month.&#x27;</div>
+  <textarea name="sd_faq_impact" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>11. What SLA targets did your team achieve? Any notable improvements in response or resolution time?</label>
+  <div class="hint">e.g., &#x27;95% of tickets resolved within SLA. Reduced average first response from 4 hours to 1 hour.&#x27;</div>
+  <textarea name="sd_sla_performance" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>IT Service Desk Analyst — Jamaica National Bank (2016–2021)</h2>
+      <div class="form-group">
+  <label class="required">12. As Incident Supervisor, how many incidents did you oversee per month? What was the resolution rate?</label>
+  <div class="hint">e.g., &#x27;200+ incidents/month, 98% resolved within SLA.&#x27;</div>
+  <textarea name="it_incident_volume" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>13. How many Active Directory user accounts and groups did you manage across the JN Group?</label>
+  <div class="hint">e.g., &#x27;1,500+ user accounts, 200+ security groups.&#x27;</div>
+  <input type="text" name="it_ad_accounts">
+</div>
+      <div class="form-group">
+  <label>14. When deploying applications via SCCM/PDQ Deploy, how many endpoints were you pushing to? Any notable rollouts?</label>
+  <div class="hint">e.g., &#x27;Deployed to 800+ workstations across 12 branch locations.&#x27;</div>
+  <textarea name="it_deployment_scale" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>15. How many locations/branches did you provide IT support for? Were you the primary contact for any specific systems?</label>
+  <div class="hint">e.g., &#x27;Supported 15 branches across Kingston and rural Jamaica.&#x27;</div>
+  <textarea name="it_network_scope" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Member Service Rep/Officer — Jamaica National Bank (2009–2016)</h2>
+      <div class="form-group">
+  <label class="required">16. As Branch Supervisor, how many staff did you oversee? What was the daily transaction volume?</label>
+  <div class="hint">e.g., &#x27;8 tellers and 3 customer service reps. Branch processed ~400 transactions/day.&#x27;</div>
+  <textarea name="ms_branch_supervisor" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>17. What was the approximate daily cash volume you handled and reconciled?</label>
+  <div class="hint">e.g., &#x27;$500K JMD daily&#x27; or &#x27;ATM servicing for 3 machines.&#x27;</div>
+  <input type="text" name="ms_cash_volume">
+</div>
+      <div class="form-group">
+  <label>18. Any notable compliance outcomes from your source-of-funds and threshold reporting? Any fraud or discrepancy catches?</label>
+  <div class="hint">e.g., &#x27;Identified 2 suspicious transactions that led to SAR filings&#x27; or &#x27;Zero compliance violations over 7 years.&#x27;</div>
+  <textarea name="ms_compliance_record" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>General Questions</h2>
+      <div class="form-group">
+  <label class="required">19. You moved from banking operations to IT to business analysis — all within JN Bank. What motivated each transition? Was there a formal program or did you pursue it yourself?</label>
+  <div class="hint">This story is powerful for your resume and cover letters.</div>
+  <textarea name="career_transition" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>20. You served as an Officer Cadet in the Jamaica Defence Force National Reserve (2012-2014). What skills or leadership experiences from military service carry over to your professional work?</label>
+  <div class="hint">e.g., discipline, crisis management, team coordination under pressure.</div>
+  <textarea name="jdf_experience" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>21. As an IIBA member since 2020, have you attended any chapter events, completed any BABOK study, or contributed to the community?</label>
+  
+  <textarea name="iiba_membership" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">22. Are you looking to relocate from Jamaica, or are you targeting remote roles? What countries/regions are you considering?</label>
+  <div class="hint">This helps us target the right job markets for you.</div>
+  <textarea name="relocation_goals" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">23. What is your target salary range? (In your preferred currency)</label>
+  <div class="hint">e.g., &#x27;$80,000-100,000 CAD&#x27; or &#x27;$60,000-75,000 USD&#x27;</div>
+  <input type="text" name="salary_expectations" required>
+</div>
+      <div class="form-group">
+  <label>24. Is there anything important about your career we haven&#x27;t asked about? Awards, side projects, volunteer leadership, publications?</label>
+  <div class="hint">Apartment Complex Executive Committee, JN Sports Club — anything with measurable impact.</div>
+  <textarea name="missing_achievements" rows="4"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Achievements</button>
+      <p class="submit-help">Your responses are sent securely to our team. We'll use them to craft your resume.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-01T18:07:28.001715+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "achievement_form",
+    token: "4be1c281-84ea-4855-9462-1603b1605d78",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

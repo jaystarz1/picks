@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tell Us About Your Book &mdash; Michelle</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #7c5cbf;
+  --brand-blue: #3a506b;
+  --brand-gold: #c9a959;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --bg-page: #121218;
+  --bg-card: #1e1e2a;
+  --bg-selected: #2a2a3e;
+  --border-card: #333;
+  --border-selected: #7c5cbf;
+  --green: #4caf50;
+  --amber: #ffa726;
+  --red: #ef5350;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--brand-accent);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-accent);
+  margin: 16px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.form-group .hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #16161f;
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 191, 0.2);
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--red);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+.option-group label:hover {
+  background: var(--bg-selected);
+  border-color: var(--border-card);
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--brand-accent);
+}
+
+/* "I need help" checkbox */
+.help-check {
+  margin-top: 8px;
+}
+.help-check label {
+  font-size: 13px;
+  color: var(--brand-accent);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.help-check input {
+  accent-color: var(--brand-accent);
+}
+
+/* Expandable example */
+.example-toggle {
+  font-size: 13px;
+  color: var(--brand-accent);
+  cursor: pointer;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+.example-content {
+  display: none;
+  margin-top: 8px;
+  padding: 12px;
+  background: #16161f;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-left: 3px solid var(--brand-accent);
+}
+
+/* Slider (spice/heat) */
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.slider-group input[type="range"] {
+  flex: 1;
+  accent-color: var(--brand-accent);
+}
+.slider-label {
+  font-size: 14px;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-card);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--brand-accent);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #6a4daa; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* Timer */
+.timer-line {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #2a1a1a;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #1a2a1a;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+  color: var(--green);
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div style="text-align:right;margin-bottom:8px;">
+      <button type="button" id="lang-toggle" onclick="toggleLang()" style="background:var(--brand-accent);color:#fff;border:none;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:13px;">Português 🇧🇷</button>
+    </div>
+    <div class="brand">BOOK PRODUCTION SERVICE</div>
+    <h1 data-en="Tell Us About Your Book" data-pt="Conte-nos Sobre Seu Livro">Tell Us About Your Book</h1>
+    <div class="meta-line">Generated: March 22, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+
+  <form id="page-form">
+    <input type="hidden" name="token" value="dae8fa38-3261-41c5-9766-14a61d687c6a">
+    <input type="hidden" name="form_type" value="author_discovery">
+  <div class="section-card">
+    <h2>Welcome</h2>
+    <p>This questionnaire helps us understand your book project so we can
+    match you with the right service. It takes about <strong>5 minutes</strong>.</p>
+    <p style="font-size: 13px; color: var(--text-secondary);">
+    Fields marked with <span style="color: var(--red);">*</span> are required.
+    Everything else is optional but helpful.</p>
+  </div>
+    <div class="section-card">
+      <h2>About You</h2>
+<div class="form-group">
+  <label class="required">1. Your name (or pen name)</label>
+  
+  <input type="text" name="name" required>
+</div>
+<div class="form-group">
+  <label class="required">2. Email address</label>
+  
+  <input type="email" name="email" required>
+</div>
+<div class="form-group">
+  <label>3. How should we address you?</label>
+  
+  <input type="text" name="preferred_name">
+</div>
+<div class="form-group">
+  <label>4. Where are you based? (city, country)</label>
+  
+  <input type="text" name="location">
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Your Book</h2>
+<div class="form-group">
+  <label>5. Working title</label>
+  <div class="hint">If you have one — &#x27;untitled&#x27; is fine.</div>
+  <input type="text" name="title">
+</div>
+<div class="form-group">
+  <label class="required">6. What best describes your project?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="status" value="I have a finished manuscript that needs editing" required> I have a finished manuscript that needs editing</label>
+    <label><input type="radio" name="status" value="I have a partial draft (some chapters written)" required> I have a partial draft (some chapters written)</label>
+    <label><input type="radio" name="status" value="I have a clear concept and I&#x27;m ready to go" required> I have a clear concept and I&#x27;m ready to go</label>
+    <label><input type="radio" name="status" value="I have an idea but need help developing it" required> I have an idea but need help developing it</label>
+    <label><input type="radio" name="status" value="I just know the genre — I need help figuring out the rest" required> I just know the genre — I need help figuring out the rest</label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="required">7. How locked-in is your concept?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="concept_maturity" value="Fully formed — I know the plot, characters, and ending" required> Fully formed — I know the plot, characters, and ending</label>
+    <label><input type="radio" name="concept_maturity" value="I have the big picture but details need work" required> I have the big picture but details need work</label>
+    <label><input type="radio" name="concept_maturity" value="I have a world/setting but no story yet" required> I have a world/setting but no story yet</label>
+    <label><input type="radio" name="concept_maturity" value="I have a genre and a vibe — that&#x27;s it" required> I have a genre and a vibe — that&#x27;s it</label>
+    <label><input type="radio" name="concept_maturity" value="N/A — I have a finished manuscript" required> N/A — I have a finished manuscript</label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="required">8. What genre is your book?</label>
+  
+  <select name="genre" required>
+    <option value="">Select...</option>
+    <option value="Thriller / Suspense">Thriller / Suspense</option>
+    <option value="Military Thriller">Military Thriller</option>
+    <option value="Mystery / Detective">Mystery / Detective</option>
+    <option value="Sci-Fi">Sci-Fi</option>
+    <option value="Intelligence / Spy Fiction">Intelligence / Spy Fiction</option>
+    <option value="Romance">Romance</option>
+    <option value="Gothic Romance / Mystery">Gothic Romance / Mystery</option>
+    <option value="Horror">Horror</option>
+    <option value="Fantasy">Fantasy</option>
+    <option value="Literary Fiction">Literary Fiction</option>
+    <option value="Memoir / Nonfiction">Memoir / Nonfiction</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+<div class="form-group">
+  <label class="required">9. Concept pitch</label>
+  <div class="hint">1-3 sentences: what is this book about? Don&#x27;t have a pitch? Describe the world, the character, or the feeling you&#x27;re after. &#x27;I don&#x27;t know yet&#x27; is a valid answer.</div>
+  <textarea name="pitch" rows="4" required></textarea>
+</div>
+<div class="form-group">
+  <label>10. Who is the ideal reader for this book?</label>
+  
+  <textarea name="target_reader" rows="2"></textarea>
+</div>
+<div class="form-group">
+  <label>11. Do you have existing materials to share?</label>
+  <div class="hint">Character bibles, outlines, research, mood boards, world-building docs, prior drafts — check all that apply.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="materials" value="Character bible / notes"> Character bible / notes</label>
+    <label><input type="checkbox" name="materials" value="Outline or synopsis"> Outline or synopsis</label>
+    <label><input type="checkbox" name="materials" value="Research materials"> Research materials</label>
+    <label><input type="checkbox" name="materials" value="Mood board / Pinterest / images"> Mood board / Pinterest / images</label>
+    <label><input type="checkbox" name="materials" value="World-building documents"> World-building documents</label>
+    <label><input type="checkbox" name="materials" value="Partial or complete draft"> Partial or complete draft</label>
+    <label><input type="checkbox" name="materials" value="None of these"> None of these</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Content & Boundaries</h2>
+<div class="form-group">
+  <label class="required">12. Content maturity level</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="maturity_level" value="Clean (no violence, no profanity)" required> Clean (no violence, no profanity)</label>
+    <label><input type="radio" name="maturity_level" value="Mild (mild tension, fade-to-black romance)" required> Mild (mild tension, fade-to-black romance)</label>
+    <label><input type="radio" name="maturity_level" value="Mature (violence, complex themes, some profanity)" required> Mature (violence, complex themes, some profanity)</label>
+    <label><input type="radio" name="maturity_level" value="Steamy (strong romance, strong language, adult themes)" required> Steamy (strong romance, strong language, adult themes)</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>13. Must-include elements</label>
+  <div class="hint">Themes, tropes, representation, specific elements.</div>
+  <textarea name="must_include" rows="3"></textarea>
+</div>
+<div class="form-group">
+  <label>14. Must-avoid elements</label>
+  <div class="hint">Triggers, tropes, content types you want us to avoid.</div>
+  <textarea name="must_avoid" rows="3"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Service Level</h2>
+<div class="form-group">
+  <label class="required">15. Which service package interests you?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="package" value="Assessment Only — professional editorial report, you do the edits" required> Assessment Only — professional editorial report, you do the edits</label>
+    <label><input type="radio" name="package" value="Full Editorial — we fix the manuscript, deliver publication-ready EPUB" required> Full Editorial — we fix the manuscript, deliver publication-ready EPUB</label>
+    <label><input type="radio" name="package" value="Full Editorial + Beta Read — everything above plus human beta reader feedback" required> Full Editorial + Beta Read — everything above plus human beta reader feedback</label>
+    <label><input type="radio" name="package" value="Complete Publication — everything above plus cover, KDP, audiobook, marketing" required> Complete Publication — everything above plus cover, KDP, audiobook, marketing</label>
+    <label><input type="radio" name="package" value="Concept Development Only — help developing your idea into a full concept" required> Concept Development Only — help developing your idea into a full concept</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>16. What deliverables do you need?</label>
+  <div class="hint">Check all that apply.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="deliverables" value="EPUB (ebook)"> EPUB (ebook)</label>
+    <label><input type="checkbox" name="deliverables" value="Audiobook"> Audiobook</label>
+    <label><input type="checkbox" name="deliverables" value="KDP Publication (Amazon)"> KDP Publication (Amazon)</label>
+    <label><input type="checkbox" name="deliverables" value="Cover Design"> Cover Design</label>
+    <label><input type="checkbox" name="deliverables" value="Print-Ready PDF"> Print-Ready PDF</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>17. Timeline</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="timeline" value="No rush — whenever it&#x27;s ready"> No rush — whenever it&#x27;s ready</label>
+    <label><input type="radio" name="timeline" value="Within 3 months"> Within 3 months</label>
+    <label><input type="radio" name="timeline" value="Within 6 months"> Within 6 months</label>
+    <label><input type="radio" name="timeline" value="I have a specific deadline"> I have a specific deadline</label>
+  </div>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Discovery Form</button>
+      <p class="submit-help">Your responses are sent securely. We'll review and send you
+      a personalized follow-up questionnaire within 48 hours.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact us at hello@crimsonpulpfic.com for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>Thanks for sharing your vision! We'll review your information and get back to you within 48 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Book Production Service</div>
+    <div>Questions? Email hello@crimsonpulpfic.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-21T10:37:22.388155+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.querySelectorAll(".example-toggle").forEach(function(toggle) {
+  toggle.addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      this.textContent = this.textContent.replace("Hide", "Show");
+    } else {
+      content.style.display = "block";
+      this.textContent = this.textContent.replace("Show", "Hide");
+    }
+  });
+});
+(function() {
+  var sections = document.querySelectorAll(".section-card");
+  var total = 4;
+  var bar = document.querySelector(".progress-fill");
+  if (!bar) return;
+
+  function updateProgress() {
+    var filled = 0;
+    sections.forEach(function(section) {
+      var inputs = section.querySelectorAll("input, textarea, select");
+      var hasValue = false;
+      inputs.forEach(function(input) {
+        if (input.type === "radio" || input.type === "checkbox") {
+          if (input.checked) hasValue = true;
+        } else if (input.value.trim()) {
+          hasValue = true;
+        }
+      });
+      if (hasValue) filled++;
+    });
+    var pct = Math.round((filled / total) * 100);
+    bar.style.width = pct + "%";
+  }
+
+  document.querySelectorAll("input, textarea, select").forEach(function(el) {
+    el.addEventListener("change", updateProgress);
+    el.addEventListener("input", updateProgress);
+  });
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "author_discovery",
+    token: "dae8fa38-3261-41c5-9766-14a61d687c6a",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbz9GI9JB3BHRV99c-JJ9spAcEUgMSKm8gj4UYC3jJm71K2K6tuXPUyTPXdX6PxOt0FHYg/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#4caf50";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error \u2014 Try Again";
+    btn.style.background = "#ef5350";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+
+// --- Portuguese Translation Toggle ---
+var _lang = "en";
+var _tr = {
+  "About You": "Sobre Você",
+  "Your Book": "Seu Livro",
+  "Content & Boundaries": "Conteúdo e Limites",
+  "Service Level": "Nível de Serviço",
+  "Welcome": "Bem-vinda",
+  "1. Your name (or pen name)": "1. Seu nome (ou pseudônimo)",
+  "2. Email address": "2. Endereço de e-mail",
+  "3. How should we address you?": "3. Como devemos chamá-la?",
+  "4. Where are you based? (city, country)": "4. Onde você mora? (cidade, país)",
+  "5. Working title": "5. Título provisório",
+  "6. What best describes your project?": "6. O que melhor descreve seu projeto?",
+  "7. How locked-in is your concept?": "7. Quão definido está seu conceito?",
+  "8. What genre is your book?": "8. Qual é o gênero do seu livro?",
+  "9. Concept pitch": "9. Resumo do conceito",
+  "10. Who is the ideal reader for this book?": "10. Quem é o leitor ideal para este livro?",
+  "11. Do you have existing materials to share?": "11. Você tem materiais existentes para compartilhar?",
+  "12. Content maturity level": "12. Nível de maturidade do conteúdo",
+  "13. Must-include elements": "13. Elementos obrigatórios",
+  "14. Must-avoid elements": "14. Elementos a evitar",
+  "15. Which service package interests you?": "15. Qual pacote de serviço lhe interessa?",
+  "16. What deliverables do you need?": "16. Quais entregas você precisa?",
+  "17. Timeline": "17. Prazo",
+  "I have a finished manuscript that needs editing": "Tenho um manuscrito pronto que precisa de edição",
+  "I have a partial draft (some chapters written)": "Tenho um rascunho parcial (alguns capítulos escritos)",
+  "I have a clear concept and I'm ready to go": "Tenho um conceito claro e estou pronta para começar",
+  "I have an idea but need help developing it": "Tenho uma ideia mas preciso de ajuda para desenvolvê-la",
+  "I just know the genre — I need help figuring out the rest": "Só sei o gênero — preciso de ajuda com o resto",
+  "Fully formed — I know the plot, characters, and ending": "Totalmente formado — conheço o enredo, personagens e final",
+  "I have the big picture but details need work": "Tenho a visão geral mas os detalhes precisam de trabalho",
+  "I have a world/setting but no story yet": "Tenho um mundo/cenário mas ainda não tenho história",
+  "I have a genre and a vibe — that's it": "Tenho um gênero e uma vibe — só isso",
+  "N/A — I have a finished manuscript": "N/A — tenho um manuscrito pronto",
+  "Clean (no violence, no profanity)": "Limpo (sem violência, sem palavrões)",
+  "Mild (mild tension, fade-to-black romance)": "Leve (tensão leve, romance suave)",
+  "Mature (violence, complex themes, some profanity)": "Maduro (violência, temas complexos, alguns palavrões)",
+  "Steamy (strong romance, strong language, adult themes)": "Intenso (romance forte, linguagem forte, temas adultos)",
+  "Submit Discovery Form": "Enviar Formulário",
+  "No rush — whenever it's ready": "Sem pressa — quando estiver pronto",
+  "Within 3 months": "Em até 3 meses",
+  "Within 6 months": "Em até 6 meses",
+  "I have a specific deadline": "Tenho um prazo específico",
+  "EPUB (ebook)": "EPUB (ebook)",
+  "Audiobook": "Audiolivro",
+  "KDP Publication (Amazon)": "Publicação KDP (Amazon)",
+  "Cover Design": "Design de Capa",
+  "Print-Ready PDF": "PDF Pronto para Impressão",
+  "If you have one — 'untitled' is fine.": "Se você tiver um — 'sem título' está ótimo.",
+  "1-3 sentences: what is this book about? Don't have a pitch? Describe the world, the character, or the feeling you're after. 'I don't know yet' is a valid answer.": "1-3 frases: sobre o que é este livro? Não tem um resumo? Descreva o mundo, o personagem ou o sentimento que busca. 'Ainda não sei' é uma resposta válida.",
+  "Themes, tropes, representation, specific elements.": "Temas, tropos, representação, elementos específicos.",
+  "Triggers, tropes, content types you want us to avoid.": "Gatilhos, tropos, tipos de conteúdo que deseja evitar.",
+  "Character bibles, outlines, research, mood boards, world-building docs, prior drafts — check all that apply.": "Bíblias de personagens, sinopses, pesquisa, mood boards, documentos de world-building, rascunhos anteriores — marque tudo que se aplica.",
+  "This questionnaire helps us understand your book project so we can match you with the right service. It takes about": "Este questionário nos ajuda a entender seu projeto de livro para que possamos oferecer o serviço certo. Leva cerca de",
+  "Fields marked with": "Campos marcados com",
+  "are required. Everything else is optional but helpful.": "são obrigatórios. Todo o resto é opcional, mas útil.",
+  "Your responses are sent securely. We'll review and send you a personalized follow-up questionnaire within 48 hours.": "Suas respostas são enviadas com segurança. Revisaremos e enviaremos um questionário de acompanhamento personalizado em até 48 horas."
+};
+function toggleLang() {
+  _lang = _lang === "en" ? "pt" : "en";
+  var btn = document.getElementById("lang-toggle");
+  btn.textContent = _lang === "en" ? "Português 🇧🇷" : "English 🇬🇧";
+  // Swap h1
+  var h1 = document.querySelector("h1[data-en]");
+  if (h1) h1.textContent = h1.getAttribute("data-" + _lang);
+  // Swap labels, hints, options
+  document.querySelectorAll("label, .hint, .submit-help, h2, option, .submit-btn, p").forEach(function(el) {
+    if (!el.dataset.origText) el.dataset.origText = el.textContent.trim();
+    var orig = el.dataset.origText;
+    if (_lang === "pt" && _tr[orig]) {
+      el.textContent = _tr[orig];
+    } else if (_lang === "en" && orig) {
+      // Check if current text is a PT value, restore
+      var enKey = Object.keys(_tr).find(function(k) { return _tr[k] === el.textContent.trim(); });
+      if (enKey) el.textContent = enKey;
+    }
+  });
+}
+</script>
+</body>
+</html>

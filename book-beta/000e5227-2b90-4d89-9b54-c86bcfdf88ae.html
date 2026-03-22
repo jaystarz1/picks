@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tell Us About Your Book &mdash; Beta</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #7c5cbf;
+  --brand-blue: #3a506b;
+  --brand-gold: #c9a959;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --bg-page: #121218;
+  --bg-card: #1e1e2a;
+  --bg-selected: #2a2a3e;
+  --border-card: #333;
+  --border-selected: #7c5cbf;
+  --green: #4caf50;
+  --amber: #ffa726;
+  --red: #ef5350;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--brand-accent);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-accent);
+  margin: 16px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.form-group .hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #16161f;
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 191, 0.2);
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--red);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+.option-group label:hover {
+  background: var(--bg-selected);
+  border-color: var(--border-card);
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--brand-accent);
+}
+
+/* "I need help" checkbox */
+.help-check {
+  margin-top: 8px;
+}
+.help-check label {
+  font-size: 13px;
+  color: var(--brand-accent);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.help-check input {
+  accent-color: var(--brand-accent);
+}
+
+/* Expandable example */
+.example-toggle {
+  font-size: 13px;
+  color: var(--brand-accent);
+  cursor: pointer;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+.example-content {
+  display: none;
+  margin-top: 8px;
+  padding: 12px;
+  background: #16161f;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-left: 3px solid var(--brand-accent);
+}
+
+/* Slider (spice/heat) */
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.slider-group input[type="range"] {
+  flex: 1;
+  accent-color: var(--brand-accent);
+}
+.slider-label {
+  font-size: 14px;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-card);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--brand-accent);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #6a4daa; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* Timer */
+.timer-line {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #2a1a1a;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #1a2a1a;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+  color: var(--green);
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BOOK PRODUCTION SERVICE</div>
+    <h1>Tell Us About Your Book</h1>
+    <div class="meta-line">Generated: March 22, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+
+  <form id="page-form">
+    <input type="hidden" name="token" value="000e5227-2b90-4d89-9b54-c86bcfdf88ae">
+    <input type="hidden" name="form_type" value="beta_discovery">
+  <div class="section-card">
+    <h2>Welcome</h2>
+    <p>Thanks for helping us test our book production intake process!
+    This questionnaire helps us understand your book project. It takes about
+    <strong>5 minutes</strong>.</p>
+    <p style="font-size: 13px; color: var(--text-secondary);">
+    Fields marked with <span style="color: var(--red);">*</span> are required.
+    Everything else is optional but helpful.</p>
+    <p style="font-size: 13px; color: var(--brand-gold); margin-top: 12px;">
+    <strong>Beta Test:</strong> You are testing our form process.
+    After you submit, you'll receive a personalized follow-up form
+    based on your answers.</p>
+  </div>
+    <div class="section-card">
+      <h2>About You</h2>
+<div class="form-group">
+  <label class="required">1. Your name (or pen name)</label>
+  
+  <input type="text" name="name" required>
+</div>
+<div class="form-group">
+  <label class="required">2. Email address</label>
+  
+  <input type="email" name="email" required>
+</div>
+<div class="form-group">
+  <label>3. How should we address you?</label>
+  
+  <input type="text" name="preferred_name">
+</div>
+<div class="form-group">
+  <label>4. Where are you based? (city, country)</label>
+  
+  <input type="text" name="location">
+</div>
+    <div class="form-group">
+      <label>5. Age declaration <span style="color: var(--red);">*</span></label>
+      <div class="hint">We must confirm you are 18 or older to use this service.</div>
+      <div class="radio-group" style="margin-top: 8px;">
+        <label class="radio-label" style="display: flex; align-items: center; gap: 8px; padding: 10px; border: 1px solid var(--border-card); border-radius: 6px; cursor: pointer;">
+          <input type="checkbox" name="age_declaration" value="I confirm I am 18 years of age or older" required
+                 style="width: 18px; height: 18px; accent-color: var(--brand-accent);">
+          <span>I confirm I am 18 years of age or older</span>
+        </label>
+      </div>
+    </div>
+<div class="form-group">
+  <label class="required">6. What language should your book be written in?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="book_language" value="English" required> English</label>
+    <label><input type="radio" name="book_language" value="Portuguese" required> Portuguese</label>
+    <label><input type="radio" name="book_language" value="Spanish" required> Spanish</label>
+    <label><input type="radio" name="book_language" value="French" required> French</label>
+    <label><input type="radio" name="book_language" value="Other" required> Other</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Your Book</h2>
+<div class="form-group">
+  <label>7. Working title</label>
+  <div class="hint">If you have one — &#x27;untitled&#x27; is fine.</div>
+  <input type="text" name="title">
+</div>
+<div class="form-group">
+  <label class="required">8. What best describes your project?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="status" value="I have a finished manuscript that needs editing" required> I have a finished manuscript that needs editing</label>
+    <label><input type="radio" name="status" value="I have a partial draft (some chapters written)" required> I have a partial draft (some chapters written)</label>
+    <label><input type="radio" name="status" value="I have a clear concept and I&#x27;m ready to go" required> I have a clear concept and I&#x27;m ready to go</label>
+    <label><input type="radio" name="status" value="I have an idea but need help developing it" required> I have an idea but need help developing it</label>
+    <label><input type="radio" name="status" value="I just know the genre — I need help figuring out the rest" required> I just know the genre — I need help figuring out the rest</label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="required">9. How locked-in is your concept?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="concept_maturity" value="Fully formed — I know the plot, characters, and ending" required> Fully formed — I know the plot, characters, and ending</label>
+    <label><input type="radio" name="concept_maturity" value="I have the big picture but details need work" required> I have the big picture but details need work</label>
+    <label><input type="radio" name="concept_maturity" value="I have a world/setting but no story yet" required> I have a world/setting but no story yet</label>
+    <label><input type="radio" name="concept_maturity" value="I have a genre and a vibe — that&#x27;s it" required> I have a genre and a vibe — that&#x27;s it</label>
+    <label><input type="radio" name="concept_maturity" value="N/A — I have a finished manuscript" required> N/A — I have a finished manuscript</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>10. What genre(s) fit your book?</label>
+  <div class="hint">Check all that apply. Pick your primary genre first.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="genre" value="Thriller / Suspense"> Thriller / Suspense</label>
+    <label><input type="checkbox" name="genre" value="Military Thriller"> Military Thriller</label>
+    <label><input type="checkbox" name="genre" value="Mystery / Detective"> Mystery / Detective</label>
+    <label><input type="checkbox" name="genre" value="Sci-Fi"> Sci-Fi</label>
+    <label><input type="checkbox" name="genre" value="Intelligence / Spy Fiction"> Intelligence / Spy Fiction</label>
+    <label><input type="checkbox" name="genre" value="Romance"> Romance</label>
+    <label><input type="checkbox" name="genre" value="Erotica"> Erotica</label>
+    <label><input type="checkbox" name="genre" value="Gothic Romance / Mystery"> Gothic Romance / Mystery</label>
+    <label><input type="checkbox" name="genre" value="Horror"> Horror</label>
+    <label><input type="checkbox" name="genre" value="Fantasy"> Fantasy</label>
+    <label><input type="checkbox" name="genre" value="Literary Fiction"> Literary Fiction</label>
+    <label><input type="checkbox" name="genre" value="Memoir / Nonfiction"> Memoir / Nonfiction</label>
+    <label><input type="checkbox" name="genre" value="Other"> Other</label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="required">11. Concept pitch</label>
+  <div class="hint">1-3 sentences: what is this book about? Don&#x27;t have a pitch? Describe the world, the character, or the feeling you&#x27;re after. &#x27;I don&#x27;t know yet&#x27; is a valid answer.</div>
+  <textarea name="pitch" rows="4" required></textarea>
+</div>
+<div class="form-group">
+  <label class="required">12. Target audience age range</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="audience_age" value="Under 18 (Young Adult / Teen)" required> Under 18 (Young Adult / Teen)</label>
+    <label><input type="radio" name="audience_age" value="18+ (Adult)" required> 18+ (Adult)</label>
+    <label><input type="radio" name="audience_age" value="All ages" required> All ages</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>13. Do you have existing materials?</label>
+  <div class="hint">Check all that apply.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="materials" value="Character bible / notes"> Character bible / notes</label>
+    <label><input type="checkbox" name="materials" value="Outline or synopsis"> Outline or synopsis</label>
+    <label><input type="checkbox" name="materials" value="Research materials"> Research materials</label>
+    <label><input type="checkbox" name="materials" value="Mood board / Pinterest / images"> Mood board / Pinterest / images</label>
+    <label><input type="checkbox" name="materials" value="World-building documents"> World-building documents</label>
+    <label><input type="checkbox" name="materials" value="Partial or complete draft"> Partial or complete draft</label>
+    <label><input type="checkbox" name="materials" value="None of these"> None of these</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Content & Boundaries</h2>
+<div class="form-group">
+  <label class="required">14. Content maturity level</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="maturity_level" value="Clean (no violence, no profanity)" required> Clean (no violence, no profanity)</label>
+    <label><input type="radio" name="maturity_level" value="Mild (mild tension, fade-to-black romance)" required> Mild (mild tension, fade-to-black romance)</label>
+    <label><input type="radio" name="maturity_level" value="Mature (violence, complex themes, some profanity)" required> Mature (violence, complex themes, some profanity)</label>
+    <label><input type="radio" name="maturity_level" value="Steamy (strong romance, strong language, adult themes)" required> Steamy (strong romance, strong language, adult themes)</label>
+  </div>
+</div>
+    <div id="age-maturity-warning" style="display: none; background: #3a1a1a; border: 1px solid var(--red); border-radius: 6px; padding: 12px 16px; margin: -8px 0 16px;">
+      <p style="color: var(--red); font-weight: 600; margin: 0;">
+        Steamy content requires an 18+ audience. Please change your audience age
+        (question 12) to "18+ (Adult)" or select a different maturity level.</p>
+    </div>
+<div class="form-group">
+  <label>15. Must-include elements</label>
+  <div class="hint">Themes, tropes, representation, specific elements.</div>
+  <textarea name="must_include" rows="3"></textarea>
+</div>
+<div class="form-group">
+  <label>16. Must-avoid elements</label>
+  <div class="hint">Triggers, tropes, content types you want us to avoid.</div>
+  <textarea name="must_avoid" rows="3"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit</button>
+      <p class="submit-help">Your responses are sent securely. We'll send you
+      a personalized follow-up questionnaire based on your answers.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact us at hello@crimsonpulpfic.com for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>Thanks for sharing your vision! We'll review your information and get back to you within 48 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Book Production Service</div>
+    <div>Questions? Email hello@crimsonpulpfic.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-21T14:08:25.989950+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.querySelectorAll(".example-toggle").forEach(function(toggle) {
+  toggle.addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      this.textContent = this.textContent.replace("Hide", "Show");
+    } else {
+      content.style.display = "block";
+      this.textContent = this.textContent.replace("Show", "Hide");
+    }
+  });
+});
+(function() {
+  var sections = document.querySelectorAll(".section-card");
+  var total = 3;
+  var bar = document.querySelector(".progress-fill");
+  if (!bar) return;
+
+  function updateProgress() {
+    var filled = 0;
+    sections.forEach(function(section) {
+      var inputs = section.querySelectorAll("input, textarea, select");
+      var hasValue = false;
+      inputs.forEach(function(input) {
+        if (input.type === "radio" || input.type === "checkbox") {
+          if (input.checked) hasValue = true;
+        } else if (input.value.trim()) {
+          hasValue = true;
+        }
+      });
+      if (hasValue) filled++;
+    });
+    var pct = Math.round((filled / total) * 100);
+    bar.style.width = pct + "%";
+  }
+
+  document.querySelectorAll("input, textarea, select").forEach(function(el) {
+    el.addEventListener("change", updateProgress);
+    el.addEventListener("input", updateProgress);
+  });
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "beta_discovery",
+    token: "000e5227-2b90-4d89-9b54-c86bcfdf88ae",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbz9GI9JB3BHRV99c-JJ9spAcEUgMSKm8gj4UYC3jJm71K2K6tuXPUyTPXdX6PxOt0FHYg/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#4caf50";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error \u2014 Try Again";
+    btn.style.background = "#ef5350";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+<script>
+(function() {
+  // Steamy + Under 18 validation
+  var form = document.getElementById('page-form');
+  var warning = document.getElementById('age-maturity-warning');
+
+  function checkAgeMaturity() {
+    var maturity = form.querySelector('input[name="maturity_level"]:checked');
+    var audience = form.querySelector('input[name="audience_age"]:checked');
+    if (!maturity || !audience) { warning.style.display = 'none'; return; }
+
+    var isSteamy = maturity.value.indexOf('Steamy') >= 0;
+    var isUnder18 = audience.value.indexOf('Under 18') >= 0;
+
+    if (isSteamy && isUnder18) {
+      warning.style.display = 'block';
+    } else {
+      warning.style.display = 'none';
+    }
+  }
+
+  // Also block Erotica genre + Under 18
+  function checkGenreAge() {
+    var eroticaChecked = form.querySelector('input[name="genre"][value="Erotica"]');
+    var audience = form.querySelector('input[name="audience_age"]:checked');
+    if (eroticaChecked && eroticaChecked.checked && audience && audience.value.indexOf('Under 18') >= 0) {
+      warning.style.display = 'block';
+      warning.querySelector('p').textContent = 'Erotica requires an 18+ audience. Please change your audience age (question 12) to "18+ (Adult)" or deselect Erotica.';
+    }
+  }
+
+  form.addEventListener('change', function() {
+    checkAgeMaturity();
+    checkGenreAge();
+  });
+
+  // Block submit if conflict exists
+  var origSubmit = form.onsubmit;
+  form.addEventListener('submit', function(e) {
+    checkAgeMaturity();
+    checkGenreAge();
+    if (warning.style.display === 'block') {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      warning.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+  }, true);
+})();
+</script>
+</script>
+</body>
+</html>

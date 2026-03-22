@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Creative Vision — Nina&#x27;s Book &mdash; Nina</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #7c5cbf;
+  --brand-blue: #3a506b;
+  --brand-gold: #c9a959;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --bg-page: #121218;
+  --bg-card: #1e1e2a;
+  --bg-selected: #2a2a3e;
+  --border-card: #333;
+  --border-selected: #7c5cbf;
+  --green: #4caf50;
+  --amber: #ffa726;
+  --red: #ef5350;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--brand-accent);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-accent);
+  margin: 16px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.form-group .hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #16161f;
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 191, 0.2);
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--red);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+.option-group label:hover {
+  background: var(--bg-selected);
+  border-color: var(--border-card);
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--brand-accent);
+}
+
+/* "I need help" checkbox */
+.help-check {
+  margin-top: 8px;
+}
+.help-check label {
+  font-size: 13px;
+  color: var(--brand-accent);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.help-check input {
+  accent-color: var(--brand-accent);
+}
+
+/* Expandable example */
+.example-toggle {
+  font-size: 13px;
+  color: var(--brand-accent);
+  cursor: pointer;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+.example-content {
+  display: none;
+  margin-top: 8px;
+  padding: 12px;
+  background: #16161f;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-left: 3px solid var(--brand-accent);
+}
+
+/* Slider (spice/heat) */
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.slider-group input[type="range"] {
+  flex: 1;
+  accent-color: var(--brand-accent);
+}
+.slider-label {
+  font-size: 14px;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-card);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--brand-accent);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #6a4daa; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* Timer */
+.timer-line {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #2a1a1a;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #1a2a1a;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+  color: var(--green);
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BOOK PRODUCTION SERVICE</div>
+    <h1>Creative Vision — Nina&#x27;s Book</h1>
+    <div class="meta-line">Generated: March 22, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+
+  <form id="page-form">
+    <input type="hidden" name="token" value="fc884a7e-a313-49b5-acfe-89e1a82be78d">
+    <input type="hidden" name="form_type" value="author_vision">
+    <input type="hidden" name="round" value="2">
+    <input type="hidden" name="client_name" value="Nina Labenza">
+  <div class="section-card">
+    <h2>Welcome Back, Nina</h2>
+        <p>Thanks for your Discovery form. Here's what you told us:</p>
+    <blockquote style="border-left: 3px solid var(--brand-accent); padding: 8px 16px;
+      margin: 12px 0; color: var(--text-secondary); font-style: italic;">
+      "A werewolf novels with a powerful female lead that discovers her mate is forbidden to her and this union can lead to the end of their species, now it&#x27;s left to her to decide her fate.
+"
+    </blockquote>
+    <p>Now let's go deeper. This form takes about <strong>15-20 minutes</strong>.
+    Write as much or as little as you want — every answer helps us build your story.</p>
+    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 12px;">
+    Fields marked with <span style="color: var(--red);">*</span> are required.
+    "I need help with this" is always a valid answer.</p>
+  </div>
+    <div class="section-card">
+      <h2>The Concept</h2>
+      <div class="form-group">
+  <label class="required">1. Tell us everything you know about this story.</label>
+  <div class="hint">Spoilers welcome. Full plot including ending? Great. Just a world? Great. Just a character? Great. Whatever you have — put it here.</div>
+  <textarea name="full_story" rows="10" required></textarea>
+</div>
+<div class="example-toggle">Show example</div>
+<div class="example-content">A therapist&#x27;s patient confesses to a murder that hasn&#x27;t been reported. When the body is found, the therapist realizes the confession was real — but she&#x27;s bound by confidentiality. The killer chose her specifically because he researched the rules. She&#x27;s not his therapist — she&#x27;s his audience.</div>
+      <div class="form-group">
+  <label>2. What&#x27;s the central conflict or tension?</label>
+  <div class="hint">What does your character want, and what&#x27;s stopping them?</div>
+  <textarea name="central_conflict" rows="3"></textarea>
+</div>
+<div class="help-check">
+  <label><input type="checkbox" name="central_conflict_needs_help" value="yes"> I need help with this</label>
+</div>
+      <div class="form-group">
+  <label>3. How does this story end?</label>
+  <div class="hint">If you know, tell us — even roughly. If you don&#x27;t, describe how you WANT the reader to feel when they close the book.</div>
+  <textarea name="ending" rows="3"></textarea>
+</div>
+<div class="help-check">
+  <label><input type="checkbox" name="ending_needs_help" value="yes"> I need help with this</label>
+</div>
+      <div class="form-group">
+  <label>4. What&#x27;s the emotional journey?</label>
+  <div class="hint">Examples: &#x27;Start angry, end hopeful.&#x27; &#x27;Curiosity turning to dread.&#x27; &#x27;Slow burn of tension building to catharsis.&#x27;</div>
+  <textarea name="emotional_journey" rows="2"></textarea>
+</div>
+      <div class="form-group">
+  <label>5. Setting / world</label>
+  <div class="hint">When and where? If you have extensive world-building, give highlights here.</div>
+  <textarea name="setting" rows="3"></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">6. Tone</label>
+  
+  <select name="tone" required>
+    <option value="">Select...</option>
+    <option value="Dark / gritty">Dark / gritty</option>
+    <option value="Suspenseful">Suspenseful</option>
+    <option value="Humorous / light">Humorous / light</option>
+    <option value="Romantic / warm">Romantic / warm</option>
+    <option value="Literary / introspective">Literary / introspective</option>
+    <option value="Epic / cinematic">Epic / cinematic</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+      <div class="form-group">
+  <label class="required">7. What is this book NOT?</label>
+  <div class="hint">What genre is it NOT? What tone should it NOT have? What kind of book would be WRONG if we produced it? This is as important as what it IS.</div>
+  <textarea name="book_is_not" rows="4" required></textarea>
+</div>
+<div class="example-toggle">Show example</div>
+<div class="example-content">It&#x27;s a love story, NOT a thriller. The protagonist is morally grey, NOT a hero. The tone is dry humor, NOT slapstick.</div>
+    </div>
+    <div class="section-card">
+      <h2>Characters</h2>
+      <div class="form-group">
+  <label>8. Who is your protagonist?</label>
+  <div class="hint">Name, age, brief description — who are they when the story starts?</div>
+  <textarea name="protagonist" rows="3"></textarea>
+</div>
+<div class="help-check">
+  <label><input type="checkbox" name="protagonist_needs_help" value="yes"> I need help with this</label>
+</div>
+      <div class="form-group">
+  <label>9. What does your protagonist WANT?</label>
+  <div class="hint">Their conscious goal.</div>
+  <textarea name="protagonist_want" rows="2"></textarea>
+</div>
+      <div class="form-group">
+  <label>10. What does your protagonist NEED?</label>
+  <div class="hint">The deeper truth they haven&#x27;t learned yet — often different from what they want. Not sure? Leave blank.</div>
+  <textarea name="protagonist_need" rows="2"></textarea>
+</div>
+      <div class="form-group">
+  <label>11. What is your protagonist NOT?</label>
+  <div class="hint">What traits or interpretations would be WRONG? e.g., &#x27;She is NOT a damsel.&#x27; &#x27;He is NOT doing this for noble reasons.&#x27;</div>
+  <textarea name="protagonist_is_not" rows="3"></textarea>
+</div>
+      <div class="form-group">
+  <label>12. Who or what opposes them?</label>
+  <div class="hint">Can be a person, institution, force of nature, or internal struggle.</div>
+  <textarea name="antagonist" rows="3"></textarea>
+</div>
+<div class="help-check">
+  <label><input type="checkbox" name="antagonist_needs_help" value="yes"> I need help with this</label>
+</div>
+      <div class="form-group">
+  <label>13. Other important characters</label>
+  <div class="hint">Love interest, sidekick, mentor, etc. — names and roles.</div>
+  <textarea name="supporting" rows="3"></textarea>
+</div>
+      <div class="form-group">
+  <label>14. Why are YOU the person to write this story?</label>
+  <div class="hint">Personal expertise, life experience, or cultural connection? This helps us match voice and protect what matters.</div>
+  <textarea name="why_you" rows="3"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Boundaries &amp; Preferences</h2>
+      <div class="form-group">
+  <label class="required">15. Violence level</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="violence" value="None" required> None</label>
+    <label><input type="radio" name="violence" value="Implied" required> Implied</label>
+    <label><input type="radio" name="violence" value="Moderate" required> Moderate</label>
+    <label><input type="radio" name="violence" value="Graphic" required> Graphic</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label class="required">16. Profanity level</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="profanity" value="None" required> None</label>
+    <label><input type="radio" name="profanity" value="Mild" required> Mild</label>
+    <label><input type="radio" name="profanity" value="Moderate" required> Moderate</label>
+    <label><input type="radio" name="profanity" value="Heavy" required> Heavy</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label>17. Must-include themes, tropes, or elements</label>
+  <div class="hint">What makes this book worth reading?</div>
+  <textarea name="themes" rows="3"></textarea>
+</div>
+      <div class="form-group">
+  <label>18. What is the ONE scene you can already picture?</label>
+  <div class="hint">The scene that plays like a movie in your head. The moment you KNOW has to be in the book. This helps with covers, trailers, and the hook.</div>
+  <textarea name="visual_hook" rows="3"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Structure &amp; Preferences</h2>
+      <div class="form-group">
+  <label>19. POV / Narrative structure</label>
+  
+  <select name="pov">
+    <option value="">Select...</option>
+    <option value="First person">First person</option>
+    <option value="Third person limited">Third person limited</option>
+    <option value="Third person omniscient">Third person omniscient</option>
+    <option value="Alternating POVs">Alternating POVs</option>
+    <option value="Don&#x27;t know">Don&#x27;t know</option>
+  </select>
+</div>
+      <div class="form-group">
+  <label>20. Desired book length</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="desired_length" value="Short (30-50K words, ~150-250 pages)"> Short (30-50K words, ~150-250 pages)</label>
+    <label><input type="radio" name="desired_length" value="Standard (60-80K words, ~300-400 pages)"> Standard (60-80K words, ~300-400 pages)</label>
+    <label><input type="radio" name="desired_length" value="Long (90-120K words, ~450-600 pages)"> Long (90-120K words, ~450-600 pages)</label>
+    <label><input type="radio" name="desired_length" value="Don&#x27;t know — you decide"> Don&#x27;t know — you decide</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label class="required">21. Is this a standalone or series?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="series" value="Standalone" required> Standalone</label>
+    <label><input type="radio" name="series" value="Planned series" required> Planned series</label>
+    <label><input type="radio" name="series" value="Open to becoming a series" required> Open to becoming a series</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label>22. Anything else we should know?</label>
+  <div class="hint">Open text — catches everything the form missed.</div>
+  <textarea name="anything_else" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Author Identity</h2>
+      <div class="form-group">
+  <label class="required">23. Author bio (2-3 sentences)</label>
+  
+  <textarea name="bio" rows="3" required></textarea>
+</div>
+      <div class="form-group">
+  <label>24. Pen name (if using one)</label>
+  <div class="hint">Preference or professional requirement?</div>
+  <input type="text" name="pen_name">
+</div>
+      <div class="form-group">
+  <label>25. Comparable authors/books (&#x27;for fans of...&#x27;)</label>
+  <div class="hint">What&#x27;s SIMILAR — books, films, TV, games all count.</div>
+  <textarea name="comps" rows="2"></textarea>
+</div>
+      <div class="form-group">
+  <label>26. How is your book DIFFERENT from those comps?</label>
+  <div class="hint">What makes YOUR version fresh?</div>
+  <textarea name="comp_different" rows="2"></textarea>
+</div>
+      <div class="form-group">
+  <label>27. Cover preferences</label>
+  <div class="hint">Describe covers you love. Describe what you DON&#x27;T want.</div>
+  <textarea name="cover_preferences" rows="3"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Want to Go Deeper?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 12px;">
+        If you feel like there's more to your story that these questions didn't cover,
+        check the box below. We'll review everything you've told us so far and send you
+        a new set of targeted questions. You can do this up to 3 more times.</p>
+      <div class="option-group">
+        <label style="padding: 12px; border: 1px solid var(--border-card); border-radius: 6px;">
+          <input type="checkbox" name="ask_more_questions" value="yes" style="accent-color: var(--brand-accent);">
+          <span>Yes, ask me more questions — I have more to share</span>
+        </label>
+      </div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Answers</button>
+      <p class="submit-help">Round 2 of up to 5. Your responses build on everything you've already told us.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact us at hello@crimsonpulpfic.com for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>Thanks for sharing your vision! We'll review your information and get back to you within 48 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Book Production Service</div>
+    <div>Questions? Email hello@crimsonpulpfic.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-21T14:02:40.963507+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.querySelectorAll(".example-toggle").forEach(function(toggle) {
+  toggle.addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      this.textContent = this.textContent.replace("Hide", "Show");
+    } else {
+      content.style.display = "block";
+      this.textContent = this.textContent.replace("Show", "Hide");
+    }
+  });
+});
+(function() {
+  var sections = document.querySelectorAll(".section-card");
+  var total = 6;
+  var bar = document.querySelector(".progress-fill");
+  if (!bar) return;
+
+  function updateProgress() {
+    var filled = 0;
+    sections.forEach(function(section) {
+      var inputs = section.querySelectorAll("input, textarea, select");
+      var hasValue = false;
+      inputs.forEach(function(input) {
+        if (input.type === "radio" || input.type === "checkbox") {
+          if (input.checked) hasValue = true;
+        } else if (input.value.trim()) {
+          hasValue = true;
+        }
+      });
+      if (hasValue) filled++;
+    });
+    var pct = Math.round((filled / total) * 100);
+    bar.style.width = pct + "%";
+  }
+
+  document.querySelectorAll("input, textarea, select").forEach(function(el) {
+    el.addEventListener("change", updateProgress);
+    el.addEventListener("input", updateProgress);
+  });
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "author_vision",
+    token: "fc884a7e-a313-49b5-acfe-89e1a82be78d",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbz9GI9JB3BHRV99c-JJ9spAcEUgMSKm8gj4UYC3jJm71K2K6tuXPUyTPXdX6PxOt0FHYg/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#4caf50";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error \u2014 Try Again";
+    btn.style.background = "#ef5350";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

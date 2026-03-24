@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tell Us About Your Book &mdash; Nina</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #7c5cbf;
+  --brand-blue: #3a506b;
+  --brand-gold: #c9a959;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --bg-page: #121218;
+  --bg-card: #1e1e2a;
+  --bg-selected: #2a2a3e;
+  --border-card: #333;
+  --border-selected: #7c5cbf;
+  --green: #4caf50;
+  --amber: #ffa726;
+  --red: #ef5350;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--brand-accent);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-accent);
+  margin: 16px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.form-group .hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #16161f;
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 191, 0.2);
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--red);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+.option-group label:hover {
+  background: var(--bg-selected);
+  border-color: var(--border-card);
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--brand-accent);
+}
+
+/* "I need help" checkbox */
+.help-check {
+  margin-top: 8px;
+}
+.help-check label {
+  font-size: 13px;
+  color: var(--brand-accent);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.help-check input {
+  accent-color: var(--brand-accent);
+}
+
+/* Expandable example */
+.example-toggle {
+  font-size: 13px;
+  color: var(--brand-accent);
+  cursor: pointer;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+.example-content {
+  display: none;
+  margin-top: 8px;
+  padding: 12px;
+  background: #16161f;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-left: 3px solid var(--brand-accent);
+}
+
+/* Slider (spice/heat) */
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.slider-group input[type="range"] {
+  flex: 1;
+  accent-color: var(--brand-accent);
+}
+.slider-label {
+  font-size: 14px;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-card);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--brand-accent);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #6a4daa; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* Timer */
+.timer-line {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #2a1a1a;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #1a2a1a;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+  color: var(--green);
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BOOK PRODUCTION SERVICE</div>
+    <h1>Tell Us About Your Book</h1>
+    <div class="meta-line">Generated: March 24, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+
+  <form id="page-form">
+    <input type="hidden" name="token" value="e39f1b1f-ff5e-48da-9b85-ba371f37da7d">
+    <input type="hidden" name="form_type" value="author_discovery_v2">
+  <div class="section-card">
+    <h2>Welcome</h2>
+    <p>This questionnaire helps us understand your book project so we can
+    match you with the right service. It takes about <strong>5 minutes</strong>.</p>
+    <p style="font-size: 13px; color: var(--text-secondary);">
+    Fields marked with <span style="color: var(--red);">*</span> are required.
+    Everything else is optional but helpful.</p>
+  </div>
+    <div class="section-card">
+      <h2>About You</h2>
+<div class="form-group">
+  <label class="required">1. Your name (or pen name)</label>
+  
+  <input type="text" name="name" required>
+</div>
+<div class="form-group">
+  <label class="required">2. Email address</label>
+  
+  <input type="email" name="email" required>
+</div>
+<div class="form-group">
+  <label>3. How should we address you?</label>
+  
+  <input type="text" name="preferred_name">
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Your Book</h2>
+<div class="form-group">
+  <label class="required">4. What genre is your book?</label>
+  
+  <select name="genre" required>
+    <option value="">Select...</option>
+    <option value="Romance">Romance</option>
+    <option value="Fantasy">Fantasy</option>
+    <option value="Thriller / Suspense">Thriller / Suspense</option>
+    <option value="Mystery / Crime">Mystery / Crime</option>
+    <option value="Horror">Horror</option>
+    <option value="Sci-Fi">Sci-Fi</option>
+    <option value="Action / Adventure">Action / Adventure</option>
+    <option value="Memoir / Nonfiction">Memoir / Nonfiction</option>
+    <option value="Literary Fiction">Literary Fiction</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+<div class="form-group" id="subgenre-wrapper" style="display:none;">
+  <label class="required">5. What kind?</label>
+  <div class="hint">Narrow it down — or pick "I'm not sure" and we'll figure it out together.</div>
+      <div class="subgenre-group" data-genre="Romance" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Paranormal / Shifter (werewolves, vampires, fated mates)">Paranormal / Shifter (werewolves, vampires, fated mates)</option>
+          <option value="Contemporary (modern day, real world)">Contemporary (modern day, real world)</option>
+          <option value="Historical (Regency, Victorian, wartime)">Historical (Regency, Victorian, wartime)</option>
+          <option value="Romantic Suspense (danger + love story)">Romantic Suspense (danger + love story)</option>
+          <option value="Dark Romance (morally grey, intense)">Dark Romance (morally grey, intense)</option>
+          <option value="Romantic Comedy (funny + feel-good)">Romantic Comedy (funny + feel-good)</option>
+          <option value="Reverse Harem (multiple love interests)">Reverse Harem (multiple love interests)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Fantasy" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="High / Epic Fantasy (kingdoms, quests, magic systems)">High / Epic Fantasy (kingdoms, quests, magic systems)</option>
+          <option value="Urban Fantasy (magic in the modern world)">Urban Fantasy (magic in the modern world)</option>
+          <option value="Romantasy (fantasy + romance blend)">Romantasy (fantasy + romance blend)</option>
+          <option value="Dark Fantasy (gritty, morally complex, dangerous)">Dark Fantasy (gritty, morally complex, dangerous)</option>
+          <option value="Cozy Fantasy (warm, low-stakes, found family)">Cozy Fantasy (warm, low-stakes, found family)</option>
+          <option value="Portal Fantasy (ordinary person enters a magical world)">Portal Fantasy (ordinary person enters a magical world)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Thriller / Suspense" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Military (soldiers, operations, combat)">Military (soldiers, operations, combat)</option>
+          <option value="Spies / Espionage (intelligence, undercover, tradecraft)">Spies / Espionage (intelligence, undercover, tradecraft)</option>
+          <option value="Psychological (mind games, unreliable narrators, gaslighting)">Psychological (mind games, unreliable narrators, gaslighting)</option>
+          <option value="Legal / Political (courtrooms, cover-ups, power)">Legal / Political (courtrooms, cover-ups, power)</option>
+          <option value="Serial Killer / Hunt (cat and mouse, profiling)">Serial Killer / Hunt (cat and mouse, profiling)</option>
+          <option value="Conspiracy (secret organizations, hidden truths)">Conspiracy (secret organizations, hidden truths)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Mystery / Crime" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Police Procedural / Detective (investigations, evidence, cases)">Police Procedural / Detective (investigations, evidence, cases)</option>
+          <option value="Cozy Mystery (amateur sleuth, small town, low violence)">Cozy Mystery (amateur sleuth, small town, low violence)</option>
+          <option value="Noir / Hardboiled (dark, cynical, morally grey)">Noir / Hardboiled (dark, cynical, morally grey)</option>
+          <option value="Whodunit (classic puzzle, suspects, red herrings)">Whodunit (classic puzzle, suspects, red herrings)</option>
+          <option value="Historical Mystery (past eras, period detail)">Historical Mystery (past eras, period detail)</option>
+          <option value="True Crime Fiction (inspired by real events)">True Crime Fiction (inspired by real events)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Horror" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Supernatural (ghosts, demons, hauntings)">Supernatural (ghosts, demons, hauntings)</option>
+          <option value="Psychological (is it real or in their head?)">Psychological (is it real or in their head?)</option>
+          <option value="Gothic (atmosphere, old houses, dread)">Gothic (atmosphere, old houses, dread)</option>
+          <option value="Slasher / Survival (fight to stay alive)">Slasher / Survival (fight to stay alive)</option>
+          <option value="Cosmic / Lovecraftian (unknowable, vast, alien)">Cosmic / Lovecraftian (unknowable, vast, alien)</option>
+          <option value="Body Horror (transformation, infection, wrongness)">Body Horror (transformation, infection, wrongness)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Sci-Fi" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Space Opera (starships, galactic conflict, big scope)">Space Opera (starships, galactic conflict, big scope)</option>
+          <option value="Dystopian / Post-Apocalyptic (broken societies, survival)">Dystopian / Post-Apocalyptic (broken societies, survival)</option>
+          <option value="Cyberpunk (tech, corporations, neon-noir)">Cyberpunk (tech, corporations, neon-noir)</option>
+          <option value="Military Sci-Fi (soldiers in space, future warfare)">Military Sci-Fi (soldiers in space, future warfare)</option>
+          <option value="First Contact (meeting alien life)">First Contact (meeting alien life)</option>
+          <option value="Hard Sci-Fi (scientifically grounded, realistic tech)">Hard Sci-Fi (scientifically grounded, realistic tech)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Action / Adventure" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Military Action (boots on the ground, operations)">Military Action (boots on the ground, operations)</option>
+          <option value="Heist / Caper (planning, execution, twists)">Heist / Caper (planning, execution, twists)</option>
+          <option value="Survival / Expedition (hostile environments, endurance)">Survival / Expedition (hostile environments, endurance)</option>
+          <option value="Vigilante / Revenge (one person against the system)">Vigilante / Revenge (one person against the system)</option>
+          <option value="Treasure Hunt / Quest (the search drives the story)">Treasure Hunt / Quest (the search drives the story)</option>
+          <option value="War Story (the human cost of conflict)">War Story (the human cost of conflict)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Memoir / Nonfiction" style="display:none;">
+        <select name="subgenre" required>
+          <option value="">Select subgenre...</option>
+          <option value="Personal Memoir (your story, your life)">Personal Memoir (your story, your life)</option>
+          <option value="Biography (someone else&#x27;s story)">Biography (someone else&#x27;s story)</option>
+          <option value="Self-Help / How-To (teaching, guiding, frameworks)">Self-Help / How-To (teaching, guiding, frameworks)</option>
+          <option value="True Crime (real cases, investigations)">True Crime (real cases, investigations)</option>
+          <option value="History (events, eras, untold stories)">History (events, eras, untold stories)</option>
+          <option value="I&#x27;m not sure — help me figure it out">I&#x27;m not sure — help me figure it out</option>
+        </select>
+      </div>
+      <div class="subgenre-group" data-genre="Other" style="display:none;">
+        <input type="text" name="subgenre" placeholder="Describe your genre...">
+      </div>
+</div>
+<div class="form-group" id="comp-wrapper">
+  <label style="color:var(--text-secondary);">Books or shows like yours <span style="font-weight:400;">(pick up to 3)</span></label>
+  <div class="hint" style="color:var(--text-secondary);">"My book feels like..." — pick your genre and subgenre above to see options.</div>
+      <div class="comp-group" data-comp-key="Paranormal / Shifter (werewolves, vampires, fated mates)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Twilight — forbidden vampire romance" disabled> Twilight — forbidden vampire romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="A Court of Thorns and Roses — fae warrior romance" disabled> A Court of Thorns and Roses — fae warrior romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mercy Thompson — shapeshifter navigating pack politics" disabled> Mercy Thompson — shapeshifter navigating pack politics</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="True Blood — vampires in a small Southern town" disabled> True Blood — vampires in a small Southern town</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Kresley Cole — immortal warriors and fated mates" disabled> Kresley Cole — immortal warriors and fated mates</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Ice Planet Barbarians — alien mates, survival romance" disabled> Ice Planet Barbarians — alien mates, survival romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Teen Wolf — young shifters, pack loyalty, coming of age" disabled> Teen Wolf — young shifters, pack loyalty, coming of age</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Contemporary (modern day, real world)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Notebook — sweeping love story across decades" disabled> The Notebook — sweeping love story across decades</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="It Ends with Us — love, heartbreak, tough choices" disabled> It Ends with Us — love, heartbreak, tough choices</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Beach Read — two writers swap genres for the summer" disabled> Beach Read — two writers swap genres for the summer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Hating Game — office rivals, slow-burn chemistry" disabled> The Hating Game — office rivals, slow-burn chemistry</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="People We Meet on Vacation — best friends, will-they-won&#x27;t-they" disabled> People We Meet on Vacation — best friends, will-they-won&#x27;t-they</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Book Lovers — city girl falls for small-town editor" disabled> Book Lovers — city girl falls for small-town editor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Love and Other Words — second chance, childhood sweethearts" disabled> Love and Other Words — second chance, childhood sweethearts</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Historical (Regency, Victorian, wartime)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bridgerton — Regency high society and scandal" disabled> Bridgerton — Regency high society and scandal</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Outlander — time-travel romance across centuries" disabled> Outlander — time-travel romance across centuries</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Pride and Prejudice — wit, class, slow-burn love" disabled> Pride and Prejudice — wit, class, slow-burn love</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Duke and I — arranged courtship, Regency ballrooms" disabled> The Duke and I — arranged courtship, Regency ballrooms</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="An Offer from a Gentleman — Cinderella retelling, Regency era" disabled> An Offer from a Gentleman — Cinderella retelling, Regency era</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Bronze Horseman — wartime love in WWII Leningrad" disabled> The Bronze Horseman — wartime love in WWII Leningrad</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Romantic Suspense (danger + love story)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Nora Roberts — romance woven with mystery and danger" disabled> Nora Roberts — romance woven with mystery and danger</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Sandra Brown — suspense-heavy with passionate romance" disabled> Sandra Brown — suspense-heavy with passionate romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Hidden Legacy — magic, mystery, and a powerful heroine" disabled> Hidden Legacy — magic, mystery, and a powerful heroine</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Witness — woman on the run falls for a small-town cop" disabled> The Witness — woman on the run falls for a small-town cop</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Naked in Death — futuristic detective + dangerous romance" disabled> Naked in Death — futuristic detective + dangerous romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Karen Rose — serial killer cases with slow-burn love" disabled> Karen Rose — serial killer cases with slow-burn love</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Dark Romance (morally grey, intense)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Captive in the Dark — captor/captive, psychological intensity" disabled> Captive in the Dark — captor/captive, psychological intensity</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Corrupt — bully romance, power and obsession" disabled> Corrupt — bully romance, power and obsession</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Haunting Adeline — stalker romance, dark and divisive" disabled> Haunting Adeline — stalker romance, dark and divisive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Credence — taboo, isolation, forbidden attraction" disabled> Credence — taboo, isolation, forbidden attraction</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Twist Me — kidnapping, stockholm, moral complexity" disabled> Twist Me — kidnapping, stockholm, moral complexity</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Romantic Comedy (funny + feel-good)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Flatshare — strangers sharing a bed, opposite schedules" disabled> The Flatshare — strangers sharing a bed, opposite schedules</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Rosie Project — socially awkward professor finds love" disabled> The Rosie Project — socially awkward professor finds love</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Beach Read — funny, emotional, genre-swapping writers" disabled> Beach Read — funny, emotional, genre-swapping writers</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="You&#x27;ve Got Mail — rivals online, enemies in person" disabled> You&#x27;ve Got Mail — rivals online, enemies in person</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bridget Jones — messy, funny, lovable heroine" disabled> Bridget Jones — messy, funny, lovable heroine</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Crazy Rich Asians — glamour, family drama, culture clash" disabled> Crazy Rich Asians — glamour, family drama, culture clash</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Reverse Harem (multiple love interests)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Why Choose — she doesn&#x27;t have to pick just one" disabled> Why Choose — she doesn&#x27;t have to pick just one</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Court of Wolves — fantasy setting, multiple suitors" disabled> Court of Wolves — fantasy setting, multiple suitors</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Pack Darling — shifter pack dynamics, shared bonds" disabled> Pack Darling — shifter pack dynamics, shared bonds</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bound to the Dark — dark paranormal, multiple love interests" disabled> Bound to the Dark — dark paranormal, multiple love interests</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Romance" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Twilight — forbidden vampire romance" disabled> Twilight — forbidden vampire romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="A Court of Thorns and Roses — fae warrior romance" disabled> A Court of Thorns and Roses — fae warrior romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Notebook — sweeping love across decades" disabled> The Notebook — sweeping love across decades</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Outlander — time-travel romance" disabled> Outlander — time-travel romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bridgerton — Regency scandal" disabled> Bridgerton — Regency scandal</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="It Ends with Us — heartbreak and tough choices" disabled> It Ends with Us — heartbreak and tough choices</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Beach Read — writers swap genres" disabled> Beach Read — writers swap genres</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Hating Game — office rivals" disabled> The Hating Game — office rivals</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="High / Epic Fantasy (kingdoms, quests, magic systems)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Lord of the Rings — epic quest, fellowship, world-changing stakes" disabled> Lord of the Rings — epic quest, fellowship, world-changing stakes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Game of Thrones — political intrigue, war, morally grey" disabled> Game of Thrones — political intrigue, war, morally grey</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Name of the Wind — gifted outcast, magic academy, legend" disabled> The Name of the Wind — gifted outcast, magic academy, legend</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Wheel of Time — chosen one, vast world, ancient evil" disabled> The Wheel of Time — chosen one, vast world, ancient evil</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mistborn — heist crew vs empire, hard magic system" disabled> Mistborn — heist crew vs empire, hard magic system</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Eragon — young hero discovers dragons and destiny" disabled> Eragon — young hero discovers dragons and destiny</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Urban Fantasy (magic in the modern world)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Dresden Files — wizard detective in modern Chicago" disabled> The Dresden Files — wizard detective in modern Chicago</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Rivers of London — London cop discovers magic is real" disabled> Rivers of London — London cop discovers magic is real</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mercy Thompson — mechanic who&#x27;s secretly a shapeshifter" disabled> Mercy Thompson — mechanic who&#x27;s secretly a shapeshifter</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Neverwhere — hidden magical London beneath the streets" disabled> Neverwhere — hidden magical London beneath the streets</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Mortal Instruments — teens fighting demons in NYC" disabled> The Mortal Instruments — teens fighting demons in NYC</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Romantasy (fantasy + romance blend)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="A Court of Thorns and Roses — fae courts, enemies to lovers" disabled> A Court of Thorns and Roses — fae courts, enemies to lovers</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="From Blood and Ash — chosen one, forbidden romance, war" disabled> From Blood and Ash — chosen one, forbidden romance, war</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Fourth Wing — dragon riders, military academy, rivals to lovers" disabled> Fourth Wing — dragon riders, military academy, rivals to lovers</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Bridge Kingdom — marriage alliance turns to real love" disabled> The Bridge Kingdom — marriage alliance turns to real love</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Serpent &amp; Dove — witch and witch-hunter forced together" disabled> Serpent &amp; Dove — witch and witch-hunter forced together</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Dark Fantasy (gritty, morally complex, dangerous)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Game of Thrones — nobody&#x27;s safe, politics and betrayal" disabled> Game of Thrones — nobody&#x27;s safe, politics and betrayal</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="First Law (Abercrombie) — cynical, brutal, darkly funny" disabled> First Law (Abercrombie) — cynical, brutal, darkly funny</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Poppy War — war, power, and terrible choices" disabled> The Poppy War — war, power, and terrible choices</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Prince of Thorns — villain protagonist, broken empire" disabled> Prince of Thorns — villain protagonist, broken empire</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Witcher — monster hunter in a morally grey world" disabled> The Witcher — monster hunter in a morally grey world</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Cozy Fantasy (warm, low-stakes, found family)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The House in the Cerulean Sea — found family, gentle magic" disabled> The House in the Cerulean Sea — found family, gentle magic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Legends &amp; Lattes — orc retires to open a coffee shop" disabled> Legends &amp; Lattes — orc retires to open a coffee shop</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Hobbit — cozy quest, reluctant hero, warm adventure" disabled> The Hobbit — cozy quest, reluctant hero, warm adventure</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Howl&#x27;s Moving Castle — charming, whimsical, warm romance" disabled> Howl&#x27;s Moving Castle — charming, whimsical, warm romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Stardust — fairy tale adventure, quirky and heartfelt" disabled> Stardust — fairy tale adventure, quirky and heartfelt</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Portal Fantasy (ordinary person enters a magical world)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Narnia — children step through a wardrobe into another world" disabled> Narnia — children step through a wardrobe into another world</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Alice in Wonderland — ordinary girl in a surreal realm" disabled> Alice in Wonderland — ordinary girl in a surreal realm</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Magicians — Narnia for adults, darker and complicated" disabled> The Magicians — Narnia for adults, darker and complicated</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Fablehaven — kids discover a nature preserve for magical creatures" disabled> Fablehaven — kids discover a nature preserve for magical creatures</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Stardust — man crosses a wall into a fairy tale kingdom" disabled> Stardust — man crosses a wall into a fairy tale kingdom</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Fantasy" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Lord of the Rings — epic quest, vast world" disabled> Lord of the Rings — epic quest, vast world</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Game of Thrones — political intrigue, morally grey" disabled> Game of Thrones — political intrigue, morally grey</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Witcher — monster hunter, moral choices" disabled> The Witcher — monster hunter, moral choices</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Harry Potter — magic school, chosen one" disabled> Harry Potter — magic school, chosen one</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Narnia — portal to another world" disabled> Narnia — portal to another world</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Eragon — young hero discovers dragons" disabled> Eragon — young hero discovers dragons</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Avatar: The Last Airbender — elemental powers, found family" disabled> Avatar: The Last Airbender — elemental powers, found family</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Military (soldiers, operations, combat)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Tom Clancy — military tech, geopolitics, covert ops" disabled> Tom Clancy — military tech, geopolitics, covert ops</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mitch Rapp (Vince Flynn) — CIA assassin, counter-terrorism" disabled> Mitch Rapp (Vince Flynn) — CIA assassin, counter-terrorism</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Brad Thor — ex-SEAL turned spy, global threats" disabled> Brad Thor — ex-SEAL turned spy, global threats</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Terminal List (Jack Carr) — betrayed Navy SEAL seeks revenge" disabled> Terminal List (Jack Carr) — betrayed Navy SEAL seeks revenge</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Andy McNab — SAS soldier, real-world military action" disabled> Andy McNab — SAS soldier, real-world military action</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Spies / Espionage (intelligence, undercover, tradecraft)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Jason Bourne — amnesiac spy, identity and survival" disabled> Jason Bourne — amnesiac spy, identity and survival</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Tinker Tailor (le Carré) — mole hunt, slow-burn Cold War" disabled> Tinker Tailor (le Carré) — mole hunt, slow-burn Cold War</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Homeland — CIA vs sleeper agents, paranoia" disabled> Homeland — CIA vs sleeper agents, paranoia</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="James Bond — suave spy, global threats, action set-pieces" disabled> James Bond — suave spy, global threats, action set-pieces</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Americans — deep-cover spies living as suburbanites" disabled> The Americans — deep-cover spies living as suburbanites</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Red Sparrow — Russian intelligence, seduction, betrayal" disabled> Red Sparrow — Russian intelligence, seduction, betrayal</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Psychological (mind games, unreliable narrators, gaslighting)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Gone Girl — marriage of lies, who&#x27;s really the villain?" disabled> Gone Girl — marriage of lies, who&#x27;s really the villain?</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Girl on the Train — unreliable narrator, obsession" disabled> The Girl on the Train — unreliable narrator, obsession</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Behind Closed Doors — perfect marriage hiding a nightmare" disabled> Behind Closed Doors — perfect marriage hiding a nightmare</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Silent Patient — woman stops speaking after a crime" disabled> The Silent Patient — woman stops speaking after a crime</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="You (TV) — charming stalker, disturbing POV" disabled> You (TV) — charming stalker, disturbing POV</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Legal / Political (courtrooms, cover-ups, power)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="John Grisham — legal battles, corrupt institutions" disabled> John Grisham — legal battles, corrupt institutions</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="House of Cards — ruthless political ambition" disabled> House of Cards — ruthless political ambition</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="A Time to Kill — racial justice, courtroom drama" disabled> A Time to Kill — racial justice, courtroom drama</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Pelican Brief — law student uncovers a conspiracy" disabled> The Pelican Brief — law student uncovers a conspiracy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Designated Survivor — president by accident, political crisis" disabled> Designated Survivor — president by accident, political crisis</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Serial Killer / Hunt (cat and mouse, profiling)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Silence of the Lambs — FBI trainee consults a genius killer" disabled> Silence of the Lambs — FBI trainee consults a genius killer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mindhunter — inventing criminal profiling" disabled> Mindhunter — inventing criminal profiling</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Se7en — detectives vs a killer using the seven deadly sins" disabled> Se7en — detectives vs a killer using the seven deadly sins</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Bone Collector — paralyzed detective tracks a kidnapper" disabled> The Bone Collector — paralyzed detective tracks a kidnapper</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Dexter — killer who hunts other killers" disabled> Dexter — killer who hunts other killers</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Conspiracy (secret organizations, hidden truths)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Da Vinci Code — religious secrets, global chase" disabled> The Da Vinci Code — religious secrets, global chase</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Bourne Identity — man discovers he&#x27;s a weapon" disabled> The Bourne Identity — man discovers he&#x27;s a weapon</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Firm — lawyer trapped in a corrupt firm" disabled> The Firm — lawyer trapped in a corrupt firm</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Enemy of the State — ordinary man vs surveillance state" disabled> Enemy of the State — ordinary man vs surveillance state</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Dark Matter — physicist kidnapped into parallel lives" disabled> Dark Matter — physicist kidnapped into parallel lives</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Thriller / Suspense" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Jack Reacher — lone wolf, justice on his terms" disabled> Jack Reacher — lone wolf, justice on his terms</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Gone Girl — marriage of lies" disabled> Gone Girl — marriage of lies</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Bourne Identity — amnesiac spy" disabled> The Bourne Identity — amnesiac spy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Homeland — CIA paranoia" disabled> Homeland — CIA paranoia</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Tom Clancy — military geopolitics" disabled> Tom Clancy — military geopolitics</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Silence of the Lambs — FBI vs genius killer" disabled> Silence of the Lambs — FBI vs genius killer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Police Procedural / Detective (investigations, evidence, cases)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bosch — LAPD detective, cold cases, by the book" disabled> Bosch — LAPD detective, cold cases, by the book</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Tana French — Dublin Murder Squad, atmospheric investigations" disabled> Tana French — Dublin Murder Squad, atmospheric investigations</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Line of Duty — anti-corruption police drama" disabled> Line of Duty — anti-corruption police drama</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Broadchurch — small-town murder, community unravels" disabled> Broadchurch — small-town murder, community unravels</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Inspector Rebus — Edinburgh detective, gritty cases" disabled> Inspector Rebus — Edinburgh detective, gritty cases</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Luther — brilliant, obsessive London detective" disabled> Luther — brilliant, obsessive London detective</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Cozy Mystery (amateur sleuth, small town, low violence)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Miss Marple — elderly sleuth, village crimes, sharp mind" disabled> Miss Marple — elderly sleuth, village crimes, sharp mind</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Thursday Murder Club — retirees solving cold cases" disabled> The Thursday Murder Club — retirees solving cold cases</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Murder, She Wrote — writer solves crimes wherever she goes" disabled> Murder, She Wrote — writer solves crimes wherever she goes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Flavia de Luce — 11-year-old chemist solves murders" disabled> Flavia de Luce — 11-year-old chemist solves murders</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Midsomer Murders — idyllic English villages, deadly secrets" disabled> Midsomer Murders — idyllic English villages, deadly secrets</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Noir / Hardboiled (dark, cynical, morally grey)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Raymond Chandler — wise-cracking PI in corrupt LA" disabled> Raymond Chandler — wise-cracking PI in corrupt LA</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="L.A. Confidential — cops, corruption, 1950s Hollywood" disabled> L.A. Confidential — cops, corruption, 1950s Hollywood</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Chinatown — conspiracy, water rights, nothing is what it seems" disabled> Chinatown — conspiracy, water rights, nothing is what it seems</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="True Detective — dark, philosophical crime investigation" disabled> True Detective — dark, philosophical crime investigation</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Big Sleep — smoky noir, tangled plot, doomed characters" disabled> The Big Sleep — smoky noir, tangled plot, doomed characters</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Whodunit (classic puzzle, suspects, red herrings)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Agatha Christie — ingenious puzzles, everyone&#x27;s a suspect" disabled> Agatha Christie — ingenious puzzles, everyone&#x27;s a suspect</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Knives Out — modern whodunit, eccentric family, sharp twists" disabled> Knives Out — modern whodunit, eccentric family, sharp twists</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Murder on the Orient Express — locked-room train mystery" disabled> Murder on the Orient Express — locked-room train mystery</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Clue — comedic mystery, multiple suspects, multiple endings" disabled> Clue — comedic mystery, multiple suspects, multiple endings</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The 7½ Deaths of Evelyn Hardcastle — time-loop murder puzzle" disabled> The 7½ Deaths of Evelyn Hardcastle — time-loop murder puzzle</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Historical Mystery (past eras, period detail)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Name of the Rose — medieval monastery murder mystery" disabled> The Name of the Rose — medieval monastery murder mystery</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Sherlock Holmes — Victorian London, deductive genius" disabled> Sherlock Holmes — Victorian London, deductive genius</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Brother Cadfael — medieval monk solves crimes" disabled> Brother Cadfael — medieval monk solves crimes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Alienist — 1890s NYC serial killer investigation" disabled> The Alienist — 1890s NYC serial killer investigation</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Miss Scarlet and the Duke — Victorian female detective" disabled> Miss Scarlet and the Duke — Victorian female detective</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="True Crime Fiction (inspired by real events)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="In Cold Blood — real murder, novelistic telling" disabled> In Cold Blood — real murder, novelistic telling</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Zodiac — journalist hunts an uncaught serial killer" disabled> Zodiac — journalist hunts an uncaught serial killer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mindhunter — real FBI profilers, real killers" disabled> Mindhunter — real FBI profilers, real killers</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="American Crime Story — dramatized true crime cases" disabled> American Crime Story — dramatized true crime cases</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Devil in the White City — serial killer at the 1893 World&#x27;s Fair" disabled> The Devil in the White City — serial killer at the 1893 World&#x27;s Fair</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Mystery / Crime" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Sherlock Holmes — deductive genius, Victorian London" disabled> Sherlock Holmes — deductive genius, Victorian London</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Knives Out — modern whodunit, sharp twists" disabled> Knives Out — modern whodunit, sharp twists</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Agatha Christie — classic puzzles, everyone&#x27;s a suspect" disabled> Agatha Christie — classic puzzles, everyone&#x27;s a suspect</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Tana French — atmospheric Dublin investigations" disabled> Tana French — atmospheric Dublin investigations</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Midsomer Murders — idyllic villages, deadly secrets" disabled> Midsomer Murders — idyllic villages, deadly secrets</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bosch — LAPD cold cases" disabled> Bosch — LAPD cold cases</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Supernatural (ghosts, demons, hauntings)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Haunting of Hill House — house that&#x27;s alive with dread" disabled> The Haunting of Hill House — house that&#x27;s alive with dread</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Exorcist — demonic possession, faith vs evil" disabled> The Exorcist — demonic possession, faith vs evil</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Pet Sematary — the dead come back wrong" disabled> Pet Sematary — the dead come back wrong</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Conjuring — paranormal investigators, based on &#x27;true&#x27; cases" disabled> The Conjuring — paranormal investigators, based on &#x27;true&#x27; cases</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Hell House — team investigates the most haunted house" disabled> Hell House — team investigates the most haunted house</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Psychological (is it real or in their head?)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Shining — isolation, madness, a hotel that wants you" disabled> The Shining — isolation, madness, a hotel that wants you</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Rosemary&#x27;s Baby — paranoia, is everyone in on it?" disabled> Rosemary&#x27;s Baby — paranoia, is everyone in on it?</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Black Swan — obsession and identity disintegration" disabled> Black Swan — obsession and identity disintegration</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="We Need to Talk About Kevin — motherhood and a school shooter" disabled> We Need to Talk About Kevin — motherhood and a school shooter</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="House of Leaves — a house bigger inside than outside, unreliable text" disabled> House of Leaves — a house bigger inside than outside, unreliable text</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Gothic (atmosphere, old houses, dread)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mexican Gothic — crumbling estate, creeping fungal horror" disabled> Mexican Gothic — crumbling estate, creeping fungal horror</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Rebecca — new wife haunted by husband&#x27;s dead first wife" disabled> Rebecca — new wife haunted by husband&#x27;s dead first wife</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Turn of the Screw — governess, ghost children, ambiguity" disabled> The Turn of the Screw — governess, ghost children, ambiguity</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Crimson Peak — gothic romance, ghosts, a house with secrets" disabled> Crimson Peak — gothic romance, ghosts, a house with secrets</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="We Have Always Lived in the Castle — isolated sisters, village hostility" disabled> We Have Always Lived in the Castle — isolated sisters, village hostility</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Slasher / Survival (fight to stay alive)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Final Girls — survivors of massacres, one of them is lying" disabled> Final Girls — survivors of massacres, one of them is lying</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Cabin in the Woods — horror tropes turned inside out" disabled> The Cabin in the Woods — horror tropes turned inside out</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Scream — self-aware slasher, who&#x27;s behind the mask?" disabled> Scream — self-aware slasher, who&#x27;s behind the mask?</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Troop — boy scouts vs a body-horror parasite" disabled> The Troop — boy scouts vs a body-horror parasite</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Survive the Night — trapped in a car with a serial killer" disabled> Survive the Night — trapped in a car with a serial killer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Cosmic / Lovecraftian (unknowable, vast, alien)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Lovecraft — ancient gods, insignificant humanity" disabled> Lovecraft — ancient gods, insignificant humanity</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Annihilation — expedition into a zone where nature is wrong" disabled> Annihilation — expedition into a zone where nature is wrong</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Fisherman — grief leads to something ancient and hungry" disabled> The Fisherman — grief leads to something ancient and hungry</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bird Box — don&#x27;t look, or you&#x27;ll go mad" disabled> Bird Box — don&#x27;t look, or you&#x27;ll go mad</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Color Out of Space — alien contamination warps everything" disabled> Color Out of Space — alien contamination warps everything</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Body Horror (transformation, infection, wrongness)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Fly — scientist slowly becomes something inhuman" disabled> The Fly — scientist slowly becomes something inhuman</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Alien — creature grows inside you, then erupts" disabled> Alien — creature grows inside you, then erupts</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Ruins — carnivorous plant infestation, no escape" disabled> The Ruins — carnivorous plant infestation, no escape</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Tender Is the Flesh — society where humans are livestock" disabled> Tender Is the Flesh — society where humans are livestock</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Thing — anyone could be the monster wearing a face" disabled> The Thing — anyone could be the monster wearing a face</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Horror" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Stephen King — master of dread, small-town horror" disabled> Stephen King — master of dread, small-town horror</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Haunting of Hill House — the house is alive" disabled> The Haunting of Hill House — the house is alive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Lovecraft — cosmic insignificance" disabled> Lovecraft — cosmic insignificance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Hereditary — family trauma becomes supernatural nightmare" disabled> Hereditary — family trauma becomes supernatural nightmare</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mexican Gothic — gothic estate, creeping dread" disabled> Mexican Gothic — gothic estate, creeping dread</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Space Opera (starships, galactic conflict, big scope)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Star Wars — rebellion, the Force, galaxy-spanning adventure" disabled> Star Wars — rebellion, the Force, galaxy-spanning adventure</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Dune — desert planet, politics, prophecy, spice" disabled> Dune — desert planet, politics, prophecy, spice</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Expanse — realistic space politics, blue-collar crew" disabled> The Expanse — realistic space politics, blue-collar crew</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Foundation — galactic empire in decline, math as prophecy" disabled> Foundation — galactic empire in decline, math as prophecy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Hyperion — pilgrims, time, a creature that kills backward" disabled> Hyperion — pilgrims, time, a creature that kills backward</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Dystopian / Post-Apocalyptic (broken societies, survival)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Hunger Games — teens forced to fight, revolution rises" disabled> The Hunger Games — teens forced to fight, revolution rises</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="1984 — totalitarian state, surveillance, thought control" disabled> 1984 — totalitarian state, surveillance, thought control</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Road — father and son cross a dead world" disabled> The Road — father and son cross a dead world</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Handmaid&#x27;s Tale — women enslaved in a theocracy" disabled> The Handmaid&#x27;s Tale — women enslaved in a theocracy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Station Eleven — civilization ends, art survives" disabled> Station Eleven — civilization ends, art survives</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Cyberpunk (tech, corporations, neon-noir)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Blade Runner — replicants, rain, what makes us human" disabled> Blade Runner — replicants, rain, what makes us human</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Neuromancer — hacker, AI, cyberspace, corporate intrigue" disabled> Neuromancer — hacker, AI, cyberspace, corporate intrigue</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Snow Crash — pizza delivery and virtual reality warfare" disabled> Snow Crash — pizza delivery and virtual reality warfare</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Altered Carbon — consciousness uploaded, bodies swapped" disabled> Altered Carbon — consciousness uploaded, bodies swapped</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Ghost in the Shell — cyborg cop, identity in a digital age" disabled> Ghost in the Shell — cyborg cop, identity in a digital age</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Military Sci-Fi (soldiers in space, future warfare)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Starship Troopers — power armor, bugs, duty and sacrifice" disabled> Starship Troopers — power armor, bugs, duty and sacrifice</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Old Man&#x27;s War — elderly recruits get young bodies to fight aliens" disabled> Old Man&#x27;s War — elderly recruits get young bodies to fight aliens</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Ender&#x27;s Game — child genius trained to lead humanity&#x27;s fleet" disabled> Ender&#x27;s Game — child genius trained to lead humanity&#x27;s fleet</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Forever War — time dilation, soldier returns to a changed world" disabled> The Forever War — time dilation, soldier returns to a changed world</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Halo — super-soldiers, alien war, last stand of humanity" disabled> Halo — super-soldiers, alien war, last stand of humanity</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="First Contact (meeting alien life)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Arrival — linguist decodes alien language, time unravels" disabled> Arrival — linguist decodes alien language, time unravels</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Three-Body Problem — humanity discovers a hostile civilization" disabled> The Three-Body Problem — humanity discovers a hostile civilization</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Contact (Sagan) — radio signal from the stars, faith vs science" disabled> Contact (Sagan) — radio signal from the stars, faith vs science</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Ender&#x27;s Game — fighting aliens, then understanding them" disabled> Ender&#x27;s Game — fighting aliens, then understanding them</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Rendezvous with Rama — mysterious alien ship enters our system" disabled> Rendezvous with Rama — mysterious alien ship enters our system</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Hard Sci-Fi (scientifically grounded, realistic tech)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Martian — stranded astronaut sciences his way home" disabled> The Martian — stranded astronaut sciences his way home</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Project Hail Mary — lone scientist must save Earth, real physics" disabled> Project Hail Mary — lone scientist must save Earth, real physics</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="2001: A Space Odyssey — AI, evolution, the unknown" disabled> 2001: A Space Odyssey — AI, evolution, the unknown</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Seveneves — the moon explodes, humanity must survive" disabled> Seveneves — the moon explodes, humanity must survive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Artemis — heist on a lunar colony, blue-collar space" disabled> Artemis — heist on a lunar colony, blue-collar space</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Sci-Fi" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Star Wars — galactic adventure, the Force" disabled> Star Wars — galactic adventure, the Force</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Dune — desert planet, politics, prophecy" disabled> Dune — desert planet, politics, prophecy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Expanse — realistic space politics" disabled> The Expanse — realistic space politics</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Blade Runner — what makes us human" disabled> Blade Runner — what makes us human</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Martian — survival through science" disabled> The Martian — survival through science</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Black Mirror — technology&#x27;s dark side" disabled> Black Mirror — technology&#x27;s dark side</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Military Action (boots on the ground, operations)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Jack Reacher — ex-military loner, delivers justice" disabled> Jack Reacher — ex-military loner, delivers justice</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Terminal List (Jack Carr) — betrayed SEAL hunts those responsible" disabled> Terminal List (Jack Carr) — betrayed SEAL hunts those responsible</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Bravo Two Zero (McNab) — SAS behind enemy lines" disabled> Bravo Two Zero (McNab) — SAS behind enemy lines</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Lone Survivor — real Navy SEAL mission gone wrong" disabled> Lone Survivor — real Navy SEAL mission gone wrong</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="American Sniper — deadliest sniper in US military history" disabled> American Sniper — deadliest sniper in US military history</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Heist / Caper (planning, execution, twists)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Ocean&#x27;s Eleven — slick crew, impossible casino heist" disabled> Ocean&#x27;s Eleven — slick crew, impossible casino heist</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Italian Job — gold heist, car chases, double-crosses" disabled> The Italian Job — gold heist, car chases, double-crosses</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Six of Crows — fantasy heist, ragtag crew, high stakes" disabled> Six of Crows — fantasy heist, ragtag crew, high stakes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Lupin — gentleman thief, elaborate cons" disabled> Lupin — gentleman thief, elaborate cons</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Money Heist — bank siege, mastermind plan, cat and mouse" disabled> Money Heist — bank siege, mastermind plan, cat and mouse</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Survival / Expedition (hostile environments, endurance)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Martian — stranded, alone, science vs death" disabled> The Martian — stranded, alone, science vs death</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Hatchet — boy alone in Canadian wilderness with a hatchet" disabled> Hatchet — boy alone in Canadian wilderness with a hatchet</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Into Thin Air — Everest disaster, real survival account" disabled> Into Thin Air — Everest disaster, real survival account</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Revenant — mauled by a bear, left for dead, revenge" disabled> The Revenant — mauled by a bear, left for dead, revenge</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Jurassic Park — dinosaurs escape, humans run" disabled> Jurassic Park — dinosaurs escape, humans run</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Vigilante / Revenge (one person against the system)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="John Wick — one man, one mission, unstoppable" disabled> John Wick — one man, one mission, unstoppable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Count of Monte Cristo — ultimate revenge, patient and brilliant" disabled> The Count of Monte Cristo — ultimate revenge, patient and brilliant</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Kill Bill — betrayed assassin hunts her former team" disabled> Kill Bill — betrayed assassin hunts her former team</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Taken — father with a particular set of skills" disabled> Taken — father with a particular set of skills</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Equalizer — retired agent protects the vulnerable" disabled> The Equalizer — retired agent protects the vulnerable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Treasure Hunt / Quest (the search drives the story)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Indiana Jones — archaeologist, ancient artifacts, global adventure" disabled> Indiana Jones — archaeologist, ancient artifacts, global adventure</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="National Treasure — American history hides a fortune" disabled> National Treasure — American history hides a fortune</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Ready Player One — virtual reality scavenger hunt for billions" disabled> Ready Player One — virtual reality scavenger hunt for billions</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Uncharted — globe-trotting treasure hunter" disabled> Uncharted — globe-trotting treasure hunter</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Da Vinci Code — religious symbols lead to a hidden truth" disabled> The Da Vinci Code — religious symbols lead to a hidden truth</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="War Story (the human cost of conflict)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="All Quiet on the Western Front — WWI, loss of innocence" disabled> All Quiet on the Western Front — WWI, loss of innocence</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Dunkirk — evacuation under fire, ordinary heroism" disabled> Dunkirk — evacuation under fire, ordinary heroism</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Book Thief — a girl in Nazi Germany, the power of words" disabled> The Book Thief — a girl in Nazi Germany, the power of words</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Catch-22 — absurdity of war, dark humor" disabled> Catch-22 — absurdity of war, dark humor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Band of Brothers — Easy Company, WWII, brotherhood" disabled> Band of Brothers — Easy Company, WWII, brotherhood</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Action / Adventure" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Jack Reacher — lone wolf, justice on his terms" disabled> Jack Reacher — lone wolf, justice on his terms</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="James Bond — spy action, global stakes" disabled> James Bond — spy action, global stakes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Indiana Jones — archaeologist adventurer" disabled> Indiana Jones — archaeologist adventurer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Mission: Impossible — impossible missions, spectacular stunts" disabled> Mission: Impossible — impossible missions, spectacular stunts</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Hunger Games — survival, rebellion, arena combat" disabled> The Hunger Games — survival, rebellion, arena combat</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="John Wick — one man against everyone" disabled> John Wick — one man against everyone</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Personal Memoir (your story, your life)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Educated — escaping a survivalist family through learning" disabled> Educated — escaping a survivalist family through learning</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Glass Castle — chaotic childhood, resilient spirit" disabled> The Glass Castle — chaotic childhood, resilient spirit</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Wild — grief-fueled solo hike on the Pacific Crest Trail" disabled> Wild — grief-fueled solo hike on the Pacific Crest Trail</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Becoming — Michelle Obama&#x27;s journey from Chicago to the White House" disabled> Becoming — Michelle Obama&#x27;s journey from Chicago to the White House</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Born a Crime — growing up mixed-race in apartheid South Africa" disabled> Born a Crime — growing up mixed-race in apartheid South Africa</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Biography (someone else&#x27;s story)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Steve Jobs — visionary, tyrant, genius, told by Isaacson" disabled> Steve Jobs — visionary, tyrant, genius, told by Isaacson</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Alexander Hamilton — founding father, immigrant, musical inspiration" disabled> Alexander Hamilton — founding father, immigrant, musical inspiration</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Immortal Life of Henrietta Lacks — her cells changed medicine forever" disabled> The Immortal Life of Henrietta Lacks — her cells changed medicine forever</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="A Beautiful Mind — Nobel mathematician battles schizophrenia" disabled> A Beautiful Mind — Nobel mathematician battles schizophrenia</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Self-Help / How-To (teaching, guiding, frameworks)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Atomic Habits — tiny changes, remarkable results" disabled> Atomic Habits — tiny changes, remarkable results</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The 7 Habits — principles for personal effectiveness" disabled> The 7 Habits — principles for personal effectiveness</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="How to Win Friends — timeless social skills" disabled> How to Win Friends — timeless social skills</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Subtle Art — not giving a f*ck about the wrong things" disabled> The Subtle Art — not giving a f*ck about the wrong things</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Thinking, Fast and Slow — how your brain really makes decisions" disabled> Thinking, Fast and Slow — how your brain really makes decisions</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="True Crime (real cases, investigations)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="In Cold Blood — a Kansas family murdered, told like a novel" disabled> In Cold Blood — a Kansas family murdered, told like a novel</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="I&#x27;ll Be Gone in the Dark — hunting the Golden State Killer" disabled> I&#x27;ll Be Gone in the Dark — hunting the Golden State Killer</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Zodiac — unsolved serial killer, obsessive investigation" disabled> Zodiac — unsolved serial killer, obsessive investigation</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Helter Skelter — the Manson murders from the prosecutor" disabled> Helter Skelter — the Manson murders from the prosecutor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Stranger Beside Me — Ann Rule unknowingly befriended Ted Bundy" disabled> The Stranger Beside Me — Ann Rule unknowingly befriended Ted Bundy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="History (events, eras, untold stories)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Sapiens — the entire history of humanity in one book" disabled> Sapiens — the entire history of humanity in one book</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Guns of August — how WWI started, minute by minute" disabled> The Guns of August — how WWI started, minute by minute</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="SPQR — the rise and fall of Rome" disabled> SPQR — the rise and fall of Rome</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="1776 — the year America was born" disabled> 1776 — the year America was born</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Silk Roads — history told from the center, not the west" disabled> The Silk Roads — history told from the center, not the west</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Memoir / Nonfiction" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Educated — escaping a survivalist family" disabled> Educated — escaping a survivalist family</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Glass Castle — chaotic childhood, resilience" disabled> The Glass Castle — chaotic childhood, resilience</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Born a Crime — growing up in apartheid South Africa" disabled> Born a Crime — growing up in apartheid South Africa</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Wild — solo hike through grief" disabled> Wild — solo hike through grief</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Becoming — Michelle Obama&#x27;s journey" disabled> Becoming — Michelle Obama&#x27;s journey</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Atomic Habits — tiny changes, big results" disabled> Atomic Habits — tiny changes, big results</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+      <div class="comp-group" data-comp-key="Literary Fiction" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Normal People — two people who can&#x27;t get the timing right" disabled> Normal People — two people who can&#x27;t get the timing right</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="The Great Gatsby — wealth, obsession, the American Dream" disabled> The Great Gatsby — wealth, obsession, the American Dream</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Where the Crawdads Sing — isolation, nature, a murder trial" disabled> Where the Crawdads Sing — isolation, nature, a murder trial</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="A Little Life — friendship, trauma, devastating beauty" disabled> A Little Life — friendship, trauma, devastating beauty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Beloved — slavery&#x27;s ghost, literally and figuratively" disabled> Beloved — slavery&#x27;s ghost, literally and figuratively</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="comps" value="Other" disabled> Other</label>
+        </div>
+      </div>
+</div>
+<div class="form-group" id="tone-wrapper">
+  <label style="color:var(--text-secondary);">7. What's the vibe? <span style="font-weight:400;">(pick up to 3)</span></label>
+  <div class="hint" style="color:var(--text-secondary);">How should the book feel to read? Pick your genre above to see options.</div>
+      <div class="tone-group" data-tone-key="Paranormal / Shifter (werewolves, vampires, fated mates)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Intense and passionate" disabled> Intense and passionate</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and dangerous" disabled> Dark and dangerous</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Steamy and addictive" disabled> Steamy and addictive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and angsty" disabled> Emotional and angsty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Action-packed with romance" disabled> Action-packed with romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and supernatural" disabled> Fun and supernatural</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Contemporary (modern day, real world)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Funny and heartwarming" disabled> Funny and heartwarming</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and character-driven" disabled> Emotional and character-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Steamy and romantic" disabled> Steamy and romantic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Light and feel-good" disabled> Light and feel-good</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Angsty and intense" disabled> Angsty and intense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Witty banter-heavy" disabled> Witty banter-heavy</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Historical (Regency, Victorian, wartime)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Elegant and restrained" disabled> Elegant and restrained</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Witty and sharp" disabled> Witty and sharp</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Sweeping and epic" disabled> Sweeping and epic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Romantic and longing" disabled> Romantic and longing</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Passionate beneath propriety" disabled> Passionate beneath propriety</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark with undercurrents" disabled> Dark with undercurrents</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Romantic Suspense (danger + love story)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Suspenseful and tense" disabled> Suspenseful and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and dangerous" disabled> Dark and dangerous</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced with romance" disabled> Fast-paced with romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and high-stakes" disabled> Emotional and high-stakes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty with tender moments" disabled> Gritty with tender moments</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Page-turning and addictive" disabled> Page-turning and addictive</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Dark Romance (morally grey, intense)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and intense" disabled> Dark and intense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Raw and unflinching" disabled> Raw and unflinching</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Obsessive and consuming" disabled> Obsessive and consuming</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Psychologically charged" disabled> Psychologically charged</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Morally complex" disabled> Morally complex</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Taboo but compelling" disabled> Taboo but compelling</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Romantic Comedy (funny + feel-good)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Funny and feel-good" disabled> Funny and feel-good</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Witty banter-heavy" disabled> Witty banter-heavy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Light and charming" disabled> Light and charming</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Sweet with laugh-out-loud moments" disabled> Sweet with laugh-out-loud moments</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Heartwarming chaos" disabled> Heartwarming chaos</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Quirky and endearing" disabled> Quirky and endearing</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Reverse Harem (multiple love interests)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Steamy and addictive" disabled> Steamy and addictive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and complex" disabled> Emotional and complex</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and indulgent" disabled> Fun and indulgent</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and intense" disabled> Dark and intense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Action-packed with romance" disabled> Action-packed with romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fantasy-driven" disabled> Fantasy-driven</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Romance" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Romantic and intimate" disabled> Romantic and intimate</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and character-driven" disabled> Emotional and character-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and feel-good" disabled> Fun and feel-good</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Steamy and addictive" disabled> Steamy and addictive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Angsty and intense" disabled> Angsty and intense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Witty banter-heavy" disabled> Witty banter-heavy</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="High / Epic Fantasy (kingdoms, quests, magic systems)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic and sweeping" disabled> Epic and sweeping</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and morally complex" disabled> Dark and morally complex</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Adventurous and wonder-filled" disabled> Adventurous and wonder-filled</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Political and strategic" disabled> Political and strategic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious and atmospheric" disabled> Mysterious and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Rich and immersive" disabled> Rich and immersive</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Urban Fantasy (magic in the modern world)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and fast-paced" disabled> Gritty and fast-paced</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious and atmospheric" disabled> Mysterious and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Sarcastic and action-heavy" disabled> Sarcastic and action-heavy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark with dry humor" disabled> Dark with dry humor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Suspenseful and tense" disabled> Suspenseful and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and supernatural" disabled> Fun and supernatural</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Romantasy (fantasy + romance blend)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Romantic and epic" disabled> Romantic and epic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Steamy and magical" disabled> Steamy and magical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and sweeping" disabled> Emotional and sweeping</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark with passionate romance" disabled> Dark with passionate romance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Adventurous and tender" disabled> Adventurous and tender</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Angsty with slow-burn heat" disabled> Angsty with slow-burn heat</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Dark Fantasy (gritty, morally complex, dangerous)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and gritty" disabled> Dark and gritty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brutal and unflinching" disabled> Brutal and unflinching</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Morally grey and complex" disabled> Morally grey and complex</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Atmospheric and dread-filled" disabled> Atmospheric and dread-filled</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cynical with dark humor" disabled> Cynical with dark humor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Violent and beautiful" disabled> Violent and beautiful</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Cozy Fantasy (warm, low-stakes, found family)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cozy and comforting" disabled> Cozy and comforting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Warm and whimsical" disabled> Warm and whimsical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gentle and heartfelt" disabled> Gentle and heartfelt</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Charming with quiet humor" disabled> Charming with quiet humor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Hopeful and kind" disabled> Hopeful and kind</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slice-of-life with wonder" disabled> Slice-of-life with wonder</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Portal Fantasy (ordinary person enters a magical world)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Wonder-filled and adventurous" disabled> Wonder-filled and adventurous</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Whimsical and strange" disabled> Whimsical and strange</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Coming-of-age and magical" disabled> Coming-of-age and magical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious and atmospheric" disabled> Mysterious and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cozy with danger underneath" disabled> Cozy with danger underneath</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Enchanting and nostalgic" disabled> Enchanting and nostalgic</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Fantasy" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic and sweeping" disabled> Epic and sweeping</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious and atmospheric" disabled> Mysterious and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and gritty" disabled> Dark and gritty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cozy and comforting" disabled> Cozy and comforting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Adventurous and wonder-filled" disabled> Adventurous and wonder-filled</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Rich and immersive" disabled> Rich and immersive</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Military (soldiers, operations, combat)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and tactical" disabled> Gritty and tactical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and relentless" disabled> Fast-paced and relentless</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Patriotic and duty-driven" disabled> Patriotic and duty-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brutal and realistic" disabled> Brutal and realistic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense with brotherhood" disabled> Tense with brotherhood</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Technical and authentic" disabled> Technical and authentic</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Spies / Espionage (intelligence, undercover, tradecraft)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and paranoid" disabled> Tense and paranoid</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Sophisticated and layered" disabled> Sophisticated and layered</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and globe-trotting" disabled> Fast-paced and globe-trotting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cold and calculated" disabled> Cold and calculated</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Twisty and deceptive" disabled> Twisty and deceptive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Glamorous with darkness underneath" disabled> Glamorous with darkness underneath</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Psychological (mind games, unreliable narrators, gaslighting)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Unsettling and claustrophobic" disabled> Unsettling and claustrophobic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Twisty and deceptive" disabled> Twisty and deceptive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Paranoid and tense" disabled> Paranoid and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and domestic" disabled> Dark and domestic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slow-burn dread" disabled> Slow-burn dread</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Disturbing and compelling" disabled> Disturbing and compelling</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Legal / Political (courtrooms, cover-ups, power)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and cerebral" disabled> Tense and cerebral</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Political and sharp" disabled> Political and sharp</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dramatic with moral weight" disabled> Dramatic with moral weight</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced courtroom drama" disabled> Fast-paced courtroom drama</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Conspiratorial and layered" disabled> Conspiratorial and layered</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cynical about power" disabled> Cynical about power</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Serial Killer / Hunt (cat and mouse, profiling)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and disturbing" disabled> Dark and disturbing</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense cat-and-mouse" disabled> Tense cat-and-mouse</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Clinical and forensic" disabled> Clinical and forensic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Psychologically intense" disabled> Psychologically intense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Suspenseful and propulsive" disabled> Suspenseful and propulsive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and procedural" disabled> Gritty and procedural</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Conspiracy (secret organizations, hidden truths)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Paranoid and tense" disabled> Paranoid and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and globe-trotting" disabled> Fast-paced and globe-trotting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Twisty with shocking reveals" disabled> Twisty with shocking reveals</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cerebral and layered" disabled> Cerebral and layered</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Action-packed and urgent" disabled> Action-packed and urgent</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and conspiratorial" disabled> Dark and conspiratorial</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Thriller / Suspense" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Suspenseful and tense" disabled> Suspenseful and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and gritty" disabled> Dark and gritty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and relentless" disabled> Fast-paced and relentless</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Twisty and deceptive" disabled> Twisty and deceptive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Psychologically intense" disabled> Psychologically intense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Paranoid and urgent" disabled> Paranoid and urgent</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Police Procedural / Detective (investigations, evidence, cases)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and procedural" disabled> Gritty and procedural</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Atmospheric and character-driven" disabled> Atmospheric and character-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and methodical" disabled> Tense and methodical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark with moral weight" disabled> Dark with moral weight</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Realistic and grounded" disabled> Realistic and grounded</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Compelling and case-driven" disabled> Compelling and case-driven</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Cozy Mystery (amateur sleuth, small town, low violence)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Charming and witty" disabled> Charming and witty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cozy and comforting" disabled> Cozy and comforting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Light-hearted with clever puzzles" disabled> Light-hearted with clever puzzles</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Community-driven and warm" disabled> Community-driven and warm</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Quirky and fun" disabled> Quirky and fun</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gentle suspense" disabled> Gentle suspense</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Noir / Hardboiled (dark, cynical, morally grey)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and cynical" disabled> Dark and cynical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Rain-soaked and atmospheric" disabled> Rain-soaked and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Morally grey and bleak" disabled> Morally grey and bleak</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Sharp-tongued and tough" disabled> Sharp-tongued and tough</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fatalistic and moody" disabled> Fatalistic and moody</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and raw" disabled> Gritty and raw</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Whodunit (classic puzzle, suspects, red herrings)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Clever and satisfying" disabled> Clever and satisfying</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Witty and sharp" disabled> Witty and sharp</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Twisty with fair clues" disabled> Twisty with fair clues</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Drawing-room elegance" disabled> Drawing-room elegance</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Playful and suspenseful" disabled> Playful and suspenseful</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Classic and cerebral" disabled> Classic and cerebral</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Historical Mystery (past eras, period detail)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Atmospheric and period-rich" disabled> Atmospheric and period-rich</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious and intellectual" disabled> Mysterious and intellectual</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark with historical detail" disabled> Dark with historical detail</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Elegant and suspenseful" disabled> Elegant and suspenseful</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Immersive and scholarly" disabled> Immersive and scholarly</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gothic and brooding" disabled> Gothic and brooding</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="True Crime Fiction (inspired by real events)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gripping and real" disabled> Gripping and real</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and documentary" disabled> Dark and documentary</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Obsessive and investigative" disabled> Obsessive and investigative</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Disturbing and compelling" disabled> Disturbing and compelling</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Journalistic and urgent" disabled> Journalistic and urgent</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Empathetic toward victims" disabled> Empathetic toward victims</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Mystery / Crime" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious and atmospheric" disabled> Mysterious and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Suspenseful and tense" disabled> Suspenseful and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Clever and satisfying" disabled> Clever and satisfying</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and cynical" disabled> Dark and cynical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Charming and witty" disabled> Charming and witty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and procedural" disabled> Gritty and procedural</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Supernatural (ghosts, demons, hauntings)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dread-soaked and creeping" disabled> Dread-soaked and creeping</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Terrifying and visceral" disabled> Terrifying and visceral</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Atmospheric and haunting" disabled> Atmospheric and haunting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Unsettling and quiet" disabled> Unsettling and quiet</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Relentless and oppressive" disabled> Relentless and oppressive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Eerie and sad" disabled> Eerie and sad</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Psychological (is it real or in their head?)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Paranoid and unsettling" disabled> Paranoid and unsettling</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slow-burn dread" disabled> Slow-burn dread</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Claustrophobic and tense" disabled> Claustrophobic and tense</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Unreliable and disorienting" disabled> Unreliable and disorienting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Quiet horror that builds" disabled> Quiet horror that builds</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Disturbing and cerebral" disabled> Disturbing and cerebral</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Gothic (atmosphere, old houses, dread)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Atmospheric and brooding" disabled> Atmospheric and brooding</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Creeping dread" disabled> Creeping dread</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Romantic and sinister" disabled> Romantic and sinister</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Lush and decaying" disabled> Lush and decaying</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Eerie and melancholic" disabled> Eerie and melancholic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Beautiful and terrifying" disabled> Beautiful and terrifying</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Slasher / Survival (fight to stay alive)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast and brutal" disabled> Fast and brutal</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and relentless" disabled> Tense and relentless</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Visceral and bloody" disabled> Visceral and bloody</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and self-aware" disabled> Fun and self-aware</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Shocking and unpredictable" disabled> Shocking and unpredictable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Desperate and claustrophobic" disabled> Desperate and claustrophobic</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Cosmic / Lovecraftian (unknowable, vast, alien)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Vast and indifferent" disabled> Vast and indifferent</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dread of the unknowable" disabled> Dread of the unknowable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Existential and bleak" disabled> Existential and bleak</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slowly maddening" disabled> Slowly maddening</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Alien and beautiful" disabled> Alien and beautiful</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Hopeless and awe-inspiring" disabled> Hopeless and awe-inspiring</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Body Horror (transformation, infection, wrongness)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Visceral and stomach-turning" disabled> Visceral and stomach-turning</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Creeping wrongness" disabled> Creeping wrongness</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Clinical and disturbing" disabled> Clinical and disturbing</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tragic and grotesque" disabled> Tragic and grotesque</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slow transformation horror" disabled> Slow transformation horror</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Skin-crawling and intimate" disabled> Skin-crawling and intimate</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Horror" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and atmospheric" disabled> Dark and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Terrifying and visceral" disabled> Terrifying and visceral</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slow-burn dread" disabled> Slow-burn dread</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Unsettling and psychological" disabled> Unsettling and psychological</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gothic and brooding" disabled> Gothic and brooding</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Raw and unflinching" disabled> Raw and unflinching</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Space Opera (starships, galactic conflict, big scope)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic and sweeping" disabled> Epic and sweeping</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Adventurous and hopeful" disabled> Adventurous and hopeful</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Political and complex" disabled> Political and complex</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Action-packed and cinematic" disabled> Action-packed and cinematic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Wonder-filled and vast" disabled> Wonder-filled and vast</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and militaristic" disabled> Dark and militaristic</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Dystopian / Post-Apocalyptic (broken societies, survival)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Bleak and oppressive" disabled> Bleak and oppressive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and survival-driven" disabled> Tense and survival-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Rebellious and hopeful" disabled> Rebellious and hopeful</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and politically charged" disabled> Dark and politically charged</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Quiet and melancholic" disabled> Quiet and melancholic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brutal and unflinching" disabled> Brutal and unflinching</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Cyberpunk (tech, corporations, neon-noir)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Neon-noir and atmospheric" disabled> Neon-noir and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and tech-heavy" disabled> Gritty and tech-heavy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cynical and stylish" disabled> Cynical and stylish</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and chaotic" disabled> Fast-paced and chaotic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Philosophical and dark" disabled> Philosophical and dark</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Punk and rebellious" disabled> Punk and rebellious</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Military Sci-Fi (soldiers in space, future warfare)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tactical and gritty" disabled> Tactical and gritty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brotherhood and sacrifice" disabled> Brotherhood and sacrifice</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced combat" disabled> Fast-paced combat</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and realistic" disabled> Dark and realistic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Patriotic and duty-driven" disabled> Patriotic and duty-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic scale warfare" disabled> Epic scale warfare</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="First Contact (meeting alien life)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Awe-inspiring and cerebral" disabled> Awe-inspiring and cerebral</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and mysterious" disabled> Tense and mysterious</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Philosophical and wonder-filled" disabled> Philosophical and wonder-filled</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Terrifying and unknown" disabled> Terrifying and unknown</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Hopeful and curious" disabled> Hopeful and curious</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Linguistically fascinating" disabled> Linguistically fascinating</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Hard Sci-Fi (scientifically grounded, realistic tech)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cerebral and precise" disabled> Cerebral and precise</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Problem-solving and satisfying" disabled> Problem-solving and satisfying</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dry humor under pressure" disabled> Dry humor under pressure</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Realistic and grounded" disabled> Realistic and grounded</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and survival-driven" disabled> Tense and survival-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Wonder through real science" disabled> Wonder through real science</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Sci-Fi" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic and sweeping" disabled> Epic and sweeping</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and atmospheric" disabled> Dark and atmospheric</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Cerebral and philosophical" disabled> Cerebral and philosophical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and action-packed" disabled> Fast-paced and action-packed</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Wonder-filled and vast" disabled> Wonder-filled and vast</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and realistic" disabled> Gritty and realistic</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Military Action (boots on the ground, operations)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gritty and tactical" disabled> Gritty and tactical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and relentless" disabled> Fast-paced and relentless</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brotherhood and duty" disabled> Brotherhood and duty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brutal and authentic" disabled> Brutal and authentic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Patriotic and action-heavy" disabled> Patriotic and action-heavy</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense with high stakes" disabled> Tense with high stakes</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Heist / Caper (planning, execution, twists)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Slick and clever" disabled> Slick and clever</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and twisty" disabled> Fun and twisty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense with dry humor" disabled> Tense with dry humor</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Stylish and fast-paced" disabled> Stylish and fast-paced</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Ensemble energy and banter" disabled> Ensemble energy and banter</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Satisfying like a puzzle" disabled> Satisfying like a puzzle</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Survival / Expedition (hostile environments, endurance)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and survival-driven" disabled> Tense and survival-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Isolated and desperate" disabled> Isolated and desperate</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Problem-solving under pressure" disabled> Problem-solving under pressure</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Raw and physical" disabled> Raw and physical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Atmospheric and immersive" disabled> Atmospheric and immersive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Hopeful against the odds" disabled> Hopeful against the odds</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Vigilante / Revenge (one person against the system)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and relentless" disabled> Dark and relentless</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Satisfying and brutal" disabled> Satisfying and brutal</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Lone wolf intensity" disabled> Lone wolf intensity</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Stylish and violent" disabled> Stylish and violent</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional with cold fury" disabled> Emotional with cold fury</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast and unstoppable" disabled> Fast and unstoppable</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Treasure Hunt / Quest (the search drives the story)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Adventurous and fun" disabled> Adventurous and fun</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and globe-trotting" disabled> Fast-paced and globe-trotting</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Puzzle-driven and clever" disabled> Puzzle-driven and clever</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Wonder-filled and cinematic" disabled> Wonder-filled and cinematic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Witty and swashbuckling" disabled> Witty and swashbuckling</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Mysterious with reveals" disabled> Mysterious with reveals</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="War Story (the human cost of conflict)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Raw and emotional" disabled> Raw and emotional</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brutal and honest" disabled> Brutal and honest</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Quiet and devastating" disabled> Quiet and devastating</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brotherhood under fire" disabled> Brotherhood under fire</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark humor amid horror" disabled> Dark humor amid horror</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Heroic and sacrificial" disabled> Heroic and sacrificial</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Action / Adventure" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and relentless" disabled> Fast-paced and relentless</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dark and gritty" disabled> Dark and gritty</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fun and adventurous" disabled> Fun and adventurous</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Tense and high-stakes" disabled> Tense and high-stakes</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Stylish and cinematic" disabled> Stylish and cinematic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Brutal and satisfying" disabled> Brutal and satisfying</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Personal Memoir (your story, your life)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Raw and honest" disabled> Raw and honest</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Reflective and literary" disabled> Reflective and literary</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Funny and self-aware" disabled> Funny and self-aware</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and vulnerable" disabled> Emotional and vulnerable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Conversational and warm" disabled> Conversational and warm</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Poetic and lyrical" disabled> Poetic and lyrical</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Biography (someone else&#x27;s story)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Authoritative and well-researched" disabled> Authoritative and well-researched</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Narrative and compelling" disabled> Narrative and compelling</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Intimate and revealing" disabled> Intimate and revealing</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic in scope" disabled> Epic in scope</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dramatic and cinematic" disabled> Dramatic and cinematic</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fair and balanced" disabled> Fair and balanced</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Self-Help / How-To (teaching, guiding, frameworks)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Clear and actionable" disabled> Clear and actionable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Motivational and energizing" disabled> Motivational and energizing</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Conversational and relatable" disabled> Conversational and relatable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Evidence-based and credible" disabled> Evidence-based and credible</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Funny and irreverent" disabled> Funny and irreverent</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Warm and encouraging" disabled> Warm and encouraging</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="True Crime (real cases, investigations)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gripping and dark" disabled> Gripping and dark</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Journalistic and precise" disabled> Journalistic and precise</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Obsessive and immersive" disabled> Obsessive and immersive</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Empathetic toward victims" disabled> Empathetic toward victims</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Disturbing but important" disabled> Disturbing but important</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Fast-paced and real" disabled> Fast-paced and real</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="History (events, eras, untold stories)" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Narrative and page-turning" disabled> Narrative and page-turning</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Scholarly but accessible" disabled> Scholarly but accessible</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Epic in scope" disabled> Epic in scope</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Intimate and human" disabled> Intimate and human</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Revisionist and surprising" disabled> Revisionist and surprising</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Dramatic and vivid" disabled> Dramatic and vivid</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Memoir / Nonfiction" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Raw and honest" disabled> Raw and honest</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Reflective and literary" disabled> Reflective and literary</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Conversational and warm" disabled> Conversational and warm</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Funny and self-aware" disabled> Funny and self-aware</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and vulnerable" disabled> Emotional and vulnerable</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Gripping and real" disabled> Gripping and real</label>
+        </div>
+      </div>
+      <div class="tone-group" data-tone-key="Literary Fiction" style="display:none;">
+        <div class="option-group">
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Emotional and character-driven" disabled> Emotional and character-driven</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Quiet and devastating" disabled> Quiet and devastating</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Poetic and lyrical" disabled> Poetic and lyrical</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Sharp and observational" disabled> Sharp and observational</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Intimate and human" disabled> Intimate and human</label>
+        <label style="opacity:0.4;"><input type="checkbox" name="tone" value="Ambiguous and thought-provoking" disabled> Ambiguous and thought-provoking</label>
+        </div>
+      </div>
+</div>
+<div class="form-group">
+  <label class="required">6. What&#x27;s your book about?</label>
+  <div class="hint">1-3 sentences. &quot;I just have a vibe&quot; is fine.</div>
+  <textarea name="pitch" rows="4" required></textarea>
+</div>
+<div class="form-group">
+  <label class="required">8. Content maturity level</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="maturity_level" value="Clean (no sex, minimal violence, no profanity)" required> Clean (no sex, minimal violence, no profanity)</label>
+    <label><input type="radio" name="maturity_level" value="Mild (fade-to-black romance, moderate tension)" required> Mild (fade-to-black romance, moderate tension)</label>
+    <label><input type="radio" name="maturity_level" value="Mature (violence, complex themes, some profanity)" required> Mature (violence, complex themes, some profanity)</label>
+    <label><input type="radio" name="maturity_level" value="Steamy (on-page romance, strong language, adult themes)" required> Steamy (on-page romance, strong language, adult themes)</label>
+  </div>
+</div>
+<div class="form-group" style="margin-top:-8px;">
+  <div class="hint" style="font-size:13px;color:var(--text-secondary);">
+    Need something beyond steamy? Content with graphic or explicit elements
+    requires a custom discussion.
+    <a href="mailto:hello@crimsonpulpfic.com?subject=Mature%20Content%20Inquiry"
+       style="color:var(--brand-accent);text-decoration:underline;">Contact us directly</a>
+    and we'll work out the details.
+  </div>
+  <label style="display:block;font-size:14px;font-weight:600;margin-top:12px;">
+    Content notes <span style="font-weight:400;color:var(--text-secondary);">(optional)</span>
+  </label>
+  <div class="hint">Anything specific about the content level — themes, boundaries,
+  things you definitely want or want to avoid.</div>
+  <textarea name="content_notes" rows="3"
+    style="width:100%;padding:10px 12px;background:#16161f;border:1px solid var(--border-card);
+    border-radius:6px;color:var(--text-primary);font-size:15px;font-family:inherit;
+    resize:vertical;" placeholder="e.g., 'Romance scenes should be steamy but tasteful' or 'Violence is OK but no gore'"></textarea>
+</div>
+<div class="form-group">
+  <label class="required">9. Target audience</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="target_audience" value="Under 18 (YA)" required> Under 18 (YA)</label>
+    <label><input type="radio" name="target_audience" value="18+ (Adult)" required> 18+ (Adult)</label>
+    <label><input type="radio" name="target_audience" value="All ages" required> All ages</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>How Should It Feel?</h2>
+<div class="form-group">
+  <label class="required">10. What are you most excited about?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="excited_about" value="The characters (I want people to fall in love with them)" required> The characters (I want people to fall in love with them)</label>
+    <label><input type="radio" name="excited_about" value="The world (I want readers to feel like they&#x27;re there)" required> The world (I want readers to feel like they&#x27;re there)</label>
+    <label><input type="radio" name="excited_about" value="The plot (I want a page-turner)" required> The plot (I want a page-turner)</label>
+    <label><input type="radio" name="excited_about" value="The romance (I want readers swooning)" required> The romance (I want readers swooning)</label>
+    <label><input type="radio" name="excited_about" value="The atmosphere (I want a specific feeling)" required> The atmosphere (I want a specific feeling)</label>
+    <label><input type="radio" name="excited_about" value="The twist or concept (I have a killer idea)" required> The twist or concept (I have a killer idea)</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>11. What worries you most?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="worried_about" value="That it&#x27;ll feel generic"> That it&#x27;ll feel generic</label>
+    <label><input type="radio" name="worried_about" value="That my vision won&#x27;t come through"> That my vision won&#x27;t come through</label>
+    <label><input type="radio" name="worried_about" value="That the pacing will be off"> That the pacing will be off</label>
+    <label><input type="radio" name="worried_about" value="That the characters won&#x27;t feel real"> That the characters won&#x27;t feel real</label>
+    <label><input type="radio" name="worried_about" value="That it&#x27;ll be too similar to something famous"> That it&#x27;ll be too similar to something famous</label>
+    <label><input type="radio" name="worried_about" value="I&#x27;m not worried — surprise me"> I&#x27;m not worried — surprise me</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>12. Must-have elements</label>
+  <div class="hint">Tropes, themes, representation — anything you definitely want.</div>
+  <textarea name="must_include" rows="3"></textarea>
+</div>
+<div class="form-group">
+  <label>13. Must NOT have</label>
+  <div class="hint">Triggers, tropes, content types you want us to avoid.</div>
+  <textarea name="must_avoid" rows="3"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Project Details</h2>
+<div class="form-group">
+  <label class="required">14. Where are you starting from?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="project_status" value="Fresh idea — I know what I want but haven&#x27;t started writing" required> Fresh idea — I know what I want but haven&#x27;t started writing</label>
+    <label><input type="radio" name="project_status" value="Concept and notes — I have characters, world, or plot notes" required> Concept and notes — I have characters, world, or plot notes</label>
+    <label><input type="radio" name="project_status" value="Partial draft or outline — I&#x27;ve started but it&#x27;s incomplete" required> Partial draft or outline — I&#x27;ve started but it&#x27;s incomplete</label>
+    <label><input type="radio" name="project_status" value="Existing manuscript — I have a draft I want reimagined as a new work" required> Existing manuscript — I have a draft I want reimagined as a new work</label>
+    <label><input type="radio" name="project_status" value="Just a vibe — I know the genre and feeling, help me build the rest" required> Just a vibe — I know the genre and feeling, help me build the rest</label>
+  </div>
+</div>
+<div class="form-group" style="margin-top:-8px;">
+  <div class="hint" style="font-size:13px;color:var(--text-secondary);border-left:3px solid var(--brand-accent);padding:8px 16px;">
+    <strong>How this works:</strong> We build new books from your vision. If you have an existing
+    draft or manuscript, we'll analyze it for characters, world, plot elements, and tone — then
+    use that as a foundation. The result is a <em>new work</em> inspired by what you provide, not
+    a completion or edit of your original. Some elements may not translate directly.
+    This is a creation service, not an editing or manuscript completion service.
+  </div>
+</div>
+<div class="form-group">
+  <label>15. Do you have any materials to share? (check all that apply)</label>
+  <div class="hint">Anything you have helps us understand your vision. We&#x27;ll analyze what you send and use it as a foundation.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="materials" value="Written draft or partial manuscript"> Written draft or partial manuscript</label>
+    <label><input type="checkbox" name="materials" value="Character notes or character sheets"> Character notes or character sheets</label>
+    <label><input type="checkbox" name="materials" value="Plot outline or synopsis"> Plot outline or synopsis</label>
+    <label><input type="checkbox" name="materials" value="World-building notes or maps"> World-building notes or maps</label>
+    <label><input type="checkbox" name="materials" value="Mood board, Pinterest, or reference images"> Mood board, Pinterest, or reference images</label>
+    <label><input type="checkbox" name="materials" value="Research or reference documents"> Research or reference documents</label>
+    <label><input type="checkbox" name="materials" value="Nothing yet — starting from scratch"> Nothing yet — starting from scratch</label>
+  </div>
+</div>
+<div class="form-group" style="margin-top:-8px;">
+  <div class="hint" style="font-size:13px;color:var(--text-secondary);border-left:3px solid var(--brand-gold);padding:8px 16px;">
+    <strong>To send your materials:</strong> After submitting this form, email your files to
+    <a href="mailto:hello@crimsonpulpfic.com" style="color:var(--brand-accent);">hello@crimsonpulpfic.com</a>
+    with your <strong>name</strong> in the subject line.
+    We accept Word docs, PDFs, Google Doc links, images, or plain text.
+    There's no size limit — send everything you have.
+  </div>
+</div>
+<div class="form-group">
+  <label>16. Is this a standalone book or a series?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="scope" value="Standalone"> Standalone</label>
+    <label><input type="radio" name="scope" value="Series (multiple books)"> Series (multiple books)</label>
+    <label><input type="radio" name="scope" value="Not sure yet"> Not sure yet</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>17. What cultural background are your main characters?</label>
+  <div class="hint">Check all that apply. This shapes names, family dynamics, food, speech, community, and the world your characters live in. Your book should feel like YOUR world.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="character_culture" value="Black / African / Afro-Caribbean"> Black / African / Afro-Caribbean</label>
+    <label><input type="checkbox" name="character_culture" value="Hispanic / Latino / Latina / Latinx"> Hispanic / Latino / Latina / Latinx</label>
+    <label><input type="checkbox" name="character_culture" value="East Asian (Chinese, Japanese, Korean, etc.)"> East Asian (Chinese, Japanese, Korean, etc.)</label>
+    <label><input type="checkbox" name="character_culture" value="South Asian (Indian, Pakistani, Sri Lankan, etc.)"> South Asian (Indian, Pakistani, Sri Lankan, etc.)</label>
+    <label><input type="checkbox" name="character_culture" value="Southeast Asian (Filipino, Vietnamese, Thai, etc.)"> Southeast Asian (Filipino, Vietnamese, Thai, etc.)</label>
+    <label><input type="checkbox" name="character_culture" value="Middle Eastern / North African"> Middle Eastern / North African</label>
+    <label><input type="checkbox" name="character_culture" value="Indigenous / First Nations / Native"> Indigenous / First Nations / Native</label>
+    <label><input type="checkbox" name="character_culture" value="Mixed race / multiracial"> Mixed race / multiracial</label>
+    <label><input type="checkbox" name="character_culture" value="White / European"> White / European</label>
+    <label><input type="checkbox" name="character_culture" value="Other cultural background"> Other cultural background</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>18. Any of these? (check all that apply)</label>
+  <div class="hint">These help us write characters who feel real and whole, not tokenized.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="identity_extras" value="LGBTQ+ protagonist or love interest"> LGBTQ+ protagonist or love interest</label>
+    <label><input type="checkbox" name="identity_extras" value="LGBTQ+ supporting characters"> LGBTQ+ supporting characters</label>
+    <label><input type="checkbox" name="identity_extras" value="Disability (physical, chronic illness, sensory)"> Disability (physical, chronic illness, sensory)</label>
+    <label><input type="checkbox" name="identity_extras" value="Neurodivergent characters (ADHD, autism, etc.)"> Neurodivergent characters (ADHD, autism, etc.)</label>
+    <label><input type="checkbox" name="identity_extras" value="Faith or spirituality is important to the characters"> Faith or spirituality is important to the characters</label>
+    <label><input type="checkbox" name="identity_extras" value="Immigrant or diaspora experience"> Immigrant or diaspora experience</label>
+    <label><input type="checkbox" name="identity_extras" value="None of these specifically — open to whatever fits"> None of these specifically — open to whatever fits</label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="required">19. How long should the book be?</label>
+  <div class="hint">Beta program: maximum 20,000 words for your first book. Longer works available after beta.</div>
+  <div class="option-group">
+    <label><input type="radio" name="book_length" value="5,000 words (short story)" required> 5,000 words (short story)</label>
+    <label><input type="radio" name="book_length" value="10,000 words (novelette)" required> 10,000 words (novelette)</label>
+    <label><input type="radio" name="book_length" value="20,000 words (novella) — beta max" required> 20,000 words (novella) — beta max</label>
+  </div>
+</div>
+<div class="form-group">
+  <label class="required">20. What package?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="package" value="Standard — complete book (EPUB, cover, publication-ready)" required> Standard — complete book (EPUB, cover, publication-ready)</label>
+    <label><input type="radio" name="package" value="Standard + Audiobook — everything above plus narrated audiobook" required> Standard + Audiobook — everything above plus narrated audiobook</label>
+    <label><input type="radio" name="package" value="Full Launch — everything above plus KDP publication and marketing" required> Full Launch — everything above plus KDP publication and marketing</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>21. How fast do you need it?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="timeline" value="Standard (14 days)"> Standard (14 days)</label>
+    <label><input type="radio" name="timeline" value="Priority (7 days)"> Priority (7 days)</label>
+    <label><input type="radio" name="timeline" value="Rush (24 hours) — premium"> Rush (24 hours) — premium</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Almost Done</h2>
+<div class="form-group">
+  <label>22. Anything else you want us to know?</label>
+  
+  <textarea name="anything_else" rows="4"></textarea>
+</div>
+<div class="form-group">
+  <label class="required">23. Confirmation</label>
+  <div class="option-group">
+    <label><input type="checkbox" name="age_declaration" value="confirmed" required>
+      I confirm I am 18 years of age or older</label>
+    <label><input type="checkbox" name="content_policy" value="accepted" required>
+      I understand that this service will not produce illegal content, non-consensual scenarios,
+      or content depicting minors in sexual situations under any circumstances. The service
+      reserves the right to decline any project at its discretion.</label>
+  </div>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Discovery Form</button>
+      <p class="submit-help">Your responses are sent securely. We'll review and send you
+      a personalized follow-up questionnaire tailored to your genre.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact us at hello@crimsonpulpfic.com for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>Thanks for sharing your vision! We'll review your information and get back to you within 48 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Book Production Service</div>
+    <div>Questions? Email hello@crimsonpulpfic.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-23T12:26:11.976638+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.querySelectorAll(".example-toggle").forEach(function(toggle) {
+  toggle.addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      this.textContent = this.textContent.replace("Hide", "Show");
+    } else {
+      content.style.display = "block";
+      this.textContent = this.textContent.replace("Show", "Hide");
+    }
+  });
+});
+(function() {
+  var sections = document.querySelectorAll(".section-card");
+  var total = 5;
+  var bar = document.querySelector(".progress-fill");
+  if (!bar) return;
+
+  function updateProgress() {
+    var filled = 0;
+    sections.forEach(function(section) {
+      var inputs = section.querySelectorAll("input, textarea, select");
+      var hasValue = false;
+      inputs.forEach(function(input) {
+        if (input.type === "radio" || input.type === "checkbox") {
+          if (input.checked) hasValue = true;
+        } else if (input.value.trim()) {
+          hasValue = true;
+        }
+      });
+      if (hasValue) filled++;
+    });
+    var pct = Math.round((filled / total) * 100);
+    bar.style.width = pct + "%";
+  }
+
+  document.querySelectorAll("input, textarea, select").forEach(function(el) {
+    el.addEventListener("change", updateProgress);
+    el.addEventListener("input", updateProgress);
+  });
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "author_discovery_v2",
+    token: "e39f1b1f-ff5e-48da-9b85-ba371f37da7d",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbz9GI9JB3BHRV99c-JJ9spAcEUgMSKm8gj4UYC3jJm71K2K6tuXPUyTPXdX6PxOt0FHYg/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#4caf50";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error \u2014 Try Again";
+    btn.style.background = "#ef5350";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+(function() {
+  var genreSelect = document.querySelector('select[name="genre"]');
+  var subgenreGroups = document.querySelectorAll('.subgenre-group');
+  var subgenreWrapper = document.getElementById('subgenre-wrapper');
+  var compGroups = document.querySelectorAll('.comp-group');
+  var compWrapper = document.getElementById('comp-wrapper');
+
+  var toneGroups = document.querySelectorAll('.tone-group');
+  var toneWrapper = document.getElementById('tone-wrapper');
+  var compLabel = compWrapper.querySelector('label');
+  var compHint = compWrapper.querySelector('.hint');
+  var toneLabel = toneWrapper.querySelector('label');
+  var toneHint = toneWrapper.querySelector('.hint');
+
+  function activateGroup(groups, wrapperLabel, wrapperHint, attr, key) {
+    // Reset all groups in this set
+    groups.forEach(function(g) {
+      g.style.display = 'none';
+      g.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+        cb.checked = false; cb.disabled = true;
+      });
+      g.querySelectorAll('label').forEach(function(lbl) {
+        lbl.style.opacity = '0.4';
+      });
+    });
+    if (!key) {
+      wrapperLabel.style.color = 'var(--text-secondary)';
+      wrapperHint.style.display = 'block';
+      return;
+    }
+    // Try exact subgenre match first, then genre fallback
+    var match = document.querySelector('[' + attr + '="' + key + '"]');
+    if (!match) {
+      var genre = genreSelect.value;
+      match = document.querySelector('[' + attr + '="' + genre + '"]');
+    }
+    if (match) {
+      match.style.display = 'block';
+      match.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.disabled = false; });
+      match.querySelectorAll('label').forEach(function(lbl) { lbl.style.opacity = '1'; });
+      wrapperLabel.style.color = 'var(--text-primary)';
+      wrapperHint.style.display = 'none';
+    }
+  }
+
+  function showCompsFor(key) {
+    activateGroup(compGroups, compLabel, compHint, 'data-comp-key', key);
+    activateGroup(toneGroups, toneLabel, toneHint, 'data-tone-key', key);
+  }
+
+  function getActiveSubgenre() {
+    var genre = genreSelect.value;
+    var match = document.querySelector('.subgenre-group[data-genre="' + genre + '"]');
+    if (!match) return null;
+    var sel = match.querySelector('select');
+    if (sel && sel.value) return sel.value;
+    return null;
+  }
+
+  function updateCascade() {
+    var genre = genreSelect.value;
+
+    // --- Subgenre ---
+    subgenreGroups.forEach(function(g) {
+      g.style.display = 'none';
+      var sel = g.querySelector('select');
+      if (sel) { sel.value = ''; sel.removeAttribute('required'); }
+      var inp = g.querySelector('input[type="text"]');
+      if (inp) { inp.value = ''; inp.removeAttribute('required'); }
+    });
+
+    if (genre === 'Literary Fiction') {
+      subgenreWrapper.style.display = 'none';
+      showCompsFor('Literary Fiction');
+    } else if (genre) {
+      subgenreWrapper.style.display = 'block';
+      var match = document.querySelector('.subgenre-group[data-genre="' + genre + '"]');
+      if (match) {
+        match.style.display = 'block';
+        var sel = match.querySelector('select');
+        if (sel) sel.setAttribute('required', '');
+        var inp = match.querySelector('input[type="text"]');
+        if (inp) inp.setAttribute('required', '');
+      }
+      // Show genre-level comps (greyed out) — subgenre pick will activate them
+      showCompsFor(genre);
+    } else {
+      subgenreWrapper.style.display = 'none';
+      showCompsFor(null);
+    }
+    // If "Other", no comps
+    if (genre === 'Other') showCompsFor(null);
+  }
+
+  genreSelect.addEventListener('change', updateCascade);
+
+  // Listen for subgenre changes — update comps when subgenre is selected
+  document.querySelectorAll('.subgenre-group select').forEach(function(sel) {
+    sel.addEventListener('change', function() {
+      var subgenre = sel.value;
+      if (subgenre) {
+        showCompsFor(subgenre);
+      } else {
+        // Fell back to no subgenre — show genre-level
+        showCompsFor(genreSelect.value);
+      }
+    });
+  });
+})();
+
+// --- Tone checkbox limit (max 3) — scoped to visible group ---
+(function() {
+  document.querySelectorAll('.tone-group').forEach(function(group) {
+    var boxes = group.querySelectorAll('input[type="checkbox"]');
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var checked = group.querySelectorAll('input[type="checkbox"]:checked');
+        if (checked.length >= 3) {
+          boxes.forEach(function(box) {
+            if (!box.checked) box.disabled = true;
+          });
+        } else {
+          boxes.forEach(function(box) { box.disabled = false; });
+        }
+      });
+    });
+  });
+})();
+
+// --- Comp checkbox limit (max 3) ---
+(function() {
+  document.querySelectorAll('.comp-group').forEach(function(group) {
+    var boxes = group.querySelectorAll('input[type="checkbox"]');
+    boxes.forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var checked = group.querySelectorAll('input[type="checkbox"]:checked');
+        if (checked.length >= 3) {
+          boxes.forEach(function(box) {
+            if (!box.checked) box.disabled = true;
+          });
+        } else {
+          boxes.forEach(function(box) { box.disabled = false; });
+        }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

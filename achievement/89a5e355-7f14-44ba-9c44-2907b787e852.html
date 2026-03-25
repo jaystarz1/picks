@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career Details for Dicoda &mdash; Dicoda</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Career Details for Dicoda</h1>
+    <div class="meta-line">Generated: March 25, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Career Details</h2>
+    <p>We've analyzed your resume and have some specific questions. Each
+    question references the relevant job &mdash; just answer what you can.
+    Your best estimates are fine. Skip anything you genuinely can't
+    remember.</p>
+    <p>This should take about 15-20 minutes (34 questions).</p>
+    <p class="hint">Fields marked with
+    <span style="color: var(--brand-accent);">*</span> are required.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="89a5e355-7f14-44ba-9c44-2907b787e852">
+    <input type="hidden" name="client_name" value="Dicoda_Wray">
+    <input type="hidden" name="form_mode" value="personalized">
+    <div class="section-card">
+      <h2>Your Experience</h2>
+      <div class="form-group">
+  <label>1. As Branch Manager at National People&#x27;s Co-operative Bank, how many staff do you supervise?</label>
+  <div class="hint">Most branch managers oversee 5-20 staff depending on branch size.</div>
+  <input type="text" name="q1_branch_staff">
+</div>
+      <div class="form-group">
+  <label>2. How many members (customers) does your branch serve?</label>
+  <div class="hint">Total active accounts or regular customers. Your best estimate is fine.</div>
+  <input type="text" name="q2_branch_members">
+</div>
+      <div class="form-group">
+  <label>3. What is the approximate total value of deposits or assets at your branch?</label>
+  <div class="hint">Even a rough range helps us show the scale of your responsibility to Canadian employers.</div>
+  <input type="text" name="q3_branch_deposits">
+</div>
+      <div class="form-group">
+  <label>4. Since you became Branch Manager, has the branch grown? By how much (new members, deposits, loan volume)?</label>
+  <div class="hint">Before/after numbers are powerful. Even &#x27;we added about 50 new members&#x27; helps.</div>
+  <textarea name="q4_branch_growth" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>5. You mentioned preparing monthly reports for the General Manager. What metrics do you track and present?</label>
+  <div class="hint">Loan performance, deposit growth, customer complaints, staff KPIs, etc.</div>
+  <textarea name="q5_branch_reports" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>6. Has there been a period where your branch had zero cash discrepancies or audit findings? How long?</label>
+  <div class="hint">A clean audit streak is a strong achievement. Even &#x27;no issues for 6 months&#x27; counts.</div>
+  <input type="text" name="q6_branch_error">
+</div>
+      <div class="form-group">
+  <label>7. What is the approximate annual operating budget you manage for the branch (expenses, inventory, supplies)?</label>
+  <div class="hint">Even if you&#x27;re not sure of exact numbers, your best estimate helps us show the scale of your work to Canadian employers.</div>
+  <input type="text" name="q7_branch_budget">
+</div>
+      <div class="form-group">
+  <label>8. During your time as Operations Officer and then Branch Manager, did you change or improve any process? What was it like before and after?</label>
+  <div class="hint">Faster transaction times, reduced wait times, new procedures, anything you changed.</div>
+  <textarea name="q8_ops_improvement" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>9. How many staff have you trained or onboarded at NPCB?</label>
+  <div class="hint">Include new hires you oriented, cross-trained, or mentored.</div>
+  <input type="text" name="q9_staff_training">
+</div>
+      <div class="form-group">
+  <label>10. How many staff appraisals do you conduct per year? Have any of your staff been promoted based on your recommendations?</label>
+  <div class="hint">Staff development outcomes show leadership impact.</div>
+  <textarea name="q10_staff_appraisals" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>11. During your 7 years as a Customer Service Representative/Teller at NPCB, how many transactions did you process on a typical day?</label>
+  <div class="hint">Most bank tellers process 50-150 transactions per day. Your best estimate is fine.</div>
+  <input type="text" name="q11_daily_transactions">
+</div>
+      <div class="form-group">
+  <label>12. You won Top Customer Service Representative in 2022. What do you think set you apart? How were you measured?</label>
+  <div class="hint">Customer feedback scores, transaction accuracy, sales targets, peer nominations - what was the criteria?</div>
+  <textarea name="q12_top_csr_award" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>13. When selling bank products (accounts, loans, etc.), how many new products or accounts did you typically open per week or month?</label>
+  <div class="hint">Cross-selling is a key banking metric. Even a rough number helps.</div>
+  <input type="text" name="q13_cross_sell">
+</div>
+      <div class="form-group">
+  <label>14. How did you handle customer complaints? Can you estimate how many you resolved per month?</label>
+  <div class="hint">Complaint resolution speed and volume shows customer service capability.</div>
+  <textarea name="q14_customer_complaints" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>15. Over your 7 years as a teller, what was your cash-handling accuracy like? Did you ever have a discrepancy?</label>
+  <div class="hint">A long streak of balanced drawers is a strong achievement.</div>
+  <textarea name="q15_cash_accuracy" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>16. As a Loan Officer at NPCB, how many loan applications did you process per week or month?</label>
+  <div class="hint">Most loan officers process 5-20 applications per week.</div>
+  <input type="text" name="q16_loan_volume">
+</div>
+      <div class="form-group">
+  <label>17. What was the approximate total value of loans you managed or originated?</label>
+  <div class="hint">Even a rough range like &#x27;about $5 million in active loans&#x27; is useful.</div>
+  <input type="text" name="q17_loan_portfolio">
+</div>
+      <div class="form-group">
+  <label>18. What was the delinquency or default rate on loans you originated? Did you have a better record than average?</label>
+  <div class="hint">Low default rates show good risk assessment skills.</div>
+  <textarea name="q18_loan_delinquency" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>19. You mentioned representing the bank in court for delinquent loans. How many cases, and what were the outcomes?</label>
+  <div class="hint">Number of cases and recovery amounts are strong metrics.</div>
+  <textarea name="q19_court_cases" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>20. At the Jamaica Constabulary Force Domestic Violence Centre, how many clients do you support at any given time?</label>
+  <div class="hint">Active caseload size shows your capacity.</div>
+  <input type="text" name="q20_dv_caseload">
+</div>
+      <div class="form-group">
+  <label>21. How many counselling sessions do you conduct per week (face-to-face and telephone combined)?</label>
+  <div class="hint">Your best estimate is fine.</div>
+  <input type="text" name="q21_dv_sessions">
+</div>
+      <div class="form-group">
+  <label>22. How many community sensitization events have you participated in or spoken at? What was the typical audience size?</label>
+  <div class="hint">Public speaking at community events shows communication skills.</div>
+  <textarea name="q22_dv_events" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>23. You mention mentoring over 8 mentees at HEART TRUST/NSTA. What&#x27;s the total number of mentees you&#x27;ve worked with since 2021?</label>
+  <div class="hint">Include all mentees across the full period.</div>
+  <input type="text" name="q23_mentor_total">
+</div>
+      <div class="form-group">
+  <label>24. What happened to your mentees after the program? How many got jobs, went to school, or achieved their goals?</label>
+  <div class="hint">Outcome tracking shows program effectiveness.</div>
+  <textarea name="q24_mentor_outcomes" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>25. During your Social Work internship at Charltion Primary School, how many students were on your caseload?</label>
+  <div class="hint">Individual and group counselling combined.</div>
+  <input type="text" name="q25_intern_caseload">
+</div>
+      <div class="form-group">
+  <label>26. You delivered 5 presentations to student leaders. What was the size of the audience and what feedback did you receive?</label>
+  <div class="hint">Audience size and any measurable impact (behavior changes, feedback scores).</div>
+  <textarea name="q26_intern_presentations" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>27. What banking software and systems are you proficient in (MBWIN, Universa, or others)? Rate your skill level for each.</label>
+  <div class="hint">List each system and whether you use it daily, weekly, or occasionally.</div>
+  <textarea name="q27_banking_systems" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>28. Does your branch serve multiple communities or regions? How wide is the geographic area?</label>
+  <div class="hint">Serving rural or multi-community areas shows broader scope.</div>
+  <textarea name="q28_regions_served" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>General Questions</h2>
+      <div class="form-group">
+  <label>29. Is there anything about your career that&#x27;s NOT on your resume?</label>
+  <div class="hint">Side projects, volunteer work, freelance gigs, skills you haven&#x27;t listed.</div>
+  <textarea name="q29_not_on_resume" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>30. What software, tools, or equipment do you use daily?</label>
+  <div class="hint">Include everything - banking systems, scheduling apps, Microsoft Office, etc.</div>
+  <textarea name="q30_daily_tools" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>31. List any certifications or licenses you hold (include year and whether current).</label>
+  <div class="hint">Supervisory Management, Data Protection training, Cyber Security Awareness, etc.</div>
+  <textarea name="q31_certifications" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>32. What industries, job types, or environments do you want to AVOID?</label>
+  <div class="hint">Be specific - this helps us not waste your time on bad-fit jobs.</div>
+  <textarea name="q32_avoid" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>33. Any deal-breakers we should know about?</label>
+  <div class="hint">Shift work, travel, specific companies, salary floor, etc.</div>
+  <textarea name="q33_dealbreakers" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>34. Anything else you want us to know?</label>
+  <div class="hint">Career goals, timeline pressures, preferred Canadian provinces or cities, special circumstances.</div>
+  <textarea name="q34_anything_else" rows="4"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Achievements</button>
+      <p class="submit-help">Your responses are sent securely to our team. We'll use them to craft your resume.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-08T19:29:47.288316+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "achievement_form",
+    token: "89a5e355-7f14-44ba-9c44-2907b787e852",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

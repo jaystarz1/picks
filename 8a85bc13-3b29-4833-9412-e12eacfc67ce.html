@@ -394,7 +394,7 @@ body {
 
 <script>
 (function() {
-  var expiry = new Date("2026-04-10T18:46:14.929022+00:00");
+  var expiry = new Date("2026-04-10T18:49:17.450778+00:00");
   var timerText = document.getElementById("timer-text");
   var timerLine = document.getElementById("timer-line");
   var expiryBanner = document.getElementById("expiry-banner");
@@ -487,6 +487,16 @@ body {
     }, 2000);
   });
 })();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
 document.getElementById("page-form").addEventListener("submit", function(e) {
   e.preventDefault();
   var btn = document.getElementById("submit-btn");

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Work History Form — Dr. &mdash; Dr.</title>
+<title>Work History Form — Dr. Cain &mdash; Dr. Cain</title>
 <style>
 :root {
   --brand-dark: #1a1a2e;
@@ -261,7 +261,7 @@ body {
 
   <header class="page-header">
     <div class="brand">BARKER HR SOLUTIONS</div>
-    <h1>Work History Form — Dr.</h1>
+    <h1>Work History Form — Dr. Cain</h1>
     <div class="meta-line">Generated: March 27, 2026</div>
     <div class="timer-line" id="timer-line">
       <span class="timer-icon">&#9200;</span>
@@ -394,7 +394,7 @@ body {
 
 <script>
 (function() {
-  var expiry = new Date("2026-04-10T15:17:45.820275+00:00");
+  var expiry = new Date("2026-04-10T18:46:14.929022+00:00");
   var timerText = document.getElementById("timer-text");
   var timerLine = document.getElementById("timer-line");
   var expiryBanner = document.getElementById("expiry-banner");
@@ -424,6 +424,68 @@ body {
   }
   updateTimer();
   setInterval(updateTimer, 60000);
+})();
+(function() {
+  var STORAGE_KEY = "form_autosave_8a85bc13-3b29-4833-9412-e12eacfc67ce";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
 })();
 document.getElementById("page-form").addEventListener("submit", function(e) {
   e.preventDefault();

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career Details for Bunantie &mdash; Bunantie</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Career Details for Bunantie</h1>
+    <div class="meta-line">Generated: March 27, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Career Details</h2>
+    <p>We've analyzed your resume and have some specific questions. Each
+    question references the relevant job &mdash; just answer what you can.
+    Your best estimates are fine. Skip anything you genuinely can't
+    remember.</p>
+    <p>This should take about 15-20 minutes (34 questions).</p>
+    <p class="hint">Fields marked with
+    <span style="color: var(--brand-accent);">*</span> are required.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="1688da39-9734-4846-8995-9af5be5d308c">
+    <input type="hidden" name="client_name" value="Dr_Cain">
+    <input type="hidden" name="_client_email" value="bunantie7.cain@gmail.com">
+    <input type="hidden" name="form_mode" value="personalized">
+    <div class="section-card">
+      <h2>Your Experience</h2>
+      <div class="form-group">
+  <label>1. At the Ministry of Health, how many patients did you manage per day on average?</label>
+  <div class="hint">Most junior doctors in public hospitals handle 15-30 patients per day.</div>
+  <input type="text" name="q1_patient_caseload">
+</div>
+      <div class="form-group">
+  <label>2. How many emergency cases did you handle per week at the Ministry of Health?</label>
+  <div class="hint">Include both trauma and non-trauma emergencies.</div>
+  <input type="text" name="q2_emergency_volume">
+</div>
+      <div class="form-group">
+  <label>3. Which clinical areas or departments did you rotate through at the Ministry of Health?</label>
+  <div class="hint">E.g., Emergency, Pediatrics, Internal Medicine, Surgery, OB/GYN, etc.</div>
+  <textarea name="q3_clinical_specialties" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>4. What medical procedures did you perform or assist with? List the main ones.</label>
+  <div class="hint">E.g., suturing, intubation, IV access, lumbar puncture, chest tubes, etc.</div>
+  <textarea name="q4_procedures_performed" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>5. What electronic health record (EHR) or data systems did you use at the Ministry of Health?</label>
+  <div class="hint">E.g., DHIS2, OpenMRS, paper-based, hospital-specific systems.</div>
+  <input type="text" name="q5_data_systems">
+</div>
+      <div class="form-group">
+  <label>6. Can you recall a case or period where your clinical decision-making led to a positive patient outcome?</label>
+  <div class="hint">Even one example helps. What was the situation and what did you do?</div>
+  <textarea name="q6_patient_outcomes" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>7. How many staff (nurses, orderlies, technicians) did you work with or coordinate on a typical shift?</label>
+  <div class="hint">Your best estimate is fine.</div>
+  <input type="text" name="q7_team_size">
+</div>
+      <div class="form-group">
+  <label>8. Which hospital or health facility were you posted to? How many beds did it have?</label>
+  <div class="hint">This helps us show the scale of the facility you worked in.</div>
+  <input type="text" name="q8_hospital_facility">
+</div>
+      <div class="form-group">
+  <label>9. Did you participate in any public health programs, vaccination drives, community outreach, or health education campaigns?</label>
+  <div class="hint">Include any community health work, even informal.</div>
+  <textarea name="q9_public_health_programs" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>10. Did you improve or streamline any process during your time at the Ministry? What was it before and after?</label>
+  <div class="hint">E.g., reduced wait times, improved documentation, changed a protocol.</div>
+  <textarea name="q10_improvements" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>11. At Bunarlos Bookcafe, how many employees or volunteers do you manage?</label>
+  <div class="hint">Include both paid staff and volunteers.</div>
+  <input type="text" name="q11_bookcafe_employees">
+</div>
+      <div class="form-group">
+  <label>12. How many students does the afterschool literacy and science tutoring program serve per term or per year?</label>
+  <div class="hint">Your best estimate is fine.</div>
+  <input type="text" name="q12_tutoring_students">
+</div>
+      <div class="form-group">
+  <label>13. Have you seen measurable improvements in the students&#x27;  literacy or science skills? Any test scores, grade improvements, or graduation rates?</label>
+  <div class="hint">Even anecdotal results help — e.g., &quot;most students improved by one grade level.&quot;</div>
+  <textarea name="q13_tutoring_outcomes" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>14. Does Bunarlos Bookcafe partner with any schools, organizations, or government agencies for the tutoring program?</label>
+  <div class="hint">List any formal or informal partnerships.</div>
+  <textarea name="q14_community_partnerships" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>15. What is the approximate annual revenue of Bunarlos Bookcafe?</label>
+  <div class="hint">A range is fine — e.g., &quot;under $50K JMD&quot; or &quot;$1-5M JMD.&quot;</div>
+  <input type="text" name="q15_business_revenue">
+</div>
+      <div class="form-group">
+  <label>16. How has the business grown since you started it in 2017? More staff, new services, expanded hours?</label>
+  <div class="hint">Any growth metric helps show entrepreneurial impact.</div>
+  <textarea name="q16_business_growth" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>17. What is the budget you manage for the tutoring program specifically?</label>
+  <div class="hint">Even if it&#x27;s a small budget, managing it counts.</div>
+  <input type="text" name="q17_budget_managed">
+</div>
+      <div class="form-group">
+  <label>18. At Portmore Community College, how many students were in your classes?</label>
+  <div class="hint">Include total across all sections if you taught multiple.</div>
+  <input type="text" name="q18_lecture_students">
+</div>
+      <div class="form-group">
+  <label>19. Which science courses did you teach at Portmore Community College?</label>
+  <div class="hint">E.g., Biology, Chemistry, Nutritional Science, Environmental Science.</div>
+  <input type="text" name="q19_courses_taught">
+</div>
+      <div class="form-group">
+  <label>20. You mentioned overseeing the Nutritional Science accreditation. What specifically was your role, and what was the outcome?</label>
+  <div class="hint">E.g., prepared documentation, presented to the board, implemented curriculum changes.</div>
+  <textarea name="q20_accreditation_details" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>21. What types of laboratory procedures did you conduct? How many students per lab session?</label>
+  <div class="hint">Include equipment used if you remember.</div>
+  <textarea name="q21_lab_details" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>22. Across St. Andrew Technical, School of Excellence, and Maths Unlimited, roughly how many students did you teach in total?</label>
+  <div class="hint">A rough career estimate is fine — e.g., &quot;500+&quot; or &quot;over 1,000.&quot;</div>
+  <input type="text" name="q22_total_students_taught">
+</div>
+      <div class="form-group">
+  <label>23. What were your typical class sizes at these schools? What was the largest class you taught?</label>
+  <div class="hint">Most Jamaican secondary classes are 30-45 students.</div>
+  <input type="text" name="q23_class_sizes">
+</div>
+      <div class="form-group">
+  <label>24. At St. Andrew Technical, you achieved an 80% increase in pass rate. What was the starting pass rate and ending pass rate? Which CSEC subjects?</label>
+  <div class="hint">E.g., &quot;Biology went from 30% to 54%&quot; or &quot;Integrated Science went from 40% to 72%.&quot;</div>
+  <textarea name="q24_pass_rate_details" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>25. You mentioned 90% growth in attendance and student interest in sciences. How did you achieve that? Any specific initiatives?</label>
+  <div class="hint">E.g., science clubs, competitions, field trips, guest speakers, hands-on labs.</div>
+  <textarea name="q25_attendance_growth" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>26. Did you supervise any clubs, competitions, science fairs, or extracurricular activities at any of these schools?</label>
+  <div class="hint">Include anything outside regular class teaching.</div>
+  <textarea name="q26_extracurriculars" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>27. As a CSEC Invigilator, how many exam sessions did you oversee per year, and how many students per session?</label>
+  <div class="hint">Your best estimate is fine.</div>
+  <input type="text" name="q27_invigilator_volume">
+</div>
+    </div>
+    <div class="section-card">
+      <h2>General Questions</h2>
+      <div class="form-group">
+  <label>28. Is there anything about your career that&#x27;s NOT captured above? Side projects, volunteer work, freelance, consulting?</label>
+  <div class="hint">Include anything you think might be relevant — even if you&#x27;re not sure.</div>
+  <textarea name="not_on_resume" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>29. What software, tools, or medical/lab equipment do you use regularly?</label>
+  <div class="hint">Include everything — EHR systems, teaching platforms, lab equipment, diagnostic tools, etc.</div>
+  <textarea name="daily_tools" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>30. List any certifications or licenses you hold (include year obtained and whether current)</label>
+  <div class="hint">Medical licenses, teaching certificates, first aid, TEFL, etc.</div>
+  <textarea name="certifications" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>31. What industries, job types, or environments do you want to AVOID?</label>
+  <div class="hint">Be specific — this helps us not waste your time on bad-fit jobs.</div>
+  <textarea name="avoid_industries" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>32. Any deal-breakers we should know about?</label>
+  <div class="hint">Shift work, travel requirements, specific companies, salary floor, etc.</div>
+  <textarea name="deal_breakers" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>33. What&#x27;s your current work authorization status for Canada, and does it affect your availability or the types of roles you can accept?</label>
+  <div class="hint">E.g., applying for work permit, awaiting LMIA, open to employer-sponsored roles, etc.</div>
+  <textarea name="work_auth_status" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>34. Anything else you want us to know?</label>
+  <div class="hint">Career goals, timeline pressures, special circumstances.</div>
+  <textarea name="anything_else" rows="4"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Achievements</button>
+      <p class="submit-help">Your responses are sent securely to our team. We'll use them to craft your resume.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-10T16:44:46.246851+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "achievement_form",
+    token: "1688da39-9734-4846-8995-9af5be5d308c",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

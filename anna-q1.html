@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Starting Point — Anna Garleff</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #7c5cbf;
+  --brand-gold: #c9a959;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999;
+  --bg-page: #121218;
+  --bg-card: #1e1e2a;
+  --bg-selected: #2a2a3e;
+  --border-card: #333;
+  --border-selected: #7c5cbf;
+  --green: #4caf50;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--brand-accent);
+}
+.page-header h1 {
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.page-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 17px;
+  color: var(--brand-gold);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border-card);
+  background: transparent;
+  transition: all 0.15s;
+  font-size: 15px;
+}
+.option-group label:hover {
+  border-color: var(--brand-accent);
+  background: rgba(124, 92, 191, 0.08);
+}
+.option-group input[type="radio"] {
+  margin-top: 3px;
+  accent-color: var(--brand-accent);
+  flex-shrink: 0;
+}
+.option-group input[type="radio"]:checked + span {
+  color: #fff;
+}
+.option-group label:has(input:checked) {
+  border-color: var(--border-selected);
+  background: var(--bg-selected);
+}
+
+.other-text {
+  display: none;
+  margin-top: 10px;
+}
+.other-text textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #16161f;
+  min-height: 80px;
+  resize: vertical;
+}
+.other-text textarea:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 191, 0.2);
+}
+.other-text.visible {
+  display: block;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--brand-accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.15s;
+}
+.submit-btn:hover {
+  background: #6a4dab;
+}
+.submit-btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+.success-msg h2 {
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.success-msg p {
+  color: var(--text-secondary);
+}
+
+.error-msg {
+  display: none;
+  background: rgba(239, 83, 80, 0.1);
+  border: 1px solid rgba(239, 83, 80, 0.3);
+  color: #ef5350;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="page-header">
+    <h1>Quick Starting Point</h1>
+    <p>Three picks to set the foundation. Don't overthink it — go with whatever strikes you first.</p>
+  </div>
+
+  <form id="pickForm">
+
+    <!-- Question 1 -->
+    <div class="section-card">
+      <h2>1. Who is this book for?</h2>
+      <div class="option-group">
+        <label><input type="radio" name="q1" value="clients"><span>Your clients — a companion to the coaching work</span></label>
+        <label><input type="radio" name="q1" value="coaches"><span>Fellow coaches — your methodology shared with peers</span></label>
+        <label><input type="radio" name="q1" value="public"><span>The general public — anyone picks it up and gets value</span></label>
+        <label><input type="radio" name="q1" value="all"><span>All of the above</span></label>
+        <label><input type="radio" name="q1" value="other"><span>Other</span></label>
+      </div>
+      <div class="other-text" id="q1-other">
+        <textarea name="q1_other" placeholder="What are you thinking?"></textarea>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="section-card">
+      <h2>2. How should it read?</h2>
+      <div class="option-group">
+        <label><input type="radio" name="q2" value="academic"><span>Academic — citations, theory, peer-level (like your Chapter 1)</span></label>
+        <label><input type="radio" name="q2" value="professional"><span>Professional — substance without footnotes (like your Chapter 2)</span></label>
+        <label><input type="radio" name="q2" value="general"><span>General interest — plain language, complex ideas made simple (like your webinars)</span></label>
+        <label><input type="radio" name="q2" value="other"><span>Other</span></label>
+      </div>
+      <div class="other-text" id="q2-other">
+        <textarea name="q2_other" placeholder="What are you thinking?"></textarea>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="section-card">
+      <h2>3. What does the reader walk away able to do?</h2>
+      <div class="option-group">
+        <label><input type="radio" name="q3" value="awareness"><span>Understand themselves better — awareness, insight, a new lens</span></label>
+        <label><input type="radio" name="q3" value="action"><span>Take specific actions — a practical toolkit they can use immediately</span></label>
+        <label><input type="radio" name="q3" value="both"><span>Both, weighted toward action</span></label>
+        <label><input type="radio" name="q3" value="other"><span>Other</span></label>
+      </div>
+      <div class="other-text" id="q3-other">
+        <textarea name="q3_other" placeholder="What are you thinking?"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">Send picks</button>
+    <div class="error-msg" id="errorMsg"></div>
+  </form>
+
+  <div class="success-msg" id="successMsg">
+    <h2>Got it!</h2>
+    <p>Your picks are in. We'll come back with the next step based on what you chose.</p>
+  </div>
+
+</div>
+
+<script>
+// Show/hide "Other" textareas
+document.querySelectorAll('input[type="radio"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    const name = radio.name;
+    const otherBox = document.getElementById(name + '-other');
+    if (otherBox) {
+      otherBox.classList.toggle('visible', radio.value === 'other');
+    }
+  });
+});
+
+// Submit handler
+document.getElementById('pickForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const btn = document.getElementById('submitBtn');
+  const errorEl = document.getElementById('errorMsg');
+  errorEl.style.display = 'none';
+
+  // Validate all 3 answered
+  const q1 = document.querySelector('input[name="q1"]:checked');
+  const q2 = document.querySelector('input[name="q2"]:checked');
+  const q3 = document.querySelector('input[name="q3"]:checked');
+
+  if (!q1 || !q2 || !q3) {
+    errorEl.textContent = 'Please pick an option for all three questions.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const data = {
+    action: 'formSubmission',
+    formType: 'client_picklist',
+    token: 'anna-garleff-q1',
+    data: {
+      client: 'Anna Garleff',
+      q1_audience: q1.value,
+      q1_other: q1.value === 'other' ? document.querySelector('textarea[name="q1_other"]').value : '',
+      q2_register: q2.value,
+      q2_other: q2.value === 'other' ? document.querySelector('textarea[name="q2_other"]').value : '',
+      q3_outcome: q3.value,
+      q3_other: q3.value === 'other' ? document.querySelector('textarea[name="q3_other"]').value : '',
+      submitted_at: new Date().toISOString()
+    }
+  };
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  try {
+    const resp = await fetch('https://script.google.com/macros/s/AKfycbz9GI9JB3BHRV99c-JJ9spAcEUgMSKm8gj4UYC3jJm71K2K6tuXPUyTPXdX6PxOt0FHYg/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(data)
+    });
+
+    document.getElementById('pickForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  } catch (err) {
+    errorEl.textContent = 'Something went wrong. Try again or just reply to the email with your picks.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Send picks';
+  }
+});
+</script>
+</body>
+</html>

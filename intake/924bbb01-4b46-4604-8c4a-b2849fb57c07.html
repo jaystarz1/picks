@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Project Scope Clarification — Document Management Platform</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --border-card: #e0e0e0;
+  --green: #2e7d32;
+  --red: #c62828;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+.container { max-width: 760px; margin: 0 auto; padding: 24px 16px; }
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.page-header h1 { font-size: 22px; color: var(--brand-dark); margin-bottom: 4px; }
+.meta-line { font-size: 14px; color: var(--text-secondary); }
+.intro-text {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-card);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 17px;
+  color: var(--brand-dark);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.form-group { margin-bottom: 18px; }
+.form-group label.q-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.option-group { display: flex; flex-direction: column; gap: 6px; }
+.option-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea { min-height: 80px; resize: vertical; }
+.other-input {
+  margin-top: 6px;
+  margin-left: 26px;
+}
+.other-input input {
+  width: calc(100% - 26px);
+}
+.q-number {
+  display: inline-block;
+  background: var(--brand-dark);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 22px;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+.progress-bar {
+  background: #e0e0e0;
+  border-radius: 4px;
+  height: 6px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.progress-fill {
+  background: var(--brand-blue);
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s;
+}
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help { font-size: 13px; color: var(--text-secondary); margin-top: 8px; }
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 { margin-bottom: 8px; border: none; padding: 0; }
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 18px; }
+  .submit-btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="page-header">
+  <h1>Project Scope Clarification</h1>
+  <div class="meta-line">Community Organization Document Management Platform</div>
+</header>
+
+<div class="intro-text">
+  Thank you for sharing the project scope document. Before preparing a detailed proposal, we have some clarifying questions that will help us provide an accurate quote and timeline. Most questions are multiple-choice — this should take about 10 minutes.
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+<form id="page-form">
+<input type="hidden" name="_token" value="924bbb01-4b46-4604-8c4a-b2849fb57c07">
+<input type="hidden" name="_form_type" value="rfp_scope_clarification">
+
+<!-- ============================================================ -->
+<!-- SECTION 1: PROJECT CONTEXT -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>1. Project Context</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">1</span> What is this project being built for?</label>
+    <div class="option-group">
+      <label><input type="radio" name="project_purpose" value="Own organization" required> Your own organization</label>
+      <label><input type="radio" name="project_purpose" value="Client organization"> A client organization</label>
+      <label><input type="radio" name="project_purpose" value="Reusable SaaS/product"> A reusable SaaS/product</label>
+      <label><input type="radio" name="project_purpose" value="Other"> Other</label>
+    </div>
+    <div class="other-input"><input type="text" name="project_purpose_other" placeholder="If other, please describe"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">2</span> What type of organization is the end user?</label>
+    <div class="option-group">
+      <label><input type="checkbox" name="org_type" value="Nonprofit"> Nonprofit</label>
+      <label><input type="checkbox" name="org_type" value="Community organization"> Community organization</label>
+      <label><input type="checkbox" name="org_type" value="Religious organization"> Religious organization</label>
+      <label><input type="checkbox" name="org_type" value="Association/federation"> Association / federation</label>
+      <label><input type="checkbox" name="org_type" value="Small franchise/business network"> Small franchise / business network</label>
+      <label><input type="checkbox" name="org_type" value="Other"> Other</label>
+    </div>
+    <div class="other-input"><input type="text" name="org_type_other" placeholder="If other, please describe"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">3</span> Is this intended to support:</label>
+    <div class="option-group">
+      <label><input type="radio" name="deployment_scope" value="One organization only" required> One organization only</label>
+      <label><input type="radio" name="deployment_scope" value="One organization with multiple offices/sites"> One organization with multiple offices/sites</label>
+      <label><input type="radio" name="deployment_scope" value="Multiple separate organizations over time"> Multiple separate organizations over time</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">4</span> What are you using today to manage documents across sites?</label>
+    <div class="option-group">
+      <label><input type="checkbox" name="current_system" value="Shared drives (Google Drive, OneDrive, etc.)"> Shared drives (Google Drive, OneDrive, etc.)</label>
+      <label><input type="checkbox" name="current_system" value="Email"> Email</label>
+      <label><input type="checkbox" name="current_system" value="Paper filing"> Paper filing</label>
+      <label><input type="checkbox" name="current_system" value="Spreadsheets"> Spreadsheets</label>
+      <label><input type="checkbox" name="current_system" value="Existing software (specify below)"> Existing software</label>
+      <label><input type="checkbox" name="current_system" value="Nothing formal"> Nothing formal</label>
+    </div>
+    <div class="other-input"><input type="text" name="current_system_other" placeholder="If existing software, which one?"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">5</span> Who will make final decisions on requirements and acceptance during development?</label>
+    <div class="option-group">
+      <label><input type="radio" name="decision_maker" value="Technical lead" required> Someone technical</label>
+      <label><input type="radio" name="decision_maker" value="Operational/administrative lead"> Operational / administrative lead</label>
+      <label><input type="radio" name="decision_maker" value="Committee/board"> Committee or board</label>
+      <label><input type="radio" name="decision_maker" value="Other"> Other</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: DEPLOYMENT & OWNERSHIP -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>2. Deployment &amp; Ownership</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">6</span> Who will own the codebase and IP after delivery?</label>
+    <div class="option-group">
+      <label><input type="radio" name="ip_ownership" value="End client" required> End client</label>
+      <label><input type="radio" name="ip_ownership" value="Buyer/consultant"> Buyer / consultant</label>
+      <label><input type="radio" name="ip_ownership" value="Vendor retains ownership"> Vendor retains ownership</label>
+      <label><input type="radio" name="ip_ownership" value="To be discussed"> To be discussed</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">7</span> Is this system intended for future resale, reuse, or white-labeling?</label>
+    <div class="option-group">
+      <label><input type="radio" name="resale_intent" value="Yes" required> Yes</label>
+      <label><input type="radio" name="resale_intent" value="No"> No</label>
+      <label><input type="radio" name="resale_intent" value="Possibly"> Possibly</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">8</span> Is this expected to be:</label>
+    <div class="option-group">
+      <label><input type="radio" name="deployment_model" value="Single deployment" required> A single deployment</label>
+      <label><input type="radio" name="deployment_model" value="Product for multiple customers"> A product that may serve multiple customers later</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">9</span> Do you anticipate ongoing feature development beyond the 30-day bug-fix window?</label>
+    <div class="option-group">
+      <label><input type="radio" name="ongoing_dev" value="Yes, with original developer" required> Yes, with the original developer</label>
+      <label><input type="radio" name="ongoing_dev" value="Yes, with a separate team"> Yes, with a separate team</label>
+      <label><input type="radio" name="ongoing_dev" value="No"> No</label>
+      <label><input type="radio" name="ongoing_dev" value="Not decided"> Not decided yet</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">10</span> The spec references deployment to staging. Is production deployment also expected?</label>
+    <div class="option-group">
+      <label><input type="radio" name="production_deploy" value="Yes, included" required> Yes, production deployment is included</label>
+      <label><input type="radio" name="production_deploy" value="Staging only"> Staging only — production is separate</label>
+      <label><input type="radio" name="production_deploy" value="Not decided"> Not decided yet</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: ORGANIZATION STRUCTURE -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>3. Organization Structure</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">11</span> Is the "home office + sites" model fixed, or just an example?</label>
+    <div class="option-group">
+      <label><input type="radio" name="org_model" value="Fixed" required> Fixed — this is the actual structure</label>
+      <label><input type="radio" name="org_model" value="Example only"> Example only — the model may vary</label>
+      <label><input type="radio" name="org_model" value="Not yet decided"> Not yet decided</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">12</span> Can a user belong to more than one site?</label>
+    <div class="option-group">
+      <label><input type="radio" name="multi_site_user" value="Yes" required> Yes</label>
+      <label><input type="radio" name="multi_site_user" value="No"> No</label>
+      <label><input type="radio" name="multi_site_user" value="Maybe later"> Maybe later</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">13</span> Expected scale at launch:</label>
+    <div class="hint">Approximate numbers are fine — this helps us choose the right architecture.</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+      <div style="flex:1;min-width:140px;">
+        <label style="font-size:12px;color:var(--text-secondary);font-weight:600;">Number of sites</label>
+        <input type="text" name="scale_sites" placeholder="e.g., 10-20">
+      </div>
+      <div style="flex:1;min-width:140px;">
+        <label style="font-size:12px;color:var(--text-secondary);font-weight:600;">Users per site</label>
+        <input type="text" name="scale_users" placeholder="e.g., 2-5">
+      </div>
+      <div style="flex:1;min-width:140px;">
+        <label style="font-size:12px;color:var(--text-secondary);font-weight:600;">Documents per site</label>
+        <input type="text" name="scale_docs" placeholder="e.g., 100-500">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: ROLES & PERMISSIONS -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>4. Roles &amp; Permissions</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">14</span> Must some users within the same site be blocked from seeing certain documents?</label>
+    <div class="hint">For example, should a site manager see documents that general staff cannot?</div>
+    <div class="option-group">
+      <label><input type="radio" name="within_site_restrictions" value="Yes" required> Yes</label>
+      <label><input type="radio" name="within_site_restrictions" value="No"> No — all site users see the same documents</label>
+      <label><input type="radio" name="within_site_restrictions" value="Not sure"> Not sure yet</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">15</span> If yes, which document categories may need restricted access within a site?</label>
+    <div class="option-group">
+      <label><input type="checkbox" name="restricted_categories" value="Personnel"> Personnel</label>
+      <label><input type="checkbox" name="restricted_categories" value="Legal"> Legal</label>
+      <label><input type="checkbox" name="restricted_categories" value="Financial"> Financial</label>
+      <label><input type="checkbox" name="restricted_categories" value="Compliance"> Compliance</label>
+      <label><input type="checkbox" name="restricted_categories" value="Other"> Other</label>
+    </div>
+    <div class="other-input"><input type="text" name="restricted_categories_other" placeholder="If other, please specify"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">16</span> Can Home Office Admins edit site documents, or only view?</label>
+    <div class="option-group">
+      <label><input type="radio" name="home_office_edit" value="View only" required> View only</label>
+      <label><input type="radio" name="home_office_edit" value="Edit"> Edit</label>
+      <label><input type="radio" name="home_office_edit" value="Depends on role"> Depends on the role</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: SENSITIVE INFORMATION -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>5. Sensitive Information</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">17</span> Will the system contain personally identifiable information (PII)?</label>
+    <div class="option-group">
+      <label><input type="radio" name="contains_pii" value="Yes" required> Yes</label>
+      <label><input type="radio" name="contains_pii" value="No"> No</label>
+      <label><input type="radio" name="contains_pii" value="Not sure"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">18</span> Will the system contain privileged legal or attorney-client material?</label>
+    <div class="option-group">
+      <label><input type="radio" name="contains_legal" value="Yes" required> Yes</label>
+      <label><input type="radio" name="contains_legal" value="No"> No</label>
+      <label><input type="radio" name="contains_legal" value="Not sure"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">19</span> Are there restrictions on sending documents to an external AI service for processing?</label>
+    <div class="hint">The Claude API processes documents externally. Some categories may need to be excluded.</div>
+    <div class="option-group">
+      <label><input type="radio" name="ai_restrictions" value="No restrictions" required> No restrictions — all documents can be processed</label>
+      <label><input type="radio" name="ai_restrictions" value="Some categories excluded"> Some categories should be excluded from AI processing</label>
+      <label><input type="radio" name="ai_restrictions" value="Need to discuss"> Need to discuss</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: AI FEATURES -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>6. AI Features</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">20</span> For the AI integration, should the platform use:</label>
+    <div class="option-group">
+      <label><input type="radio" name="api_key_model" value="Platform-owned key" required> A single platform-owned API key</label>
+      <label><input type="radio" name="api_key_model" value="BYOK"> Each deploying organization provides their own key (BYOK)</label>
+      <label><input type="radio" name="api_key_model" value="Not decided"> Not decided yet</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">21</span> Is search keyword-based or do you expect AI-powered semantic search?</label>
+    <div class="hint">Keyword: matches exact words in titles, tags, summaries. Semantic: understands meaning, finds related documents even without exact keyword matches.</div>
+    <div class="option-group">
+      <label><input type="radio" name="search_type" value="Keyword" required> Keyword-based is fine</label>
+      <label><input type="radio" name="search_type" value="Semantic"> Semantic / AI-powered search</label>
+      <label><input type="radio" name="search_type" value="Both"> Both — keyword with semantic as an option</label>
+      <label><input type="radio" name="search_type" value="Not sure"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">22</span> Are AI outputs advisory only, or should they drive system behavior?</label>
+    <div class="hint">Advisory: admin reviews and accepts/overrides. Workflow-affecting: AI tags automatically determine routing, compliance, or visibility.</div>
+    <div class="option-group">
+      <label><input type="radio" name="ai_authority" value="Advisory only" required> Advisory only — human always reviews</label>
+      <label><input type="radio" name="ai_authority" value="Workflow-affecting"> Can drive workflow logic</label>
+      <label><input type="radio" name="ai_authority" value="Not decided"> Not decided</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: TEMPLATES & CONFIGURABILITY -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>7. Templates &amp; Configurability</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">23</span> The spec mentions templates configurable without code changes. What does that look like to you?</label>
+    <div class="option-group">
+      <label><input type="radio" name="template_config" value="Simple admin fields" required> Simple admin page — toggle fields on/off, set labels</label>
+      <label><input type="radio" name="template_config" value="JSON/schema config"> JSON or schema-based configuration file</label>
+      <label><input type="radio" name="template_config" value="Visual form builder"> Visual drag-and-drop form builder</label>
+      <label><input type="radio" name="template_config" value="Not decided"> Not decided — open to recommendation</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">24</span> Should template changes affect compliance rules or reporting?</label>
+    <div class="hint">For example, if a new template is created, does it automatically become a required category in the compliance checklist?</div>
+    <div class="option-group">
+      <label><input type="radio" name="template_compliance" value="Yes" required> Yes</label>
+      <label><input type="radio" name="template_compliance" value="No"> No</label>
+      <label><input type="radio" name="template_compliance" value="Not sure"> Not sure</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: TRANSITION MODE -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>8. Transition Mode / Handover</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">25</span> What is Transition Mode meant to support?</label>
+    <div class="option-group">
+      <label><input type="checkbox" name="transition_purpose" value="Admin-to-admin handover"> Admin-to-admin handover</label>
+      <label><input type="checkbox" name="transition_purpose" value="Staff turnover / continuity"> Staff turnover / continuity</label>
+      <label><input type="checkbox" name="transition_purpose" value="Documentation completeness review"> Documentation completeness review</label>
+      <label><input type="checkbox" name="transition_purpose" value="Guided onboarding for incoming admin"> Guided onboarding for incoming admin</label>
+      <label><input type="checkbox" name="transition_purpose" value="Other"> Other</label>
+    </div>
+    <div class="other-input"><input type="text" name="transition_purpose_other" placeholder="If other, please describe"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">26</span> How should "complete," "missing," and "stale" be determined?</label>
+    <div class="option-group">
+      <label><input type="radio" name="completeness_rules" value="Predefined rules" required> Predefined rules already exist</label>
+      <label><input type="radio" name="completeness_rules" value="Vendor proposes"> Vendor should propose rules</label>
+      <label><input type="radio" name="completeness_rules" value="Work out jointly"> To be worked out jointly</label>
+      <label><input type="radio" name="completeness_rules" value="Not defined"> Not yet defined</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">27</span> Should the system generate a handover report?</label>
+    <div class="option-group">
+      <label><input type="radio" name="handover_report" value="PDF" required> Yes — PDF</label>
+      <label><input type="radio" name="handover_report" value="CSV"> Yes — CSV</label>
+      <label><input type="radio" name="handover_report" value="Both"> Yes — both PDF and CSV</label>
+      <label><input type="radio" name="handover_report" value="No"> Not needed</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 9: COMPLIANCE -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>9. Compliance &amp; Scoring</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">28</span> The RFP mentions a compliance score. Can you tell us more about what compliance means in this context?</label>
+    <div class="hint">What is the score measuring? Who uses it? What decisions does it drive?</div>
+    <textarea name="compliance_context" rows="3" placeholder="Please describe the purpose and intended use of the compliance score"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">29</span> Is the scoring model already defined?</label>
+    <div class="option-group">
+      <label><input type="radio" name="scoring_defined" value="Yes" required> Yes — we have a formula</label>
+      <label><input type="radio" name="scoring_defined" value="Partly"> Partly — some criteria defined</label>
+      <label><input type="radio" name="scoring_defined" value="No"> No — vendor should propose</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">30</span> Should compliance be informational only, or drive workflow/escalation?</label>
+    <div class="hint">Informational: dashboard display only. Workflow: triggers alerts, notifications, or blocks actions.</div>
+    <div class="option-group">
+      <label><input type="radio" name="compliance_behavior" value="Informational only" required> Informational only</label>
+      <label><input type="radio" name="compliance_behavior" value="Workflow/escalation"> Drives workflow or escalation</label>
+      <label><input type="radio" name="compliance_behavior" value="Both"> Both</label>
+      <label><input type="radio" name="compliance_behavior" value="Not decided"> Not decided</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 10: INTAKE WORKFLOW -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>10. Intake Workflow</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">31</span> The intake workflow is described as "intentionally generic." Can you share any additional context?</label>
+    <div class="hint">What is being requested through the form? What external service does it connect to?</div>
+    <textarea name="intake_context" rows="3" placeholder="Any additional detail helps us size this correctly. If this will be defined after contract signing, that's fine too."></textarea>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 11: DOCUMENTS & RECORDS -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>11. Documents &amp; Records</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">32</span> Should documents have lifecycle states beyond active/archived?</label>
+    <div class="hint">For example: draft, pending review, approved, stale, superseded.</div>
+    <div class="option-group">
+      <label><input type="radio" name="lifecycle_states" value="Active/archived only" required> Active and archived is enough</label>
+      <label><input type="radio" name="lifecycle_states" value="Additional states needed"> Additional states are needed</label>
+      <label><input type="radio" name="lifecycle_states" value="Not sure"> Not sure</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">33</span> Should documents support versioning (multiple versions of the same file)?</label>
+    <div class="option-group">
+      <label><input type="radio" name="doc_versioning" value="Yes" required> Yes</label>
+      <label><input type="radio" name="doc_versioning" value="No"> No</label>
+      <label><input type="radio" name="doc_versioning" value="Maybe later"> Maybe later</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">34</span> Do you need in-browser document preview, or is download-only acceptable?</label>
+    <div class="option-group">
+      <label><input type="radio" name="doc_preview" value="In-browser preview" required> In-browser preview (PDF viewer, image viewer)</label>
+      <label><input type="radio" name="doc_preview" value="Download only"> Download only</label>
+      <label><input type="radio" name="doc_preview" value="Nice to have"> Nice to have but not required</label>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 12: BUDGET & PROCESS -->
+<!-- ============================================================ -->
+<div class="section-card">
+  <h2>12. Budget &amp; Process</h2>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">35</span> Would you consider a paid discovery/scoping phase before a fixed implementation quote?</label>
+    <div class="hint">A short paid engagement (1-2 weeks) to finalize requirements, data model, and technical architecture — resulting in a more accurate fixed-price quote for the build.</div>
+    <div class="option-group">
+      <label><input type="radio" name="paid_discovery" value="Yes" required> Yes — that makes sense</label>
+      <label><input type="radio" name="paid_discovery" value="No"> No — we want a fixed quote upfront</label>
+      <label><input type="radio" name="paid_discovery" value="Maybe"> Open to it</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">36</span> What does MVP success look like to you?</label>
+    <div class="hint">What would make you say "yes, this is what we wanted" at the walkthrough?</div>
+    <textarea name="mvp_success" rows="3" placeholder="Describe what a successful delivery looks like"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">37</span> What are your top 3 must-have features for phase 1?</label>
+    <textarea name="top_3_features" rows="3" placeholder="Which features matter most? Everything else can be prioritized around these."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label class="q-label"><span class="q-number">38</span> Is there anything else we should know about this project?</label>
+    <textarea name="additional_notes" rows="3" placeholder="Anything not covered above — context, constraints, preferences, concerns"></textarea>
+  </div>
+</div>
+
+<!-- SUBMIT -->
+<div class="submit-section">
+  <button type="submit" id="submit-btn" class="submit-btn">Submit Responses</button>
+  <div class="submit-help">Your responses will be sent securely. We'll follow up within 48 hours.</div>
+</div>
+
+</form>
+
+<div id="success-message" class="success-message">
+  <h2>Submitted Successfully</h2>
+  <p>Thank you for taking the time to answer these questions. We'll review your responses and follow up with a detailed proposal.</p>
+</div>
+
+<footer class="page-footer">
+  <div>Scope Clarification — Document Management Platform RFP</div>
+</footer>
+
+</div>
+
+<script>
+// Autosave
+(function() {
+  var STORAGE_KEY = "form_autosave_924bbb01-4b46-4604-8c4a-b2849fb57c07";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else { el.checked = !!data[key]; }
+        } else if (el.tagName === "SELECT") { el.value = data[key]; }
+        else { el.value = data[key]; }
+      });
+    }
+  } catch(e) {}
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else { data[key] = value; }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) {}
+    }, 3000);
+  });
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+
+// Progress bar
+(function() {
+  var form = document.getElementById("page-form");
+  var fill = document.getElementById("progress-fill");
+  if (!form || !fill) return;
+  function updateProgress() {
+    var groups = form.querySelectorAll(".form-group");
+    var total = 0, answered = 0;
+    groups.forEach(function(g) {
+      var radios = g.querySelectorAll("input[type=radio]");
+      var checks = g.querySelectorAll("input[type=checkbox]");
+      var texts = g.querySelectorAll("textarea, input[type=text]");
+      if (radios.length > 0) {
+        total++;
+        for (var i = 0; i < radios.length; i++) {
+          if (radios[i].checked) { answered++; break; }
+        }
+      } else if (checks.length > 0 && !g.querySelector("input[type=radio]")) {
+        total++;
+        for (var i = 0; i < checks.length; i++) {
+          if (checks[i].checked) { answered++; break; }
+        }
+      }
+    });
+    fill.style.width = total > 0 ? Math.round((answered / total) * 100) + "%" : "0%";
+  }
+  form.addEventListener("change", updateProgress);
+  updateProgress();
+})();
+
+// Submit
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else { data[key] = value; }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "rfp_scope_clarification",
+    token: "924bbb01-4b46-4604-8c4a-b2849fb57c07",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error \u2014 Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+  });
+});
+</script>
+</body>
+</html>

@@ -348,7 +348,7 @@ body {
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">13</span> Expected scale at launch:</label>
-    <div class="hint">Approximate numbers are fine — this helps us choose the right architecture.</div>
+    <div class="hint">Approximate numbers are fine.</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
       <div style="flex:1;min-width:140px;">
         <label style="font-size:12px;color:var(--text-secondary);font-weight:600;">Number of sites</label>
@@ -428,12 +428,13 @@ body {
   </div>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">19</span> Are there restrictions on sending documents to an external AI service for processing?</label>
+    <label class="q-label"><span class="q-number">19</span> Must any document categories be excluded from AI processing?</label>
     <div class="option-group">
-      <label><input type="radio" name="ai_restrictions" value="No restrictions" required> No restrictions — all documents can be processed</label>
-      <label><input type="radio" name="ai_restrictions" value="Some categories excluded"> Some categories should be excluded from AI processing</label>
+      <label><input type="radio" name="ai_restrictions" value="No" required> No — all documents can be processed</label>
+      <label><input type="radio" name="ai_restrictions" value="Yes"> Yes</label>
       <label><input type="radio" name="ai_restrictions" value="Need to discuss"> Need to discuss</label>
     </div>
+    <div class="other-input"><input type="text" name="ai_restrictions_detail" placeholder="If yes, which categories?"></div>
   </div>
 </div>
 
@@ -545,7 +546,7 @@ body {
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">28</span> The RFP mentions a compliance score. What does compliance mean in this context?</label>
-    <textarea name="compliance_context" rows="3" placeholder="What is it measuring? Who uses it? What decisions does it inform?"></textarea>
+    <textarea name="compliance_context" rows="3" placeholder=""></textarea>
   </div>
 
   <div class="form-group">
@@ -575,8 +576,8 @@ body {
   <h2>10. Intake Workflow</h2>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">31</span> The intake workflow is described as "intentionally generic." Can you share any additional context?</label>
-    <textarea name="intake_context" rows="3" placeholder="What is being requested through the form? Any detail helps."></textarea>
+    <label class="q-label"><span class="q-number">31</span> Please share any context needed to understand the intake workflow.</label>
+    <textarea name="intake_context" rows="3" placeholder=""></textarea>
   </div>
 </div>
 
@@ -656,7 +657,7 @@ body {
 
 <div id="success-message" class="success-message">
   <h2>Submitted Successfully</h2>
-  <p>Thank you for taking the time to answer these questions. We'll review your responses and follow up with a detailed proposal.</p>
+  <p>Thank you for taking the time to answer these questions. We'll review your responses and reply with next steps.</p>
 </div>
 
 <footer class="page-footer">

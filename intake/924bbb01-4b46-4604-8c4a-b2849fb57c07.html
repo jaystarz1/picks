@@ -374,7 +374,6 @@ body {
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">14</span> Must some users within the same site be blocked from seeing certain documents?</label>
-    <div class="hint">For example, should a site manager see documents that general staff cannot?</div>
     <div class="option-group">
       <label><input type="radio" name="within_site_restrictions" value="Yes" required> Yes</label>
       <label><input type="radio" name="within_site_restrictions" value="No"> No — all site users see the same documents</label>
@@ -430,7 +429,6 @@ body {
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">19</span> Are there restrictions on sending documents to an external AI service for processing?</label>
-    <div class="hint">The Claude API processes documents externally. Some categories may need to be excluded.</div>
     <div class="option-group">
       <label><input type="radio" name="ai_restrictions" value="No restrictions" required> No restrictions — all documents can be processed</label>
       <label><input type="radio" name="ai_restrictions" value="Some categories excluded"> Some categories should be excluded from AI processing</label>
@@ -455,22 +453,20 @@ body {
   </div>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">21</span> Is search keyword-based or do you expect AI-powered semantic search?</label>
-    <div class="hint">Keyword: matches exact words in titles, tags, summaries. Semantic: understands meaning, finds related documents even without exact keyword matches.</div>
+    <label class="q-label"><span class="q-number">21</span> Is standard search sufficient for MVP?</label>
     <div class="option-group">
-      <label><input type="radio" name="search_type" value="Keyword" required> Keyword-based is fine</label>
-      <label><input type="radio" name="search_type" value="Semantic"> Semantic / AI-powered search</label>
-      <label><input type="radio" name="search_type" value="Both"> Both — keyword with semantic as an option</label>
+      <label><input type="radio" name="search_type" value="Yes" required> Yes</label>
+      <label><input type="radio" name="search_type" value="No"> No — we need more advanced search capabilities</label>
       <label><input type="radio" name="search_type" value="Not sure"> Not sure</label>
     </div>
+    <div class="other-input"><input type="text" name="search_type_detail" placeholder="If no, what do you need from search?"></div>
   </div>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">22</span> Are AI outputs advisory only, or should they drive system behavior?</label>
-    <div class="hint">Advisory: admin reviews and accepts/overrides. Workflow-affecting: AI tags automatically determine routing, compliance, or visibility.</div>
+    <label class="q-label"><span class="q-number">22</span> Should AI suggestions always require human review before finalization?</label>
     <div class="option-group">
-      <label><input type="radio" name="ai_authority" value="Advisory only" required> Advisory only — human always reviews</label>
-      <label><input type="radio" name="ai_authority" value="Workflow-affecting"> Can drive workflow logic</label>
+      <label><input type="radio" name="ai_authority" value="Yes" required> Yes</label>
+      <label><input type="radio" name="ai_authority" value="No"> No</label>
       <label><input type="radio" name="ai_authority" value="Not decided"> Not decided</label>
     </div>
   </div>
@@ -483,18 +479,17 @@ body {
   <h2>7. Templates &amp; Configurability</h2>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">23</span> The spec mentions templates configurable without code changes. What does that look like to you?</label>
+    <label class="q-label"><span class="q-number">23</span> How much template configurability is needed for MVP?</label>
     <div class="option-group">
-      <label><input type="radio" name="template_config" value="Simple admin fields" required> Simple admin page — toggle fields on/off, set labels</label>
-      <label><input type="radio" name="template_config" value="JSON/schema config"> JSON or schema-based configuration file</label>
-      <label><input type="radio" name="template_config" value="Visual form builder"> Visual drag-and-drop form builder</label>
-      <label><input type="radio" name="template_config" value="Not decided"> Not decided — open to recommendation</label>
+      <label><input type="radio" name="template_config" value="Fixed templates only" required> The 5 listed templates are enough</label>
+      <label><input type="radio" name="template_config" value="Simple configurability"> Admin should be able to add/modify templates</label>
+      <label><input type="radio" name="template_config" value="Full form builder"> Full form builder is needed</label>
+      <label><input type="radio" name="template_config" value="Not decided"> Not decided</label>
     </div>
   </div>
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">24</span> Should template changes affect compliance rules or reporting?</label>
-    <div class="hint">For example, if a new template is created, does it automatically become a required category in the compliance checklist?</div>
     <div class="option-group">
       <label><input type="radio" name="template_compliance" value="Yes" required> Yes</label>
       <label><input type="radio" name="template_compliance" value="No"> No</label>
@@ -549,9 +544,8 @@ body {
   <h2>9. Compliance &amp; Scoring</h2>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">28</span> The RFP mentions a compliance score. Can you tell us more about what compliance means in this context?</label>
-    <div class="hint">What is the score measuring? Who uses it? What decisions does it drive?</div>
-    <textarea name="compliance_context" rows="3" placeholder="Please describe the purpose and intended use of the compliance score"></textarea>
+    <label class="q-label"><span class="q-number">28</span> The RFP mentions a compliance score. What does compliance mean in this context?</label>
+    <textarea name="compliance_context" rows="3" placeholder="What is it measuring? Who uses it? What decisions does it inform?"></textarea>
   </div>
 
   <div class="form-group">
@@ -564,11 +558,10 @@ body {
   </div>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">30</span> Should compliance be informational only, or drive workflow/escalation?</label>
-    <div class="hint">Informational: dashboard display only. Workflow: triggers alerts, notifications, or blocks actions.</div>
+    <label class="q-label"><span class="q-number">30</span> Should compliance scores be informational only, or trigger actions?</label>
     <div class="option-group">
       <label><input type="radio" name="compliance_behavior" value="Informational only" required> Informational only</label>
-      <label><input type="radio" name="compliance_behavior" value="Workflow/escalation"> Drives workflow or escalation</label>
+      <label><input type="radio" name="compliance_behavior" value="Triggers actions"> Should trigger actions</label>
       <label><input type="radio" name="compliance_behavior" value="Both"> Both</label>
       <label><input type="radio" name="compliance_behavior" value="Not decided"> Not decided</label>
     </div>
@@ -583,8 +576,7 @@ body {
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">31</span> The intake workflow is described as "intentionally generic." Can you share any additional context?</label>
-    <div class="hint">What is being requested through the form? What external service does it connect to?</div>
-    <textarea name="intake_context" rows="3" placeholder="Any additional detail helps us size this correctly. If this will be defined after contract signing, that's fine too."></textarea>
+    <textarea name="intake_context" rows="3" placeholder="What is being requested through the form? Any detail helps."></textarea>
   </div>
 </div>
 
@@ -595,13 +587,13 @@ body {
   <h2>11. Documents &amp; Records</h2>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">32</span> Should documents have lifecycle states beyond active/archived?</label>
-    <div class="hint">For example: draft, pending review, approved, stale, superseded.</div>
+    <label class="q-label"><span class="q-number">32</span> Do documents need statuses beyond active/archived?</label>
     <div class="option-group">
-      <label><input type="radio" name="lifecycle_states" value="Active/archived only" required> Active and archived is enough</label>
-      <label><input type="radio" name="lifecycle_states" value="Additional states needed"> Additional states are needed</label>
+      <label><input type="radio" name="lifecycle_states" value="No" required> No — active and archived is enough</label>
+      <label><input type="radio" name="lifecycle_states" value="Yes"> Yes</label>
       <label><input type="radio" name="lifecycle_states" value="Not sure"> Not sure</label>
     </div>
+    <div class="other-input"><input type="text" name="lifecycle_states_detail" placeholder="If yes, which statuses?"></div>
   </div>
 
   <div class="form-group">
@@ -616,7 +608,7 @@ body {
   <div class="form-group">
     <label class="q-label"><span class="q-number">34</span> Do you need in-browser document preview, or is download-only acceptable?</label>
     <div class="option-group">
-      <label><input type="radio" name="doc_preview" value="In-browser preview" required> In-browser preview (PDF viewer, image viewer)</label>
+      <label><input type="radio" name="doc_preview" value="In-browser preview" required> In-browser preview</label>
       <label><input type="radio" name="doc_preview" value="Download only"> Download only</label>
       <label><input type="radio" name="doc_preview" value="Nice to have"> Nice to have but not required</label>
     </div>
@@ -630,8 +622,7 @@ body {
   <h2>12. Budget &amp; Process</h2>
 
   <div class="form-group">
-    <label class="q-label"><span class="q-number">35</span> Would you consider a paid discovery/scoping phase before a fixed implementation quote?</label>
-    <div class="hint">A short paid engagement (1-2 weeks) to finalize requirements, data model, and technical architecture — resulting in a more accurate fixed-price quote for the build.</div>
+    <label class="q-label"><span class="q-number">35</span> Would you consider a paid discovery/scoping phase before fixed-price implementation?</label>
     <div class="option-group">
       <label><input type="radio" name="paid_discovery" value="Yes" required> Yes — that makes sense</label>
       <label><input type="radio" name="paid_discovery" value="No"> No — we want a fixed quote upfront</label>
@@ -641,7 +632,6 @@ body {
 
   <div class="form-group">
     <label class="q-label"><span class="q-number">36</span> What does MVP success look like to you?</label>
-    <div class="hint">What would make you say "yes, this is what we wanted" at the walkthrough?</div>
     <textarea name="mvp_success" rows="3" placeholder="Describe what a successful delivery looks like"></textarea>
   </div>
 

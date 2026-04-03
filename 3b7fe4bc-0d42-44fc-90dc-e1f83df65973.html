@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Results &mdash; Nicola</title>
+<style>
+
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.timer-line {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.timer-active { background: #e8f5e9; color: var(--green); }
+.timer-warning { background: #fff8e1; color: var(--amber); }
+.timer-expired { background: #ffebee; color: var(--red); }
+
+/* Intro */
+.intro-section {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-card);
+}
+.intro-section p { margin-bottom: 8px; }
+.intro-section p:last-child { margin-bottom: 0; }
+.home-note {
+  background: #e8f5e9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--green);
+}
+
+/* Track & Zone Headers */
+.track-section { margin-bottom: 24px; }
+.track-header {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.zone-header {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+/* Job Cards */
+.job-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.job-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 2px 8px rgba(15, 52, 96, 0.1);
+}
+.job-card.selected {
+  border-color: var(--border-selected);
+  background: var(--bg-selected);
+}
+.job-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.job-checkbox {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--brand-blue);
+}
+.job-content { flex: 1; min-width: 0; }
+.job-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.job-number { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.job-title { font-size: 16px; font-weight: 600; color: var(--brand-dark); }
+.job-employer { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.job-snippet { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-link {
+  font-size: 13px;
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.job-link:hover { text-decoration: underline; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-strong { background: #e8f5e9; color: var(--green); }
+.badge-considering { background: #fff8e1; color: var(--amber); }
+.badge-adjacent { background: #e3f2fd; color: #1565c0; }
+.adjacent-match-reason { font-size: 12px; color: #1565c0; margin-top: 4px; font-style: italic; }
+.pathway-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #e3f2fd;
+  color: var(--brand-blue);
+}
+
+/* Submit */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.selection-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Widen Search */
+.widen-section {
+  text-align: center;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px dashed var(--border-card);
+  border-radius: 8px;
+  background: #fafafa;
+}
+.widen-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.widen-btn {
+  background: transparent;
+  color: var(--brand-blue);
+  border: 1px solid var(--brand-blue);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.widen-btn:hover { background: var(--brand-blue); color: white; }
+.widen-help {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Expiry Banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .job-title { font-size: 14px; }
+  .submit-btn { width: 100%; }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Job Search Results for Nicola</h1>
+    <div class="meta-line">Generated: April 03, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="intro-section">
+    <p>We&#x27;ve been searching for opportunities across the United States that match your background. Jobs near you come first, with options further out as well.</p>
+    <p class="home-note">We prepared application packages for 3 local job(s) &mdash; check your inbox for those.</p>
+    <p>We found <strong>15</strong> additional opportunities worth looking at. Check the ones you're interested in and we'll build application packages for your selections.</p>
+  </div>
+
+  <form id="page-form">
+    <input type="hidden" name="_client_email" value="">
+    <input type="hidden" name="client_name" value="Nicola_Jones">
+    <div class="cards-container">
+<div class="track-section">
+<h2 class="track-header">PRIMARY</h2>
+<h3 class="zone-header">Near You:</h3>
+<div class="job-card" data-job-id="1">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="1" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#1</span>
+        <span class="job-title">Surgical Technician - Center for Community Health - Perioperative Services – Full-time – Days (8:00AM-6:30PM)</span>
+      </div>
+      <div class="job-employer">NewYork-Presbyterian Hospital &middot; Brooklyn, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$39.0-$49.0 | hourly | Commitment to Quality Care:
+
+
+Surgical Technician\-Perioperative Services
+
+
+New York\-Presbyterian is one of the nation’s most comprehensive academic health care delivery system</div>
+      <a href="https://www.indeed.com/viewjob?jk=3dcebcc82ff99480" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="2">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="2" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#2</span>
+        <span class="job-title">Hospitalist/Palliative Care - Physician - Mount Sinai Brooklyn - Brooklyn, NY</span>
+      </div>
+      <div class="job-employer">Mount Sinai Health System &middot; Brooklyn, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$180000.0-$340000.0 | yearly | **Description****Mount Sinai Brooklyn seeks a Hospitalist/Palliative Care Physician to care for patients admitted to the Medical Service.**
+
+
+Mount Sinai Brooklyn, a 212</div>
+      <a href="https://www.indeed.com/viewjob?jk=4e3f8a3ba3db0efe" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<h3 class="zone-header">Your Region:</h3>
+<div class="job-card" data-job-id="3">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="3" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#3</span>
+        <span class="job-title">Staff Nurse - Mother/Baby</span>
+      </div>
+      <div class="job-employer">NYC Health + Hospitals &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | yearly | **About NYC Health \+ Hospitals**
+---------------------------------
+
+  
+
+
+Queens Hospital Center is making good on its promise to the people of southeastern and central Queens to </div>
+      <a href="https://www.indeed.com/viewjob?jk=41800c43eb66dab2" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="4">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="4" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#4</span>
+        <span class="job-title">Registered Nurse - Pediatric Endocrinology</span>
+      </div>
+      <div class="job-employer">Weill Cornell Medicine &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$113600.0-$130700.0 | yearly | Title: Registered Nurse \- Pediatric Endocrinology
+Location: Upper East Side
+Org Unit: Endocrinology
+Work Days: Monday\-Friday
+Weekly Hours: 35\.00
+Exemption Status: Exe</div>
+      <a href="https://www.indeed.com/viewjob?jk=4f02a076b354f2a3" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="5">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="5" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#5</span>
+        <span class="job-title">Registered Nurse 5 South</span>
+      </div>
+      <div class="job-employer">Wyckoff Heights Medical Center &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | yearly | REGISTERED NURSE 5S
+Union: NYSNA FULL TIME
+ 7 PM TO 7:30 AM
+ALTERNATING WEEKENDS
+$112,486  
+
+
+
+**Job Description:**
+
+
+* Perform a head\-to\-toe assessment on all patients and re\-</div>
+      <a href="https://www.indeed.com/viewjob?jk=19195c47bace0265" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="6">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="6" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#6</span>
+        <span class="job-title">Staff Nurse - RN - Postpartum-Nursery- Full Time- Nights</span>
+      </div>
+      <div class="job-employer">NewYork-Presbyterian Hospital &middot; Manhattan, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$128149.0-$146972.0 | yearly | Compassionate Nurses Make It Possible
+
+
+Staff Nurse \- RN \- Postpartum/Nursery\- Full Time\- Nights
+
+
+The NewYork\-Presbyterian Alexandra Cohen Hospital for Women and N</div>
+      <a href="https://www.indeed.com/viewjob?jk=637e126bac8b4778" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="7">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="7" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#7</span>
+        <span class="job-title">Staff Nurse - RN - Operating Room - Per Diem - Rotating</span>
+      </div>
+      <div class="job-employer">NewYork-Presbyterian Hospital &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | hourly | Transform your Career as a Per Diem Nurse at NewYork\-Presbyterian/Columbia University Medical Center
+
+
+At NewYork\-Presbyterian/Columbia University Medical Center, OR nurses disc</div>
+      <a href="https://www.indeed.com/viewjob?jk=88137f1bfbe0edb0" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="8">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="8" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#8</span>
+        <span class="job-title">Clinical Nurse I - RN - Operating Room - Evenings</span>
+      </div>
+      <div class="job-employer">NewYork-Presbyterian Hospital &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$129681.0-$141006.0 | yearly | World\-Renowned Operative Care: Together We will Stay Amazing
+
+
+At NewYork\-Presbyterian/Columbia University Irving Medical Center, OR nurses discover an environment whe</div>
+      <a href="https://www.indeed.com/viewjob?jk=397c166d4c7bc8ba" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="9">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="9" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#9</span>
+        <span class="job-title">Staff Nurse - RN - Ambulatory Preop-PACU - Per Diem - Day Flex</span>
+      </div>
+      <div class="job-employer">NewYork-Presbyterian Hospital &middot; Manhattan, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | hourly | Nurses Help Us Stay Amazing!
+
+
+Perioperative nurses, transform your lives and careers at NewYork\-Presbyterian Hospital. Care for families. Pioneer advances. Lead recoveries, and </div>
+      <a href="https://www.indeed.com/viewjob?jk=4c353ea95e1f02ce" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="10">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="10" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#10</span>
+        <span class="job-title">Travel RN - Cardiovascular ICU</span>
+      </div>
+      <div class="job-employer">American Traveler &middot; Jersey City, NJ</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | weekly | ### **Assignment Overview**
+
+* Shift: Nights, 3x12hrs
+* Hours: 36 hrs/wk
+* Start Date: Apr 27, 2026
+* Length: 13 weeks
+* Openings: 1
+
+### **Description**
+
+
+American Traveler is hi</div>
+      <a href="https://www.indeed.com/viewjob?jk=2d8a450dec3a1df4" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="11">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="11" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#11</span>
+        <span class="job-title">Travel RN - Psychiatric</span>
+      </div>
+      <div class="job-employer">American Traveler &middot; Bronx, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | weekly | ### **Assignment Overview**
+
+* Shift: Nights, 3x12hrs
+* Hours: 36 hrs/wk
+* Start Date: May 13, 2026
+* Length: 13 weeks
+* Openings: 3
+
+### **Description**
+
+
+American Traveler is hi</div>
+      <a href="https://www.indeed.com/viewjob?jk=08641d1ffffad05c" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="12">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="12" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#12</span>
+        <span class="job-title">Dialysis PCT</span>
+      </div>
+      <div class="job-employer">New Vista Nursing &amp; Rehabilitation Center &middot; Newark, NJ</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | Responsibilities
+
+
+The Patient Care Technician (PCT) is responsible for general direct care of the patients receiving hemodialysis under the direction of the Medical Director. Under </div>
+      <a href="https://www.indeed.com/viewjob?jk=0bb4960085e78e67" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="13">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="13" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#13</span>
+        <span class="job-title">Patient Care Tech - Full-Time - 6am-6pm</span>
+      </div>
+      <div class="job-employer">Rochester Regional Health &middot; Newark, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$18.0-$19.0 | hourly | **Job Title:** Patient Care Technician
+
+**Department:** Med/Surg
+
+**Location:** Newark Wayne Hospital
+
+
+**Hours Per Week:** 36
+
+**Schedule:** 6am\-6pm
+
+ **SUMMARY:**
+
+
+Provides </div>
+      <a href="https://www.indeed.com/viewjob?jk=901253270a487eeb" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="14">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="14" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#14</span>
+        <span class="job-title">Unit Secretary-8W-Part Time Evening 3pm-11:15pm-MSM</span>
+      </div>
+      <div class="job-employer">Mount Sinai Health System &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$25.0-$27.0 | hourly | **Description**
+Performs clerical and receptionist duties essential to the operation of patient care as directed and also receives instructions from physicians and nurses
+
+**Res</div>
+      <a href="https://www.indeed.com/viewjob?jk=2c2646927db5034e" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+<div class="track-section">
+<h2 class="track-header">SECONDARY</h2>
+<h3 class="zone-header">Near You:</h3>
+<div class="job-card" data-job-id="15">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="15" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#15</span>
+        <span class="job-title">Medical Assistant - 26-03329</span>
+      </div>
+      <div class="job-employer">NavitasPartners &middot; Brooklyn, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | hourly | **Job Title:** Medical Assistant  
+
+**Profession:** Medical Assistant  
+
+**Specialty:** Clinical / Outpatient
+
+
+**Job Duration:** 13 weeks
+
+
+**Location:** Flushing, NY
+
+
+
+### **Sh</div>
+      <a href="https://www.indeed.com/viewjob?jk=a7c6f7dfcef84db3" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+    </div>
+
+
+
+    <div class="submit-section" id="submit-section">
+      <div class="selection-count" id="selection-count">0 jobs selected</div>
+      <button type="submit" class="submit-btn" id="submit-btn" disabled>
+        Submit My Selections
+      </button>
+      <p class="submit-help">We'll build application packages for your selected jobs.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This search has expired.</strong> Jobs may have closed since this list was generated.
+    Contact Barker HR Solutions for a new search.
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Reply to your search email.</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry48h = new Date("2026-04-05T04:55:02.032771+00:00");
+  var expiry7d  = new Date("2026-04-10T04:55:02.032771+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var submitBtn = document.getElementById("submit-btn");
+  var submitSection = document.getElementById("submit-section");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var selectionCount = document.getElementById("selection-count");
+  var checkboxes = document.querySelectorAll(".job-checkbox");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry7d) {
+      timerLine.className = "timer-line timer-expired";
+      timerText.textContent = "This search has expired.";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Search Expired";
+      expiryBanner.style.display = "block";
+      return;
+    }
+    if (now >= expiry48h) {
+      timerLine.className = "timer-line timer-warning";
+      timerText.textContent = "Active window closed. Jobs may have been filled.";
+      return;
+    }
+    var diff = expiry48h - now;
+    var hours = Math.floor(diff / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    timerText.textContent = "Active for " + hours + "h " + mins + "m";
+    timerLine.className = "timer-line timer-active";
+  }
+
+  function updateSelectionCount() {
+    var count = document.querySelectorAll(".job-checkbox:checked").length;
+    selectionCount.textContent = count + " job" + (count !== 1 ? "s" : "") + " selected";
+    submitBtn.disabled = count === 0;
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener("change", function() {
+      this.closest(".job-card").classList.toggle("selected", this.checked);
+      updateSelectionCount();
+    });
+  });
+
+  document.getElementById("page-form").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+      e.preventDefault();
+    }
+  });
+  document.getElementById("page-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var now = new Date();
+    if (now >= expiry7d) {
+      alert("This search has expired.");
+      return;
+    }
+    var selected = [];
+    document.querySelectorAll(".job-checkbox").forEach(function(cb) {
+      if (cb.checked) selected.push(cb.value);
+    });
+    if (selected.length === 0) {
+      alert("Please select at least one job.");
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    var payload = {
+      action: "formSubmission",
+      formType: "pick_list",
+      token: "3b7fe4bc-0d42-44fc-90dc-e1f83df65973",
+      data: {
+        selected_jobs: selected,
+        _client_email: document.querySelector('input[name="_client_email"]').value,
+        client_name: document.querySelector('input[name="client_name"]').value
+      }
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      submitBtn.textContent = "Submitted \u2713";
+      submitBtn.style.background = "#2e7d32";
+    }).catch(function(err) {
+      submitBtn.textContent = "Error — Try Again";
+      submitBtn.style.background = "#c62828";
+      submitBtn.disabled = false;
+    });
+  });
+
+  // Widen search toggle
+  window.toggleWider = function() {
+    var el = document.getElementById("wider-results");
+    var btn = document.getElementById("widen-btn");
+    if (!el || !btn) return;
+    if (el.style.display === "none") {
+      el.style.display = "block";
+      btn.textContent = "Hide Extended Results";
+      // Bind wider checkboxes to selection counter
+      el.querySelectorAll(".job-checkbox").forEach(function(cb) {
+        cb.addEventListener("change", function() {
+          this.closest(".job-card").classList.toggle("selected", this.checked);
+          updateSelectionCount();
+        });
+      });
+    } else {
+      el.style.display = "none";
+      btn.textContent = btn.getAttribute("data-show-text") || "Show More Opportunities";
+    }
+  };
+
+  updateTimer();
+  setInterval(updateTimer, 60000);
+  updateSelectionCount();
+})();
+</script>
+</body>
+</html>

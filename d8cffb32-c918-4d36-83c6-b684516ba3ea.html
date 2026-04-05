@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Results &mdash; Gairy</title>
+<style>
+
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.timer-line {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.timer-active { background: #e8f5e9; color: var(--green); }
+.timer-warning { background: #fff8e1; color: var(--amber); }
+.timer-expired { background: #ffebee; color: var(--red); }
+
+/* Intro */
+.intro-section {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-card);
+}
+.intro-section p { margin-bottom: 8px; }
+.intro-section p:last-child { margin-bottom: 0; }
+.home-note {
+  background: #e8f5e9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--green);
+}
+
+/* Track & Zone Headers */
+.track-section { margin-bottom: 24px; }
+.track-header {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.zone-header {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+/* Job Cards */
+.job-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.job-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 2px 8px rgba(15, 52, 96, 0.1);
+}
+.job-card.selected {
+  border-color: var(--border-selected);
+  background: var(--bg-selected);
+}
+.job-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.job-checkbox {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--brand-blue);
+}
+.job-content { flex: 1; min-width: 0; }
+.job-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.job-number { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.job-title { font-size: 16px; font-weight: 600; color: var(--brand-dark); }
+.job-employer { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.job-snippet { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-link {
+  font-size: 13px;
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.job-link:hover { text-decoration: underline; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-strong { background: #e8f5e9; color: var(--green); }
+.badge-considering { background: #fff8e1; color: var(--amber); }
+.badge-adjacent { background: #e3f2fd; color: #1565c0; }
+.adjacent-match-reason { font-size: 12px; color: #1565c0; margin-top: 4px; font-style: italic; }
+.pathway-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #e3f2fd;
+  color: var(--brand-blue);
+}
+
+/* Submit */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.selection-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Widen Search */
+.widen-section {
+  text-align: center;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px dashed var(--border-card);
+  border-radius: 8px;
+  background: #fafafa;
+}
+.widen-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.widen-btn {
+  background: transparent;
+  color: var(--brand-blue);
+  border: 1px solid var(--brand-blue);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.widen-btn:hover { background: var(--brand-blue); color: white; }
+.widen-help {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Expiry Banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .job-title { font-size: 14px; }
+  .submit-btn { width: 100%; }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Job Search Results for Gairy</h1>
+    <div class="meta-line">Generated: April 05, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="intro-section">
+    <p>We&#x27;ve been searching for opportunities that match your background. Jobs close to home, we package up right away. When local options are limited, we also look further out — specifically at RCIP communities and AIP provinces across Canada, since those are the areas that support your permanent residency pathway.</p>
+    
+    <p>We found <strong>0</strong> additional opportunities worth looking at. Check the ones you're interested in and we'll build application packages for your selections.</p>
+  </div>
+
+  <form id="page-form">
+    <input type="hidden" name="_client_email" value="">
+    <input type="hidden" name="client_name" value="Gairy_Stedford">
+    <div class="cards-container">
+
+    </div>
+
+    <div class="widen-section" id="widen-section">
+      <p class="widen-label">Want to see opportunities further afield?</p>
+      <button type="button" class="widen-btn" id="widen-btn" onclick="toggleWider()">
+        Show 14 More Opportunities
+      </button>
+      <p class="widen-help">These are in RCIP/AIP communities that could support your PR pathway, but require relocation.</p>
+    </div>
+    <div id="wider-results" style="display:none;">
+<div class="track-section">
+<h2 class="track-header">PRIMARY</h2>
+<h3 class="zone-header">Relocation Opportunities (RCIP/AIP):</h3>
+<div class="job-card" data-job-id="1">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="1" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#1</span>
+        <span class="job-title">Red Seal Crane Mechanic</span>
+      </div>
+      <div class="job-employer">Irving Equipment &middot; Moncton, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">As a Senior Red Seal Crane Mechanic, you will take ownership of maintaining and troubleshooting a modern fleet of mobile cranes. This role requires minimal supervision and strong diagnostic capability</div>
+      <a href="https://ca.indeed.com/viewjob?jk=12e8e2cdb18a5cbd" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="2">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="2" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#2</span>
+        <span class="job-title">Heavy Equipment Mechanic</span>
+      </div>
+      <div class="job-employer">Groupe Lebel Inc &middot; Plaster Rock, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">**Company and team&#x27;s vibe**
+
+
+Groupe Lebel is in constant growth; Bois Daaquam, Lebel Cambium, IB EWP, Les Bois Lemelin, Bois de sciage Lafontaine and Plaster Rock Lumber Corporation are all companies</div>
+      <a href="https://ca.indeed.com/viewjob?jk=1aa28e2556141907" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="3">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="3" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#3</span>
+        <span class="job-title">Truck and Coach Technician - Apprentice</span>
+      </div>
+      <div class="job-employer">Fort Garry Industries &middot; Thunder Bay, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">RCIP community</span>
+      </div>
+      <div class="job-snippet">Fort Garry Industries (FGI) is Canada&#x27;s most trusted truck and trailer parts, sales and service provider.  
+
+
+With over 100 years of service under our belt, we are always expanding and looking for tal</div>
+      <a href="https://ca.indeed.com/viewjob?jk=bbf5046ad32b7b5b" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="4">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="4" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#4</span>
+        <span class="job-title">Mechanic, Small Engines and Equipment</span>
+      </div>
+      <div class="job-employer">Kingswood Golf &middot; Hanwell, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">* Education:
+* Expérience:
+* **Education**
+-------------
+* No degree, certificate or diploma
+* **Tasks**
+---------
+* Discuss work with supervisor
+* Adjust, repair or replace parts using hand tools and</div>
+      <a href="https://ca.indeed.com/viewjob?jk=ba6e3d709332c8db" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="5">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="5" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#5</span>
+        <span class="job-title">Class 1 or 3 Boom Truck Operator</span>
+      </div>
+      <div class="job-employer">nan &middot; Williamstown Carleton Co, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">**Job Summary**  
+We are seeking a skilled and safety\-conscious Boom Operator to join our construction team. The ideal candidate will operate boom trucks and cranes to assist with lifting and positio</div>
+      <a href="https://ca.indeed.com/viewjob?jk=8f6f122687d0bf90" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="6">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="6" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#6</span>
+        <span class="job-title">Heavy Diesel Engine Mechanic</span>
+      </div>
+      <div class="job-employer">The Government of Nova Scotia &middot; Sydney, NS</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">The Government of Nova Scotia | Sydney (NS) | $36.58 to $36.58 hourly</div>
+      <a href="https://www.jobbank.gc.ca/jobsearch/jobposting/49208666" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="7">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="7" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#7</span>
+        <span class="job-title">\*\*\*\*\* Agriculture &amp; Heavy Equipment Technician \*\*\*\*\*\* HIRING NOW\!</span>
+      </div>
+      <div class="job-employer">Fredericton Convention Centre &middot; Fredericton, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Fredericton, New Brunswick, Canada | 2 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/heavy-equipment-mechanic-at-groupe-lebel-4393030831?position=3&amp;pageNum=0&amp;refId=6Kw3XTHaA3di466a%2BVm7hw%3D%3D&amp;trackingId=N7lfc9hCOejsTLVND9sM6g%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="8">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="8" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#8</span>
+        <span class="job-title">Heavy Equipment Mechanic</span>
+      </div>
+      <div class="job-employer">Groupe Lebel &middot; Plaster Rock, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Plaster Rock, New Brunswick, Canada | 2 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/diesel-mechanic-at-safex-transport-4395355220?position=4&amp;pageNum=0&amp;refId=6Kw3XTHaA3di466a%2BVm7hw%3D%3D&amp;trackingId=h6ny0TO8kV7Rx8Z2Aw7MIA%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="9">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="9" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#9</span>
+        <span class="job-title">Red Seal Crane Mechanic</span>
+      </div>
+      <div class="job-employer">Irving Equipment Ltd. &middot; Moncton, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Moncton, New Brunswick, Canada | 1 day ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/field-service-technician-heavy-equipment-at-liebherr-group-4366496617?position=6&amp;pageNum=0&amp;refId=6Kw3XTHaA3di466a%2BVm7hw%3D%3D&amp;trackingId=pAEoYQ4WumfRO%2FJl6m5mPA%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="10">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="10" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#10</span>
+        <span class="job-title">\*\*\*\* Agriculture &amp; Heavy Equipment Technician HIRING NOW \*\*\*\*\*</span>
+      </div>
+      <div class="job-employer">bayviewtrucks and equipment &middot; Bathurst, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Bathurst, New Brunswick, Canada | 2 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/m%C3%A9canicien-mechanic-at-united-rentals-life-4396156087?position=9&amp;pageNum=0&amp;refId=6Kw3XTHaA3di466a%2BVm7hw%3D%3D&amp;trackingId=FyBJRyi8t2axMbknOpf9Zw%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="11">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="11" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#11</span>
+        <span class="job-title">Heavy Duty Mechanic</span>
+      </div>
+      <div class="job-employer">Interfor &middot; Bathurst, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Bathurst, New Brunswick, Canada | 15 hours ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/maintenance-technician-cnb-ft-at-great-canadian-entertainment-4383325342?position=21&amp;pageNum=0&amp;refId=6Kw3XTHaA3di466a%2BVm7hw%3D%3D&amp;trackingId=XY%2Bg%2F0ASMg9td%2BQioWH9Gw%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="12">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="12" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#12</span>
+        <span class="job-title">Heavy Equipment Technician</span>
+      </div>
+      <div class="job-employer">College of the North Atlantic &middot; Stephenville, NL</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Stephenville, Newfoundland and Labrador, Canada | 1 day ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/resident-service-technician-heavy-equipment-at-liebherr-group-4395720846?position=6&amp;pageNum=0&amp;refId=kkDHJWscKVxcnwjwkavmZg%3D%3D&amp;trackingId=C3wbbZMxAiUMpGIfAAFMLw%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+<div class="track-section">
+<h2 class="track-header">SECONDARY</h2>
+<h3 class="zone-header">Relocation Opportunities (RCIP/AIP):</h3>
+<div class="job-card" data-job-id="13">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="13" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#13</span>
+        <span class="job-title">Automotive Technician</span>
+      </div>
+      <div class="job-employer">Keltic Ford &middot; Antigonish, NS</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Keltic Ford
+
+Automotive Technician
+
+Keltic Ford is currently looking for a Technician to begin immediately. We are looking for someone with automotive knowledge and who is a team player.
+
+**Duties and</div>
+      <a href="https://ca.indeed.com/viewjob?jk=35c6d7ddb299d818" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="14">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="14" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#14</span>
+        <span class="job-title">Truck and Transport Mechanic 310Tor Red seal journeyperson</span>
+      </div>
+      <div class="job-employer">Kal Tire &middot; Saint John, NB</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        <span class="pathway-tag">AIP province</span>
+      </div>
+      <div class="job-snippet">Saint John, New Brunswick, Canada | 5 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/general-operator-at-mccain-foods-4392996138?position=13&amp;pageNum=0&amp;refId=6Kw3XTHaA3di466a%2BVm7hw%3D%3D&amp;trackingId=n4Xr25%2BbsEL33ljIsQyiHQ%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+    </div>
+
+    <div class="submit-section" id="submit-section">
+      <div class="selection-count" id="selection-count">0 jobs selected</div>
+      <button type="submit" class="submit-btn" id="submit-btn" disabled>
+        Submit My Selections
+      </button>
+      <p class="submit-help">We'll build application packages for your selected jobs.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This search has expired.</strong> Jobs may have closed since this list was generated.
+    Contact Barker HR Solutions for a new search.
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Reply to your search email.</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry48h = new Date("2026-04-07T05:01:55.832321+00:00");
+  var expiry7d  = new Date("2026-04-12T05:01:55.832321+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var submitBtn = document.getElementById("submit-btn");
+  var submitSection = document.getElementById("submit-section");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var selectionCount = document.getElementById("selection-count");
+  var checkboxes = document.querySelectorAll(".job-checkbox");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry7d) {
+      timerLine.className = "timer-line timer-expired";
+      timerText.textContent = "This search has expired.";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Search Expired";
+      expiryBanner.style.display = "block";
+      return;
+    }
+    if (now >= expiry48h) {
+      timerLine.className = "timer-line timer-warning";
+      timerText.textContent = "Active window closed. Jobs may have been filled.";
+      return;
+    }
+    var diff = expiry48h - now;
+    var hours = Math.floor(diff / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    timerText.textContent = "Active for " + hours + "h " + mins + "m";
+    timerLine.className = "timer-line timer-active";
+  }
+
+  function updateSelectionCount() {
+    var count = document.querySelectorAll(".job-checkbox:checked").length;
+    selectionCount.textContent = count + " job" + (count !== 1 ? "s" : "") + " selected";
+    submitBtn.disabled = count === 0;
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener("change", function() {
+      this.closest(".job-card").classList.toggle("selected", this.checked);
+      updateSelectionCount();
+    });
+  });
+
+  document.getElementById("page-form").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+      e.preventDefault();
+    }
+  });
+  document.getElementById("page-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var now = new Date();
+    if (now >= expiry7d) {
+      alert("This search has expired.");
+      return;
+    }
+    var selected = [];
+    document.querySelectorAll(".job-checkbox").forEach(function(cb) {
+      if (cb.checked) selected.push(cb.value);
+    });
+    if (selected.length === 0) {
+      alert("Please select at least one job.");
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    var payload = {
+      action: "formSubmission",
+      formType: "pick_list",
+      token: "d8cffb32-c918-4d36-83c6-b684516ba3ea",
+      data: {
+        selected_jobs: selected,
+        _client_email: document.querySelector('input[name="_client_email"]').value,
+        client_name: document.querySelector('input[name="client_name"]').value
+      }
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      submitBtn.textContent = "Submitted \u2713";
+      submitBtn.style.background = "#2e7d32";
+    }).catch(function(err) {
+      submitBtn.textContent = "Error — Try Again";
+      submitBtn.style.background = "#c62828";
+      submitBtn.disabled = false;
+    });
+  });
+
+  // Widen search toggle
+  window.toggleWider = function() {
+    var el = document.getElementById("wider-results");
+    var btn = document.getElementById("widen-btn");
+    if (!el || !btn) return;
+    if (el.style.display === "none") {
+      el.style.display = "block";
+      btn.textContent = "Hide Extended Results";
+      // Bind wider checkboxes to selection counter
+      el.querySelectorAll(".job-checkbox").forEach(function(cb) {
+        cb.addEventListener("change", function() {
+          this.closest(".job-card").classList.toggle("selected", this.checked);
+          updateSelectionCount();
+        });
+      });
+    } else {
+      el.style.display = "none";
+      btn.textContent = btn.getAttribute("data-show-text") || "Show More Opportunities";
+    }
+  };
+
+  updateTimer();
+  setInterval(updateTimer, 60000);
+  updateSelectionCount();
+})();
+</script>
+</body>
+</html>

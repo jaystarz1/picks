@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Part-Time Work Preferences for Jody-Kay &mdash; Jody-Kay</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Part-Time Work Preferences for Jody-Kay</h1>
+    <div class="meta-line">Generated: April 07, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Part-Time Work Preferences</h2>
+    <p>We'd like to understand what kinds of part-time opportunities to look
+    for on your behalf. There are no wrong answers — this is about finding work
+    that actually fits your life right now.</p>
+    <p>This takes about 3 minutes.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="0a33c300-31e3-4f4b-bb4f-3e9767b7378a">
+    <input type="hidden" name="client_name" value="Jody-Kay_Thompson">
+    <input type="hidden" name="_client_email" value="">
+    <div class="section-card">
+      <h2>Your Goals</h2>
+      <div class="form-group">
+  <label class="required">1. What&#x27;s driving your interest in part-time work?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="part_time_goal" value="Supplemental income — I have a primary job and want extra income" required> Supplemental income — I have a primary job and want extra income</label>
+    <label><input type="radio" name="part_time_goal" value="Work-life balance — I&#x27;m looking to reduce my overall hours" required> Work-life balance — I&#x27;m looking to reduce my overall hours</label>
+    <label><input type="radio" name="part_time_goal" value="Transitional — I&#x27;m exploring a new direction" required> Transitional — I&#x27;m exploring a new direction</label>
+    <label><input type="radio" name="part_time_goal" value="This is my primary focus right now" required> This is my primary focus right now</label>
+    <label><input type="radio" name="part_time_goal" value="Other" required> Other</label>
+  </div>
+</div>
+      <div style="display:none;"><div class="form-group">
+  <label>Please describe your situation:</label>
+  
+  <input type="text" name="part_time_goal_other">
+</div></div>
+      <div class="form-group">
+  <label class="required">2. How many hours per week are you looking for?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="hours_per_week" value="Flexible — whatever works" required> Flexible — whatever works</label>
+    <label><input type="radio" name="hours_per_week" value="Up to 10 hours" required> Up to 10 hours</label>
+    <label><input type="radio" name="hours_per_week" value="10–20 hours" required> 10–20 hours</label>
+    <label><input type="radio" name="hours_per_week" value="20–30 hours" required> 20–30 hours</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>What You'd Consider</h2>
+      <p>We'd like to understand how far outside your professional field
+      you're open to going. Start with what you'd most prefer — you can
+      always adjust later.</p>
+      <div class="form-group">
+  <label class="required">3. Would you consider part-time work in or near your professional area? (e.g. tutoring, sessional instruction, coaching, consulting, workshops)</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="pref_close_to_field" value="Yes — this is my preference" required> Yes — this is my preference</label>
+    <label><input type="radio" name="pref_close_to_field" value="I&#x27;m open to it" required> I&#x27;m open to it</label>
+    <label><input type="radio" name="pref_close_to_field" value="Not what I&#x27;m looking for" required> Not what I&#x27;m looking for</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label class="required">4. Would you consider part-time work in a related setting? (e.g. admin or coordination in education/social services, community programming, HR support)</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="pref_adjacent" value="Yes — this is my preference" required> Yes — this is my preference</label>
+    <label><input type="radio" name="pref_adjacent" value="I&#x27;m open to it" required> I&#x27;m open to it</label>
+    <label><input type="radio" name="pref_adjacent" value="Not what I&#x27;m looking for" required> Not what I&#x27;m looking for</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label class="required">5. Would you consider general part-time work outside your professional area? (e.g. retail, customer service, admin support, food service, warehouse)</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="pref_general" value="Yes — open to it" required> Yes — open to it</label>
+    <label><input type="radio" name="pref_general" value="Only if nothing else is available" required> Only if nothing else is available</label>
+    <label><input type="radio" name="pref_general" value="Not interested" required> Not interested</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Practical Details</h2>
+      <div class="form-group">
+  <label class="required">6. How far are you willing to travel for part-time work?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="travel_distance" value="Within my city only" required> Within my city only</label>
+    <label><input type="radio" name="travel_distance" value="Up to 25 km" required> Up to 25 km</label>
+    <label><input type="radio" name="travel_distance" value="Up to 50 km" required> Up to 50 km</label>
+    <label><input type="radio" name="travel_distance" value="Distance doesn&#x27;t matter" required> Distance doesn&#x27;t matter</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label>7. What&#x27;s the minimum hourly rate you&#x27;d consider? (optional)</label>
+  <div class="hint">You don&#x27;t have to answer this — just give us a floor if you have one.</div>
+  <input type="text" name="hourly_floor" placeholder="e.g. $18/hr">
+</div>
+      <div class="form-group">
+  <label>8. When are you available? (select all that apply)</label>
+  
+  <div class="option-group">
+    <label><input type="checkbox" name="availability" value="Weekday mornings"> Weekday mornings</label>
+    <label><input type="checkbox" name="availability" value="Weekday afternoons"> Weekday afternoons</label>
+    <label><input type="checkbox" name="availability" value="Weekday evenings"> Weekday evenings</label>
+    <label><input type="checkbox" name="availability" value="Saturdays"> Saturdays</label>
+    <label><input type="checkbox" name="availability" value="Sundays"> Sundays</label>
+  </div>
+</div>
+      <div class="form-group">
+  <label>9. Any certifications or skills relevant outside your career field? (optional)</label>
+  <div class="hint">e.g. food handler certificate, first aid, Class 5 driver&#x27;s licence, language skills, trades experience, etc.</div>
+  <textarea name="extra_certs" rows="3"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Anything Else?</h2>
+      <div class="form-group">
+  <label>10. Is there anything specific you&#x27;d like us to look for — or anything we should avoid sending you?</label>
+  
+  <textarea name="notes" rows="4"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit</button>
+      <p class="submit-help">Your answers will be sent securely to our team.</p>
+      <p id="success-message" style="display:none; color:#2e7d32; font-weight:bold;">
+        Thank you! We'll be in touch soon.
+      </p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-21T21:24:31.733964+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_0a33c300-31e3-4f4b-bb4f-3e9767b7378a";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+  function update() {
+    var checked = form.querySelector('input[name="part_time_goal"]:checked');
+    var sel = checked ? checked.value : "";
+    document.querySelector("[name=\"part_time_goal_other\"]").closest(".form-group").style.display = sel.indexOf("Other") !== -1 ? "" : "none";
+  }
+  update();
+  form.addEventListener("change", function(e) {
+    if (e.target.name === "part_time_goal") update();
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "part_time_form",
+    token: "0a33c300-31e3-4f4b-bb4f-3e9767b7378a",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

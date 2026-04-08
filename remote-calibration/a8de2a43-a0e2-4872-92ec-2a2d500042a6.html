@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Remote Work Preferences for Tracy &mdash; Tracy</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+</style>
+<style>
+.category-group {
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.category-group:has(.group-toggle:checked) {
+  border-color: var(--brand-blue);
+  background: var(--bg-selected);
+}
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 4px 0;
+}
+.category-header input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--brand-blue);
+}
+.category-title {
+  flex: 1;
+  font-size: 1.05em;
+}
+.category-count {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+.category-desc {
+  margin: 4px 0 0 30px;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
+.category-tags {
+  margin: 10px 0 0 30px;
+  padding: 10px 0 4px;
+  border-top: 1px solid var(--border-card);
+}
+.tag-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 4px;
+}
+.tag-item:hover {
+  background: rgba(15, 52, 96, 0.06);
+}
+.tag-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.tag-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tag-label {
+  font-size: 0.95em;
+  font-weight: 500;
+}
+.tag-desc {
+  font-size: 0.83em;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Remote Work Preferences for Tracy</h1>
+    <div class="meta-line">Generated: April 08, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Remote Work Preferences</h2>
+    <p>You've told us you're interested in remote work opportunities.
+    This form helps us understand what kinds of remote roles to look for.</p>
+    <p>In addition to your professional qualifications, there are many types
+    of remote work available. Browse the categories below and select the
+    types of work that interest you.</p>
+    <p>This takes about 3 minutes.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="a8de2a43-a0e2-4872-92ec-2a2d500042a6">
+    <input type="hidden" name="client_name" value="Tracy_Cowan_Richardson">
+    <input type="hidden" name="_client_email" value="">
+    <div class="section-card">
+      <h2>Your Direction</h2>
+      <div class="form-group">
+  <label class="required">1. When it comes to remote work, which best describes you?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="remote_direction" value="I&#x27;d like remote versions of what I already do professionally" required> I&#x27;d like remote versions of what I already do professionally</label>
+    <label><input type="radio" name="remote_direction" value="I&#x27;m open to trying different types of remote work, even outside my field" required> I&#x27;m open to trying different types of remote work, even outside my field</label>
+    <label><input type="radio" name="remote_direction" value="Both — my career if possible, but I&#x27;m also open to other options" required> Both — my career if possible, but I&#x27;m also open to other options</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card" id="categories-section">
+      <h2>What Kinds of Remote Work Interest You?</h2>
+      <p>Select a category to see the types of work within it.
+      Then pick the specific types that interest you. You can select
+      from multiple categories.</p>
+      <div class="category-group">
+        <label class="category-header">
+          <input type="checkbox" name="selected_groups" value="Customer Service &amp; Support"
+                 class="group-toggle" data-target="group_0">
+          <span class="category-title">Customer Service &amp; Support</span>
+          <span class="category-count">3 types</span>
+        </label>
+        <p class="category-desc">Helping customers by chat, email, or phone — support, success, and service roles</p>
+        <div class="category-tags" id="group_0" style="display:none;">
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="customer-support-remote">
+            <div class="tag-content">
+              <span class="tag-label">Customer Support</span>
+              <span class="tag-desc">Answering questions, troubleshooting, live chat, email and phone support</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="customer-success">
+            <div class="tag-content">
+              <span class="tag-label">Customer Success</span>
+              <span class="tag-desc">Helping clients succeed with a product — onboarding, renewals, account health</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="customer-service-management">
+            <div class="tag-content">
+              <span class="tag-label">Customer Service Management</span>
+              <span class="tag-desc">Leading support teams, managing service operations</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="category-group">
+        <label class="category-header">
+          <input type="checkbox" name="selected_groups" value="Sales &amp; Business Development"
+                 class="group-toggle" data-target="group_1">
+          <span class="category-title">Sales &amp; Business Development</span>
+          <span class="category-count">2 types</span>
+        </label>
+        <p class="category-desc">Prospecting, outreach, account management, and closing deals</p>
+        <div class="category-tags" id="group_1" style="display:none;">
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="sales-development">
+            <div class="tag-content">
+              <span class="tag-label">Sales Development (SDR/BDR)</span>
+              <span class="tag-desc">Outbound prospecting, cold outreach, qualifying leads</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="sales-management">
+            <div class="tag-content">
+              <span class="tag-label">Account Management &amp; Sales</span>
+              <span class="tag-desc">Managing client accounts, closing deals, growing revenue</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="category-group">
+        <label class="category-header">
+          <input type="checkbox" name="selected_groups" value="Technology &amp; Engineering"
+                 class="group-toggle" data-target="group_2">
+          <span class="category-title">Technology &amp; Engineering</span>
+          <span class="category-count">2 types</span>
+        </label>
+        <p class="category-desc">Software development, IT support, web development, and technical roles</p>
+        <div class="category-tags" id="group_2" style="display:none;">
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="software-engineering">
+            <div class="tag-content">
+              <span class="tag-label">Software Engineering</span>
+              <span class="tag-desc">Building applications, writing code, backend/frontend development</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="IT-tech">
+            <div class="tag-content">
+              <span class="tag-label">IT &amp; Technical Support</span>
+              <span class="tag-desc">Helpdesk, troubleshooting, system administration, SaaS support</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="category-group">
+        <label class="category-header">
+          <input type="checkbox" name="selected_groups" value="Content, Writing &amp; Marketing"
+                 class="group-toggle" data-target="group_3">
+          <span class="category-title">Content, Writing &amp; Marketing</span>
+          <span class="category-count">3 types</span>
+        </label>
+        <p class="category-desc">Writing, editing, social media, marketing, and design</p>
+        <div class="category-tags" id="group_3" style="display:none;">
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="content-writing">
+            <div class="tag-content">
+              <span class="tag-label">Writing &amp; Content Creation</span>
+              <span class="tag-desc">Blog posts, articles, copywriting, editing, journalism</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="marketing">
+            <div class="tag-content">
+              <span class="tag-label">Marketing &amp; Communications</span>
+              <span class="tag-desc">Digital marketing, social media, campaigns, PR</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="design-creative">
+            <div class="tag-content">
+              <span class="tag-label">Design &amp; Creative</span>
+              <span class="tag-desc">Product design, graphic design, brand design, UX/UI</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="category-group">
+        <label class="category-header">
+          <input type="checkbox" name="selected_groups" value="Operations &amp; Coordination"
+                 class="group-toggle" data-target="group_4">
+          <span class="category-title">Operations &amp; Coordination</span>
+          <span class="category-count">4 types</span>
+        </label>
+        <p class="category-desc">Project management, implementation, admin support, and data work</p>
+        <div class="category-tags" id="group_4" style="display:none;">
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="project-management">
+            <div class="tag-content">
+              <span class="tag-label">Project Management</span>
+              <span class="tag-desc">Tracking tasks, timelines, and deliverables for teams</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="implementation-onboarding">
+            <div class="tag-content">
+              <span class="tag-label">Implementation &amp; Onboarding</span>
+              <span class="tag-desc">Setting up new clients, configuring products, enablement</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="virtual-assistant">
+            <div class="tag-content">
+              <span class="tag-label">Virtual Assistant / Admin</span>
+              <span class="tag-desc">Scheduling, email management, data entry, calendar coordination</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="data-analytics">
+            <div class="tag-content">
+              <span class="tag-label">Data &amp; Analytics</span>
+              <span class="tag-desc">Analyzing data, building reports, dashboards, insights</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="category-group">
+        <label class="category-header">
+          <input type="checkbox" name="selected_groups" value="Teaching, AI &amp; Specialist"
+                 class="group-toggle" data-target="group_5">
+          <span class="category-title">Teaching, AI &amp; Specialist</span>
+          <span class="category-count">4 types</span>
+        </label>
+        <p class="category-desc">Online teaching, AI data work, content review, and community roles</p>
+        <div class="category-tags" id="group_5" style="display:none;">
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="online-education">
+            <div class="tag-content">
+              <span class="tag-label">Online Teaching &amp; Training</span>
+              <span class="tag-desc">Tutoring, course creation, instructional design, e-learning</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="ai-training-data">
+            <div class="tag-content">
+              <span class="tag-label">AI Data &amp; Training</span>
+              <span class="tag-desc">Rating AI responses, data labeling, search quality rating</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="content-moderation">
+            <div class="tag-content">
+              <span class="tag-label">Content Moderation</span>
+              <span class="tag-desc">Reviewing content for safety, trust &amp; safety, community standards</span>
+            </div>
+          </label>
+          <label class="tag-item">
+            <input type="checkbox" name="selected_tags" value="community-management">
+            <div class="tag-content">
+              <span class="tag-label">Community Management</span>
+              <span class="tag-desc">Managing online communities, forums, developer relations</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="section-card">
+      <h2>Staffing Platforms</h2>
+      <div class="form-group">
+  <label class="required">2. Some companies work like staffing agencies — you apply once, and they match you to projects as they come in. Are you open to this?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="staffing_platforms" value="Yes — I like the idea of being matched to work" required> Yes — I like the idea of being matched to work</label>
+    <label><input type="radio" name="staffing_platforms" value="No — I prefer to apply directly to employers" required> No — I prefer to apply directly to employers</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Availability</h2>
+      <div class="form-group">
+  <label class="required">3. How many hours per week can you dedicate to remote work?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="remote_hours" value="Flexible — whatever works" required> Flexible — whatever works</label>
+    <label><input type="radio" name="remote_hours" value="Up to 10 hours" required> Up to 10 hours</label>
+    <label><input type="radio" name="remote_hours" value="10–20 hours" required> 10–20 hours</label>
+    <label><input type="radio" name="remote_hours" value="20+ hours" required> 20+ hours</label>
+  </div>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Anything Else?</h2>
+      <div class="form-group">
+  <label>4. Anything else we should know about what you&#x27;re looking for — or anything to avoid?</label>
+  
+  <textarea name="remote_notes" rows="4"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit</button>
+      <p class="submit-help">Your answers will be sent securely to our team.</p>
+      <p id="success-message" style="display:none; color:#2e7d32; font-weight:bold;">
+        Thank you! We'll use this to focus your remote job search.
+      </p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-04-22T13:45:22.765846+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_a8de2a43-a0e2-4872-92ec-2a2d500042a6";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Show/hide entire categories section based on Q1
+  function updateDirection() {
+    var checked = form.querySelector('input[name="remote_direction"]:checked');
+    var sel = checked ? checked.value : "";
+    var section = document.getElementById("categories-section");
+    if (!section) return;
+    var show = sel.indexOf("open") !== -1 || sel.indexOf("Both") !== -1;
+    section.style.display = show ? "" : "none";
+    if (!show) {
+      var boxes = section.querySelectorAll('input[type="checkbox"]');
+      for (var i = 0; i < boxes.length; i++) boxes[i].checked = false;
+      var panels = section.querySelectorAll('.category-tags');
+      for (var i = 0; i < panels.length; i++) panels[i].style.display = "none";
+    }
+  }
+  var radios = form.querySelectorAll('input[name="remote_direction"]');
+  for (var i = 0; i < radios.length; i++) radios[i].addEventListener("change", updateDirection);
+  updateDirection();
+
+  // Toggle tag list when group checkbox is clicked
+  var toggles = form.querySelectorAll('.group-toggle');
+  for (var i = 0; i < toggles.length; i++) {
+    toggles[i].addEventListener('change', function() {
+      var target = document.getElementById(this.dataset.target);
+      if (!target) return;
+      if (this.checked) {
+        target.style.display = "";
+        // Auto-check all tags in this group
+        var tags = target.querySelectorAll('input[type="checkbox"]');
+        for (var j = 0; j < tags.length; j++) tags[j].checked = true;
+      } else {
+        target.style.display = "none";
+        // Uncheck all tags in this group
+        var tags = target.querySelectorAll('input[type="checkbox"]');
+        for (var j = 0; j < tags.length; j++) tags[j].checked = false;
+      }
+    });
+  }
+})();
+
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "remote_calibration_form",
+    token: "a8de2a43-a0e2-4872-92ec-2a2d500042a6",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

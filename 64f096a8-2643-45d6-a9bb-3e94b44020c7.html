@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JobScout &mdash; Career Services for Canada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand-navy: #0c1f3f;
+  --brand-blue: #1a5276;
+  --brand-accent: #e94560;
+  --brand-gold: #f0b429;
+  --green: #25D366;
+  --green-dark: #1a9e48;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --text-light: #8a8a8a;
+  --bg-page: #f7f8fa;
+  --bg-card: #ffffff;
+  --bg-warm: #fdf8f0;
+  --border-soft: #e8e8e8;
+  --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-hover: 0 4px 20px rgba(0,0,0,0.1);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Crimson Text', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero Section ── */
+.hero {
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue) 60%, #1a6b8a 100%);
+  color: #fff;
+  padding: 48px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(233,69,96,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(240,180,41,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 640px; margin: 0 auto; }
+.hero-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--brand-gold);
+  border: 1px solid rgba(240,180,41,0.4);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.hero p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* ── Section Cards ── */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: -24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+.card + .card { margin-top: 0; }
+.card h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-navy);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card h2 .icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Check / X Lists ── */
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+.feature-list li {
+  padding: 10px 0 10px 36px;
+  position: relative;
+  font-size: 15px;
+  border-bottom: 1px solid var(--border-soft);
+  line-height: 1.5;
+}
+.feature-list li:last-child { border-bottom: none; }
+.feature-list li::before {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.feature-list.checks li::before {
+  content: "\2713";
+  background: #e8f5e9;
+  color: var(--green-dark);
+}
+.feature-list.nopes li::before {
+  content: "\2717";
+  background: #ffeaea;
+  color: #c62828;
+}
+
+/* ── Pull Quote ── */
+.quote-card {
+  background: var(--bg-warm);
+  border-left: 4px solid var(--brand-gold);
+}
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-style: italic;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.quote-attribution {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+/* ── Pricing Card ── */
+.pricing-card {
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue) 100%);
+  color: #fff;
+  text-align: center;
+}
+.pricing-card h2 { color: #fff; justify-content: center; }
+.pricing-card .price-tagline {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 8px;
+}
+.price-deadline {
+  display: inline-block;
+  background: rgba(240,180,41,0.15);
+  border: 1px solid rgba(240,180,41,0.3);
+  color: var(--brand-gold);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.price-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.btn:active { transform: translateY(0); }
+.btn-cad {
+  background: #fff;
+  color: var(--brand-navy);
+}
+.btn-usd {
+  background: var(--green-dark);
+  color: #fff;
+}
+.btn-whatsapp {
+  background: var(--green);
+  color: #fff;
+}
+.btn-submit {
+  background: var(--brand-accent);
+  color: #fff;
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+}
+.btn-submit:hover:not(:disabled) { background: #d63850; }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-share {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  border: 1px solid var(--border-soft);
+  font-size: 14px;
+  padding: 10px 20px;
+}
+.btn-share:hover { background: #eee; }
+
+/* ── Form Fields ── */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--brand-navy);
+  margin-bottom: 6px;
+}
+.form-group label .req { color: var(--brand-accent); }
+.form-group .hint {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(26,82,118,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-light); }
+
+/* ── Success Message ── */
+#success-message {
+  display: none;
+  text-align: center;
+  padding: 28px;
+  background: #e8f5e9;
+  border-radius: var(--radius);
+  animation: fadeIn 0.3s ease;
+}
+#success-message h3 {
+  font-family: var(--font-display);
+  color: var(--green-dark);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+#success-message p { color: var(--text-secondary); }
+
+/* ── Share Section ── */
+.share-card {
+  text-align: center;
+  background: var(--bg-warm);
+}
+.share-card h2 { justify-content: center; }
+.share-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+#copy-confirm {
+  display: none;
+  color: var(--green-dark);
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ── Contact ── */
+.contact-card { text-align: center; }
+.contact-card h2 { justify-content: center; }
+.contact-card .or-divider {
+  color: var(--text-light);
+  font-size: 14px;
+  margin: 12px 0;
+}
+.contact-card .email-link {
+  color: var(--brand-blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+}
+.contact-card .email-link:hover { text-decoration: underline; }
+
+/* ── Disclaimer ── */
+.disclaimer {
+  font-size: 11px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 24px;
+  padding: 16px;
+  line-height: 1.5;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card { animation: fadeIn 0.4s ease both; }
+.card:nth-child(2) { animation-delay: 0.05s; }
+.card:nth-child(3) { animation-delay: 0.1s; }
+.card:nth-child(4) { animation-delay: 0.15s; }
+.card:nth-child(5) { animation-delay: 0.2s; }
+.card:nth-child(6) { animation-delay: 0.25s; }
+.card:nth-child(7) { animation-delay: 0.3s; }
+.card:nth-child(8) { animation-delay: 0.35s; }
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+  .hero { padding: 60px 24px 52px; }
+  .hero h1 { font-size: 40px; }
+  .hero p { font-size: 18px; }
+  .container { padding: 0 24px 48px; }
+  .card { padding: 32px; margin-top: -32px; }
+  .card + .card { margin-top: 0; }
+  .card h2 { font-size: 22px; }
+  .quote-text { font-size: 21px; }
+  .price-buttons { gap: 16px; }
+  .btn { padding: 16px 36px; font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .price-buttons { flex-direction: column; }
+  .btn { width: 100%; }
+  .share-buttons { flex-direction: column; }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .card { animation: none; }
+  .btn { transition: none; }
+  #success-message, #copy-confirm { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero" role="banner">
+  <div class="hero-inner">
+    <span class="hero-badge">Barker HR Solutions</span>
+    <h1>Land Your Next Job in Canada</h1>
+    <p>Professional resume, job search, and application support &mdash; everything you need, one flat fee.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- What You Get -->
+  <section class="card" aria-labelledby="h-get">
+    <h2 id="h-get"><span class="icon" style="background:#e8f5e9;">&#x2713;</span> What You Get</h2>
+    <ul class="feature-list checks">
+      <li>Professional resume tailored to every job you apply for</li>
+      <li>Complete LinkedIn profile overhaul with strategy playbook</li>
+      <li>Job searches &mdash; local, remote, and distance opportunities across Canada</li>
+      <li>Full application packaging for each role (resume + cover letter + instructions)</li>
+      <li>Send us any job link &mdash; we package and submit it for you</li>
+    </ul>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="card quote-card" aria-labelledby="h-proof">
+    <h2 id="h-proof" class="sr-only">Client Testimonial</h2>
+    <p class="quote-text">&ldquo;I have gotten one job offer and will be advancing to the second round interview for another role. The landscape remains very competitive &mdash; your service is definitely needed.&rdquo;</p>
+    <span class="quote-attribution">&mdash; JobScout Early Access Client</span>
+  </section>
+
+  <!-- What This is NOT -->
+  <section class="card" aria-labelledby="h-not">
+    <h2 id="h-not"><span class="icon" style="background:#ffeaea;">&#x2717;</span> What This is NOT</h2>
+    <ul class="feature-list nopes">
+      <li>This is <strong>not</strong> a free program &mdash; this is a paid professional service</li>
+      <li>We do <strong>not</strong> guarantee employment &mdash; we give you the best tools and support to land a job</li>
+      <li>We are <strong>not</strong> a recruitment agency &mdash; we work for you, not employers</li>
+    </ul>
+  </section>
+
+  <!-- Pricing -->
+  <section class="card pricing-card" aria-labelledby="h-price">
+    <h2 id="h-price">Get Started</h2>
+    <p class="price-tagline">One flat fee. Everything above included.</p>
+    <span class="price-deadline">Offer valid until May 21, 2026</span>
+    <div class="price-buttons">
+      <a href="https://buy.stripe.com/4gM9ATcIBcbyeyO9mdcMM03" class="btn btn-cad" aria-label="Pay 250 Canadian dollars">Get Started &mdash; $250 CAD</a>
+      <a href="https://buy.stripe.com/9B65kDfUNfnK2Q68i9cMM05" class="btn btn-usd" aria-label="Pay 180 US dollars">Get Started &mdash; $180 USD</a>
+    </div>
+  </section>
+
+  <!-- Interest Form -->
+  <section class="card" aria-labelledby="h-form">
+    <h2 id="h-form">Not Ready Yet? Tell Us About Yourself</h2>
+    <p style="color:var(--text-secondary);margin-bottom:16px;">We'll reach out to answer your questions. No commitment, no pressure.</p>
+
+    <form id="page-form" novalidate>
+      <div class="form-group">
+        <label for="f-name">Your Name <span class="req">*</span></label>
+        <input id="f-name" type="text" name="full_name" required placeholder="e.g. Andre Gordon" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="f-email">Your Email <span class="req">*</span></label>
+        <input id="f-email" type="email" name="email" required placeholder="e.g. name@gmail.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="f-location">Where Are You Located?</label>
+        <div class="hint">City and country &mdash; helps us understand your situation</div>
+        <input id="f-location" type="text" name="location" placeholder="e.g. Kingston, Jamaica">
+      </div>
+      <div class="form-group">
+        <label for="f-work">What Kind of Work Are You Looking For?</label>
+        <div class="hint">Job title, industry, or just a general idea</div>
+        <textarea id="f-work" name="work_interest" rows="3" placeholder="e.g. I'm an accountant looking for work in Ontario"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="f-questions">Any Questions For Us?</label>
+        <textarea id="f-questions" name="questions" rows="3" placeholder="Anything you'd like to know before getting started"></textarea>
+      </div>
+      <button type="submit" class="btn btn-submit" id="submit-btn">Send My Info</button>
+    </form>
+
+    <div id="success-message" role="alert">
+      <h3>Got It!</h3>
+      <p>We'll be in touch within 24 hours.</p>
+      <p style="margin-top:16px;">
+        <a href="https://wa.me/3435975646" class="btn btn-whatsapp">WhatsApp Jay &mdash; (343) 597-5646</a>
+      </p>
+      <p style="margin-top:8px;font-size:14px;">or email <a href="mailto:jobscout@barkerhrs.com" style="color:var(--brand-blue);font-weight:600;">jobscout@barkerhrs.com</a></p>
+    </div>
+  </section>
+
+  <!-- Share -->
+  <section class="card share-card" aria-labelledby="h-share">
+    <h2 id="h-share">Know Someone Who Needs This?</h2>
+    <p style="color:var(--text-secondary);">Share this page with a friend or family member looking for work in Canada.</p>
+    <div class="share-buttons">
+      <a id="share-whatsapp" href="#" class="btn btn-whatsapp" aria-label="Share on WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Share on WhatsApp
+      </a>
+      <button id="share-copy" class="btn btn-share" aria-label="Copy page link to clipboard">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Link
+      </button>
+    </div>
+    <p id="copy-confirm">Link copied!</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="card contact-card" aria-labelledby="h-contact">
+    <h2 id="h-contact">Questions? Reach Out</h2>
+    <a href="https://wa.me/3435975646" class="btn btn-whatsapp">WhatsApp Jay &mdash; (343) 597-5646</a>
+    <p class="or-divider">or</p>
+    <a href="mailto:jobscout@barkerhrs.com" class="email-link">jobscout@barkerhrs.com</a>
+  </section>
+
+  <p class="disclaimer">
+    Barker HR Solutions provides career development services. We are not a placement agency
+    and do not guarantee employment. We do not provide immigration advice. For immigration
+    matters, contact our affiliated RCIC: info@bisonimmigration.com
+  </p>
+
+</div>
+
+<script>
+// ── Form Submission ──
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var form = this;
+
+  // Basic client-side validation
+  var name = form.querySelector('[name="full_name"]');
+  var email = form.querySelector('[name="email"]');
+  if (!name.value.trim() || !email.value.trim() || !email.validity.valid) {
+    if (!name.value.trim()) name.focus();
+    else email.focus();
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Sending\u2026";
+
+  var formData = new FormData(form);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "referral_interest",
+    token: "64f096a8-2643-45d6-a9bb-3e94b44020c7",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Sent \u2713";
+    btn.style.background = "var(--green-dark)";
+    document.getElementById("success-message").style.display = "block";
+    form.style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error \u2014 Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+
+// ── Share ──
+var shareMsg = "Check this out \u2014 JobScout helps you get a professional resume and find jobs in Canada. " + window.location.href;
+document.getElementById("share-whatsapp").href = "https://wa.me/?text=" + encodeURIComponent(shareMsg);
+
+document.getElementById("share-copy").addEventListener("click", function() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var confirm = document.getElementById("copy-confirm");
+    confirm.style.display = "block";
+    setTimeout(function() { confirm.style.display = "none"; }, 3000);
+  });
+});
+</script>
+</body>
+</html>

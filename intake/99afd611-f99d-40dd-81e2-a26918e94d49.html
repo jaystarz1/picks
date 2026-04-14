@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Client Intake Form &mdash; Matthew</title>
+<title>Client Intake Form &mdash; Matt</title>
 <style>
 :root {
   --brand-dark: #1a1a2e;
@@ -376,18 +376,33 @@ body {
   <header class="page-header">
     <div class="brand">BARKER HR SOLUTIONS</div>
     <h1>Client Intake Form</h1>
-    <div class="meta-line">Generated: April 13, 2026</div>
+    <div class="meta-line">Generated: April 14, 2026</div>
     <div class="timer-line" id="timer-line">
       <span class="timer-icon">&#9200;</span>
       <span id="timer-text">Calculating...</span>
     </div>
   </header>
 
-<div class="step-breadcrumb"><div class="step active">Sign Up</div><div class="step done">Intake Form</div><div class="step done">Achievements</div><div class="step done">Resume Review</div><div class="step done">Job Search</div></div>
+<div class="step-breadcrumb"><div class="step done">Sign Up</div><div class="step active">Intake Form</div><div class="step">Achievements</div><div class="step">Resume Review</div><div class="step">Job Search</div></div>
 <form id="page-form">
   <input type="hidden" name="token" value="99afd611-f99d-40dd-81e2-a26918e94d49">
-  <input type="hidden" name="client_name" value="Matthew_Margulies">
+  <input type="hidden" name="client_name" value="Matthew Margulies">
+  <input type="hidden" name="_client_email" value="matt.margulies@gmail.com">
   <div class="section-card">
+    <h2>Your Situation</h2>
+<div class="form-group">
+  <label class="required">Which best describes your situation?</label>
+  <div class="hint">Your answer determines which follow-up questions you&#x27;ll see. Pick the one that fits your current reality.</div>
+  <div class="option-group">
+    <label><input type="radio" name="situation_type" value="I am a Canadian citizen or permanent resident working in Canada" required> I am a Canadian citizen or permanent resident working in Canada</label>
+    <label><input type="radio" name="situation_type" value="I am authorized to work in the United States (citizen, green card, TN, or H-1B)" required> I am authorized to work in the United States (citizen, green card, TN, or H-1B)</label>
+    <label><input type="radio" name="situation_type" value="I am seeking a Canadian immigration pathway (LMIA, RCIP, AIP, PNP)" required> I am seeking a Canadian immigration pathway (LMIA, RCIP, AIP, PNP)</label>
+    <label><input type="radio" name="situation_type" value="I am outside North America and need a Canadian work permit" required> I am outside North America and need a Canadian work permit</label>
+    <label><input type="radio" name="situation_type" value="I am outside North America and need a US work visa" required> I am outside North America and need a US work visa</label>
+    <label><input type="radio" name="situation_type" value="I work remotely for international employers" required> I work remotely for international employers</label>
+  </div>
+</div>
+  </div>  <div class="section-card">
     <h2>Contact Information</h2>
 <div class="form-group">
   <label class="required">Full legal name</label>
@@ -515,10 +530,11 @@ body {
 </div>
 <div class="form-group">
   <label>For remote work, which employers are you looking for?</label>
-  <div class="hint">Select &#x27;US and international&#x27; if your Canadian work permit is expired or you are only able to work for employers outside Canada</div>
+  <div class="hint">Pick the option that matches your work authorization and tax situation.</div>
   <div class="option-group">
-    <label><input type="radio" name="remote_scope_preference" value="Any remote job (including Canadian employers)"> Any remote job (including Canadian employers)</label>
-    <label><input type="radio" name="remote_scope_preference" value="US and international employers only"> US and international employers only</label>
+    <label><input type="radio" name="remote_scope_preference" value="Any remote employer"> Any remote employer</label>
+    <label><input type="radio" name="remote_scope_preference" value="Employers in my home country only"> Employers in my home country only</label>
+    <label><input type="radio" name="remote_scope_preference" value="Employers outside my home country only"> Employers outside my home country only</label>
   </div>
 </div>
 <div class="form-group">
@@ -541,42 +557,37 @@ body {
   </div>
 </div>
 <div class="form-group">
-  <label>Would you also like us to search for job opportunities in the US?</label>
-  <div class="hint">No extra charge. Many of our clients have connections in the US.</div>
+  <label>Should we also search across the border?</label>
+  <div class="hint">Check whichever applies. If you&#x27;re authorized to work in both countries, check both and we&#x27;ll run parallel searches. We&#x27;ll only send you jobs you can legally take.</div>
   <div class="option-group">
-    <label><input type="radio" name="include_us_jobs" value="Yes — include US opportunities (in-person and remote)"> Yes — include US opportunities (in-person and remote)</label>
-    <label><input type="radio" name="include_us_jobs" value="Yes — US remote jobs only"> Yes — US remote jobs only</label>
-    <label><input type="radio" name="include_us_jobs" value="No — Canada only"> No — Canada only</label>
+    <label><input type="checkbox" name="cross_border_search" value="Include Canadian jobs"> Include Canadian jobs</label>
+    <label><input type="checkbox" name="cross_border_search" value="Include US jobs"> Include US jobs</label>
   </div>
 </div>
 <div class="form-group">
   <label>Would you like us to also search for remote-only positions?</label>
-  <div class="hint">We search 80+ remote-first companies and international job boards. You can live in Canada and work remotely for employers worldwide.</div>
+  <div class="hint">We search 80+ remote-first companies and international job boards.</div>
   <div class="option-group">
     <label><input type="radio" name="remote_job_search_enabled" value="Yes — search for remote jobs"> Yes — search for remote jobs</label>
     <label><input type="radio" name="remote_job_search_enabled" value="No — in-person and hybrid jobs only"> No — in-person and hybrid jobs only</label>
   </div>
 </div>
-<div class="form-group">
-  <label>Which remote employers should we include?</label>
-  <div class="hint">Check both if you&#x27;re open to any remote employer. If your Canadian work permit is expired, you may want international only.</div>
-  <div class="option-group">
-    <label><input type="checkbox" name="remote_job_search_scope" value="Canadian employers offering remote roles"> Canadian employers offering remote roles</label>
-    <label><input type="checkbox" name="remote_job_search_scope" value="International employers (US, UK, global — outside Canada)"> International employers (US, UK, global — outside Canada)</label>
-  </div>
-</div>
   </div>  <div class="section-card">
-    <h2>Immigration &amp; Work Authorization</h2>
+    <h2>Work Authorization</h2>
 <div class="form-group">
-  <label class="required">Immigration / work authorization status</label>
+  <label class="required">Current work authorization</label>
   
   <div class="option-group">
     <label><input type="radio" name="immigration_status" value="Canadian Citizen" required> Canadian Citizen</label>
-    <label><input type="radio" name="immigration_status" value="Permanent Resident" required> Permanent Resident</label>
-    <label><input type="radio" name="immigration_status" value="Open Work Permit" required> Open Work Permit</label>
-    <label><input type="radio" name="immigration_status" value="Employer-Specific Work Permit" required> Employer-Specific Work Permit</label>
+    <label><input type="radio" name="immigration_status" value="Canadian Permanent Resident" required> Canadian Permanent Resident</label>
+    <label><input type="radio" name="immigration_status" value="US Citizen" required> US Citizen</label>
+    <label><input type="radio" name="immigration_status" value="US Permanent Resident / Green Card" required> US Permanent Resident / Green Card</label>
+    <label><input type="radio" name="immigration_status" value="US TN Visa" required> US TN Visa</label>
+    <label><input type="radio" name="immigration_status" value="US H-1B Visa" required> US H-1B Visa</label>
+    <label><input type="radio" name="immigration_status" value="Canadian Open Work Permit" required> Canadian Open Work Permit</label>
+    <label><input type="radio" name="immigration_status" value="Canadian Employer-Specific Work Permit" required> Canadian Employer-Specific Work Permit</label>
     <label><input type="radio" name="immigration_status" value="Student Visa / Co-op Work Permit" required> Student Visa / Co-op Work Permit</label>
-    <label><input type="radio" name="immigration_status" value="No Canadian Work Authorization" required> No Canadian Work Authorization</label>
+    <label><input type="radio" name="immigration_status" value="No Work Authorization Yet" required> No Work Authorization Yet</label>
     <label><input type="radio" name="immigration_status" value="Prefer not to answer" required> Prefer not to answer</label>
   </div>
 </div>
@@ -680,7 +691,7 @@ body {
 
 <script>
 (function() {
-  var expiry = new Date("2026-04-27T17:43:02.369548+00:00");
+  var expiry = new Date("2026-04-28T13:47:44.759286+00:00");
   var timerText = document.getElementById("timer-text");
   var timerLine = document.getElementById("timer-line");
   var expiryBanner = document.getElementById("expiry-banner");
@@ -805,13 +816,14 @@ body {
   var form = document.getElementById("page-form");
   if (!form) return;
   function update() {
-    var checked = form.querySelector('input[name="remote_job_search_enabled"]:checked');
+    var checked = form.querySelector('input[name="situation_type"]:checked');
     var sel = checked ? checked.value : "";
-    document.querySelector("[name=\"remote_job_search_scope\"]").closest(".form-group").style.display = sel.indexOf("Yes") !== -1 ? "" : "none";
+    document.querySelector("[name=\"rcip_communities\"]").closest(".form-group").style.display = sel.indexOf("Canadian immigration") !== -1 ? "" : "none";
+    document.querySelector("[name=\"aip_provinces\"]").closest(".form-group").style.display = sel.indexOf("Canadian immigration") !== -1 ? "" : "none";
   }
   update();
   form.addEventListener("change", function(e) {
-    if (e.target.name === "remote_job_search_enabled") update();
+    if (e.target.name === "situation_type") update();
   });
 })();
 // Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Master Resume Review &mdash; Carlene</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+/* Review-specific styles */
+.review-section {
+  position: relative;
+}
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.role-header .role-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.role-header .role-dates {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.role-employer {
+  font-size: 14px;
+  color: var(--brand-blue);
+  margin-bottom: 10px;
+}
+.accomplishment-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+.accomplishment-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.confirm-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-card);
+}
+.confirm-row label {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.confirm-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+.correction-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  min-height: 60px;
+  resize: vertical;
+  margin-top: 4px;
+}
+.correction-textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.correction-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.general-feedback-section textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  min-height: 100px;
+  resize: vertical;
+}
+.general-feedback-section textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.skill-list, .cert-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-list li, .cert-list li {
+  background: var(--bg-page);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Master Resume Review</h1>
+    <div class="meta-line">Generated: April 17, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Resume Review</h2>
+    <p>Review your employment history below. For each section, check the box
+    if the information is accurate, or use the text box to describe any
+    corrections needed.</p>
+    <p>When you're done, click <strong>Submit Review</strong> at the bottom.</p>
+    <p class="hint">No personal information (name, email, phone, address)
+    is shown on this page for your privacy.</p>
+  </div>
+
+  <form id="page-form">
+
+    <input type="hidden" name="token" value="dc9f783f-f51a-40c1-a110-69151538f845">
+    <input type="hidden" name="client_name" value="Carlene_Lewis">
+    <input type="hidden" name="_client_email" value="">
+
+  <div class="section-card review-section" data-section="Accounting Assistant – Receivables @ Perez Y Cia (Trinidad) Ltd / Marinter Trinidad Ltd">
+    <div class="role-header">
+      <span class="role-title">Accounting Assistant – Receivables</span>
+      <span class="role-dates">2016–2020</span>
+    </div>
+    <div class="role-employer">Perez Y Cia (Trinidad) Ltd / Marinter Trinidad Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Led systematic receivables recovery drive across stalled and disputed client accounts 70 client accounts; $7M total AR balance; 24-month campaign Reduced AR from $7M to $1M — an 86% reduction — recovering $6M in outstanding revenue</li>
+        <li>Investigated archived invoice records and coordinated credit note issuance for long-stalled disputes Accounts stalled for multiple years; required learning legacy billing systems and obtaining GM approval sign-off Resolved disputed balances that had been outstanding for years, restoring account accuracy</li>
+        <li>Monitored and reconciled demurrage receivables at Perez Y Cia, and managed receivables and AR reporting for Marinter&#x27;s LCL shipping operations At Perez Y Cia — demurrage billing tied to container shipping; at Marinter — monitoring outstanding receivables and AR reports for LCL logistic support (barrels, boxes, crates). No demurrage function at Marinter. Maintained accurate demurrage billing at Perez Y Cia through manual verification of container stay-days against port records; maintained current receivables ledger and AR reporting for Marinter&#x27;s LCL operations.</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-0" name="confirm_role-0">
+      <label for="confirm-role-0">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-0" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounts Clerk / Senior Accounting Assistant / Accounts Supervisor @ Servisair Trinidad &amp;amp; Tobago Ltd">
+    <div class="role-header">
+      <span class="role-title">Accounts Clerk / Senior Accounting Assistant / Accounts Supervisor</span>
+      <span class="role-dates">2007–2012</span>
+    </div>
+    <div class="role-employer">Servisair Trinidad &amp; Tobago Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Balanced and managed receivables and payables ledgers with final GL posting review authority Full accounting cycle for aviation ground handling and cargo operations Maintained accurate general ledger; managed accruals, prepayments, and Capex/Revenue/Cargo Variance reconciliations</li>
+        <li>Prepared and filed quarterly VAT returns and Business &amp; Green Fund Levy submissions Statutory compliance function for Servisair&#x27;s Trinidad entity; also primary liaison for Corporation Tax and year-end external audits Filed all statutory returns on time; no material audit findings on areas managed</li>
+        <li>Managed accounting transaction discrepancy review during Peachtree-to-Safari system migration Full accounting department; all transaction records reviewed across both systems Clean migration; discrepancies identified and resolved before go-live</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-1" name="confirm_role-1">
+      <label for="confirm-role-1">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-1" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounts Clerk @ VMCOTT">
+    <div class="role-header">
+      <span class="role-title">Accounts Clerk</span>
+      <span class="role-dates">2014</span>
+    </div>
+    <div class="role-employer">VMCOTT</div>
+      <ul class="accomplishment-list">
+        <li>Reconciled AR ledger and GL accounts while coordinating physical inventory count and investigating variances Short-term contract; full accounting cycle support including asset and cash position updates 100% accuracy on GL and bank reconciliations; accurate financial records maintained throughout</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-2" name="confirm_role-2">
+      <label for="confirm-role-2">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-2" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounting Officer @ Mondeum International Service Centre">
+    <div class="role-header">
+      <span class="role-title">Accounting Officer</span>
+      <span class="role-dates">2020–Present</span>
+    </div>
+    <div class="role-employer">Mondeum International Service Centre</div>
+      <ul class="accomplishment-list">
+        <li>Designed and implemented a centralized digital filing system for the accounting department Full AP department; replaced manual paper-based retrieval; trained 2 accounting staff on the system Document retrieval time dropped from 20 minutes to seconds; saves 2 hours of admin time per week; contributed to 100% audit documentation compliance</li>
+        <li>Overhauled the accounts payable structure: standardized vendor accounts, mandated invoice uploads, and rebuilt documentation workflows Full AP function; 60–70 vendor invoices per month; ~$1.2M USD monthly cash outflow Eliminated prior audit deficiencies; all subsequent audits returned 100% documentation compliance; AP processing standardized across all vendors</li>
+        <li>Built a dynamic Cash Outflow Reporting tool in Excel using QuickBooks Online data exports Multi-entity reporting covering ~$1.2M USD monthly; designed for CEO-level visibility Produced weekly reports giving CEO real-time liquidity visibility; tool auto-categorizes by Vendor and Bank Account using Pivot Tables and multi-layered formulas</li>
+        <li>Managed inter-company balance reconciliations across 5 legal entities in 4 currencies TTD, USD, GBP, EUR; 5 entities within Mondeum group structure; ongoing monthly function Maintained accurate inter-company balances supporting multi-entity consolidation and audit readiness</li>
+        <li>Managed fixed asset register across 9 asset categories including additions, disposals, and depreciation $15.4M TTD total asset value across the Mondeum group Accurate fixed asset records maintained for financial reporting, year-end statements, and audit requirements</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-3" name="confirm_role-3">
+      <label for="confirm-role-3">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-3" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounting Assistant @ DIRECTV Trinidad Limited">
+    <div class="role-header">
+      <span class="role-title">Accounting Assistant</span>
+      <span class="role-dates">2015–2016</span>
+    </div>
+    <div class="role-employer">DIRECTV Trinidad Limited</div>
+      <ul class="accomplishment-list">
+        <li>Processed programming vendor invoices and managed AP/AR transactions in SAP FI modules ~60 programming invoices per month; SAP FI-AP and FI-GL; wire transfers and withholding tax processing Accurate monthly AP/AR records maintained; supported budgeting, bank reconciliations, and cash flow analysis</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-4" name="confirm_role-4">
+      <label for="confirm-role-4">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-4" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounting Officer @ Mondeum International Service Centre">
+    <div class="role-header">
+      <span class="role-title">Accounting Officer</span>
+      <span class="role-dates">2020–Present</span>
+    </div>
+    <div class="role-employer">Mondeum International Service Centre</div>
+      <ul class="accomplishment-list">
+        <li>Produced weekly Cash Outflow Reports for CEO visibility into group liquidity position Multi-entity, multi-currency; ~$1.2M USD monthly cash outflow; delivered weekly to executive leadership CEO maintained real-time awareness of cash position; replaced ad hoc manual reporting</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-5" name="confirm_role-5">
+      <label for="confirm-role-5">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-5" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounts Supervisor / Senior Accounting Assistant @ Servisair Trinidad &amp;amp; Tobago Ltd">
+    <div class="role-header">
+      <span class="role-title">Accounts Supervisor / Senior Accounting Assistant</span>
+      <span class="role-dates">2007–2012</span>
+    </div>
+    <div class="role-employer">Servisair Trinidad &amp; Tobago Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Managed Capex, Revenue, and Cargo Variance reports as part of supervisory responsibilities Full management reporting suite for aviation ground handling operations Supported accurate period-end close; provided management with operational variance analysis across the business</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-6" name="confirm_role-6">
+      <label for="confirm-role-6">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-6" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounting Officer @ Mondeum International Service Centre">
+    <div class="role-header">
+      <span class="role-title">Accounting Officer</span>
+      <span class="role-dates">2020–Present</span>
+    </div>
+    <div class="role-employer">Mondeum International Service Centre</div>
+      <ul class="accomplishment-list">
+        <li>Supervised 2 accounting staff and trained the department on the new digital filing system Small accounting team; also served as technical mentor for peers on journal corrections, vendor processing, and bank reconciliations Team fully adopted digital workflows; peers gained competency in complex accounting transactions</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-7" name="confirm_role-7">
+      <label for="confirm-role-7">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-7" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounts Supervisor @ Servisair Trinidad &amp;amp; Tobago Ltd">
+    <div class="role-header">
+      <span class="role-title">Accounts Supervisor</span>
+      <span class="role-dates">2007–2012</span>
+    </div>
+    <div class="role-employer">Servisair Trinidad &amp; Tobago Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Earned 3 successive promotions over 5 years, advancing from Accounts Clerk to Accounts Supervisor Same organization; each promotion expanded responsibilities and seniority Reached supervisory level overseeing data entry team and the full accounting cycle by 2012</li>
+        <li>Supervised data entry team and oversaw full accounting cycle operations at Servisair Accounting team; full cycle from data entry to GL posting, reporting, and statutory compliance Maintained accurate books; supported external audit requirements and all statutory filings</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-8" name="confirm_role-8">
+      <label for="confirm-role-8">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-8" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Certifications &amp; Education">
+    <h2>Certifications &amp; Education</h2>
+    <ul class="cert-list">
+        <li>CAT is the entry-level ACCA qualification — internationally recognized by IFAC member bodies</li>
+        <li>ACCA Diploma in Accounting &amp; Business = ACCA FIA (Foundation in Accountancy) completion</li>
+        <li>ABE UK credentials are UK-based business qualifications; Canadian recognition may vary — flag if a job posting lists specific credential requirements</li>
+        <li>FPER (Practical Experience Requirement) is in progress — Carlene continues accumulating qualifying hours through her current role at Mondeum</li>
+    </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-certs" name="confirm_certs">
+      <label for="confirm-certs">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_certs" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Skills">
+    <h2>Skills</h2>
+    <ul class="skill-list">
+        <li>QuickBooks Online (Expert)</li>
+        <li>Sage/Peachtree (Expert)</li>
+        <li>Microsoft Excel (Intermediate)</li>
+        <li>SAP (FI-AP, FI-GL) (Functional)</li>
+        <li>Domain (Evidence)</li>
+        <li>Accounts Payable (60–70 invoices/month; ~$1.2M USD monthly cash outflow; vendor management; payment runs; AP structure overhaul)</li>
+        <li>Accounts Receivable ($6M recovery over 24 months; 70-client portfolio; aging analysis; demurrage billing and dispute resolution)</li>
+        <li>General Ledger (Full GL management with posting authority at Servisair; accruals, prepayments, bank reconciliations)</li>
+        <li>Multi-Currency Accounting (TTD, USD, GBP, EUR inter-company balances across 5 entities at Mondeum)</li>
+        <li>Fixed Assets ($15.4M TTD portfolio; 9 categories; additions, disposals, depreciation at Mondeum)</li>
+        <li>Tax &amp; Statutory Compliance (Quarterly VAT returns; Business &amp; Green Fund Levies; Corporation Tax audit liaison at Servisair)</li>
+        <li>Financial Reporting (Weekly management cash flow reports; Capex/Revenue/Cargo Variance reports; executive dashboards)</li>
+        <li>System Migrations (Peachtree-to-Safari at Servisair; QBO workflow overhaul at Mondeum)</li>
+        <li>Problem-solving (Investigated archived invoices stalled for years; built CEO reporting tool without direction)</li>
+        <li>Communication (Technical mentor for accounting peers; weekly reports delivered to CEO level)</li>
+        <li>Initiative (Proposed and implemented digital filing system; built cash outflow model from scratch)</li>
+        <li>Attention to detail (100% accuracy on bank reconciliations (VMCOTT); zero repeat audit deficiencies (Mondeum))</li>
+        <li>Adaptability (Learned legacy billing systems at Perez Y Cia to process credit notes and resolve disputes)</li>
+    </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-skills" name="confirm_skills">
+      <label for="confirm-skills">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_skills" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card general-feedback-section">
+    <h2>General Feedback</h2>
+    <p>Anything else we should know? Missing jobs, incorrect dates,
+    achievements we missed?</p>
+    <textarea id="general-feedback" name="general_feedback" rows="4"
+      placeholder="Any additional comments or corrections..."></textarea>
+  </div>
+
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Review</button>
+      <p class="submit-help">Your responses are submitted securely.</p>
+    </div>
+
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-01T17:14:44.067848+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_dc9f783f-f51a-40c1-a110-69151538f845";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "master_resume",
+    token: "dc9f783f-f51a-40c1-a110-69151538f845",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

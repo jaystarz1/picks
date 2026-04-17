@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Master Resume Review &mdash; Percival</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+/* Review-specific styles */
+.review-section {
+  position: relative;
+}
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.role-header .role-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.role-header .role-dates {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.role-employer {
+  font-size: 14px;
+  color: var(--brand-blue);
+  margin-bottom: 10px;
+}
+.accomplishment-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+.accomplishment-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.confirm-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-card);
+}
+.confirm-row label {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.confirm-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+.correction-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  min-height: 60px;
+  resize: vertical;
+  margin-top: 4px;
+}
+.correction-textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.correction-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.general-feedback-section textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  min-height: 100px;
+  resize: vertical;
+}
+.general-feedback-section textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.skill-list, .cert-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-list li, .cert-list li {
+  background: var(--bg-page);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Master Resume Review</h1>
+    <div class="meta-line">Generated: April 17, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Resume Review</h2>
+    <p>Review your employment history below. For each section, check the box
+    if the information is accurate, or use the text box to describe any
+    corrections needed.</p>
+    <p>When you're done, click <strong>Submit Review</strong> at the bottom.</p>
+    <p class="hint">No personal information (name, email, phone, address)
+    is shown on this page for your privacy.</p>
+  </div>
+
+  <form id="page-form">
+
+    <input type="hidden" name="token" value="99c3be42-d53d-4428-9c37-acc8a57e32e3">
+    <input type="hidden" name="client_name" value="Percival_Barnett">
+    <input type="hidden" name="_client_email" value="">
+
+  <div class="section-card review-section" data-section="Head Chef @ Spikes Industries Ltd">
+    <div class="role-header">
+      <span class="role-title">Head Chef</span>
+      <span class="role-dates">Dec 2007 – May 2011</span>
+    </div>
+    <div class="role-employer">Spikes Industries Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Designed and implemented a cost-effective corporate lunch program for an industrial manufacturer 130 production workers daily; monthly food budget reduced from JMD 910,000 to JMD 546,000; led 9-person kitchen team; 2-month ramp-up Delivered 40% cost savings (JMD 364,000 monthly) within two months of launch; savings sustained thereafter with only minor fluctuation tied to commodity price movements</li>
+        <li>Managed food purchasing, menu planning, and daily meal production for a corporate canteen 130 production workers daily; JMD 546,000 monthly food budget post-redesign; 9-person kitchen team Consistent daily output maintained within reduced budget for the duration of tenure (Dec 2007 – May 2011)</li>
+        <li>Drove sustained cost reduction through supplier renegotiation, direct market sourcing, menu substitution, and leftover reuse Corporate lunch program, 130 workers, JMD 910K baseline monthly budget 40% cost reduction achieved and sustained; specific methods included changing suppliers, personally sourcing from market, substituting ingredients on selected menu items, and reusing leftovers to produce other dishes</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-0" name="confirm_role-0">
+      <label for="confirm-role-0">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-0" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Head Chef @ Fiesta Restaurant &amp;amp; Fast Food">
+    <div class="role-header">
+      <span class="role-title">Head Chef</span>
+      <span class="role-dates">Aug 2001 – Oct 2004</span>
+    </div>
+    <div class="role-employer">Fiesta Restaurant &amp; Fast Food</div>
+      <ul class="accomplishment-list">
+        <li>Led full kitchen operations and directly supervised a 21-person team across two shifts at an 85-seat restaurant and fast food outlet 21-person team, two shifts, 850 covers per day, 85-seat dining room, full-service restaurant + fast food, Kingston Jamaica Sustained menu quality and throughput across 850-cover daily volume; built and owned all shift schedules</li>
+        <li>Owned pricing, quantity control, purchasing, and shift scheduling for a full-menu, dual-shift restaurant Full menu at 85-seat Fiesta Restaurant &amp; Fast Food, 850 covers daily, 21-person team across two shifts Pricing, purchasing, and schedules built and maintained entirely by this role across a 3-year tenure (Aug 2001 – Oct 2004)</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-1" name="confirm_role-1">
+      <label for="confirm-role-1">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-1" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Restaurant Manager @ Percy&amp;#x27;s Dutch Pot Restaurant &amp;amp; Catering Service">
+    <div class="role-header">
+      <span class="role-title">Restaurant Manager</span>
+      <span class="role-dates">Jul 2011 – Present</span>
+    </div>
+    <div class="role-employer">Percy&#x27;s Dutch Pot Restaurant &amp; Catering Service</div>
+      <ul class="accomplishment-list">
+        <li>Founded and operated a full-service restaurant and catering business, running all P&amp;L, operations, procurement, and HR functions 22 staff (10 on payroll), 500+ covers per day, JMD 1,500 average check, 2 shifts/7 days a week, JMD 7M purchasing budget, 15 catering events per year 15-year continuous operation with ~80% repeat customer rate; scaled from 1 staff and 10 lbs of chicken per day to 22 staff and 400 lbs per day; extended operating hours from 7pm to 11pm close</li>
+        <li>Recruited, trained, and supervised restaurant and catering staff; ran payroll 22 staff at Percy&#x27;s Dutch Pot (10 on formal payroll); 93 staff trained across a 29-year career Sustained staffing levels across 15 years of continuous operation; direct ownership of recruitment, onboarding, payroll, and supervision</li>
+        <li>Planned and executed catering events from menu design through service delivery ~15 catering events per year at Percy&#x27;s Dutch Pot; largest single event served 1,600 guests Consistent year-over-year catering throughput across 15 years; scale demonstrated on events up to 1,600 guests</li>
+        <li>Grew a single-operator food business into a 22-staff restaurant and catering operation over 15 years Started with 1 staff member and 10 lbs of chicken per day; grew to 22 staff and 400 lbs of chicken per day; extended closing time from 7pm to 11pm 40x increase in daily protein throughput and 22x staff growth; ~80% repeat customer base sustained</li>
+        <li>Maintained food safety compliance across a 15-year operation subject to regulatory oversight Jamaica Ministry of Health inspections three times per year; all inspection results recorded as satisfactory Continuous compliance across 15 years; no failed inspections on record</li>
+        <li>Built a repeat-customer base through consistent service and menu execution ~500+ covers per day at JMD 1,500 average check ~80% of daily customers are repeat customers</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-2" name="confirm_role-2">
+      <label for="confirm-role-2">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-2" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Chef and Maitre&amp;#x27; D @ The McAuley Centre Guest House">
+    <div class="role-header">
+      <span class="role-title">Chef and Maitre&#x27; D</span>
+      <span class="role-dates">1999</span>
+    </div>
+    <div class="role-employer">The McAuley Centre Guest House</div>
+      <ul class="accomplishment-list">
+        <li>Delivered fine dining service and Jamaican cuisine instruction for a boutique guest house 30–40 guests per sitting at The McAuley Centre Guest House; served as both Chef and Maitre&#x27; D; 1999 Full fine dining service plus guest-facing culinary instruction delivered for a 30–40 guest boutique hospitality operation</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-3" name="confirm_role-3">
+      <label for="confirm-role-3">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-3" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Chef @ Mitchell&amp;#x27;s Auto Suppliers &amp;amp; Food Court">
+    <div class="role-header">
+      <span class="role-title">Chef</span>
+      <span class="role-dates">Nov 2004 – Dec 2007</span>
+    </div>
+    <div class="role-employer">Mitchell&#x27;s Auto Suppliers &amp; Food Court</div>
+      <ul class="accomplishment-list">
+        <li>Planned and executed three catering events single-handedly, earning formal employer recognition and generating repeat business Managed both the cafeteria (110 staff) and the public food court (300 customers daily); led an 8-person kitchen team Awarded Employee of the Second Quarter (Q2 2006) for consistently reliable catering planning and execution; original three events led directly to two additional catering contracts</li>
+        <li>Managed dual-service food operation spanning corporate cafeteria and public food court 110 staff using the cafeteria daily plus approximately 300 food court customers per day; 8-person kitchen team; Nov 2004 – Dec 2007 Sustained high-volume daily service across both operations for 3-year tenure</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-4" name="confirm_role-4">
+      <label for="confirm-role-4">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-4" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Cook @ Industrial Catering Services">
+    <div class="role-header">
+      <span class="role-title">Cook</span>
+      <span class="role-dates">Jan 2000 – Jan 2001</span>
+    </div>
+    <div class="role-employer">Industrial Catering Services</div>
+      <ul class="accomplishment-list">
+        <li>Prepared daily meals and specialty breakfast service for cargo ship crews and wharf workers at Kingston Wharf 30–35 crew members per ship plus approximately 90 Kingston Wharf workers per shift; graveyard-shift schedule Consistent daily meal production plus specialty breakfast service across marine and industrial populations for a 1-year tenure</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-5" name="confirm_role-5">
+      <label for="confirm-role-5">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-5" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Assistant Cook @ Sunset Jamaica Grand Hotel">
+    <div class="role-header">
+      <span class="role-title">Assistant Cook</span>
+      <span class="role-dates">Mar 1997 – Sep 1997</span>
+    </div>
+    <div class="role-employer">Sunset Jamaica Grand Hotel</div>
+      <ul class="accomplishment-list">
+        <li>Built foundational culinary technique through mise en place and kitchen prep at a major resort property Resort-scale hotel kitchen, Ocho Rios, Jamaica; 7-month tenure Developed into &quot;an excellent prep chef&quot; per self-assessment in resume; built foundation for subsequent kitchen leadership career</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-6" name="confirm_role-6">
+      <label for="confirm-role-6">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-6" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Certifications &amp; Education">
+    <h2>Certifications &amp; Education</h2>
+    <ul class="cert-list">
+        <li>Level III Commis Chef | HEART/NSTA Trust, Jamaica | Status: PENDING — not yet complete</li>
+        <li>CXC Grade 1 — Food and Nutrition | Caribbean Examinations Council | 1995 | Grade: A (practical), B (theory)</li>
+        <li>Edwin Allen High School | Secondary School | Jamaica | 1990–1995</li>
+    </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-certs" name="confirm_certs">
+      <label for="confirm-certs">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_certs" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Skills">
+    <h2>Skills</h2>
+    <ul class="skill-list">
+        <li>Menu planning (Daily)</li>
+        <li>Food preparation (Daily)</li>
+        <li>Inventory management (Daily)</li>
+        <li>Cash management / payroll (Daily)</li>
+        <li>Staff recruitment &amp; training (Regular)</li>
+        <li>Catering coordination (Regular)</li>
+        <li>Food cost / quantity control (Daily)</li>
+        <li>Quality control (Daily)</li>
+        <li>Customer service (Daily)</li>
+        <li>Fine dining service (Proficient)</li>
+        <li>Jamaican cuisine (Expert)</li>
+        <li>Restaurant operations (Expert)</li>
+        <li>Corporate/industrial catering (Working)</li>
+        <li>Hotel/resort food service (Working)</li>
+        <li>Fine dining (Working)</li>
+        <li>Food safety &amp; consistency (Expert)</li>
+        <li>Leadership under pressure (Supervised 21 staff at Fiesta across two shifts; 15-year owner-operator)</li>
+        <li>Conflict resolution (Client-identified as primary strength relevant to Canadian market; 15-year owner-operator staff management record)</li>
+        <li>Customer relations (Client-identified strength; ~80% repeat customer rate at Percy&#x27;s Dutch Pot)</li>
+        <li>Inventory management (Client-identified strength; JMD 7M purchasing budget at Percy&#x27;s Dutch Pot)</li>
+        <li>Workflow improvement (40% cost savings at Spikes Industries within 2 months (JMD 364K monthly))</li>
+    </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-skills" name="confirm_skills">
+      <label for="confirm-skills">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_skills" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card general-feedback-section">
+    <h2>General Feedback</h2>
+    <p>Anything else we should know? Missing jobs, incorrect dates,
+    achievements we missed?</p>
+    <textarea id="general-feedback" name="general_feedback" rows="4"
+      placeholder="Any additional comments or corrections..."></textarea>
+  </div>
+
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Review</button>
+      <p class="submit-help">Your responses are submitted securely.</p>
+    </div>
+
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-01T16:23:36.164853+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_99c3be42-d53d-4428-9c37-acc8a57e32e3";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "master_resume",
+    token: "99c3be42-d53d-4428-9c37-acc8a57e32e3",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

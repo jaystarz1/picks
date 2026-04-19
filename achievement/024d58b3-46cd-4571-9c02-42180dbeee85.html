@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career Details for Subject &mdash; Subject</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Career Details for Subject</h1>
+    <div class="meta-line">Generated: April 19, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+<div class="step-breadcrumb"><div class="step active">Sign Up</div><div class="step done">Intake Form</div><div class="step done">Achievements</div><div class="step done">Resume Review</div><div class="step done">Job Search</div></div>
+  <div class="section-card prep-warning">
+    <h2>Before You Start</h2>
+    <p>This form takes about <strong>34&ndash;39 minutes</strong>
+    (46 questions). Before you begin, it helps to have:</p>
+    <ul>
+      <li>Recent pay stubs or offer letters (for title/salary verification)</li>
+      <li>Performance reviews or annual evaluations</li>
+      <li>A list of projects you&rsquo;ve worked on</li>
+      <li>Certifications, licenses, and their expiry dates</li>
+      <li>Any awards or recognition documents</li>
+    </ul>
+    <p>Your best estimates are fine &mdash; you don&rsquo;t need exact numbers
+    for everything. If you can&rsquo;t remember, skip the question.</p>
+  </div>
+  <div class="section-card">
+    <h2>Career Details</h2>
+    <p>We've analyzed your resume and have some specific questions. Each
+    section covers a specific job &mdash; just answer what you can.
+    Your best estimates are fine. Skip anything you genuinely can&rsquo;t
+    remember.</p>
+    <p class="hint">Fields marked with
+    <span style="color: var(--brand-accent);">*</span> are required.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="024d58b3-46cd-4571-9c02-42180dbeee85">
+    <input type="hidden" name="client_name" value="MPRR_System_Test">
+    <input type="hidden" name="form_mode" value="personalized">
+    <div class="section-card job-section current-role">
+      <h2>Section A — DGICCM era (Mar 2019 – present)</h2>
+      <span class="tense-hint">Current role &mdash; answer in present tense: &ldquo;I manage&hellip;&rdquo; &ldquo;I handle&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>1. Roughly how many formal grievances did you adjudicate per year at DGICCM? A range is fine if volume varied year to year.</label>
+  <div class="hint">Anchor — Grievance Analyst at DGICCM, Ottawa, Mar 2019 onward [source_ref: MILITARY_RECORD.yaml assignment_history GRIEVANCE ANALYST rows 2019-03-19 → 2025-09-09]
+Gap category — VOLUME
+Response pattern (edit this to fit) — As Grievance Analyst at DGICCM, I adjudicated approximately ____ formal grievances per year, primarily covering [harassment / pay / posting / conditions of service / other: ____].</div>
+  <textarea name="q1" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q1_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>2. When you stepped up to acting senior scope (Jun 2021 – Dec 2022), how many people reported to you, directly and indirectly?</label>
+  <div class="hint">Anchor — Acting Lieutenant-Colonel period [source_ref: rank_progression Acting LCol 2021-06-09 → 2022-12-17]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — During my acting senior assignment (~18 months), I had approximately ____ direct reports and ____ indirect reports.</div>
+  <textarea name="q2" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q2_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>3. How was your decision authority different during the acting senior period vs. your substantive Major work? What kinds of files moved up to you that didn&#x27;t before?</label>
+  <div class="hint">Anchor — Same acting LCol period [source_ref: rank_progression 2021-06-09 → 2022-12-17]
+Gap category — LEADERSHIP / SCOPE
+Response pattern (edit this to fit) — During my acting senior period, I held decision authority over ____ that I did not hold as a substantive Major. File complexity tier: [routine / complex / precedent-setting / other: ____].</div>
+  <textarea name="q3" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q3_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>4. What outcome metric is on the books for your grievance adjudication work — completion rate, time-to-decision, percent upheld on review, anything else?</label>
+  <div class="hint">Anchor — DGICCM Grievance Analyst [source_ref: assignment_history GRIEVANCE ANALYST rows]
+Gap category — QUALITY
+Response pattern (edit this to fit) — On adjudication outcomes, I tracked [time-to-decision: ____ days / completion rate: ____% / upheld-on-review: ____% / other: ____]. For context: [optional one sentence on what &#x27;good&#x27; looks like in this work].</div>
+  <textarea name="q4" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q4_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section current-role">
+      <h2>Section B — Harassment Advisor (C Army HQ, Feb 2024 – present?)</h2>
+      <span class="tense-hint">Current role &mdash; answer in present tense: &ldquo;I manage&hellip;&rdquo; &ldquo;I handle&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>5. Are you still in the Harassment Advisor role today? If not, when did it end?</label>
+  <div class="hint">Anchor — Harassment Advisor at C Army HQ, Ottawa, starting 2024-02-29 [source_ref: assignment_history HARASSMENT ADVISOR 2024-02-29]. MPRR generated 2024-04-23 cannot show an end date.
+Gap category — SCOPE
+Response pattern (edit this to fit) — I held the Harassment Advisor role from 2024-02-29 to [still active / ended on: ____].</div>
+  <textarea name="q5" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q5_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>6. How many intake assessments / cases came across your desk per month?</label>
+  <div class="hint">Anchor — Harassment Advisor, C Army HQ [source_ref: assignment_history HARASSMENT ADVISOR 2024-02-29]
+Gap category — VOLUME
+Response pattern (edit this to fit) — As Harassment Advisor, I handled approximately ____ intake assessments per month, of which ____% routed to formal resolution and ____% to informal.</div>
+  <textarea name="q6" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q6_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>7. How were the cases resolved — informal resolution percentage, escalation rate, time-to-close?</label>
+  <div class="hint">Anchor — Same Harassment Advisor posting
+Gap category — QUALITY
+Response pattern (edit this to fit) — On resolution outcomes I tracked [informal resolution: ____% / escalation rate: ____% / median time-to-close: ____ days / other: ____].</div>
+  <textarea name="q7" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q7_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section C — G1 Management (C Army HQ, Aug 2016 – Aug 2017)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>8. When you held the G1 Management portfolio, how many Primary Reserve members were inside the population you administered?</label>
+  <div class="hint">Anchor — G1 MANAGEMENT at C Army HQ 2016-08-20, then G1 MANAGEMENT P RES 2017-04-25 [source_ref: assignment_history G1 MANAGEMENT rows]
+Gap category — SCOPE
+Response pattern (edit this to fit) — As G1 P Res lead at Canadian Army HQ (Apr–Aug 2017), I administered personnel policy and reporting for approximately ____ Primary Reserve members across ____ regions / units.</div>
+  <textarea name="q8" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q8_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>9. Did any specific policy, program, or process change ship under your G1 lead? What was different after you left?</label>
+  <div class="hint">Anchor — Same G1 posting
+Gap category — QUALITY
+Response pattern (edit this to fit) — Under my G1 lead I [delivered / contributed to: ____], which changed ____ for the Primary Reserve population.</div>
+  <textarea name="q9" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q9_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section D — Algonquin Regiment OC (three appointments, 2013–2016)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>10. How many personnel were under your command at the sub-unit (typical paraded strength)?</label>
+  <div class="hint">Anchor — Three OC appointments at Algonquin Regiment, North Bay ON, 2013-02-25 / 2014-03-31 / 2016-06-08 [source_ref: assignment_history three OC events at ALQ REGT]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — As OC of an Algonquin Regiment sub-unit, I had approximately ____ personnel under command, with a typical parade strength of ____.</div>
+  <textarea name="q10" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q10_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>11. Roughly how many training events / weekend exercises / annual courses did the unit run per year?</label>
+  <div class="hint">Anchor — Same OC role, same period
+Gap category — VOLUME
+Response pattern (edit this to fit) — Annually we ran approximately ____ weekend training exercises, ____ multi-week courses, and ____ live operations / domestic taskings.</div>
+  <textarea name="q11" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q11_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>12. Was there a readiness, attendance, retention, or qualification rate you tracked? What was the number?</label>
+  <div class="hint">Anchor — Same OC role
+Gap category — QUALITY
+Response pattern (edit this to fit) — Readiness benchmarks I tracked: [attendance rate: ____% / qualification rate: ____% / retention rate: ____% / other: ____].</div>
+  <textarea name="q12" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q12_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>13. What annual budget did your sub-unit administer?</label>
+  <div class="hint">Anchor — Same OC role
+Gap category — MONEY
+Response pattern (edit this to fit) — Annual budget administered: approximately $____.</div>
+  <textarea name="q13" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q13_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>14. When you held Training Officer roles (Algonquin Regt 2013, 1 RCR 2008), did you primarily design new courses/modules or run existing ones?</label>
+  <div class="hint">Anchor — TRG OFFR rows [source_ref: assignment_history TRG OFFR Algonquin Regt 2013-01-15 + TRG OFFR 1 RCR 2008-10-29]
+Gap category — SCOPE
+Response pattern (edit this to fit) — On the TRG OFFR side, I [designed ____% / delivered ____%] of the training program. New material I built included ____.</div>
+  <textarea name="q14" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q14_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section E — Yellowknife era (J3 Plans + L Edmn Regt Det COY COMD, 2013–2016)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>15. On the J3 Plans cell at JTFN HQ, how many planners worked alongside you?</label>
+  <div class="hint">Anchor — J3 PLANS at Joint Task Force North HQ, Yellowknife, from 2013-07-09 [source_ref: assignment_history J3 PLANS at JTFN HQ 2013-07-09]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — On the J3 Plans cell at JTFN HQ, the team consisted of approximately ____ planners (myself included). I [led the cell / was a member].</div>
+  <textarea name="q15" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q15_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>16. Roughly how many operational plans did you author or co-author per year on the J3 Plans cell?</label>
+  <div class="hint">Anchor — Same J3 Plans posting
+Gap category — VOLUME
+Response pattern (edit this to fit) — I authored or co-authored approximately ____ operational plans per year. The most significant were OP NUNALIVUT 2013 and OP NEVUS 2014 [source_ref: CFTPO Operation Task rows 2013-04-08 and 2014-06-07].</div>
+  <textarea name="q16" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q16_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>17. Of the plans you led — OP NUNALIVUT 2013, OP NEVUS 2014, others — what outcome statement is fair?</label>
+  <div class="hint">Anchor — Same J3 Plans posting
+Gap category — QUALITY
+Response pattern (edit this to fit) — On OP NUNALIVUT 2013 and OP NEVUS 2014, the operations [completed all assigned tasks on schedule / completed ____% of objectives / had a specific outcome: ____].</div>
+  <textarea name="q17" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q17_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>18. When you ran the L Edmn Regt Detachment Yellowknife (Dec 2014 – Mar 2016), how many personnel did the detachment carry?</label>
+  <div class="hint">Anchor — OPS O at L Edmn Regt Det Yellowknife from 2014-12-05, COY COMD from 2016-02-10 [source_ref: assignment_history L Edmn Regt Det Yellowknife rows]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — The Yellowknife detachment carried approximately ____ personnel under my OC tenure (Dec 2014 – Mar 2016).</div>
+  <textarea name="q18" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q18_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>19. Roughly how many operations or major exercises did you run per year from Yellowknife?</label>
+  <div class="hint">Anchor — Same Yellowknife posting
+Gap category — VOLUME
+Response pattern (edit this to fit) — From Yellowknife we ran approximately ____ exercises and ____ live operations per year.</div>
+  <textarea name="q19" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q19_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>20. On OP NEVUS 2014 as COMD, how many people did you lead on the mission?</label>
+  <div class="hint">Anchor — COMD on OP NEVUS roto 2014, 2014-06-07 → 2014-07-02 [source_ref: assignment_history CFTPO Operation Task OP NEVUS roto 2014 COMD]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — As COMD of OP NEVUS 2014 (Jun–Jul 2014, ~4 weeks), I led approximately ____ mission staff.</div>
+  <textarea name="q20" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q20_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>21. What did OP NEVUS 2014 deliver — a specific repair, install, verify, recover?</label>
+  <div class="hint">Anchor — OP NEVUS roto 2014 [source_ref]
+Gap category — QUALITY
+Response pattern (edit this to fit) — OP NEVUS 2014 delivered ____ — specifically [installed / repaired / verified / recovered: ____].</div>
+  <textarea name="q21" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q21_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section F — TF Afghanistan as DPM (Feb–Aug 2006)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>22. What was the deployed-force strength your office supported in theatre?</label>
+  <div class="hint">Anchor — DPM on TF Afghanistan roto 1, 2006-02-01 → 2006-08-15 [source_ref: assignment_history CFTPO Operation Task TF AFGHANISTAN roto 1 DPM], corroborated by SWASM medal 2006-08-15 [decorations.SWASM]
+Gap category — SCOPE
+Response pattern (edit this to fit) — As Deputy Provost Marshal on TF Afghanistan (Feb–Aug 2006), my office supported a deployed force of approximately ____ personnel.</div>
+  <textarea name="q22" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q22_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>23. Roughly how many investigations or disciplinary files moved through your office during the tour?</label>
+  <div class="hint">Anchor — Same TF Afghanistan deployment
+Gap category — VOLUME
+Response pattern (edit this to fit) — Over the six-month tour, my office handled approximately ____ investigations and ____ disciplinary files.</div>
+  <textarea name="q23" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q23_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>24. Was there a benchmark you&#x27;d cite — case throughput, response time, force-protection record? Anything classified can be left blank.</label>
+  <div class="hint">Anchor — Same TF Afghanistan deployment
+Gap category — QUALITY
+Response pattern (edit this to fit) — On theatre outcomes I&#x27;d cite [case throughput: ____ / response time: ____ / force-protection record: ____].</div>
+  <textarea name="q24" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q24_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section G — 22 MP Coy as OC (Toronto, Jul 2000 – Jul 2003)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>25. What was the actual personnel strength of 22 MP Coy under your command?</label>
+  <div class="hint">Anchor — OC of 22 MP Coy at 4 Cdn Div HQ Toronto, 2000-07-17 to 2003-07-14 [source_ref: assignment_history OC 22 MP COY], with LOA 2001-11-17 to 2001-12-22
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — 22 MP Coy under my command had approximately ____ personnel (regular force + reserve).</div>
+  <textarea name="q25" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q25_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>26. Roughly how many investigative or regulatory files moved through 22 MP Coy per year on your watch?</label>
+  <div class="hint">Anchor — Same 22 MP Coy OC role
+Gap category — VOLUME
+Response pattern (edit this to fit) — Annual case load: approximately ____ investigative files and ____ regulatory enforcement actions.</div>
+  <textarea name="q26" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q26_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>27. What was the Coy&#x27;s area of jurisdiction (cities, bases, geographic span)?</label>
+  <div class="hint">Anchor — Same 22 MP Coy OC role
+Gap category — SCOPE
+Response pattern (edit this to fit) — 22 MP Coy covered ____ (e.g., &#x27;4 Cdn Div area covering bases X, Y, Z + Toronto-area auxiliary support&#x27;).</div>
+  <textarea name="q27" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q27_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>28. Was there a benchmark you tracked — clearance rate, conviction rate, response time?</label>
+  <div class="hint">Anchor — Same 22 MP Coy OC role
+Gap category — QUALITY
+Response pattern (edit this to fit) — I tracked [clearance rate: ____% / conviction rate: ____% / response time: ____].</div>
+  <textarea name="q28" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q28_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>29. OPTIONAL: Was that Nov–Dec 2001 LOA a sabbatical, professional development, personal? Skip if you&#x27;d rather not say.</label>
+  <div class="hint">Anchor — 5-week LOA from 2001-11-17 to 2001-12-22 [source_ref: assignment_history LOA rows]. Optional — only matters if a target asks about gaps.
+Gap category — SCOPE
+Response pattern (edit this to fit) — The Nov–Dec 2001 LOA was [____]. (Optional.)</div>
+  <textarea name="q29" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q29_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section H — 4 CDSB Petawawa Detachment Commander (Jul 2004 – early 2006)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>30. How many MP personnel were in the Petawawa detachment under your command?</label>
+  <div class="hint">Anchor — Detachment Commander at 4 CDSB Petawawa from 2004-07-12 [source_ref: assignment_history GR1 CNV - DETACHMENT COMMANDER 2004-07-12]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — The 4 CDSB Petawawa MP detachment had approximately ____ personnel under my command.</div>
+  <textarea name="q30" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q30_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>31. Roughly how large was the base population the detachment served?</label>
+  <div class="hint">Anchor — Same Petawawa DetComd role
+Gap category — SCOPE
+Response pattern (edit this to fit) — 4 CDSB Petawawa base population the detachment served: approximately ____ personnel + ____ dependants.</div>
+  <textarea name="q31" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q31_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>32. Roughly how many investigations or regulatory files did the Petawawa detachment open per year?</label>
+  <div class="hint">Anchor — Same Petawawa DetComd role
+Gap category — VOLUME
+Response pattern (edit this to fit) — The Petawawa detachment opened approximately ____ investigations and ____ regulatory files per year.</div>
+  <textarea name="q32" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q32_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section I — 2 MP Unit / 2 MP Regt Adjutant (Toronto, Jul 2007 – Sep 2008)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>33. What was the unit&#x27;s establishment (paper strength)?</label>
+  <div class="hint">Anchor — Move to 2 MP Regt as Adjutant 2007-07-16, MP UNIT ADJT rows 2007-10-11 → 2008-02-13 [source_ref: assignment_history 2 MP REGT ADJT rows]
+Gap category — LEADERSHIP
+Response pattern (edit this to fit) — 2 MP Unit / 2 MP Regt establishment: approximately ____ personnel.</div>
+  <textarea name="q33" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q33_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>34. Rough volume of postings, disciplinary administration, and personnel files passing the adjutant&#x27;s office per year?</label>
+  <div class="hint">Anchor — Same Adjutant role
+Gap category — VOLUME
+Response pattern (edit this to fit) — Annual volume through the adjutant&#x27;s office: approximately ____ postings / movements, ____ disciplinary admin actions, ____ personnel files.</div>
+  <textarea name="q34" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q34_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section J — UNPROFOR (Yugoslavia 1994–95) and UNDOF (Golan 2003–04)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>35. On UNPROFOR 1994–95 as A ADJT, how many nations / personnel were in the multinational HQ you supported?</label>
+  <div class="hint">Anchor — OP HARMONY as A ADJT, 1994-10-15 → 1995-04-15 [source_ref: assignment_history CFTPO Operation Task OP HARMONY A ADJT], corroborated by UNPROFOR medal 1995-04-15
+Gap category — SCOPE
+Response pattern (edit this to fit) — The UNPROFOR multinational HQ I supported included approximately ____ nations and ____ personnel.</div>
+  <textarea name="q35" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q35_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>36. Specifically what did &#x27;A ADJT&#x27; cover for you on UNPROFOR — admin lead, deputy, personnel function, all of the above?</label>
+  <div class="hint">Anchor — Same UNPROFOR deployment
+Gap category — SCOPE
+Response pattern (edit this to fit) — As A ADJT on UNPROFOR I covered ____ (e.g., &#x27;admin lead for the Canadian contingent&#x27;s HQ element, including personnel administration, leave/posting actions, and HQ logistics&#x27;).</div>
+  <textarea name="q36" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q36_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>37. What role did you actually hold on UNDOF? (MPRR shows only a generic conversion code.)</label>
+  <div class="hint">Anchor — TASK FORCE GOLAN posting recorded as &#x27;GR1 CNV&#x27; on 2003-07-14 [source_ref: assignment_history TASK FORCE GOLAN 2003-07-14] — generic conversion code, not the actual role
+Gap category — SCOPE
+Response pattern (edit this to fit) — On UNDOF (Golan Heights, 2003–04) I held the role of ____.</div>
+  <textarea name="q37" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q37_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>38. Roughly how long was your UNDOF tour?</label>
+  <div class="hint">Anchor — UNDOF posting start 2003-07-14; UNDOF medal dated 2004-07-11 [source_ref: decorations.UNDOF]
+Gap category — SCOPE
+Response pattern (edit this to fit) — UNDOF tour length: ____ months (approximately 2003-07-14 to ____).</div>
+  <textarea name="q38" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q38_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card job-section ">
+      <h2>Section K — 1 RCR Petawawa (2008–2010)</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>39. As ASST OPS OFFR for a ~600-person infantry battalion, what was your real scope — training events supported, deployments planned, ops orders authored?</label>
+  <div class="hint">Anchor — ASST OPS OFFR at 1 RCR (Petawawa) from 2009-02-03, multiple XFR/POS events through 2010-01-11 [source_ref: assignment_history 1 RCR ASST OPS OFFR rows]
+Gap category — VOLUME / LEADERSHIP
+Response pattern (edit this to fit) — On the 1 RCR ASST OPS OFFR file I supported approximately ____ training events per year, contributed to planning for ____ deployments / exercises, and authored or co-authored approximately ____ operations orders.</div>
+  <textarea name="q39" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q39_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>40. As TRG OFFR for the battalion, roughly how many personnel cycled through your training calendar per year?</label>
+  <div class="hint">Anchor — TRG OFFR at 1 RCR (Petawawa) from 2008-10-29 [source_ref: assignment_history TRG OFFR 2008-10-29]
+Gap category — VOLUME
+Response pattern (edit this to fit) — As TRG OFFR at 1 RCR, approximately ____ personnel cycled through the battalion training calendar per year.</div>
+  <textarea name="q40" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="q40_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card">
+      <h2>General Questions</h2>
+      <div class="form-group">
+  <label>41. Your MPRR shows two civilian translation axes: (a) operations/command/training (infantry-derived) and (b) investigation/regulatory/dispute-resolution (MP era + grievance/harassment). Which do you want weighted highest in your resume?</label>
+  <div class="hint">Anchor — Translation hypothesis weighting — see crosswalk/translation_hypothesis.md
+Gap category — (mode selection)
+Response pattern (edit this to fit) — Weight axis (a) operations/command at ____%, axis (b) investigation/regulatory at ____%.</div>
+  <textarea name="g1" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="g1_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>42. Sector preference — defence-adjacent, federal public service, broader public sector, private sector, consulting, NGO?</label>
+  <div class="hint">Anchor — Sector preference
+Gap category — (mode selection)
+Response pattern (edit this to fit) — Primary sector target: ____. Secondary sector target: ____. Sectors to avoid: ____.</div>
+  <textarea name="g2" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="g2_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>43. Geography — Ottawa-only, open within Ontario, open across Canada, open to remote-first, open to relocation?</label>
+  <div class="hint">Anchor — Geography
+Gap category — (mode selection)
+Response pattern (edit this to fit) — Geography: ____.</div>
+  <textarea name="g3" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="g3_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>44. Seniority appetite — substantive Major-equivalent (operational lead), Acting LCol-equivalent (department head), or open?</label>
+  <div class="hint">Anchor — Seniority appetite
+Gap category — (mode selection)
+Response pattern (edit this to fit) — Seniority target: ____. Open to roles below this if: ____.</div>
+  <textarea name="g4" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="g4_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>45. Do you have any civilian work history (paid, contracting, consulting, board/volunteer)? If yes, the resume mode changes from straight_translation to foundation_plus_civ or integrated.</label>
+  <div class="hint">Anchor — Civilian work history
+Gap category — (mode selection)
+Response pattern (edit this to fit) — Civilian work history: [yes — please describe / no].</div>
+  <textarea name="g5" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="g5_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>46. Are you comfortable surfacing the CANSOFCOM Primary Reserve roster affiliation (2010–2023) and the brief 427 SOA SQN attachment (2013) on a defence-adjacent resume?</label>
+  <div class="hint">Anchor — Defense-adjacent affiliations consent
+Gap category — (consent)
+Response pattern (edit this to fit) — Surface CANSOFCOM/427 SOA SQN: [yes / no / yes only on certain employer types: ____].</div>
+  <textarea name="g6" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="g6_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+  <div class="submit-section">
+    <div class="button-group">
+      <button type="button" class="save-draft-btn" id="save-draft-btn">Save for Later</button>
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Achievements</button>
+    </div>
+    <p class="submit-help">Save your progress and come back later, or submit when ready.</p>
+  </div>
+  <div id="draft-saved-message" class="draft-saved-message" style="display:none;">
+    <h3>Progress Saved</h3>
+    <p>We'll email you a link to pick up where you left off.</p>
+  </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-03T12:34:55.136455+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_024d58b3-46cd-4571-9c02-42180dbeee85";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "achievement_form",
+    token: "024d58b3-46cd-4571-9c02-42180dbeee85",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+(function() {
+  var btn = document.getElementById("save-draft-btn");
+  if (!btn) return;
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  btn.addEventListener("click", function() {
+    btn.disabled = true;
+    btn.textContent = "Saving...";
+
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function(value, key) {
+      if (data[key]) {
+        if (!Array.isArray(data[key])) data[key] = [data[key]];
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
+    });
+
+    var payload = {
+      action: "formSubmission",
+      formType: "form_draft",
+      token: "024d58b3-46cd-4571-9c02-42180dbeee85",
+      data: data
+    };
+    payload.data.originalFormType = "achievement_form";
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      btn.textContent = "Saved \u2713";
+      btn.style.borderColor = "#2e7d32";
+      btn.style.color = "#2e7d32";
+      var msg = document.getElementById("draft-saved-message");
+      if (msg) msg.style.display = "block";
+    }).catch(function(err) {
+      btn.textContent = "Error \u2014 Try Again";
+      btn.style.borderColor = "#c62828";
+      btn.style.color = "#c62828";
+      btn.disabled = false;
+      console.error("Save draft error:", err);
+    });
+  });
+})();
+</script>
+</body>
+</html>

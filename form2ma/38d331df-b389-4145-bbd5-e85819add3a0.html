@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Military Record Confirmation (Form 2MA) &mdash; Jay</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+.row-card { margin: 1em 0; padding: 1em; border-left: 4px solid #1976d2; background: #f8f9fb; }
+.row-card .row-head { margin: 0 0 0.25em 0; font-size: 1.05em; }
+.row-card .meta { color: #666; font-weight: normal; font-size: 0.92em; }
+.row-card .meta-rid { color: #999; font-size: 0.8em; margin-bottom: 0.5em; }
+.parser-banner { background: #fff3cd; border-left: 4px solid #d97706; padding: 0.5em 0.75em;
+                  margin: 0.5em 0; border-radius: 2px; font-size: 0.92em; }
+.raw-lines { background: #1e1e1e; color: #d4d4d4; padding: 0.5em 0.75em; border-radius: 3px;
+              font-family: "SF Mono", Menlo, monospace; font-size: 0.78em; overflow-x: auto;
+              white-space: pre; margin: 0.25em 0 0.75em 0; }
+.radio-inline { display: inline-block; margin-right: 1em; font-weight: normal; }
+.conditional { display: none; padding-left: 1em; border-left: 2px solid #d1d5db; margin: 0.5em 0; }
+.add-row-block { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; margin-bottom: 1em;
+                  padding: 0.75em; background: #fff; border: 1px solid #e5e7eb; border-radius: 3px; }
+.add-row-block textarea { grid-column: span 2; }
+.secondary-btn { background: #e5e7eb; border: 0; padding: 0.5em 1em; border-radius: 3px;
+                  cursor: pointer; font-weight: 500; }
+.section-header { margin-top: 2em; padding-bottom: 0.25em; border-bottom: 2px solid #1976d2; }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Military Record Confirmation (Form 2MA)</h1>
+    <div class="meta-line">Generated: April 19, 2026</div>
+
+  </header>
+
+<form id="page-form" action="#" method="post" novalidate>
+  <div class="section-card">
+    <h2>What this form does</h2>
+    <p>The parser drafted a structured version of your Military Personnel Record (MPRR).
+    Your job here is to confirm or correct each row. This is <strong>not</strong> the
+    behavioral/achievement interview &mdash; that comes next (Form 2MB) once we have a
+    confirmed record.</p>
+    <p>Rows with a yellow <strong>Parser flagged for review</strong> banner are ones the
+    parser wasn't sure about. Please give those a close look.</p>
+  </div>
+
+  <h2 class="section-header">Assignment history (27 rows)</h2>
+  <div class="section-card row-card" data-row-id="crole_1989_12_12_enrol" data-row-kind="assignment">
+  <h3 class="row-head">CF Enrol <span class='meta'>@ CANADIAN FORCES RECRUITING CENTRE VANCOUVER &middot; 1989-12-12</span></h3>
+  <div class="meta-rid">row_id: <code>crole_1989_12_12_enrol</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+0005   CANADIAN FORCES                  NEW WESTMINSTER BC         CF Enrol             LOA - CANADIAN FORCES                   LOA                    12-DEC-1989
+       RECRUITING CENTRE                                                                RECRUITING CENTRE
+       VANCOUVER                                                                        VANCOUVER</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1989_12_12_enrol__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_1989_12_12_enrol__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1989_12_12_enrol__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_1989_12_12_enrol__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1989_12_12_enrol__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_1989_12_12_enrol__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_1989_12_12_enrol__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_1989_12_12_enrol__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_1990_01_03_bas_trg" data-row-kind="assignment">
+  <h3 class="row-head">Bas Trg L <span class='meta'>@ CANADIAN FORCES OFFICER CANDIDATE SCHOOL &middot; 1990-01-03 → 1990-11-23</span></h3>
+  <div class="meta-rid">row_id: <code>crole_1990_01_03_bas_trg</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+1386   CANADIAN FORCES OFFICER                                     Bas Trg L            Posting - CANADIAN FORCES               PST                    03-JAN-1990
+       CANDIDATE SCHOOL                                                                 OFFICER CANDIDATE SCHOOL
+2607   CANADIAN FORCES                  RICHELAIN QC               Bas Trg L            Posting - CANADIAN FORCES               PST                    30-MAR-1990
+       LANGUAGE SCHOOL                                                                  LANGUAGE SCHOOL
+       DETACHMENT SAINT-JEAN                                                            DETACHMENT SAINT-JEAN
+7753   INFANTRY SCHOOL                  OROMOCTO NB                Bas Trg L            Posting - INFANTRY SCHOOL               PST                    23-NOV-1990</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1990_01_03_bas_trg__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_1990_01_03_bas_trg__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1990_01_03_bas_trg__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_1990_01_03_bas_trg__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1990_01_03_bas_trg__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_1990_01_03_bas_trg__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_1990_01_03_bas_trg__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_1990_01_03_bas_trg__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_1991_08_09_mmo" data-row-kind="assignment">
+  <h3 class="row-head">MMO <span class='meta'>@ 1ST BATTALION THE ROYAL CANADIAN REGIMENT &middot; 1991-08-09</span></h3>
+  <div class="meta-rid">row_id: <code>crole_1991_08_09_mmo</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+1847   1ST BATTALION THE ROYAL          PETAWAWA ON                MMO                  Posting - 1ST BATTALION THE             PST                    09-AUG-1991
+       CANADIAN REGIMENT                                                                ROYAL CANADIAN REGIMENT
+--- Concurrent events (same time window) ---
+                                                                   OP HARMONY~A ADJT    CFTPO Operation Task                                           15-OCT-1994 -
+                                                                                                                                                       15-APR-1995
+--- MPRR markers (RECEIPT / TRANSFER / etc.) ---
+3443   Canadian Forces Recruiting,                                 Conv Posn            Posting - Canadian Forces               PST                    01-SEP-1995
+       Education, and Training System                                                   Recruiting, Education, and Training
+       Headquarters                                                                     System Headquarters</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1991_08_09_mmo__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_1991_08_09_mmo__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1991_08_09_mmo__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_1991_08_09_mmo__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1991_08_09_mmo__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_1991_08_09_mmo__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_1991_08_09_mmo__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_1991_08_09_mmo__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_1999_09_01_bas_trg" data-row-kind="assignment">
+  <h3 class="row-head">Bas Trg L <span class='meta'>@ CANADIAN FORCES MILITARY POLICE ACADEMY &middot; 1999-09-01</span></h3>
+  <div class="meta-rid">row_id: <code>crole_1999_09_01_bas_trg</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+2008   CANADIAN FORCES                  BORDEN ON                  Bas Trg L            Posting - CANADIAN FORCES               PST                    01-SEP-1999
+       MILITARY POLICE ACADEMY                                                          MILITARY POLICE ACADEMY</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1999_09_01_bas_trg__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_1999_09_01_bas_trg__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1999_09_01_bas_trg__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_1999_09_01_bas_trg__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_1999_09_01_bas_trg__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_1999_09_01_bas_trg__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_1999_09_01_bas_trg__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_1999_09_01_bas_trg__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2007_10_11_mp_unit_adjt" data-row-kind="assignment">
+  <h3 class="row-head">MP UNIT ADJT <span class='meta'>@ 2 MP UNIT &middot; 2007-10-11 → 2008-02-13</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2007_10_11_mp_unit_adjt</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+6477   2 MP UNIT                     TORONTO ON              MP UNIT ADJT                                            XFR/POS                11-OCT-2007
+6477   2 MP UNIT                     TORONTO ON              MP UNIT ADJT                                            XFR/POS                15-NOV-2007
+6477   2 MP UNIT                     TORONTO ON              MP UNIT ADJT                                                                   05-FEB-2008
+6477   2 MP UNIT                     TORONTO ON              MP UNIT ADJT                                            XFR/POS                05-FEB-2008
+6477   2 MP UNIT                     TORONTO ON              MP UNIT ADJT                                            XFR/POS                13-FEB-2008
+--- Concurrent events (same time window) ---
+0107   CFB/ASU PETAWAWA              PETAWAWA ON             ATTACHED IN                                             ASG/Attached (M&amp;M)     22-APR-2008
+--- MPRR markers (RECEIPT / TRANSFER / etc.) ---
+0107   CFB/ASU PETAWAWA              PETAWAWA ON             MONITOR POSITION                                        XFR/POS                21-APR-2008</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2007_10_11_mp_unit_adjt__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2007_10_11_mp_unit_adjt__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2007_10_11_mp_unit_adjt__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2007_10_11_mp_unit_adjt__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2007_10_11_mp_unit_adjt__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2007_10_11_mp_unit_adjt__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2007_10_11_mp_unit_adjt__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2007_10_11_mp_unit_adjt__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2008_07_31_g3_plans" data-row-kind="assignment">
+  <h3 class="row-head">G3 PLANS <span class='meta'>@ CFB/ASU PETAWAWA &middot; 2008-07-31</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2008_07_31_g3_plans</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+0107   CFB/ASU PETAWAWA              PETAWAWA ON             G3 PLANS                                                ASG/Attached (M&amp;M)     31-JUL-2008</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_07_31_g3_plans__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2008_07_31_g3_plans__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_07_31_g3_plans__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2008_07_31_g3_plans__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_07_31_g3_plans__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2008_07_31_g3_plans__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_07_31_g3_plans__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2008_07_31_g3_plans__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2008_09_15_coy_2ic" data-row-kind="assignment">
+  <h3 class="row-head">Bas Trg L - COY 2IC <span class='meta'>@ 1ST BATTALION THE ROYAL CANADIAN REGIMENT &middot; 2008-09-15</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2008_09_15_coy_2ic</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+1847   1ST BATTALION THE ROYAL       PETAWAWA ON             Bas Trg L - COY 2IC    Posting - 1ST BATTALION THE      PST                    15-SEP-2008
+       CANADIAN REGIMENT                                                            ROYAL CANADIAN REGIMENT
+--- MPRR markers (RECEIPT / TRANSFER / etc.) ---
+1847   1 RCR                         PETAWAWA ON             TRANSFER                                                XFR/POS                03-OCT-2008</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_09_15_coy_2ic__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2008_09_15_coy_2ic__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_09_15_coy_2ic__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2008_09_15_coy_2ic__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_09_15_coy_2ic__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2008_09_15_coy_2ic__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_09_15_coy_2ic__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2008_09_15_coy_2ic__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2008_10_29_trg_offr" data-row-kind="assignment">
+  <h3 class="row-head">TRG OFFR <span class='meta'>@ 1 RCR &middot; 2008-10-29</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2008_10_29_trg_offr</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+1847   1 RCR                         PETAWAWA ON             TRG OFFR                                                XFR/POS                29-OCT-2008</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_10_29_trg_offr__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2008_10_29_trg_offr__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_10_29_trg_offr__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2008_10_29_trg_offr__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2008_10_29_trg_offr__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2008_10_29_trg_offr__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2008_10_29_trg_offr__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2008_10_29_trg_offr__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2009_02_03_ops_o" data-row-kind="assignment">
+  <h3 class="row-head">ASST OPS OFFR <span class='meta'>@ 1 RCR &middot; 2009-02-03 → 2010-01-11</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2009_02_03_ops_o</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+1847   1 RCR                         PETAWAWA ON             ASST OPS OFFR                                           XFR/POS                03-FEB-2009
+1847   1 RCR                         PETAWAWA ON             ASST OPS OFFR                                           XFR/POS                22-SEP-2009
+1847   1 RCR                         PETAWAWA ON             ASST OPS OFFR                                           XFR/POS                10-JAN-2010
+1847   1 RCR                         PETAWAWA ON             ASST OPS OFFR                                           XFR/POS                11-JAN-2010
+--- MPRR markers (RECEIPT / TRANSFER / etc.) ---
+1847   1 RCR                         PETAWAWA ON             NEW                                                     XFR/POS                15-OCT-2010</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2009_02_03_ops_o__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2009_02_03_ops_o__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2009_02_03_ops_o__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2009_02_03_ops_o__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2009_02_03_ops_o__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2009_02_03_ops_o__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2009_02_03_ops_o__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2009_02_03_ops_o__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2011_07_01_platoon_11" data-row-kind="assignment">
+  <h3 class="row-head">PLATOON (1-11) (roto 12)~OPS DUTY OFFICER <span class='meta'>@ NO UIC &middot; 2011-07-01</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2011_07_01_platoon_11</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+                                                             PLATOON (1-11) (roto                                                           01-JUL-2011
+                                                             12)~OPS DUTY
+                                                             OFFICER</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2011_07_01_platoon_11__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2011_07_01_platoon_11__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2011_07_01_platoon_11__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2011_07_01_platoon_11__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2011_07_01_platoon_11__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2011_07_01_platoon_11__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2011_07_01_platoon_11__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2011_07_01_platoon_11__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2013_01_15_trg_offr" data-row-kind="assignment">
+  <h3 class="row-head">TRG OFFR <span class='meta'>@ THE ALGONQUIN REGIMENT &middot; 2013-01-15</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2013_01_15_trg_offr</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+5000   THE ALGONQUIN REGIMENT        NORTH BAY ON            Posn Chg - TRG OFFR    Posting - THE ALGONQUIN          PST                    15-JAN-2013
+                                                                                    REGIMENT</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_01_15_trg_offr__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2013_01_15_trg_offr__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_01_15_trg_offr__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2013_01_15_trg_offr__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_01_15_trg_offr__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2013_01_15_trg_offr__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_01_15_trg_offr__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2013_01_15_trg_offr__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2013_02_25_oc" data-row-kind="assignment">
+  <h3 class="row-head">OC <span class='meta'>@ ALQ REGT &middot; 2013-02-25</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2013_02_25_oc</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+5000   ALQ REGT                      NORTH BAY ON            OC                                                      XFR/POS                25-FEB-2013
+--- Concurrent events (same time window) ---
+                                                             OP NUNALIVUT (roto     CFTPO Operation Task                                    08-APR-2013 -
+                                                             2013)~OPS AND                                                                  19-APR-2013
+                                                             PLANS
+2569   427 SOA SQN                   PETAWAWA ON             ATTACHED IN                                             ASG/Attached (M&amp;M)     18-APR-2013</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_02_25_oc__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2013_02_25_oc__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_02_25_oc__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2013_02_25_oc__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_02_25_oc__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2013_02_25_oc__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_02_25_oc__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2013_02_25_oc__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2013_06_06_ops_o" data-row-kind="assignment">
+  <h3 class="row-head">OPS (CURRENT) <span class='meta'>@ 427 SOA SQN &middot; 2013-06-06</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2013_06_06_ops_o</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+2569   427 SOA SQN                   PETAWAWA ON             OPS (CURRENT)                                           XFR/POS                06-JUN-2013
+--- Concurrent events (same time window) ---
+1568   JTFN HQ                       YELLOWKNIFE NT          ATTACHED IN                                             ASG/Attached (M&amp;M)     09-JUN-2013</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_06_06_ops_o__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2013_06_06_ops_o__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_06_06_ops_o__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2013_06_06_ops_o__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_06_06_ops_o__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2013_06_06_ops_o__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_06_06_ops_o__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2013_06_06_ops_o__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2013_07_09_j3_plans" data-row-kind="assignment">
+  <h3 class="row-head">J3 PLANS <span class='meta'>@ JTFN HQ &middot; 2013-07-09</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2013_07_09_j3_plans</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+1568   JTFN HQ                       YELLOWKNIFE NT          J3 PLANS                                                XFR/POS                09-JUL-2013</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_07_09_j3_plans__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2013_07_09_j3_plans__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_07_09_j3_plans__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2013_07_09_j3_plans__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2013_07_09_j3_plans__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2013_07_09_j3_plans__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2013_07_09_j3_plans__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2013_07_09_j3_plans__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2014_03_31_oc" data-row-kind="assignment">
+  <h3 class="row-head">OC <span class='meta'>@ ALQ REGT &middot; 2014-03-31</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2014_03_31_oc</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+5000   ALQ REGT                      NORTH BAY ON            OC                                                      XFR/POS                31-MAR-2014
+--- Concurrent events (same time window) ---
+                                                             OP NEVUS (roto         CFTPO Operation Task                                    07-JUN-2014 -
+                                                             2014)~COMD                                                                     02-JUL-2014</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_03_31_oc__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2014_03_31_oc__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_03_31_oc__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2014_03_31_oc__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_03_31_oc__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2014_03_31_oc__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_03_31_oc__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2014_03_31_oc__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2014_12_05_ops_o" data-row-kind="assignment">
+  <h3 class="row-head">OPS O <span class='meta'>@ L Edmn Regt Det Yellowknife &middot; 2014-12-05</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2014_12_05_ops_o</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+6593   L Edmn Regt Det Yellowknife   YELLOWKNIFE NT          OPS O                                                   XFR/POS                05-DEC-2014</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_12_05_ops_o__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2014_12_05_ops_o__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_12_05_ops_o__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2014_12_05_ops_o__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_12_05_ops_o__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2014_12_05_ops_o__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2014_12_05_ops_o__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2014_12_05_ops_o" data-row-kind="assignment">
+  <h3 class="row-head">OPS OFFR <span class='meta'>@ THE LOYAL EDMONTON REGIMENT DETACHMENT YELLOWKNIFE &middot; 2014-12-05</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2014_12_05_ops_o</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+6593   THE LOYAL EDMONTON            YELLOWKNIFE NT          Posn Chg - OPS OFFR    Posting - THE LOYAL EDMONTON     PST                    05-DEC-2014
+       REGIMENT DETACHMENT                                                          REGIMENT DETACHMENT
+       YELLOWKNIFE                                                                  YELLOWKNIFE
+--- Concurrent events (same time window) ---
+3666   41 CBG HQ                     CALGARY AB              ATTACHED IN                                             ASG/Attached (M&amp;M)     10-AUG-2015</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_12_05_ops_o__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2014_12_05_ops_o__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_12_05_ops_o__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2014_12_05_ops_o__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2014_12_05_ops_o__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2014_12_05_ops_o__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2014_12_05_ops_o__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2014_12_05_ops_o__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2016_02_10_coy_comd" data-row-kind="assignment">
+  <h3 class="row-head">COY COMD <span class='meta'>@ L Edmn Regt Det Yellowknife &middot; 2016-02-10</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2016_02_10_coy_comd</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+6593   L Edmn Regt Det Yellowknife   YELLOWKNIFE NT          COY COMD                                                XFR/POS                10-FEB-2016
+--- MPRR markers (RECEIPT / TRANSFER / etc.) ---
+6593   L Edmn Regt Det Yellowknife   YELLOWKNIFE NT          RECEIPT                                                 PST/POS                04-MAR-2016</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_02_10_coy_comd__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2016_02_10_coy_comd__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_02_10_coy_comd__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2016_02_10_coy_comd__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_02_10_coy_comd__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2016_02_10_coy_comd__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_02_10_coy_comd__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2016_02_10_coy_comd__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2016_06_08_oc" data-row-kind="assignment">
+  <h3 class="row-head">OC <span class='meta'>@ ALQ REGT &middot; 2016-06-08</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2016_06_08_oc</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+5000   ALQ REGT                      NORTH BAY ON            OC                                                      XFR/POS                08-JUN-2016
+--- Concurrent events (same time window) ---
+3372   C Army                        OTTAWA ON               ATTACHED IN                                             ASG/Attached (M&amp;M)     04-AUG-2016</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_06_08_oc__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2016_06_08_oc__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_06_08_oc__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2016_06_08_oc__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_06_08_oc__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2016_06_08_oc__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_06_08_oc__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2016_06_08_oc__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2016_08_20_g1_mgmt" data-row-kind="assignment">
+  <h3 class="row-head">G1 MANAGEMENT <span class='meta'>@ C Army &middot; 2016-08-20 → 2017-04-25</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2016_08_20_g1_mgmt</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+3372   C Army                        OTTAWA ON               G1 MANAGEMENT                                           XFR/POS                20-AUG-2016
+3372   C Army                           OTTAWA ON                    G1 MANAGEMENT P                                        XFR/POS               25-APR-2017
+                                                                     RES
+--- Concurrent events (same time window) ---
+3372   C Army                           OTTAWA ON                    ATTACHED IN                                            ASG/Attached (M&amp;M)    07-AUG-2017</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_08_20_g1_mgmt__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2016_08_20_g1_mgmt__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_08_20_g1_mgmt__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2016_08_20_g1_mgmt__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2016_08_20_g1_mgmt__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2016_08_20_g1_mgmt__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2016_08_20_g1_mgmt__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2016_08_20_g1_mgmt__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2019_03_19_grievance_analyst" data-row-kind="assignment">
+  <h3 class="row-head">GRIEVANCE ANALYST <span class='meta'>@ DGICCM &middot; 2019-03-19 → 2019-03-31</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2019_03_19_grievance_analyst</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+6328   DGICCM                           OTTAWA ON                    GRIEVANCE ANALYST                                      XFR/POS               19-MAR-2019
+6328   DGICCM                           OTTAWA ON                    GRIEVANCE ANALYST                                      XFR/POS               31-MAR-2019</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2019_03_19_grievance_analyst__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2019_03_19_grievance_analyst__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2019_03_19_grievance_analyst__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2019_03_19_grievance_analyst__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2019_03_19_grievance_analyst__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2019_03_19_grievance_analyst__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2019_03_19_grievance_analyst__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2019_03_19_grievance_analyst__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2021_02_16_grievance_analyst" data-row-kind="assignment">
+  <h3 class="row-head">GRIEVANCE ANALYST <span class='meta'>@ DGICCM &middot; 2021-02-16 → 2022-08-05</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2021_02_16_grievance_analyst</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+6328   DGICCM                           OTTAWA ON                    GRIEVANCE ANALYST                                      XFR/POS               16-FEB-2021
+6328   DGICCM                           OTTAWA ON                    GRIEVANCE ANALYST                                                            05-AUG-2022
+                                                                     (291103)</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2021_02_16_grievance_analyst__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2021_02_16_grievance_analyst__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2021_02_16_grievance_analyst__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2021_02_16_grievance_analyst__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2021_02_16_grievance_analyst__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2021_02_16_grievance_analyst__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2021_02_16_grievance_analyst__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2021_02_16_grievance_analyst__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2022_08_24_grievance_analyst" data-row-kind="assignment">
+  <h3 class="row-head">GRIEVANCE ANALYST <span class='meta'>@ DG CPR &middot; 2022-08-24</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2022_08_24_grievance_analyst</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Substantive events ---
+8342   DG CPR                           OTTAWA ON                    GRIEVANCE ANALYST                                      XFR/POS               24-AUG-2022
+--- Concurrent events (same time window) ---
+8342   DG CPR                           OTTAWA ON                    ATTACHED IN                                            ASG/Attached (M&amp;M)    09-SEP-2022
+3372   C Army                           OTTAWA ON                    ATTACHED IN                                            ASG/Attached (M&amp;M)    18-FEB-2024</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2022_08_24_grievance_analyst__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2022_08_24_grievance_analyst__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2022_08_24_grievance_analyst__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2022_08_24_grievance_analyst__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2022_08_24_grievance_analyst__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2022_08_24_grievance_analyst__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2022_08_24_grievance_analyst__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2022_08_24_grievance_analyst__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2024_02_29_harass_adv" data-row-kind="assignment">
+  <h3 class="row-head">HARASSMENT ADVISOR <span class='meta'>@ C Army &middot; 2024-02-29</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2024_02_29_harass_adv</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+3372   C Army                           OTTAWA ON                    HARASSMENT                                             XFR/POS               29-FEB-2024
+                                                                     ADVISOR</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2024_02_29_harass_adv__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2024_02_29_harass_adv__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2024_02_29_harass_adv__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2024_02_29_harass_adv__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2024_02_29_harass_adv__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2024_02_29_harass_adv__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2024_02_29_harass_adv__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2024_02_29_harass_adv__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_2025_09_09_grievance_analyst" data-row-kind="assignment">
+  <h3 class="row-head">GRIEVANCE ANALYST (291103) <span class='meta'>@ DGICCM &middot; 2025-09-09</span></h3>
+  <div class="meta-rid">row_id: <code>crole_2025_09_09_grievance_analyst</code></div>
+  
+  <pre class="raw-lines">--- Substantive events ---
+6328   DGICCM                           OTTAWA ON                    GRIEVANCE ANALYST                                                            09-SEP-2025
+                                                                     (291103)</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2025_09_09_grievance_analyst__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_2025_09_09_grievance_analyst__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2025_09_09_grievance_analyst__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_2025_09_09_grievance_analyst__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_2025_09_09_grievance_analyst__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_2025_09_09_grievance_analyst__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_2025_09_09_grievance_analyst__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_2025_09_09_grievance_analyst__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_paper_only_summary" data-row-kind="assignment">
+  <h3 class="row-head">Paper-only OrBat roles (9) <span class='meta'>@ (Multiple paper-only OrBat moves) &middot; 1989-12-12 → 2019-03-31</span></h3>
+  <div class="meta-rid">row_id: <code>crole_paper_only_summary</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated_paper_summary. Please check this row carefully.</div>
+  <pre class="raw-lines">--- Paper-only OrBat roles (never occupied operationally) ---
+* CNV @ MINISTER OF NATIONAL DEFENCE  [1989-12-12]
+    3633   MINISTER OF NATIONAL                                        CNV                  Hire - MINISTER OF NATIONAL             HIR                    12-DEC-1989
+           DEFENCE                                                                          DEFENCE
+* CNV @ CANADIAN FORCES RECRUITING CENTRE VANCOUVER  [1990-01-03]
+    0005   CANADIAN FORCES                  NEW WESTMINSTER BC         CNV                  Return-LOA - CANADIAN FORCES            RFL                    03-JAN-1990
+           RECRUITING CENTRE                                                                RECRUITING CENTRE
+           VANCOUVER                                                                        VANCOUVER
+* Voluntary @ CANADIAN FORCES MILITARY POLICE ACADEMY  [1999-09-01]
+    2008   CANADIAN FORCES                  BORDEN ON                  Voluntary            Transfer - CANADIAN FORCES              XFR                    01-SEP-1999
+           MILITARY POLICE ACADEMY                                                          MILITARY POLICE ACADEMY
+    6477   2 MILITARY POLICE             TORONTO ON              Voluntary              Transfer - 2 MILITARY POLICE     XFR                    15-SEP-2008
+           REGIMENT                                                                     REGIMENT
+* OC 22 MP COY @ 4TH CANADIAN DIVISION HEADQUARTERS  [2000-07-17]
+    3183   4TH CANADIAN DIVISION            TORONTO ON                 GR1 CNV - OC 22 MP   Posting - 4TH CANADIAN                  PST                    17-JUL-2000
+           HEADQUARTERS                                                COY                  DIVISION HEADQUARTERS
+    3183   4TH CANADIAN DIVISION            TORONTO ON                 CF Par - OC 22 MP    LOA - 4TH CANADIAN DIVISION             LOA                    17-NOV-2001
+           HEADQUARTERS                                                COY                  HEADQUARTERS
+    3183   4TH CANADIAN DIVISION         TORONTO ON              CNV - OC 22 MP COY     Return-LOA - 4TH CANADIAN        RFL                    22-DEC-2001
+           HEADQUARTERS                                                                 DIVISION HEADQUARTERS
+* GR1 CNV @ TASK FORCE GOLAN  [2003-07-14]
+    0465   TASK FORCE GOLAN                                      GR1 CNV                Posting - TASK FORCE GOLAN       PST                    14-JUL-2003
+* DETACHMENT COMMANDER @ 4TH CANADIAN DIVISION SUPPORT BASE PETAWAWA  [2004-07-12]
+    0107   4TH CANADIAN DIVISION         PETAWAWA ON             GR1 CNV -              Posting - 4TH CANADIAN           PST                    12-JUL-2004
+           SUPPORT BASE PETAWAWA                                 DETACHMENT             DIVISION SUPPORT BASE
+                                                                 COMMANDER              PETAWAWA
+* 2 MP REGT ADJT @ 2 MILITARY POLICE REGIMENT  [2007-07-16]
+    6477   2 MILITARY POLICE             TORONTO ON              GR1 CNV - 2 MP REGT    Posting - 2 MILITARY POLICE      PST                    16-JUL-2007
+           REGIMENT                                              ADJT                   REGIMENT
+* Annity - RESERVE MEMBER @ CANADIAN SPECIAL OPERATIONS FORCES COMMAND PRIMARY RESERVE LIST  [2010-10-20]
+    6461   CANADIAN SPECIAL              OTTAWA ON               Vol-Annity - RESERVE   CompTrans - CANADIAN SPECIAL     CTR                    20-OCT-2010
+           OPERATIONS FORCES                                     MEMBER                 OPERATIONS FORCES
+           COMMAND PRIMARY                                                              COMMAND PRIMARY RESERVE
+           RESERVE LIST                                                                 LIST
+* Other - GRIEVANCE ANALYST @ DIRECTOR GENERAL INTEGRATED COMPLAINT AND CONFLICT MANAGEMENT  [2019-03-31]
+    6328   DIRECTOR GENERAL                 OTTAWA ON                    Vol-Other -           CompTrans - DIRECTOR             CTR                   31-MAR-2019
+           INTEGRATED COMPLAINT                                          GRIEVANCE ANALYST     GENERAL INTEGRATED
+           AND CONFLICT                                                                        COMPLAINT AND CONFLICT
+           MANAGEMENT                                                                          MANAGEMENT</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_paper_only_summary__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_paper_only_summary__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_paper_only_summary__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_paper_only_summary__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_paper_only_summary__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_paper_only_summary__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_paper_only_summary__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_paper_only_summary__subject_note" rows="2"></textarea>
+</div>
+</div>
+<div class="section-card row-card" data-row-id="crole_admin_aside_summary" data-row-kind="assignment">
+  <h3 class="row-head">Administrative-status events (10) <span class='meta'>@ (PRL / NES / Reversion admin events) &middot; 2010-10-16 → 2027-02-18</span></h3>
+  <div class="meta-rid">row_id: <code>crole_admin_aside_summary</code></div>
+  <div class="parser-banner"><strong>Parser flagged for review</strong> &mdash; confidence: consolidated_admin_summary. Please check this row carefully.</div>
+  <pre class="raw-lines">--- PRL / NES / Reversion events (admin status, not roles) ---
+[nes] 2010-10-16
+  9914   NON-EFFECTIVE STRENGTH                                NES                    Transfer - NON-EFFECTIVE         XFR                    16-OCT-2010
+         - TERMINAL LEAVE AND                                                         STRENGTH - TERMINAL LEAVE
+         BENEFITS                                                                     AND BENEFITS
+[prl] 2010-10-20
+  6461   CANSOFCOM PRL                 OTTAWA ON               RESERVE MEMBER                                          XFR/POS                20-OCT-2010
+[prl] 2010-10-20
+  6461   CANSOFCOM PRL                 OTTAWA ON               POSTING IN                                              HIR/XFR                20-OCT-2010
+[prl] 2017-08-01
+  1184   CA PRL                           OTTAWA ON                    LONG TERM EMPL                                         XFR/POS               01-AUG-2017
+[prl] 2017-08-01
+  1184   CANADIAN ARMY PRIMARY            OTTAWA ON                    Posn Chg - LONG       Posting - CANADIAN ARMY          PST                   01-AUG-2017
+         RESERVE LIST                                                  TERM EMPL             PRIMARY RESERVE LIST
+[prl] 2019-04-24
+  1184   CA PRL                           OTTAWA ON                    LONG TERM EMPL                                         XFR/POS               24-APR-2019
+[nes] 2023-02-13
+  9914   NON-EFFECTIVE STRENGTH                                        NES                   Transfer - NON-EFFECTIVE         XFR                   13-FEB-2023
+         - TERMINAL LEAVE AND                                                                STRENGTH - TERMINAL LEAVE
+         BENEFITS                                                                            AND BENEFITS
+[prl] 2023-02-14
+  1184   CA PRL                           OTTAWA ON                    SHORT TERM EMPL                                        XFR/POS               14-FEB-2023
+[prl] 2023-02-14
+  1184   CANADIAN ARMY PRIMARY            OTTAWA ON                    Vol-Annity - SHORT    CompTrans - CANADIAN ARMY        CTR                   14-FEB-2023
+         RESERVE LIST                                                  TERM EMPL             PRIMARY RESERVE LIST
+[prl] 2027-02-18
+  1184   CA PRL                           OTTAWA ON                    SHORT TERM EMPL                                        XFR/POS               18-FEB-2027</pre>
+  <div class="form-group">
+  <label>Is the role title correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__title_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__title_correct" value="no"> No, correct it below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_admin_aside_summary__title_correct=no"><div class="form-group">
+  <label>Corrected role title + short scope</label>
+  <div class="hint">Shown only if you selected No above.</div>
+  <textarea name="crole_admin_aside_summary__title_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Are the dates correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__dates_correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__dates_correct" value="no"> No, correct them below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_admin_aside_summary__dates_correct=no"><div class="form-group">
+  <label>Corrected start / end dates</label>
+  <div class="hint">Format: &quot;2010-OCT-20 to 2013-JUL-09&quot; or similar.</div>
+  <textarea name="crole_admin_aside_summary__date_correction" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Operational classification</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__operational_classification" value="operational"> Operational — I actually did this role</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__operational_classification" value="paper_only_orbat_move"> Paper-only OrBat move — I never occupied this operationally</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__operational_classification" value="concurrent"> Concurrent — I held this at the same time as another role</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__operational_classification" value="attachment_admin_only"> Attachment / admin only — no substantive duties</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="crole_admin_aside_summary__operational_classification=concurrent"><div class="form-group">
+  <label>If concurrent, which role(s) was this held alongside?</label>
+  <div class="hint">Describe the concurrent role briefly; integrator matches to row_ids.</div>
+  <textarea name="crole_admin_aside_summary__concurrent_with" rows="2"></textarea>
+</div></div>
+  <div class="form-group">
+  <label>Row action</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__row_action" value="keep"> Keep as-is (with corrections above)</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__row_action" value="split_into_two"> Split into two rows (different roles)</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__row_action" value="merge_with_row"> Merge with another row</label>
+    <label class="radio-inline"><input type="radio" name="crole_admin_aside_summary__row_action" value="remove_do_not_surface"> Remove — do not surface on resume</label>
+  </div>
+</div>
+  <div class="form-group">
+  <label>Scope note (optional)</label>
+  <div class="hint">Any clarification that doesn&#x27;t fit the fields above.</div>
+  <textarea name="crole_admin_aside_summary__subject_note" rows="2"></textarea>
+</div>
+</div>
+
+  <div class="section-card" id="add-rows-card">
+  <h2>Add missing rows</h2>
+  <p class="hint">For rows missing from the parser output (e.g. CANSOFCOM Squadron
+  Operations Officer, special-duty assignments). Click + to add more.</p>
+  <div id="add-rows-container">
+    <div class="add-row-block">
+  <input type="text" name="added_role_title[]" placeholder="Role title (e.g. 427 SOA SQN OPS OFFICER)">
+  <input type="text" name="added_unit[]" placeholder="Unit (e.g. 427 SOA SQN Petawawa)">
+  <input type="text" name="added_start_date[]" placeholder="Start YYYY-MM-DD">
+  <input type="text" name="added_end_date[]" placeholder="End YYYY-MM-DD (blank if ongoing)">
+  <select name="added_classification[]">
+    <option value="">-- classification --</option>
+    <option value="operational">Operational — I actually did this role</option>
+    <option value="paper_only_orbat_move">Paper-only OrBat move — I never occupied this operationally</option>
+    <option value="concurrent">Concurrent — I held this at the same time as another role</option>
+    <option value="attachment_admin_only">Attachment / admin only — no substantive duties</option>
+  </select>
+  <textarea name="added_note[]" rows="2" placeholder="Scope note"></textarea>
+</div>
+  </div>
+  <button type="button" id="add-row-btn" class="secondary-btn">+ Add another row</button>
+</div>
+
+  <h2 class="section-header">Rank progression (10 rows)</h2>
+  <div class="section-card row-card" data-row-id="rk_2023_02_14_maj_4a_vol_immediate_ann" data-row-kind="rank">
+  <h3 class="row-head">Maj <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_2023_02_14_maj_4a_vol_immediate_ann</code></div>
+  
+  <pre class="raw-lines"> Maj           Senior Officer                                       14-FEB-2023                        4A-Vol-Immediate Annuity</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_2023_02_14_maj_4a_vol_immediate_ann__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_2023_02_14_maj_4a_vol_immediate_ann__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_2023_02_14_maj_4a_vol_immediate_ann__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_2023_02_14_maj_4a_vol_immediate_ann__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_2022_12_17_maj_reversion" data-row-kind="rank">
+  <h3 class="row-head">Maj <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_2022_12_17_maj_reversion</code></div>
+  
+  <pre class="raw-lines"> Maj           Senior Officer                                       17-DEC-2022                        Reversion</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_2022_12_17_maj_reversion__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_2022_12_17_maj_reversion__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_2022_12_17_maj_reversion__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_2022_12_17_maj_reversion__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_2021_06_09_lcol_acting_while_so_empl" data-row-kind="rank">
+  <h3 class="row-head">LCol <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_2021_06_09_lcol_acting_while_so_empl</code></div>
+  
+  <pre class="raw-lines"> LCol          Senior Officer                                       09-JUN-2021                        Acting (while so Employed)</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_2021_06_09_lcol_acting_while_so_empl__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_2021_06_09_lcol_acting_while_so_empl__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_2021_06_09_lcol_acting_while_so_empl__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_2021_06_09_lcol_acting_while_so_empl__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_2019_03_31_maj_4c_vol_other_causes" data-row-kind="rank">
+  <h3 class="row-head">Maj <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_2019_03_31_maj_4c_vol_other_causes</code></div>
+  
+  <pre class="raw-lines"> Maj           Senior Officer                                       31-MAR-2019                        4C-Vol-Other Causes</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_2019_03_31_maj_4c_vol_other_causes__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_2019_03_31_maj_4c_vol_other_causes__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_2019_03_31_maj_4c_vol_other_causes__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_2019_03_31_maj_4c_vol_other_causes__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_2015_09_16_maj_substantive" data-row-kind="rank">
+  <h3 class="row-head">Maj <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_2015_09_16_maj_substantive</code></div>
+  
+  <pre class="raw-lines"> Maj           Senior Officer                                       16-SEP-2015                        Substantive</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_2015_09_16_maj_substantive__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_2015_09_16_maj_substantive__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_2015_09_16_maj_substantive__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_2015_09_16_maj_substantive__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_2010_10_20_capt_4a_vol_immediate_ann" data-row-kind="rank">
+  <h3 class="row-head">Capt <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_2010_10_20_capt_4a_vol_immediate_ann</code></div>
+  
+  <pre class="raw-lines"> Capt          Junior Officer                                       20-OCT-2010                        4A-Vol-Immediate Annuity</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_2010_10_20_capt_4a_vol_immediate_ann__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_2010_10_20_capt_4a_vol_immediate_ann__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_2010_10_20_capt_4a_vol_immediate_ann__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_2010_10_20_capt_4a_vol_immediate_ann__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_1995_01_01_capt_substantive" data-row-kind="rank">
+  <h3 class="row-head">Capt <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_1995_01_01_capt_substantive</code></div>
+  
+  <pre class="raw-lines"> Capt          Junior Officer                                       01-JAN-1995                        Substantive</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_1995_01_01_capt_substantive__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_1995_01_01_capt_substantive__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_1995_01_01_capt_substantive__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_1995_01_01_capt_substantive__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_1991_10_03_lt_substantive" data-row-kind="rank">
+  <h3 class="row-head">Lt <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_1991_10_03_lt_substantive</code></div>
+  
+  <pre class="raw-lines"> Lt            Junior Officer                                       03-OCT-1991                        Substantive</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_1991_10_03_lt_substantive__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_1991_10_03_lt_substantive__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_1991_10_03_lt_substantive__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_1991_10_03_lt_substantive__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_1990_10_03_2lt_substantive" data-row-kind="rank">
+  <h3 class="row-head">2Lt <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_1990_10_03_2lt_substantive</code></div>
+  
+  <pre class="raw-lines"> 2Lt           Junior Officer                                       03-OCT-1990                        Substantive</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_1990_10_03_2lt_substantive__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_1990_10_03_2lt_substantive__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_1990_10_03_2lt_substantive__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_1990_10_03_2lt_substantive__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="rk_1989_12_12_ocdt_gr1_conversion" data-row-kind="rank">
+  <h3 class="row-head">OCdt <span class='meta'>&middot; ? &middot; </span></h3>
+  <div class="meta-rid">row_id: <code>rk_1989_12_12_ocdt_gr1_conversion</code></div>
+  
+  <pre class="raw-lines"> OCdt          Subordinate Officer                                  12-DEC-1989                        GR1 Conversion</pre>
+  <div class="form-group">
+  <label>Rank + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="rk_1989_12_12_ocdt_gr1_conversion__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="rk_1989_12_12_ocdt_gr1_conversion__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="rk_1989_12_12_ocdt_gr1_conversion__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="rk_1989_12_12_ocdt_gr1_conversion__correction" rows="2"></textarea>
+</div></div>
+</div>
+
+  <h2 class="section-header">Decorations (6 rows)</h2>
+  <div class="section-card row-card" data-row-id="dec_2011_02_17_cd1" data-row-kind="decoration">
+  <h3 class="row-head">DECORATION <span class='meta'>&middot; ?</span></h3>
+  <div class="meta-rid">row_id: <code>dec_2011_02_17_cd1</code></div>
+  
+  <pre class="raw-lines"> CD1              CD 1st Clasp                                                                                                           17-FEB-2011</pre>
+  <div class="form-group">
+  <label>Decoration + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="dec_2011_02_17_cd1__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="dec_2011_02_17_cd1__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="dec_2011_02_17_cd1__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="dec_2011_02_17_cd1__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="dec_2006_08_15_swasm" data-row-kind="decoration">
+  <h3 class="row-head">DECORATION <span class='meta'>&middot; ?</span></h3>
+  <div class="meta-rid">row_id: <code>dec_2006_08_15_swasm</code></div>
+  
+  <pre class="raw-lines"> SWASM            SWASM (ONLY - NO AFG BAR)                                                                                              15-AUG-2006</pre>
+  <div class="form-group">
+  <label>Decoration + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="dec_2006_08_15_swasm__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="dec_2006_08_15_swasm__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="dec_2006_08_15_swasm__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="dec_2006_08_15_swasm__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="dec_2004_07_11_undof" data-row-kind="decoration">
+  <h3 class="row-head">DECORATION <span class='meta'>&middot; ?</span></h3>
+  <div class="meta-rid">row_id: <code>dec_2004_07_11_undof</code></div>
+  
+  <pre class="raw-lines"> UNDOF            UN Diseng Obs Force (1974-)                                                                                            11-JUL-2004</pre>
+  <div class="form-group">
+  <label>Decoration + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="dec_2004_07_11_undof__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="dec_2004_07_11_undof__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="dec_2004_07_11_undof__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="dec_2004_07_11_undof__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="dec_2001_05_20_cpsm" data-row-kind="decoration">
+  <h3 class="row-head">DECORATION <span class='meta'>&middot; ?</span></h3>
+  <div class="meta-rid">row_id: <code>dec_2001_05_20_cpsm</code></div>
+  
+  <pre class="raw-lines"> CPSM             Cdn Peacekeeping Svc Medal                                                                                             20-MAY-2001</pre>
+  <div class="form-group">
+  <label>Decoration + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="dec_2001_05_20_cpsm__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="dec_2001_05_20_cpsm__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="dec_2001_05_20_cpsm__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="dec_2001_05_20_cpsm__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="dec_2001_03_05_cd" data-row-kind="decoration">
+  <h3 class="row-head">DECORATION <span class='meta'>&middot; ?</span></h3>
+  <div class="meta-rid">row_id: <code>dec_2001_03_05_cd</code></div>
+  
+  <pre class="raw-lines"> CD               Canadian Forces Decoration                                                                                             05-MAR-2001</pre>
+  <div class="form-group">
+  <label>Decoration + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="dec_2001_03_05_cd__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="dec_2001_03_05_cd__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="dec_2001_03_05_cd__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="dec_2001_03_05_cd__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="dec_1995_04_15_unprofor" data-row-kind="decoration">
+  <h3 class="row-head">DECORATION <span class='meta'>&middot; ?</span></h3>
+  <div class="meta-rid">row_id: <code>dec_1995_04_15_unprofor</code></div>
+  
+  <pre class="raw-lines"> UNPROFOR         UN Protection Force-Yugoslavia                                                                                         15-APR-1995</pre>
+  <div class="form-group">
+  <label>Decoration + date correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="dec_1995_04_15_unprofor__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="dec_1995_04_15_unprofor__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="dec_1995_04_15_unprofor__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="dec_1995_04_15_unprofor__correction" rows="2"></textarea>
+</div></div>
+</div>
+
+  <h2 class="section-header">Language profile (6 rows)</h2>
+  <div class="section-card row-card" data-row-id="lng_no_date_english_reading" data-row-kind="language">
+  <h3 class="row-head">English &mdash; Reading <span class='meta'>&middot; -</span></h3>
+  <div class="meta-rid">row_id: <code>lng_no_date_english_reading</code></div>
+  
+  <pre class="raw-lines"> English Reading                               -</pre>
+  <div class="form-group">
+  <label>Language skill + result correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="lng_no_date_english_reading__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="lng_no_date_english_reading__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="lng_no_date_english_reading__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="lng_no_date_english_reading__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="lng_no_date_english_writing" data-row-kind="language">
+  <h3 class="row-head">English &mdash; Writing <span class='meta'>&middot; -</span></h3>
+  <div class="meta-rid">row_id: <code>lng_no_date_english_writing</code></div>
+  
+  <pre class="raw-lines"> English Writing                               -</pre>
+  <div class="form-group">
+  <label>Language skill + result correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="lng_no_date_english_writing__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="lng_no_date_english_writing__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="lng_no_date_english_writing__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="lng_no_date_english_writing__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="lng_no_date_english_oral" data-row-kind="language">
+  <h3 class="row-head">English &mdash; Oral <span class='meta'>&middot; -</span></h3>
+  <div class="meta-rid">row_id: <code>lng_no_date_english_oral</code></div>
+  
+  <pre class="raw-lines"> English Oral                                  -</pre>
+  <div class="form-group">
+  <label>Language skill + result correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="lng_no_date_english_oral__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="lng_no_date_english_oral__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="lng_no_date_english_oral__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="lng_no_date_english_oral__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="lng_2006_09_29_french_reading" data-row-kind="language">
+  <h3 class="row-head">French &mdash; Reading <span class='meta'>&middot; C - Highest in the 2nd Language Evaluation Test</span></h3>
+  <div class="meta-rid">row_id: <code>lng_2006_09_29_french_reading</code></div>
+  
+  <pre class="raw-lines"> French Reading              29-SEP-2006       C - Highest in the 2nd Language Evaluation Test                                 29-SEP-2011</pre>
+  <div class="form-group">
+  <label>Language skill + result correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="lng_2006_09_29_french_reading__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="lng_2006_09_29_french_reading__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="lng_2006_09_29_french_reading__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="lng_2006_09_29_french_reading__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="lng_2006_09_29_french_writing" data-row-kind="language">
+  <h3 class="row-head">French &mdash; Writing <span class='meta'>&middot; B - Intermediate in the 2nd Language Evaluation Test</span></h3>
+  <div class="meta-rid">row_id: <code>lng_2006_09_29_french_writing</code></div>
+  
+  <pre class="raw-lines"> French Writing              29-SEP-2006       B - Intermediate in the 2nd Language Evaluation Test                            29-SEP-2011</pre>
+  <div class="form-group">
+  <label>Language skill + result correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="lng_2006_09_29_french_writing__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="lng_2006_09_29_french_writing__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="lng_2006_09_29_french_writing__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="lng_2006_09_29_french_writing__correction" rows="2"></textarea>
+</div></div>
+</div>
+<div class="section-card row-card" data-row-id="lng_2006_10_04_french_oral" data-row-kind="language">
+  <h3 class="row-head">French &mdash; Oral <span class='meta'>&middot; A - Lowest in the 2nd Language Evaluation Test</span></h3>
+  <div class="meta-rid">row_id: <code>lng_2006_10_04_french_oral</code></div>
+  
+  <pre class="raw-lines"> French Oral                 04-OCT-2006       A - Lowest in the 2nd Language Evaluation Test                                  04-OCT-2011</pre>
+  <div class="form-group">
+  <label>Language skill + result correct?</label>
+  <div class="option-group">
+    <label class="radio-inline"><input type="radio" name="lng_2006_10_04_french_oral__correct" value="yes"> Yes</label>
+    <label class="radio-inline"><input type="radio" name="lng_2006_10_04_french_oral__correct" value="no"> No, correct below</label>
+  </div>
+</div>
+  <div class="conditional" data-show-when="lng_2006_10_04_french_oral__correct=no"><div class="form-group">
+  <label>Correction</label>
+  
+  <textarea name="lng_2006_10_04_french_oral__correction" rows="2"></textarea>
+</div></div>
+</div>
+
+  <h2 class="section-header">General feedback</h2>
+  <div class="section-card">
+  <h2>General feedback</h2>
+  <p class="hint">Anything else about the record we should know? (e.g. duplicate rows,
+  rows the parser got wrong that no single row-card covers.)</p>
+<div class="form-group">
+  <label>General feedback</label>
+  
+  <textarea name="general_feedback" rows="4"></textarea>
+</div>
+</div>
+
+  <button type="submit" id="submit-btn">Submit Record Confirmation</button>
+</form>
+
+
+
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+
+
+(function() {
+  var STORAGE_KEY = "form_autosave_38d331df-b389-4145-bbd5-e85819add3a0";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "form2ma",
+    token: "38d331df-b389-4145-bbd5-e85819add3a0",
+    data: data
+  };
+
+  fetch("https://example.invalid/form2ma", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  function updateConditionals() {
+    document.querySelectorAll(".conditional").forEach(function(node) {
+      var expr = node.getAttribute("data-show-when");
+      if (!expr) return;
+      var parts = expr.split("=");
+      var name = parts[0];
+      var expected = parts[1];
+      var checked = form.querySelector('input[name="' + name.replace(/"/g, '\"') + '"]:checked');
+      var val = checked ? checked.value : "";
+      node.style.display = (val === expected) ? "block" : "none";
+    });
+  }
+  updateConditionals();
+  form.addEventListener("change", updateConditionals);
+
+  // Add-missing-row widget
+  var btn = document.getElementById("add-row-btn");
+  var container = document.getElementById("add-rows-container");
+  if (btn && container) {
+    btn.addEventListener("click", function() {
+      var template = container.querySelector(".add-row-block");
+      if (!template) return;
+      var copy = template.cloneNode(true);
+      copy.querySelectorAll("input, textarea, select").forEach(function(el) { el.value = ""; });
+      container.appendChild(copy);
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

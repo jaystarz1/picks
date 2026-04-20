@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Job Scout — Human-led resume and job search service for veterans and mid-career professionals (launching June 2026)</title>
+<meta name="description" content="Job Scout isn't an app. It's a human-led resume and job search service. Veteran-owned. Cohort 3 beta now open — $250 CAD / $180 USD ($200 / $144 USD for veterans). Public launch June 1, 2026.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jobscout.barkerhrs.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Job Scout — Human-led job search service">
+<meta property="og:description" content="A small, human job search service. Veteran-owned. Cohort 3 beta open now.">
+<meta property="og:url" content="https://jobscout.barkerhrs.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Job Scout",
+  "url": "https://jobscout.barkerhrs.com/",
+  "email": "jay@barkerhrs.com",
+  "parentOrganization": { "@type": "Organization", "name": "Barker HRS" },
+  "description": "Human-led resume and job search service. Veteran-owned and operated.",
+  "foundingDate": "2026"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Resume writing and job application service",
+  "provider": { "@type": "Organization", "name": "Job Scout" },
+  "areaServed": ["Canada", "United States"],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Veterans, reservists, mid-career professionals"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Cohort 3 Beta Participant",
+      "price": "250",
+      "priceCurrency": "CAD",
+      "description": "Full service beta — unlimited job application packages, LinkedIn plan, interview prep. 6-week minimum. $250 CAD / $180 USD. Veterans $200 CAD / $144 USD."
+    },
+    {
+      "@type": "Offer",
+      "name": "Resume Package",
+      "price": "299",
+      "priceCurrency": "CAD",
+      "description": "Master resume, editable resume + cover letter templates, 15 done-for-you job application packages. $299 CAD / $219 USD."
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Job Scout an app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Job Scout is a human-led service. When you email us, a real person answers. We handle resume writing and job application packaging ourselves — we do not automate it." } },
+    { "@type": "Question", "name": "How much does the Resume Package cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "$299 CAD or $219 USD. One-time. Includes a master resume, personalized editable resume and cover letter templates, basic LinkedIn profile recommendations, and 15 done-for-you job application packages." } },
+    { "@type": "Question", "name": "What is the Cohort 3 Beta?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Our third beta cohort. $250 CAD / $180 USD full-service, or $200 CAD / $144 USD for veterans. Includes everything in the Resume Package plus unlimited application packages, a full LinkedIn content and connection plan, and interview prep. Six-week minimum, limited spots, first come first serve." } },
+    { "@type": "Question", "name": "Why is the beta cheaper?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because beta clients are helping us refine the service. We need throughput and real feedback. In exchange, beta clients get the full service at the best price Job Scout will ever offer." } },
+    { "@type": "Question", "name": "Why do veterans get an additional discount?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We specifically need veterans' feedback on our military-to-civilian resume conversion process. Veterans who have lived the transition and will tell us directly what works and what doesn't are the most valuable testers we can recruit." } },
+    { "@type": "Question", "name": "Do you help veterans with hybrid resumes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We handle hybrid formats for reservists and anyone blending military service with civilian work experience on a single resume." } },
+    { "@type": "Question", "name": "When does Job Scout launch publicly?",
+      "acceptedAnswer": { "@type": "Answer", "text": "June 1, 2026 — limited launch. Cohort 3 of the beta is open until those spots are filled." } }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --cream: #F4EEDE;
+  --cream-2: #EDE5D0;
+  --forest: #2E4A34;
+  --forest-dark: #1A2620;
+  --terra: #C76B4A;
+  --terra-dark: #9B4A2B;
+  --stone: #A39C89;
+  --stone-light: #C5BFA8;
+  --rule: #D9CFB4;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--forest-dark);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--forest);
+  line-height: 1.1;
+}
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.035em; margin: 0 0 .8rem; color: var(--forest-dark); }
+h2 { font-size: 2rem; margin: 3.2rem 0 1rem; }
+h3 { font-size: 1.375rem; margin: 1.4rem 0 .6rem; }
+p { margin: 0 0 1.1rem; }
+strong { color: var(--forest-dark); font-weight: 600; }
+ul { padding-left: 1.35rem; margin: 1rem 0 1.25rem; }
+li { margin-bottom: .5rem; }
+a {
+  color: var(--terra);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--terra-dark); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.8rem 0; }
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 56px 24px; }
+
+.eyebrow {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--terra);
+  margin-bottom: .6rem;
+}
+
+.tag {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--forest);
+  line-height: 1.3;
+  margin: 0 0 1.6rem;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--terra);
+  color: var(--cream);
+  padding: 14px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "IBM Plex Sans", sans-serif;
+  letter-spacing: 0.01em;
+  transition: background .15s ease;
+}
+.cta:hover { background: var(--terra-dark); color: var(--cream); text-decoration: none; }
+.cta.secondary {
+  background: transparent;
+  color: var(--forest);
+  border: 1.5px solid var(--forest);
+}
+.cta.secondary:hover { background: var(--forest); color: var(--cream); }
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin: 1.2rem 0 2rem;
+  align-items: stretch;
+}
+@media (max-width: 720px) {
+  .cards { grid-template-columns: 1fr; }
+}
+.card {
+  background: var(--cream-2);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.card.beta {
+  border: 2px solid var(--terra);
+  background: var(--cream-2);
+}
+.card .badge {
+  display: inline-block;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--stone-light);
+  color: var(--forest-dark);
+  margin-bottom: .9rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+.card.beta .badge { background: var(--terra); color: var(--cream); }
+.card h3 { margin-top: 0; font-size: 1.4rem; }
+.price {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--forest-dark);
+  letter-spacing: -0.02em;
+}
+.price small { font-size: .85rem; color: var(--stone); font-weight: 500; letter-spacing: 0; }
+.vet-rate {
+  margin-top: .5rem;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-left: 3px solid var(--terra);
+  font-size: .95rem;
+  border-radius: 2px;
+}
+.card-cta {
+  margin-top: auto;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.vet-section {
+  background: var(--forest);
+  color: var(--cream);
+  padding: 36px 40px;
+  border-radius: 8px;
+  margin: 2.4rem 0;
+}
+.vet-section h2 { margin-top: 0; color: var(--cream); }
+.vet-section strong { color: var(--cream); }
+.vet-section a { color: var(--terra); }
+.vet-section a:hover { color: #E8916F; }
+.vet-section .eyebrow { color: var(--stone-light); }
+
+.pull {
+  background: var(--cream-2);
+  border-left: 4px solid var(--forest);
+  padding: 18px 22px;
+  border-radius: 2px;
+  font-size: 1.02rem;
+  color: var(--forest-dark);
+  margin: 1.4rem 0;
+  font-style: italic;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  color: var(--forest);
+  font-size: .95rem;
+  text-align: center;
+}
+footer strong { color: var(--forest-dark); font-family: "Bricolage Grotesque", serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; }
+footer p { margin: .3rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="eyebrow">Cohort 3 beta — open now</div>
+<h1>Job Scout isn't an app.</h1>
+<p class="tag">It's a small, human job search service — and our beta clients are already landing interviews and offers.</p>
+<p>We're a team, not a platform. When you email us, a real person answers. We're building Job Scout slowly and purposefully — because a human process is the whole point.</p>
+<p>Right now we're recruiting <strong>Cohort 3</strong> of our beta program. When Cohort 3 is full, doors close until our public launch on <strong>June 1, 2026</strong>.</p>
+<p><a class="cta" href="mailto:jay@barkerhrs.com">Email us at jay@barkerhrs.com</a></p>
+
+<hr>
+
+<!-- WHAT JOB SCOUT IS -->
+<div class="eyebrow">What we do</div>
+<h2>A human-first job search service</h2>
+<p>A human-first, intentional job search service for people who want their resume and applications done right — not blasted out by a bot.</p>
+<p>We build you a master resume from your real experience. We translate what you've actually done into language employers understand. Then we tailor a custom resume and cover letter for every job <em>you</em> choose to apply for. You pick. We package.</p>
+<p>We're not here to get rich off you. We're here to help you find a job, using every tool we have, with people at the forefront. That's why we go slow.</p>
+
+<hr>
+
+<!-- WHO WE'RE BUILT FOR -->
+<div class="eyebrow">Who we're built for</div>
+<h2>Intentional job seekers</h2>
+<ul>
+  <li><strong>Mid-career professionals</strong> re-entering the job market after a pause, pivot, or layoff.</li>
+  <li><strong>Intentional job seekers</strong> who'd rather apply to the right jobs well than the wrong jobs fast.</li>
+  <li><strong>Veterans, reservists, and hybrid-career professionals</strong> blending full-time civilian work with military service on one resume &mdash; see <a href="#for-veterans">For veterans</a> below.</li>
+</ul>
+
+<!-- TWO WAYS TO WORK WITH US -->
+<div class="eyebrow">Pricing</div>
+<h2>Two ways to work with us</h2>
+
+<div class="cards">
+  <div class="card beta">
+    <span class="badge">Cohort 3 — open now</span>
+    <h3>Beta Participant</h3>
+    <div class="price">$250 <small>CAD / $180 USD</small></div>
+    <div class="vet-rate"><strong>Veterans: $200 CAD / $144 USD</strong> (20% off)</div>
+    <p style="margin-top: 1rem;">You help us refine the service. You get the best deal Job Scout will ever offer.</p>
+    <p><strong>Everything in the Resume Package, plus:</strong></p>
+    <ul>
+      <li><strong>Unlimited</strong> job application packages for the duration of your engagement</li>
+      <li><strong>Full LinkedIn plan</strong> — profile content, who to connect with, and a hyper-personalized content creation + interaction + follow strategy for your specific field</li>
+      <li><strong>Interview prep</strong> — company intelligence packages plus general and role- and company-specific STAR response preparation (STAR = Situation, Task, Action, Result — the framework hiring managers use to score behavioural interview answers)</li>
+    </ul>
+    <p><strong>What we ask in return:</strong> a minimum 6-week commitment and real feedback. Extensions at our discretion.</p>
+    <div class="card-cta"><a class="cta" href="mailto:jay@barkerhrs.com?subject=Job%20Scout%20Cohort%203">Claim a Cohort 3 spot</a></div>
+  </div>
+
+  <div class="card">
+    <span class="badge">Launching June 1, 2026</span>
+    <h3>Resume Package</h3>
+    <div class="price">$299 <small>CAD / $219 USD</small></div>
+    <p style="margin-top: 1rem;">One-time. Takes you from "I need a resume" through 15 real job applications.</p>
+    <ul>
+      <li>Full review of your current resume</li>
+      <li>Targeted questionnaires to surface experience not yet on the page</li>
+      <li>A <strong>master resume content database</strong> — review once, locked in</li>
+      <li>Personalized, editable <strong>resume and cover letter templates</strong> — yours to keep and modify</li>
+      <li>Ongoing access to your master resume</li>
+      <li>Basic LinkedIn profile recommendations</li>
+      <li><strong>15 done-for-you job application packages</strong></li>
+    </ul>
+    <p><strong>Coming inside this package:</strong> a bespoke builder for veterans translating military experience into civilian resumes — including hybrid formats for reservists and anyone blending military and civilian careers.</p>
+    <div class="card-cta"><a class="cta secondary" href="mailto:jay@barkerhrs.com?subject=Job%20Scout%20launch%20list">Get on the launch list</a></div>
+  </div>
+</div>
+
+<div class="pull">Our current beta clients are getting interviews, receiving offers, and advancing through hiring processes right now. This is not a placeholder — it's the service, at the price it costs while we refine it.</div>
+
+<!-- FOR VETERANS -->
+<section id="for-veterans" class="vet-section">
+  <div class="eyebrow">For veterans</div>
+  <h2>Veteran-owned. Veterans welcome.</h2>
+  <p>Job Scout is veteran-owned and operated. We built the military-to-civilian resume process because we've lived the transition ourselves — and because too many veterans get handed a civilian template that strips the meaning out of what they actually did.</p>
+  <p>We translate operational experience into language civilian employers understand. We handle hybrid formats for anyone blending military service with civilian work. And we want veterans in the beta — because the process isn't perfect yet, and we need people who've been there and aren't afraid to tell us what they think.</p>
+  <p>That willingness to give straight, unvarnished feedback is, by the way, one of the most valuable things any civilian employer gets when they hire a veteran. It's exactly what we need from you.</p>
+  <p style="font-size: 1.15rem; margin-top: 1.3rem;"><strong>Veterans: 20% off the beta rate.</strong></p>
+</section>
+
+<hr>
+
+<!-- STILL FIGURING OUT -->
+<div class="eyebrow">In the lab</div>
+<h2>What we're still figuring out</h2>
+<p>The Resume Package price is fixed. What's still in flight — and what beta testers are helping us refine:</p>
+<ul>
+  <li>How we search for jobs in your field</li>
+  <li>How you review and pick which ones to pursue</li>
+  <li>How we scale packaging without losing the human touch</li>
+</ul>
+<p>We'll publish standalone pricing for search, picking, and ongoing packaging once we know it works.</p>
+
+<!-- UNDER CONSTRUCTION -->
+<div class="eyebrow">Under construction</div>
+<h2>Under construction</h2>
+<ul>
+  <li><strong>Job Intelligence</strong> — company research when you land an interview (included in beta, standalone product later)</li>
+  <li><strong>Interview Prep</strong> — general STAR banks plus role- and company-specific prep, built on the STAR framework (Situation, Task, Action, Result) employers use to evaluate behavioural answers (included in beta, standalone product later)</li>
+</ul>
+
+<hr>
+
+<!-- WHY BETA MATTERS -->
+<div class="eyebrow">Why beta</div>
+<h2>Why beta testers matter to us</h2>
+<p>We need throughput. We need feedback. We need commitment. What we don't need is a flood of signups who half-start and drift off.</p>
+<p>The deal is simple: you get the full service at a deep discount, and we get a real human on the other end who tells us what's working and what isn't. Veterans get a further 20% off because we specifically need their feedback on the military-to-civilian conversion process — and because veterans tend to say exactly what they think, which is what we want.</p>
+<p><strong>Cohort status:</strong></p>
+<ul>
+  <li><strong>Cohort 1</strong> — wrapping up; clients moving into offers.</li>
+  <li><strong>Cohort 2</strong> — in the hunt; mid-search.</li>
+  <li><strong>Cohort 3</strong> — open now.</li>
+</ul>
+
+<hr>
+
+<!-- GET IN TOUCH -->
+<div class="eyebrow">Get in touch</div>
+<h2>There's a person on the other end of this address.</h2>
+<p><a class="cta" href="mailto:jay@barkerhrs.com">jay@barkerhrs.com</a></p>
+
+<footer>
+  <p><strong>Job Scout — veteran-owned and operated.</strong></p>
+  <p>Operated by Barker HRS &middot; <a href="mailto:jay@barkerhrs.com">jay@barkerhrs.com</a></p>
+</footer>
+
+</div>
+</body>
+</html>

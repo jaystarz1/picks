@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sample Demo — LinkedIn Starter &mdash; Sample</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Sample Demo — LinkedIn Starter</h1>
+    <div class="meta-line">Generated: April 28, 2026</div>
+
+  </header>
+
+<p class="intro" style="margin-bottom:24px;color:#555;">Each block has a Copy button. Click Copy, then paste straight into LinkedIn.</p>
+<div class="section-card">
+  <h2>Headline <button class="copy-btn" type="button">Copy</button></h2>
+  <div class="copyable-content">Senior controller with 12 years experience, accounting and process improvement, open to remote roles in Canada</div>
+</div>
+<div class="section-card">
+  <h2>About <button class="copy-btn" type="button">Copy</button></h2>
+  <div class="copyable-content">Started in audit at KPMG. Moved to industry as a controller in 2018 because I wanted to build the systems, not just review them.
+
+I lead month-end close, financial reporting, and audit prep. The work I am proudest of is closing the books in 3 days when we used to need 8.
+
+I am looking for controller or finance manager roles with a team that values clean numbers and clear thinking. Reach out at sample@example.com.</div>
+</div>
+<div class="section-card">
+  <h2>Experience — Controller <button class="copy-btn" type="button">Copy</button></h2>
+  <div class="copyable-content">**Company:** Acme Corp
+**Dates:** 2020 to Present
+
+Mid-size manufacturer, $80M revenue. I run a team of 4 and report to the CFO.
+
+* Cut month-end close from 8 days to 3 days by re-sequencing the AR and AP cutoffs
+* Recovered $2M in aged receivables in the first 18 months by rebuilding the dunning process
+* Built a Power BI reporting suite that replaced 14 manual Excel rollups
+* Led the NetSuite implementation and trained 12 staff on the new chart of accounts</div>
+</div>
+<div class="section-card">
+  <h2>Experience — Senior Accountant <button class="copy-btn" type="button">Copy</button></h2>
+  <div class="copyable-content">**Company:** Beta Inc
+**Dates:** 2015 to 2020
+
+Family-owned distributor. Acted as the bridge between the bookkeeper and external auditor.
+
+* Owned month-end reconciliations across 6 entities
+* Prepared audit working papers that consistently passed without follow-up queries
+* Wrote the procedures manual the company still uses today</div>
+</div>
+<div class="section-card">
+  <h2>Skills <button class="copy-btn" type="button">Copy</button></h2>
+  <div class="copyable-content">**Pinned (top 3):**
+1. Financial Reporting (US GAAP)
+2. NetSuite ERP
+3. Power BI
+
+**Then add in this order:**
+IFRS, Excel (advanced), Process Improvement, Audit Coordination, Month-End Close, AR Management, Internal Controls, Cash Flow Forecasting, Variance Analysis, Team Leadership</div>
+</div>
+<div class="section-card">
+  <h2>Photo, Banner, and Open to Work <button class="copy-btn" type="button">Copy</button></h2>
+  <div class="copyable-content">Use a plain background, natural light, business-casual top. No selfies.
+
+For the banner, a clean city skyline of your target region works. Free images at unsplash.com or pexels.com. Size: 1584 x 396 pixels.
+
+Open to Work: set visibility to Recruiters Only. Add the job titles you are searching, your target locations, and select Full-time + Contract.</div>
+</div>
+<div class="section-card"><h2 style="border:none;">Connecting and Building Content</h2><div class="static-content">
+<h2>Who to Connect With</h2>
+<p>Build out your first 100 connections in three groups:</p>
+<ul>
+  <li>People you have actually worked with (former managers, colleagues, direct reports)</li>
+  <li>Recruiters and HR leaders at companies you would like to work for</li>
+  <li>Industry peers and people in adjacent functions</li>
+</ul>
+<h2>Starting to Build Content</h2>
+<p>Start by commenting thoughtfully on three posts a day for two weeks. Posting your own content can come later, after you have a feel for what resonates.</p>
+</div></div>
+
+<div class="section-card feedback-widget">
+  <h2 style="border:none;">Was this helpful?</h2>
+  <p style="color:#666;font-size:14px;margin-bottom:12px;">We're in beta. Your feedback shapes what gets better.</p>
+  <form id="feedback-form" onsubmit="return submitPageFeedback(event)">
+    <input type="hidden" name="token" value="b6b8aee5-4950-4666-b5b1-b86f8b8b8447">
+    <input type="hidden" name="page_type" value="linkedin_starter">
+    <input type="hidden" name="rating" id="feedback-rating-value">
+    <div style="display:flex;gap:12px;margin-bottom:12px;">
+      <button type="button" class="rating-btn" id="rating-up"   data-rating="up"   style="font-size:18px;padding:10px 18px;cursor:pointer;border:1px solid #ccc;background:#fff;border-radius:6px;">&#128077; Yes</button>
+      <button type="button" class="rating-btn" id="rating-down" data-rating="down" style="font-size:18px;padding:10px 18px;cursor:pointer;border:1px solid #ccc;background:#fff;border-radius:6px;">&#128078; Not really</button>
+    </div>
+    <textarea name="comment" placeholder="One line about what worked or what didn't (optional)" rows="2" style="width:100%;padding:10px;font-family:inherit;font-size:14px;border:1px solid #ccc;border-radius:6px;"></textarea>
+    <button type="submit" id="feedback-submit-btn" disabled style="margin-top:10px;padding:10px 20px;cursor:pointer;background:#0f3460;color:white;border:none;border-radius:6px;font-size:14px;">Send</button>
+    <p id="feedback-status" style="color:#2e7d32;margin-top:10px;display:none;font-size:14px;">Thanks &mdash; we read every one.</p>
+  </form>
+</div>
+
+
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+
+
+(function() {
+  var STORAGE_KEY = "form_autosave_b6b8aee5-4950-4666-b5b1-b86f8b8b8447";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+document.querySelectorAll(".copy-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    var content = this.closest(".section-card").querySelector(".copyable-content");
+    if (!content) return;
+    var text = content.innerText || content.textContent;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = "Copied!";
+      btn.classList.add("copied");
+      setTimeout(function() {
+        btn.textContent = "Copy";
+        btn.classList.remove("copied");
+      }, 2000);
+    });
+  });
+});
+document.querySelectorAll(".rating-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.getElementById("feedback-rating-value").value = this.dataset.rating;
+    document.querySelectorAll(".rating-btn").forEach(function(b) {
+      b.style.outline = ""; b.style.background = "#fff";
+    });
+    this.style.outline = "3px solid #0f3460";
+    this.style.background = "#eef6ff";
+    document.getElementById("feedback-submit-btn").disabled = false;
+  });
+});
+function submitPageFeedback(e) {
+  e.preventDefault();
+  var btn = document.getElementById("feedback-submit-btn");
+  btn.disabled = true; btn.textContent = "Sending...";
+  var form = document.getElementById("feedback-form");
+  var data = {};
+  new FormData(form).forEach(function(v, k) { data[k] = v; });
+  var payload = {
+    action: "formSubmission",
+    formType: "page_feedback",
+    token: data.token,
+    data: data
+  };
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    document.getElementById("feedback-status").style.display = "block";
+    btn.textContent = "Sent";
+  }).catch(function(err) {
+    btn.textContent = "Error — try again";
+    btn.disabled = false;
+    console.error("Feedback submission error:", err);
+  });
+  return false;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Master Resume Review &mdash; Marika</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+/* Review-specific styles */
+.review-section {
+  position: relative;
+}
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.role-header .role-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.role-header .role-dates {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.role-employer {
+  font-size: 14px;
+  color: var(--brand-blue);
+  margin-bottom: 10px;
+}
+.accomplishment-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+.accomplishment-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.confirm-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-card);
+}
+.confirm-row label {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.confirm-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+.correction-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  min-height: 60px;
+  resize: vertical;
+  margin-top: 4px;
+}
+.correction-textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.correction-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.general-feedback-section textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  min-height: 100px;
+  resize: vertical;
+}
+.general-feedback-section textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.skill-list, .cert-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-list li, .cert-list li {
+  background: var(--bg-page);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Master Resume Review</h1>
+    <div class="meta-line">Generated: April 29, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Resume Review</h2>
+    <p>Review your employment history below. For each section, check the box
+    if the information is accurate, or use the text box to describe any
+    corrections needed.</p>
+    <p>When you're done, click <strong>Submit Review</strong> at the bottom.</p>
+    <p class="hint">No personal information (name, email, phone, address)
+    is shown on this page for your privacy.</p>
+  </div>
+
+  <form id="page-form">
+
+    <input type="hidden" name="token" value="e4d65539-54da-4247-8b72-4f3d929a1497">
+    <input type="hidden" name="client_name" value="Marika_Eubanks">
+    <input type="hidden" name="_client_email" value="">
+
+  <div class="section-card review-section" data-section="Restaurant &amp;amp; Bar Manager @ Nicmars Elegant Restaurant Bar and Grill">
+    <div class="role-header">
+      <span class="role-title">Restaurant &amp; Bar Manager</span>
+      <span class="role-dates">Nov 2021 – Present</span>
+    </div>
+    <div class="role-employer">Nicmars Elegant Restaurant Bar and Grill</div>
+      <ul class="accomplishment-list">
+        <li>Coordinates kitchen and front-of-house staff to ensure efficient service during peak hours</li>
+        <li>Trains kitchen staff on meal preparation against established recipes and quality standards; enforces food-prep sanitation</li>
+        <li>Manages all aspects of restaurant operations including stock control and replenishment</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-0" name="confirm_role-0">
+      <label for="confirm-role-0">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-0" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Office Manager / Payroll Supervisor @ N. S. Cousins Transport and Equipment Co Ltd">
+    <div class="role-header">
+      <span class="role-title">Office Manager / Payroll Supervisor</span>
+      <span class="role-dates">Apr 2011 – Feb 2025</span>
+    </div>
+    <div class="role-employer">N. S. Cousins Transport and Equipment Co Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Managed receivables and payables accounts for the company</li>
+        <li>Processed monthly and bi-weekly payroll and filed Statutory and Tax returns</li>
+        <li>Implemented and trained staff on Smart Pay payroll system</li>
+        <li>Supervised administrative team &quot;Supervised two (2) Administrative Staffs&quot; (per resume)</li>
+        <li>Prepared monthly Man-Hours reports for Jamalco Alumina Works contract</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-1" name="confirm_role-1">
+      <label for="confirm-role-1">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-1" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Supervisor @ Cool Corp / Cool Oasis Jamaica">
+    <div class="role-header">
+      <span class="role-title">Supervisor</span>
+      <span class="role-dates">Jan 2011 – Apr 2011</span>
+    </div>
+    <div class="role-employer">Cool Corp / Cool Oasis Jamaica</div>
+      <ul class="accomplishment-list">
+        <li>Supervised pump attendants, monitored fuel inventory, and ran cash reconciliations across opening/closing shifts</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-2" name="confirm_role-2">
+      <label for="confirm-role-2">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-2" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Customer Service / Collections Agent @ Global Gateway Solutions">
+    <div class="role-header">
+      <span class="role-title">Customer Service / Collections Agent</span>
+      <span class="role-dates">Aug 2010 – Jan 2011</span>
+    </div>
+    <div class="role-employer">Global Gateway Solutions</div>
+      <ul class="accomplishment-list">
+        <li>Collected on outstanding credit-card balances on inbound and outbound calls</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-3" name="confirm_role-3">
+      <label for="confirm-role-3">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-3" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Accounting / Payroll Clerk and Company Secretary @ N. S. Cousins Transport and Equipment Co Ltd">
+    <div class="role-header">
+      <span class="role-title">Accounting / Payroll Clerk and Company Secretary</span>
+      <span class="role-dates">Aug 2006 – Jul 2010</span>
+    </div>
+    <div class="role-employer">N. S. Cousins Transport and Equipment Co Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Processed monthly and bi-weekly payroll and filed Statutory and Tax returns</li>
+        <li>Served on senior administrative team, contributing to office leadership decisions and cross-functional administrative coordination</li>
+        <li>Prepared monthly Man-Hours reports for the Jamalco Alumina Works contract</li>
+        <li>Managed receivables, payables, and reported daily financials to Managing Director and Accountant</li>
+      </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-role-4" name="confirm_role-4">
+      <label for="confirm-role-4">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_role-4" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Certifications &amp; Education">
+    <h2>Certifications &amp; Education</h2>
+    <ul class="cert-list">
+        <li>Personal Support Worker (PSW) | Canadian Technical Management College | Active</li>
+        <li>Standard First Aid &amp; CPR/AED-C | Phoenix Health, Safety and Consulting Inc | Active</li>
+        <li>2024 CHA Hosting and Bartending | Canadian Hospitality Academy | 2024</li>
+        <li>Human Resource Management + Social Work Theories + Counselling Theories | University of the Commonwealth Caribbean (UCC)</li>
+        <li>COVID-19 Contact Tracing | Johns Hopkins University</li>
+        <li>Public Relations (Continuing &amp; Professional Education) | University of the West Indies</li>
+    </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-certs" name="confirm_certs">
+      <label for="confirm-certs">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_certs" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card review-section" data-section="Skills">
+    <h2>Skills</h2>
+    <ul class="skill-list">
+        <li>Smart Pay payroll system (Implementer + trainer)</li>
+        <li>Payroll processing (monthly + bi-weekly) (14+ years)</li>
+        <li>Statutory and tax return filing (Jamaica) (14+ years)</li>
+        <li>Receivables / payables management (14+ years)</li>
+        <li>Cash reconciliation / shift balancing (15+ years)</li>
+        <li>Inventory / stock control (Current)</li>
+        <li>Restaurant POS / kitchen ops (Current)</li>
+        <li>Microsoft Office</li>
+    </ul>
+    <div class="confirm-row">
+      <input type="checkbox" class="confirm-checkbox" id="confirm-skills" name="confirm_skills">
+      <label for="confirm-skills">This section is accurate</label>
+    </div>
+    <div class="correction-label">Corrections or additions:</div>
+    <textarea class="correction-textarea" name="correction_skills" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+  </div>
+
+  <div class="section-card general-feedback-section">
+    <h2>General Feedback</h2>
+    <p>Anything else we should know? Missing jobs, incorrect dates,
+    achievements we missed?</p>
+    <textarea id="general-feedback" name="general_feedback" rows="4"
+      placeholder="Any additional comments or corrections..."></textarea>
+  </div>
+
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Review</button>
+      <p class="submit-help">Your responses are submitted securely.</p>
+    </div>
+
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-13T23:05:20.490266+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_e4d65539-54da-4247-8b72-4f3d929a1497";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "master_resume",
+    token: "e4d65539-54da-4247-8b72-4f3d929a1497",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

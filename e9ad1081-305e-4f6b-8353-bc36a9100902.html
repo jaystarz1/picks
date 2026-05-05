@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career Details for Marika &mdash; Marika</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Career Details for Marika</h1>
+    <div class="meta-line">Generated: May 5, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card">
+    <h2>Career Details</h2>
+    <p>We've analyzed your resume and have some specific questions. Each
+    question references the relevant job &mdash; just answer what you can.
+    Your best estimates are fine. Skip anything you genuinely can't
+    remember.</p>
+    <p>This should take about 20-30 minutes (28 questions).</p>
+    <p class="hint">Fields marked with
+    <span style="color: var(--brand-accent);">*</span> are required.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="e9ad1081-305e-4f6b-8353-bc36a9100902">
+    <input type="hidden" name="client_name" value="Marika_Eubanks">
+    <input type="hidden" name="_client_email" value="mmailex299@gmail.com">
+    <input type="hidden" name="form_mode" value="personalized">
+    <div class="section-card">
+      <h2>Career Direction &amp; Quick Confirmations</h2>
+      <div class="form-group">
+  <label class="required">1. Looking at your resume, three career paths jump out: (1) Personal Support Worker (matches your 2024 PSW + First Aid certifications), (2) Office Manager / Payroll Supervisor (matches your 14-year tenure at N. S. Cousins Transport), and (3) Hospitality / F&amp;B operations (matches your current role at Nicmars). Which is your primary direction in Canada — and is there a secondary you&#x27;d take?</label>
+  <div class="hint">e.g., &#x27;Primary: PSW, Canadian healthcare. Secondary: payroll/admin if PSW jobs are slow.&#x27; Be honest — we&#x27;ll target your search and tailor your resume to whichever you pick.</div>
+  <textarea name="career_primary_direction" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">2. What&#x27;s the best phone number to reach you? (Country code helps — e.g., +1 876 555 1234.)</label>
+  <div class="hint">We didn&#x27;t capture this during your intake form.</div>
+  <input type="text" name="phone_number" required>
+</div>
+      <div class="form-group">
+  <label class="required">3. Which city and parish are you currently in, in Jamaica?</label>
+  <div class="hint">e.g., &#x27;Mandeville, Manchester&#x27; or &#x27;Spanish Town, St. Catherine&#x27;</div>
+  <input type="text" name="city_province" required>
+</div>
+      <div class="form-group">
+  <label>4. Do you have a LinkedIn profile? Paste the URL — or tell us if you don&#x27;t have one yet (we can help you set one up).</label>
+  <div class="hint">e.g., https://www.linkedin.com/in/marika-eubanks/ — or &#x27;No LinkedIn yet&#x27;</div>
+  <input type="text" name="linkedin_url">
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Co-Owner / Partner — Nicmars Elegant Restaurant Bar and Grill (Nov 2021 – Present)</h2>
+      <div class="form-group">
+  <label class="required">5. How big is Nicmars day-to-day? Roughly how many guests do you serve in a typical week, and how many staff (kitchen + front-of-house combined) work the restaurant?</label>
+  <div class="hint">e.g., &#x27;150-200 guests/week, 6 staff total — 3 kitchen, 3 FoH including me and my husband.&#x27; Even a rough estimate is fine.</div>
+  <textarea name="nicmars_scale" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>6. Roughly what revenue tier is Nicmars at? You don&#x27;t need exact numbers — even a range or descriptor like &#x27;small neighborhood spot&#x27; vs &#x27;mid-size with private events&#x27; helps.</label>
+  <div class="hint">e.g., &#x27;~JMD 8M annual&#x27;, or &#x27;small — covers expenses + modest profit&#x27;, or &#x27;we run private events monthly that bring in extra&#x27;</div>
+  <textarea name="nicmars_revenue_tier" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">7. Your resume says you train kitchen staff on recipes and sanitation. How many staff have you trained, and what kind of outcomes have you seen — fewer customer complaints, faster service, passing health inspections?</label>
+  <div class="hint">e.g., &#x27;Trained 4 kitchen staff over 2 years. Health inspection passed first try every visit. Customer complaints about food quality dropped from a few a month to almost none.&#x27;</div>
+  <textarea name="nicmars_kitchen_training" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>8. On the operations side — how many vendors/suppliers do you manage for stock and replenishment? Any wins like better pricing, less waste, or supply continuity during shortages?</label>
+  <div class="hint">e.g., &#x27;8 regular suppliers — produce, meat, beverages, dry goods. Negotiated better terms with the produce supplier last year saving about JMD 30K/month. Cut food waste roughly in half by switching to weekly inventory checks.&#x27;</div>
+  <textarea name="nicmars_inventory_vendors" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Office Manager / Payroll Supervisor — N. S. Cousins Transport and Equipment Co Ltd (Apr 2011 – Feb 2025)</h2>
+      <div class="form-group">
+  <label class="required">9. How many employees were on the payroll you ran (combined monthly + bi-weekly)? Roughly what was the total payroll dollars you processed in a typical month?</label>
+  <div class="hint">e.g., &#x27;45 employees total — 30 on monthly payroll, 15 bi-weekly. Total payroll around JMD 6M/month.&#x27; Approximate is fine.</div>
+  <textarea name="cousins_payroll_volume" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">10. You implemented and trained staff on the Smart Pay payroll system. How many staff did you train, how long did the rollout take, and what changed afterward — time saved per pay run, fewer errors, better statutory filing accuracy?</label>
+  <div class="hint">e.g., &#x27;Trained 4 admin staff over 3 weeks. Pay run time dropped from 2 days to half a day. Statutory filings went from occasional late submissions to 100% on-time after the switch.&#x27;</div>
+  <textarea name="cousins_smart_pay_implementation" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>11. On the receivables and payables side — how many invoices in/out per month, and roughly what dollar volume did you handle? Any specific outcomes like better collection rate or cleaner aging?</label>
+  <div class="hint">e.g., &#x27;~80 customer invoices/month at maybe JMD 12M total, ~50 supplier invoices at JMD 8M. Got AR over 90 days down from chronic to under 5%.&#x27;</div>
+  <textarea name="cousins_ar_ap_volume" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>12. You prepared monthly Man-Hours reports for the Jamalco Alumina Works contract. How big was that contract — roughly how many workers&#x27; hours were you tracking each month, how long did N. S. Cousins hold the contract, and approximately what was the contract value?</label>
+  <div class="hint">e.g., &#x27;50-60 workers, ~10,000 hours/month, contract held for 8 years. Annual contract value somewhere around JMD 60M.&#x27; Best estimate is fine.</div>
+  <textarea name="cousins_jamalco_contract" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>13. Your resume notes you supervised two administrative staff. What did they actually do day-to-day, and were there any wins from your management — retention, expanded responsibilities, results from training?</label>
+  <div class="hint">e.g., &#x27;One handled customer-facing admin (invoicing, scheduling), the other handled internal records and statutory filings. Both stayed on my team the entire 14 years.&#x27;</div>
+  <textarea name="cousins_supervision_scope" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>14. Looking back at 14 years at N. S. Cousins, what&#x27;s the ONE thing you&#x27;re proudest of accomplishing there?</label>
+  <div class="hint">Could be a system you built, a process you fixed, a person you trained who succeeded, or a crisis you handled. Tell the story in 2-3 sentences.</div>
+  <textarea name="cousins_outcomes_mvp" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Canadian-Pathway Training (2024 cert stack)</h2>
+      <div class="form-group">
+  <label class="required">15. Your PSW certification from Canadian Technical Management College — did the program include practical placement hours (in a long-term care home, hospital, or community setting)? How many hours, and where?</label>
+  <div class="hint">e.g., &#x27;300 hours practical at a long-term care facility in Kingston&#x27; — or &#x27;classroom-only program, no placement yet, planning to do placement after I land in Canada&#x27;</div>
+  <textarea name="psw_practical_hours" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>16. Once you&#x27;re working as a PSW in Canada, what setting appeals most — long-term care home, home care (visiting clients), hospital support, or open?</label>
+  <div class="hint">e.g., &#x27;Long-term care preferred — I have grandparent caregiving experience&#x27; or &#x27;Open to all&#x27;</div>
+  <input type="text" name="psw_target_settings">
+</div>
+      <div class="form-group">
+  <label>17. Your CHA Hosting and Bartending certification (2024) — was that earned for restaurant management at Nicmars, for Canadian hospitality eligibility, or both?</label>
+  <div class="hint">Helpful for tailoring whether we surface this on a hospitality resume vs an admin/PSW resume.</div>
+  <textarea name="cha_hosting_intent" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>18. You completed Johns Hopkins COVID-19 Contact Tracing — was that work you did paid/volunteer, or solely educational?</label>
+  <div class="hint">If you did real contact-tracing work, that&#x27;s a significant healthcare/public-health story we&#x27;d surface. If educational only, we&#x27;ll mention it as cert.</div>
+  <input type="text" name="covid_contact_tracing_use">
+</div>
+    </div>
+    <div class="section-card">
+      <h2>Search Preferences (Canadian roles)</h2>
+      <div class="form-group">
+  <label class="required">19. What&#x27;s your salary floor in Canadian dollars (the absolute minimum you&#x27;d accept), and what would feel like a good salary?</label>
+  <div class="hint">e.g., &#x27;Floor $40K CAD, ideal $55K CAD&#x27; — for context, PSW roles in Canada typically pay $40-55K, payroll/admin $50-75K, restaurant management varies widely.</div>
+  <textarea name="salary_floor_ideal" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label class="required">20. Full-time only, or open to part-time / contract / casual roles too?</label>
+  <div class="hint">PSW roles are often part-time or casual to start. Open to those is fine to say.</div>
+  <textarea name="employment_type" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>21. Remote, hybrid, or on-site — any preference? (Healthcare and hospitality are mostly on-site by nature; admin/payroll roles are often hybrid or remote.)</label>
+  <div class="hint">e.g., &#x27;On-site fine for healthcare or restaurant; would prefer hybrid for admin&#x27;</div>
+  <input type="text" name="work_arrangement">
+</div>
+      <div class="form-group">
+  <label class="required">22. Your immigration consultant — has Kari recommended a specific pathway? RCIP (Rural Community Immigration Pilot in places like Brandon, Sault Ste. Marie, etc.), AIP (Atlantic Immigration Program in PEI, Newfoundland, NS, NB), or something else?</label>
+  <div class="hint">If you don&#x27;t know, just say &#x27;unsure — Kari hasn&#x27;t decided yet&#x27; and we&#x27;ll work with you on it.</div>
+  <textarea name="immigration_pathway" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>23. Are there any specific Canadian cities or regions you&#x27;re aiming for — or that you&#x27;d want to avoid?</label>
+  <div class="hint">e.g., &#x27;Atlantic Canada preferred, especially Halifax or Charlottetown. Would avoid French-dominant areas like much of Quebec.&#x27;</div>
+  <textarea name="target_communities" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>24. Do you speak French at all? Even a little? (Important for some Canadian regions, especially in healthcare.)</label>
+  <div class="hint">e.g., &#x27;No French at all&#x27;, &#x27;Basic conversational&#x27;, &#x27;Studied in school but rusty&#x27;, &#x27;Fluent&#x27;</div>
+  <input type="text" name="languages_french">
+</div>
+      <div class="form-group">
+  <label>25. Any family members coming with you that affect the search — children needing schools, dependents needing healthcare access, spouse looking for work too?</label>
+  <div class="hint">Helps us prioritize communities with the right schools, healthcare, and job markets.</div>
+  <textarea name="family_constraints" rows="4"></textarea>
+</div>
+    </div>
+    <div class="section-card">
+      <h2>General</h2>
+      <div class="form-group">
+  <label class="required">26. You&#x27;ve gone from admin/payroll (14 years) to restaurant co-ownership to recent PSW certification. What&#x27;s the through-line — what&#x27;s drawing you toward Canada, and toward whichever direction you picked above?</label>
+  <div class="hint">This story powers your cover letters and immigration narrative. 3-5 sentences in your own words is perfect.</div>
+  <textarea name="career_transition_story" rows="4" required></textarea>
+</div>
+      <div class="form-group">
+  <label>27. Anything important about your career, life, or training that we haven&#x27;t asked about? Awards, volunteer leadership, side projects, family caregiving, community involvement, languages, anything?</label>
+  <div class="hint">Even informal stuff — caregiving for a parent, leading a church group, running a side business — anything with measurable impact or skill development.</div>
+  <textarea name="missing_achievements" rows="4"></textarea>
+</div>
+      <div class="form-group">
+  <label>28. Anything else you want us to know, or any worries / questions about the process?</label>
+  <div class="hint">We&#x27;re a small team — your message gets to a real human. Ask away.</div>
+  <textarea name="anything_else" rows="4"></textarea>
+</div>
+    </div>
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Achievements</button>
+      <p class="submit-help">Your responses are sent securely to our team. We'll use them to craft your resume.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HR Solutions for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HR Solutions Inc.</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-26T17:47:20.500414+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "achievement_form",
+    token: "e9ad1081-305e-4f6b-8353-bc36a9100902",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

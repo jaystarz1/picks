@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Resume Review &mdash; Marika</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --border-card: #e0e0e0;
+  --green: #2e7d32;
+  --amber: #f57f17;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.timer-line {
+  font-size: 13px;
+  margin-top: 6px;
+  color: var(--text-secondary);
+}
+.timer-line.timer-active { color: var(--green); }
+.timer-line.timer-expired { color: var(--brand-accent); }
+
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.intro-note {
+  background: #eef6ff;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #1a1a2e;
+  line-height: 1.7;
+}
+.intro-note strong { color: var(--brand-blue); }
+
+/* Role cards */
+.review-section .role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.role-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--brand-dark);
+}
+.role-dates {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.role-employer {
+  font-size: 14px;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.accomplishment-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 14px;
+}
+.accomplishment-list li {
+  padding: 6px 0 6px 18px;
+  position: relative;
+  font-size: 14px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.accomplishment-list li:last-child { border-bottom: none; }
+.accomplishment-list li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--brand-accent);
+  font-weight: 700;
+}
+
+.flag-note {
+  background: #fffbea;
+  border-left: 3px solid var(--amber);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #6b4c00;
+  margin-bottom: 12px;
+  border-radius: 0 4px 4px 0;
+}
+
+.cert-list, .skill-list, .volunteer-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 14px;
+}
+.cert-list li, .skill-list li, .volunteer-list li {
+  padding: 5px 0 5px 18px;
+  position: relative;
+  font-size: 14px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.cert-list li:last-child, .skill-list li:last-child, .volunteer-list li:last-child {
+  border-bottom: none;
+}
+.cert-list li::before, .skill-list li::before, .volunteer-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 2px;
+  color: var(--green);
+  font-size: 12px;
+}
+
+.confirm-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.confirm-row label {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.confirm-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--green);
+}
+
+.correction-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.correction-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #fff;
+  min-height: 70px;
+  resize: vertical;
+}
+.correction-textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15,52,96,0.1);
+}
+
+.submit-section {
+  text-align: center;
+  padding: 20px 0 8px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  letter-spacing: 0.5px;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+#success-message {
+  display: none;
+  background: #e8f5e9;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.expiry-banner {
+  background: #fff3e0;
+  border: 1px solid var(--amber);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  color: #6b4c00;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 480px) {
+  .submit-btn { width: 100%; }
+  .role-header { flex-direction: column; }
+  .role-dates { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">Job Scout</div>
+    <h1>Resume Sign-Off &mdash; Marika</h1>
+    <div class="meta-line">Updated with your achievement data &mdash; May 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="intro-note">
+    <strong>Hi Marika &mdash;</strong> thanks for completing the questionnaire. We've taken the numbers and details you gave us and updated your resume below. Every bullet now has specific figures attached.<br><br>
+    Please review each section and check the box if it's accurate. If anything needs a correction or you'd like to change wording, just type it in the box below that section.<br><br>
+    When everything looks right, click <strong>Submit Review</strong> at the bottom. That's the green light for us to start building your tailored applications.
+  </div>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong> Contact Jay at <a href="mailto:jay@barkerhrs.com">jay@barkerhrs.com</a> for assistance.
+  </div>
+
+  <form id="page-form">
+
+    <input type="hidden" name="token" value="7d282b82-b8ed-4fa7-9173-06aed070e90a">
+    <input type="hidden" name="client_name" value="Marika_Eubanks">
+    <input type="hidden" name="_client_email" value="mmailex299@gmail.com">
+    <input type="hidden" name="review_version" value="v2_post_form2">
+
+    <!-- ─── NICMARS ─── -->
+    <div class="section-card review-section" data-section="Co-Owner / Partner @ Nicmars Elegant Restaurant Bar and Grill">
+      <div class="role-header">
+        <span class="role-title">Co-Owner / Partner</span>
+        <span class="role-dates">Nov 2021 &ndash; Present</span>
+      </div>
+      <div class="role-employer">Nicmars Elegant Restaurant Bar and Grill</div>
+      <ul class="accomplishment-list">
+        <li>Co-owns and operates full-service restaurant serving 100+ daily guests with a rotating team of up to 9 staff</li>
+        <li>Designed and delivered food-safety and recipe-standards training for 20&ndash;40 kitchen staff; restaurant earned health-inspection approval and maintains consistent positive customer reviews</li>
+        <li>Manages end-to-end business operations including inventory control, stock replenishment, and purchasing relationships with 15 active vendors</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-role-0" name="confirm_role-0">
+        <label for="confirm-role-0">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_role-0" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+    </div>
+
+    <!-- ─── COUSINS OFFICE MANAGER ─── -->
+    <div class="section-card review-section" data-section="Office Manager / Payroll Supervisor @ N. S. Cousins Transport">
+      <div class="role-header">
+        <span class="role-title">Office Manager / Payroll Supervisor</span>
+        <span class="role-dates">Apr 2011 &ndash; Feb 2025</span>
+      </div>
+      <div class="role-employer">N. S. Cousins Transport and Equipment Co Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Managed monthly and bi-weekly payroll for 200+ employees and filed all statutory and tax returns over a 14-year tenure</li>
+        <li>Managed accounts receivable and payable with monthly invoice throughput of JMD $40&ndash;80 million</li>
+        <li>Implemented Smart Pay payroll system and led a 3-month staff training programme to ensure full team adoption</li>
+        <li>Produced monthly man-hours reports for Jamalco Alumina Works&rsquo; bauxite mining and haulage contract, maintained since 1994</li>
+      </ul>
+      <div class="flag-note">
+        &#9888; <strong>One question:</strong> Your resume says you &ldquo;supervised two (2) Administrative Staffs.&rdquo; In your questionnaire you mentioned that both of you handled admin and clerical duties evenly. Can you clarify &mdash; did you supervise the other admin person, or were you both at the same level? Please use the corrections box below.
+      </div>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-role-1" name="confirm_role-1">
+        <label for="confirm-role-1">The rest of this section is accurate</label>
+      </div>
+      <div class="correction-label">Supervision clarification + any other corrections:</div>
+      <textarea class="correction-textarea" name="correction_role-1" placeholder="e.g., 'I supervised the other admin' OR 'We were peers at the same level' — and any other corrections..."></textarea>
+    </div>
+
+    <!-- ─── COOL CORP ─── -->
+    <div class="section-card review-section" data-section="Supervisor @ Cool Corp / Cool Oasis Jamaica">
+      <div class="role-header">
+        <span class="role-title">Supervisor</span>
+        <span class="role-dates">Jan 2011 &ndash; Apr 2011</span>
+      </div>
+      <div class="role-employer">Cool Corp / Cool Oasis Jamaica</div>
+      <ul class="accomplishment-list">
+        <li>Supervised pump attendants, monitored fuel inventory, and ran cash reconciliations across opening and closing shifts</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-role-2" name="confirm_role-2">
+        <label for="confirm-role-2">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_role-2" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+    </div>
+
+    <!-- ─── GLOBAL GATEWAY ─── -->
+    <div class="section-card review-section" data-section="Customer Service / Collections Agent @ Global Gateway Solutions">
+      <div class="role-header">
+        <span class="role-title">Customer Service / Collections Agent</span>
+        <span class="role-dates">Aug 2010 &ndash; Jan 2011</span>
+      </div>
+      <div class="role-employer">Global Gateway Solutions</div>
+      <ul class="accomplishment-list">
+        <li>Collected on outstanding credit-card balances via inbound and outbound calls</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-role-3" name="confirm_role-3">
+        <label for="confirm-role-3">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_role-3" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+    </div>
+
+    <!-- ─── COUSINS CLERK ─── -->
+    <div class="section-card review-section" data-section="Accounting / Payroll Clerk and Company Secretary @ N. S. Cousins Transport">
+      <div class="role-header">
+        <span class="role-title">Accounting / Payroll Clerk &amp; Company Secretary</span>
+        <span class="role-dates">Aug 2006 &ndash; Jul 2010</span>
+      </div>
+      <div class="role-employer">N. S. Cousins Transport and Equipment Co Ltd</div>
+      <ul class="accomplishment-list">
+        <li>Processed monthly and bi-weekly payroll and filed Statutory and Tax returns</li>
+        <li>Prepared monthly Man-Hours reports for the Jamalco Alumina Works contract</li>
+        <li>Managed receivables, payables, and reported daily financials to Managing Director and Accountant</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-role-4" name="confirm_role-4">
+        <label for="confirm-role-4">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_role-4" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+    </div>
+
+    <!-- ─── PSW CERTIFICATION PLACEMENT ─── -->
+    <div class="section-card review-section" data-section="PSW Practical Placement — Brampton, Ontario">
+      <div class="role-header">
+        <span class="role-title">PSW Practical Placement</span>
+        <span class="role-dates">2024</span>
+      </div>
+      <div class="role-employer">Long-Term Care Facility &mdash; Brampton, Ontario</div>
+      <ul class="accomplishment-list">
+        <li>Completed 200 hours of supervised practical placement in a long-term care setting in Brampton, Ontario as part of PSW certification from Canadian Technical Management College</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-role-5" name="confirm_role-5">
+        <label for="confirm-role-5">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_role-5" placeholder="e.g., name of the facility (if you'd like us to include it), exact months, any additional context..."></textarea>
+    </div>
+
+    <!-- ─── CERTIFICATIONS ─── -->
+    <div class="section-card review-section" data-section="Certifications &amp; Education">
+      <h2>Certifications &amp; Education</h2>
+      <ul class="cert-list">
+        <li>Personal Support Worker (PSW) &mdash; Canadian Technical Management College &mdash; <strong>Active</strong></li>
+        <li>Standard First Aid &amp; CPR/AED-C &mdash; Phoenix Health, Safety and Consulting Inc &mdash; <strong>Active 2024</strong></li>
+        <li>CHA Hosting and Bartending &mdash; Canadian Hospitality Academy &mdash; 2024</li>
+        <li>Human Resource Management + Social Work Theories + Counselling Theories &mdash; University of the Commonwealth Caribbean (UCC)</li>
+        <li>COVID-19 Contact Tracing &mdash; Johns Hopkins University</li>
+        <li>Public Relations (Continuing &amp; Professional Education) &mdash; University of the West Indies</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-certs" name="confirm_certs">
+        <label for="confirm-certs">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_certs" placeholder="If anything is wrong or missing, describe it here..."></textarea>
+    </div>
+
+    <!-- ─── VOLUNTEER / COMMUNITY ─── -->
+    <div class="section-card review-section" data-section="Volunteer &amp; Community">
+      <h2>Volunteer &amp; Community</h2>
+      <p style="font-size:14px;color:#666;margin-bottom:12px;">You mentioned these in your questionnaire. We can include them in applications where they add value (especially PSW roles).</p>
+      <ul class="volunteer-list">
+        <li>Volunteer &mdash; Canadian Cancer Society</li>
+        <li>Community support: back-to-school programme and church donations</li>
+        <li>Informal caregiver for late father-in-law during prostate cancer illness</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-volunteer" name="confirm_volunteer">
+        <label for="confirm-volunteer">These are accurate and I'm happy for them to be included</label>
+      </div>
+      <div class="correction-label">Corrections or anything you'd prefer we leave out:</div>
+      <textarea class="correction-textarea" name="correction_volunteer" placeholder="Let us know if you'd prefer anything here not be included in applications..."></textarea>
+    </div>
+
+    <!-- ─── SKILLS ─── -->
+    <div class="section-card review-section" data-section="Skills">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        <li>Smart Pay payroll system &mdash; Implementer &amp; trainer</li>
+        <li>Payroll processing (monthly + bi-weekly) &mdash; 14+ years</li>
+        <li>Statutory and tax return filing (Jamaica) &mdash; 14+ years</li>
+        <li>Accounts receivable / payable management &mdash; 14+ years</li>
+        <li>Cash reconciliation / shift balancing &mdash; 15+ years</li>
+        <li>Staff training and development &mdash; 20&ndash;40 staff trained</li>
+        <li>Inventory / stock control and vendor management &mdash; 15 vendors</li>
+        <li>Restaurant POS / kitchen operations</li>
+        <li>Microsoft Office</li>
+      </ul>
+      <div class="confirm-row">
+        <input type="checkbox" class="confirm-checkbox" id="confirm-skills" name="confirm_skills">
+        <label for="confirm-skills">This section is accurate</label>
+      </div>
+      <div class="correction-label">Corrections or additions:</div>
+      <textarea class="correction-textarea" name="correction_skills" placeholder="Any systems, tools, or skills we missed?"></textarea>
+    </div>
+
+    <!-- ─── GENERAL FEEDBACK ─── -->
+    <div class="section-card">
+      <h2>Anything Else?</h2>
+      <p style="font-size:14px;color:#666;margin-bottom:12px;">Missing jobs, incorrect dates, achievements we missed, or anything you want us to know before we start applying?</p>
+      <textarea id="general-feedback" name="general_feedback" class="correction-textarea" rows="4"
+        placeholder="Any additional comments, corrections, or things you'd like us to know..."></textarea>
+    </div>
+
+    <div class="submit-section">
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Review ✓</button>
+      <p class="submit-help">Your responses are submitted securely. We'll follow up by email once we receive them.</p>
+    </div>
+
+  </form>
+
+  <div id="success-message">
+    &#10003; Got it, Marika &mdash; thank you! We'll review your feedback and be in touch shortly.
+  </div>
+
+</div><!-- /container -->
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-27T00:00:00.000Z");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_7d282b82-b8ed-4fa7-9173-06aed070e90a";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+    }
+  } catch(e) {}
+
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) {}
+    }, 3000);
+  });
+
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "master_resume",
+    token: "7d282b82-b8ed-4fa7-9173-06aed070e90a",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted ✓";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+</script>
+</body>
+</html>

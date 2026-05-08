@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Career Details for Evan &mdash; Evan</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Career Details for Evan</h1>
+    <div class="meta-line">Generated: May 08, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+<div class="step-breadcrumb"><div class="step active">Sign Up</div><div class="step done">Intake Form</div><div class="step done">Achievements</div><div class="step done">Resume Review</div><div class="step done">Job Search</div></div>
+  <div class="section-card prep-warning">
+    <h2>Before You Start</h2>
+    <p>This form takes about <strong>24&ndash;29 minutes</strong>
+    (32 questions). Before you begin, it helps to have:</p>
+    <ul>
+      <li>A list of projects you&rsquo;ve worked on</li>
+      <li>Certifications, licenses, and their expiry dates</li>
+      <li>Any awards or recognition documents</li>
+    </ul>
+    <p>Your best estimates are fine &mdash; you don&rsquo;t need exact numbers
+    for everything. If you can&rsquo;t remember, skip the question.</p>
+  </div>
+  <div class="section-card">
+    <h2>Career Details</h2>
+    <p>We've analyzed your resume and have some specific questions. Each
+    section covers a specific job &mdash; just answer what you can.
+    Your best estimates are fine. Skip anything you genuinely can&rsquo;t
+    remember.</p>
+    <p class="hint">Fields marked with
+    <span style="color: var(--brand-accent);">*</span> are required.</p>
+  </div>
+  <form id="page-form">
+    <input type="hidden" name="token" value="41f62a5e-1750-45ca-b758-970f55c09264">
+    <input type="hidden" name="client_name" value="Evan_Venson">
+    <input type="hidden" name="form_mode" value="personalized">
+    <div class="section-card job-section ">
+      <h2>Your Experience</h2>
+      <span class="tense-hint">Previous role &mdash; answer in past tense: &ldquo;I managed&hellip;&rdquo; &ldquo;I handled&hellip;&rdquo;</span>
+      <div class="form-group">
+  <label>1. As Team Leader / Field Worker at Stewart Industrial (2023–present), what&#x27;s the typical crew size you lead? (number of technicians, plus apprentices)</label>
+  <div class="hint">On Form 1 you wrote &#x27;crews of four or more.&#x27; Is that the common size, or does it vary by job?</div>
+  <input type="text" name="team_leader_crew_size">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_crew_size_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>2. How many jobs / repair tickets does your crew typically complete per week as a Team Leader?</label>
+  <div class="hint">Most field-service crews close 5–15 work orders per week. Yours?</div>
+  <input type="text" name="team_leader_jobs_per_week">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_jobs_per_week_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>3. How many distinct customers (mining sites, contractors, etc.) does your crew serve in a typical month?</label>
+  
+  <input type="text" name="team_leader_customer_count">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_customer_count_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>4. You said you &#x27;beat OEM labor standards by 20% on major component change-outs.&#x27; What was the OEM book time vs your actual time on a typical major change-out (give one example you remember)?</label>
+  <div class="hint">Example: &#x27;OEM said 32 hrs for a final-drive R&amp;I on a PC400LC-8; we did it in 25.&#x27; That kind of detail.</div>
+  <textarea name="team_leader_oem_labor_baseline" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_oem_labor_baseline_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>5. When did the 40% reduction in unscheduled downtime happen, and what was the baseline before? (e.g. went from 25% to 15%, or fleet-wide hours per month)</label>
+  <div class="hint">Industry average is ~25% unscheduled downtime; best-in-class &lt;5%. Where did your fleet sit before vs after?</div>
+  <textarea name="team_leader_downtime_baseline" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_downtime_baseline_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>6. The $220K+ annual savings you delivered using VHMS/KOMTRAX — what failures specifically did the data prevent? (one or two stories)</label>
+  <div class="hint">e.g. &#x27;Caught a hydraulic-pump pressure trend on a HD785-7; replaced before catastrophic failure that would have cost $XXX in tow + downtime.&#x27;</div>
+  <textarea name="team_leader_220k_savings_basis" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_220k_savings_basis_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>7. How many pieces of equipment does the fleet you support typically include?</label>
+  <div class="hint">Just total machines under your care — dump trucks + excavators + dozers + loaders + support equipment.</div>
+  <input type="text" name="team_leader_fleet_size">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_fleet_size_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>8. Roughly how many emergency / breakdown callouts do you respond to in a typical month?</label>
+  
+  <input type="text" name="team_leader_emergency_callouts">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_emergency_callouts_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>9. The first-time fix rate going from 65% to 93% — over what period did that happen, and how was it measured (internal log? customer feedback? warranty claims)?</label>
+  <div class="hint">We need a verifiable source for the 65%→93% number — manager audit, ticketing system, etc.</div>
+  <textarea name="team_leader_first_time_fix_when" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_first_time_fix_when_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>10. Your zero-incident safety record over 11 years — who at Stewart Industrial would attest to it? (HSE manager, safety officer, supervisor)</label>
+  <div class="hint">Name + role + phone or email. Canadian employers often verify safety claims directly.</div>
+  <textarea name="team_leader_safety_record_witness" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_safety_record_witness_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>11. How many junior technicians or apprentices have you personally mentored or trained over the years?</label>
+  
+  <input type="text" name="team_leader_apprentices_mentored">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_apprentices_mentored_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>12. On KOMTRAX/VHMS — are you certified or self-taught? What level of analysis do you do? (download/read codes vs predictive trend analysis vs configuring fleet alerts)</label>
+  <div class="hint">Komatsu has tiered training. Have you completed any of their official KOMTRAX courses? If yes, which?</div>
+  <textarea name="team_leader_komatsu_komtrax_depth" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="team_leader_komatsu_komtrax_depth_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>13. As A Technician at New Day Aluminium (2018–2023), how many techs were on the road team you managed?</label>
+  
+  <input type="text" name="a_tech_road_team_size">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="a_tech_road_team_size_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>14. How many distinct off-site locations did your road team service? (and what was the geographic spread — same parish, multiple parishes?)</label>
+  
+  <textarea name="a_tech_sites_covered" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="a_tech_sites_covered_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>15. What were the most complex repairs / rebuilds you led at New Day Aluminium? (component, machine, what went wrong, what you did)</label>
+  <div class="hint">Pick the 2–3 you&#x27;d brag about. Engine rebuild on a specific dozer? Hydraulic system overhaul? Transmission swap?</div>
+  <textarea name="a_tech_signature_repairs" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="a_tech_signature_repairs_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>16. The 97% fleet availability you mentioned — was that during the New Day Aluminium years, the Team Leader years, or both?</label>
+  <div class="hint">Helps us allocate the metric to the right role on your resume.</div>
+  <textarea name="a_tech_fleet_availability_97_when" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="a_tech_fleet_availability_97_when_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>17. During your apprenticeship at Noranda Bauxite Partners (2014–2018), what types of equipment did you primarily work on? (haul trucks, loaders, dozers, drills, conveyors, support equipment)</label>
+  <div class="hint">Bauxite mining typically uses HD785/HD605 dump trucks, PC1250/PC2000 excavators, D375/D475 dozers, WA600/WA800 loaders. What did Noranda run?</div>
+  <textarea name="apprentice_machines_serviced" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="apprentice_machines_serviced_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>18. Who was the journeyman or senior tech you primarily worked under as an apprentice?</label>
+  <div class="hint">Name + their role. Useful as a reference.</div>
+  <input type="text" name="apprentice_journeyman_supervisor">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="apprentice_journeyman_supervisor_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>19. Did you log apprenticeship hours formally? If yes, how many hours total over those 4 years?</label>
+  <div class="hint">Heart Trust/NTA L1–3 typically requires a logged-hours component. This matters for Canadian Red Seal challenge eligibility.</div>
+  <input type="text" name="apprentice_hours_logged">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="apprentice_hours_logged_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>20. At Noranda Bauxite Partners 2011–2013 (Auto Mechanic), were you direct-employed by Noranda, or contracted through someone? And how did this role differ from your later apprenticeship at the same site (2014–2018)?</label>
+  <div class="hint">Helps us tell the story cleanly on the resume — it&#x27;s unusual to be &#x27;Auto Mechanic&#x27; before being &#x27;Apprentice.&#x27;</div>
+  <textarea name="noranda_2011_role_clarification" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="noranda_2011_role_clarification_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>21. How many engine rebuilds (full disassembly + reassembly) did you complete at Noranda 2011–2013, roughly?</label>
+  
+  <input type="text" name="noranda_2011_engine_rebuild_count">
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="noranda_2011_engine_rebuild_count_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>22. Komatsu, JCB, Yutong, FAW, Bobcat, Clark training — do you have certificates for these you could scan and email us? Which ones, and what year?</label>
+  <div class="hint">Even photos of paper certs work. These hugely strengthen Canadian dealer applications (Brandt for Komatsu/John Deere, Wajax for multi-line, Toromont for Cat).</div>
+  <textarea name="oem_training_certificates" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="oem_training_certificates_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>23. Do you hold any of these safety credentials (or equivalents)? — WHMIS, Standard First Aid/CPR, Ground Disturbance, H2S Alive, CSTS, Working at Heights, Confined Space, Lockout/Tagout. Which ones, and current?</label>
+  <div class="hint">These are common asks in Canadian mining/construction job postings. If you don&#x27;t have Canadian versions, list any Jamaican equivalents.</div>
+  <textarea name="safety_certifications_canadian" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="safety_certifications_canadian_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>24. What driver&#x27;s licence(s) do you hold? (Jamaica Class? International permit? Open to upgrading to Canadian Class 5/3/1?)</label>
+  <div class="hint">Canadian field-service tech roles almost always need at least Class 5; some need Class 3 (heavy truck). Worth knowing what we&#x27;re starting from.</div>
+  <textarea name="drivers_license" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="drivers_license_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>25. On your resume you list &#x27;computer programming&#x27; as a special skill. What does that mean in your work? (PLC programming on machines? Diagnostic software scripting? Programming controllers? Something else?)</label>
+  <div class="hint">Just want to make sure we represent it accurately on the Canadian resume.</div>
+  <textarea name="computer_programming_context" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="computer_programming_context_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>26. Tell us about the single biggest save / catastrophic-failure-prevented story you have. What was the machine, what did you catch, and what did it save the operation?</label>
+  <div class="hint">This is the kind of story that anchors a senior-tech resume in Canada.</div>
+  <textarea name="biggest_save_story" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="biggest_save_story_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+    <div class="section-card">
+      <h2>General Questions</h2>
+      <div class="form-group">
+  <label>27. Is there anything about your career that&#x27;s NOT on your resume? Side projects, volunteer mechanic work, helping family with vehicles, freelance jobs, something else?</label>
+  
+  <textarea name="not_on_resume" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="not_on_resume_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>28. What software, tools, or diagnostic equipment do you use most often?</label>
+  <div class="hint">KOMTRAX, VHMS, JCB ServiceMaster, hydraulic pressure gauges, multimeters, torque tools, lift equipment — list everything you reach for on a normal week.</div>
+  <textarea name="daily_tools" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="daily_tools_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>29. List any certifications or licenses you hold (include year obtained and whether it&#x27;s still current).</label>
+  <div class="hint">Trade certs, safety credentials, OEM training, driving licences, anything else. Use &#x27;current&#x27; or &#x27;expired&#x27; next to each.</div>
+  <textarea name="certifications" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="certifications_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>30. What kinds of jobs or work environments do you want to AVOID in Canada?</label>
+  <div class="hint">Be specific — long-haul trucking? Indoor-only shop work? Specific OEM brands? Helps us not waste your time on bad-fit roles.</div>
+  <textarea name="avoid_industries" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="avoid_industries_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>31. Any deal-breakers we should know about?</label>
+  <div class="hint">Salary floor, shift work tolerance, specific provinces or cities you wouldn&#x27;t move to, time-of-year constraints, family considerations.</div>
+  <textarea name="deal_breakers" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="deal_breakers_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+      <div class="form-group">
+  <label>32. Anything else you want us to know?</label>
+  <div class="hint">Career goals, your timeline (when do you want to be working in Canada?), special circumstances, questions for us.</div>
+  <textarea name="anything_else" rows="4"></textarea>
+</div>
+<details class="inline-note">
+  <summary>Add a note (optional)</summary>
+  <textarea name="anything_else_note" rows="2" placeholder="Any context or clarification..."></textarea>
+</details>
+    </div>
+  <div class="submit-section">
+    <div class="button-group">
+      <button type="button" class="save-draft-btn" id="save-draft-btn">Save for Later</button>
+      <button type="submit" class="submit-btn" id="submit-btn">Submit Achievements</button>
+    </div>
+    <p class="submit-help">Save your progress and come back later, or submit when ready.</p>
+  </div>
+  <div id="draft-saved-message" class="draft-saved-message" style="display:none;">
+    <h3>Progress Saved</h3>
+    <p>We'll email you a link to pick up where you left off.</p>
+  </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-05-22T04:07:20.251332+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_41f62a5e-1750-45ca-b758-970f55c09264";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "achievement_form",
+    token: "41f62a5e-1750-45ca-b758-970f55c09264",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+(function() {
+  var btn = document.getElementById("save-draft-btn");
+  if (!btn) return;
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  btn.addEventListener("click", function() {
+    btn.disabled = true;
+    btn.textContent = "Saving...";
+
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function(value, key) {
+      if (data[key]) {
+        if (!Array.isArray(data[key])) data[key] = [data[key]];
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
+    });
+
+    var payload = {
+      action: "formSubmission",
+      formType: "form_draft",
+      token: "41f62a5e-1750-45ca-b758-970f55c09264",
+      data: data
+    };
+    payload.data.originalFormType = "achievement_form";
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      btn.textContent = "Saved \u2713";
+      btn.style.borderColor = "#2e7d32";
+      btn.style.color = "#2e7d32";
+      var msg = document.getElementById("draft-saved-message");
+      if (msg) msg.style.display = "block";
+    }).catch(function(err) {
+      btn.textContent = "Error \u2014 Try Again";
+      btn.style.borderColor = "#c62828";
+      btn.style.color = "#c62828";
+      btn.disabled = false;
+      console.error("Save draft error:", err);
+    });
+  });
+})();
+</script>
+</body>
+</html>

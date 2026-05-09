@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Resume Package for Kerryann &mdash; Kerryann</title>
+<style>
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+}
+.section-card h2 {
+  font-size: 18px;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+}
+.section-card h3 {
+  font-size: 15px;
+  color: var(--brand-blue);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--brand-accent);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: #0a2640; }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--brand-blue);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--brand-blue);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8eaed;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--brand-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+.package-intro {
+  background: #f0f7ff;
+  border: 1px solid #c8ddf0;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.package-intro p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.doc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.doc-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 17px;
+  color: var(--text-primary);
+}
+.doc-card .doc-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+.doc-card .doc-emphasis {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.download-btn {
+  display: inline-block;
+  background: var(--brand-blue, #1a73e8);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.download-btn:hover {
+  opacity: 0.9;
+}
+.download-btn.secondary {
+  background: #5f6368;
+}
+.variant-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.instructions-card {
+  background: #fffde7;
+  border: 1px solid #fff9c4;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.instructions-card h3 {
+  margin: 0 0 10px 0;
+  color: #f57f17;
+}
+.instructions-card ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.instructions-card li {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.target-titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 10px;
+}
+.title-chip {
+  background: #eef6ff;
+  border: 1px solid #c8ddf0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 13px;
+  color: var(--brand-blue, #1a73e8);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Resume Package for Kerryann</h1>
+    <div class="meta-line">Generated: May 09, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="section-card package-intro">
+    <h2>Your Resume Package, Kerryann</h2>
+    <p>Below you'll find your complete resume package. It includes:</p>
+    <ul>
+      <li><strong>Master Resume</strong> &mdash; your comprehensive career document with all verified experience</li>
+      <li><strong>Variant Resumes</strong> &mdash; tailored versions that emphasize different parts of your background for specific job types</li>
+      <li><strong>Cover Letter Templates</strong> &mdash; ready-to-customize letters for each job type with [Company] and [Role] placeholders</li>
+    </ul>
+    <p>All documents are in DOCX format so you can edit them in Word or Google Docs.</p>
+  </div>
+  <div class="section-card">
+    <h2>Master Resume</h2>
+    <div class="doc-card">
+      <h3>Comprehensive Career Document</h3>
+      <div class="doc-description">
+        This is your full career resume with all verified experience, education,
+        and achievements. You can modify and customize it for any application
+        throughout the first year of service.
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1vmzfwQ0O6XDxnbEx6z1_Ru7CvvCpd4vt/view?usp=sharing" target="_blank">Download Master Resume (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 1</span>
+    <h2>Digital Communications Manager</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; Digital Communications Manager</h3>
+      <div class="doc-description">LEDC: grew 9-platform audience to 35,000 followers, engagement 5.5%→22%; newsletter CTR 21%→35.4%; 7 concurrent campaigns across 4 teams + 5 partners</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Digital Communications Manager</span>
+        <span class="title-chip">Communications Manager</span>
+        <span class="title-chip">Manager, Digital Communications</span>
+        <span class="title-chip">Director of Communications</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1BbkCD-Sx0X3mwulb9VuIbaxVEGOA8HPs/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; Digital Communications Manager</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1_M1SOW4j9yZELOVBDJe8ZlbBrbr8k4Vr/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 2</span>
+    <h2>Social Media Manager</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; Social Media Manager</h3>
+      <div class="doc-description">LEDC: managed 9 platforms, 35,000 followers; video view rate 10%→66.4%; 600+ roles on job portal in 6-month campaign (LEDC all-time record)</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Social Media Manager</span>
+        <span class="title-chip">Senior Social Media Specialist</span>
+        <span class="title-chip">Social Media Lead</span>
+        <span class="title-chip">Digital Content Manager</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/18FoxxSDDv0NOU2K3y9K89KC_SLoWL0SL/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; Social Media Manager</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1lzIbiWI8_sFF3aSSB1YuuzsFi0WS-LES/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 3</span>
+    <h2>Content Marketing Manager</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; Content Marketing Manager</h3>
+      <div class="doc-description">LEDC newsletter CTR 21%→35.4% across 2,230 subscribers; 15 DMS grant applications 100% approval $37K; LHC Instagram 1,800→2,300+ followers in 4 months</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Content Marketing Manager</span>
+        <span class="title-chip">Content Manager</span>
+        <span class="title-chip">Marketing and Communications Coordinator</span>
+        <span class="title-chip">Digital Marketing Manager</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1Wyac3D3ZgRxz88BQPnXuX9gLIMWoSSHb/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; Content Marketing Manager</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1exOj6u4Yb4MaHfjd7qT8Z0iPIwx9rp5m/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="section-card">
+    <span class="variant-badge">VARIANT 4</span>
+    <h2>Nonprofit and Government Communications</h2>
+    <div class="doc-card">
+      <h3>Resume &mdash; Nonprofit and Government Communications</h3>
+      <div class="doc-description">USAID $4M national campaign 981 Jamaican schools; LHC $30K+ operational funding secured; DMS 85 small businesses digitally transformed; PBCJ 350-400 broadcast productions</div>
+      <div class="doc-description">This resume is tailored for:</div>
+      <div class="target-titles">
+        <span class="title-chip">Communications Specialist</span>
+        <span class="title-chip">Community Engagement Manager</span>
+        <span class="title-chip">Public Relations Manager</span>
+        <span class="title-chip">Program Communications Coordinator</span>
+      </div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1heJ06jlptHZPQFLMsl4hHVv4Q9cQABu-/view?usp=sharing" target="_blank">Download Resume (DOCX)</a>
+    </div>
+    <div class="doc-card">
+      <h3>Cover Letter &mdash; Nonprofit and Government Communications</h3>
+      <div class="doc-emphasis">
+        This cover letter uses [Company Name] and [Position Title] placeholders.
+        Replace them with the actual company and role before submitting.
+      </div>
+      <a class="download-btn secondary" href="https://drive.google.com/file/d/1UE4QcGxnWNSmFiASCB3xNKxzgEbCe6hG/view?usp=sharing" target="_blank">Download Cover Letter (DOCX)</a>
+    </div>
+  </div>
+  <div class="instructions-card">
+    <h3>How to Use Your Package</h3>
+    <ol>
+      <li><strong>Download</strong> the variant resume and cover letter that best match the job you're applying for.</li>
+      <li><strong>Open</strong> the DOCX file in Word or Google Docs.</li>
+      <li><strong>Customize the cover letter:</strong> Replace [Company Name] with the employer's name and [Position Title] with the job title.</li>
+      <li><strong>Review</strong> the resume to ensure the emphasized experience matches the specific job posting.</li>
+      <li><strong>Submit</strong> both the resume and cover letter together with your application.</li>
+    </ol>
+    <p style="margin-top:12px;font-size:13px;color:#795548;">
+      <strong>Tip:</strong> For jobs that fall between two variants, start with the closest match
+      and adjust the professional summary to better fit the specific role.
+    </p>
+  </div>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-06-08T13:52:54.964329+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_d11b981b-9736-47d4-b76b-6d4fa3e78e9e";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+
+</script>
+</body>
+</html>

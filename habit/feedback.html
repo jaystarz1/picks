@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Habit Builder — Feedback</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+    color: #222;
+    line-height: 1.5;
+    background: #fafafa;
+  }
+  h1 { font-size: 22px; margin-bottom: 8px; }
+  p.intro { color: #555; margin-top: 0; }
+  fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    background: #fff;
+  }
+  legend {
+    font-weight: 600;
+    padding: 0 8px;
+    font-size: 15px;
+  }
+  label {
+    display: block;
+    padding: 6px 0;
+    cursor: pointer;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .client-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .client-row input {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  button {
+    background: #0a66c2;
+    color: white;
+    border: 0;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  button:hover { background: #084d94; }
+  .done {
+    display: none;
+    padding: 20px;
+    background: #e7f3ff;
+    border: 1px solid #0a66c2;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  .done.shown { display: block; }
+</style>
+</head>
+<body>
+
+<h1>Thanks for trialling this with me.</h1>
+<p class="intro">Five short questions. Two minutes. Honest answers please — that's the whole point.</p>
+
+<form id="feedback-form">
+
+  <fieldset>
+    <legend>Your name or email (so I know who's replying)</legend>
+    <div class="client-row">
+      <input type="text" name="name_or_email" placeholder="Name or email address" required>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>1. How many of the 15 daily actions did you actually do?</legend>
+    <label><input type="radio" name="completion" value="all" required> All or almost all (13-15)</label>
+    <label><input type="radio" name="completion" value="most"> Most (8-12)</label>
+    <label><input type="radio" name="completion" value="some"> Some (3-7)</label>
+    <label><input type="radio" name="completion" value="few"> Few or none (0-2)</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>2. Did you notice any change on your LinkedIn in the last three weeks? (check all that apply)</legend>
+    <label><input type="checkbox" name="change" value="profile_views"> More profile views</label>
+    <label><input type="checkbox" name="change" value="invites"> New connection requests or invites</label>
+    <label><input type="checkbox" name="change" value="comments"> Comments on my posts</label>
+    <label><input type="checkbox" name="change" value="inmails"> Recruiter messages (InMails)</label>
+    <label><input type="checkbox" name="change" value="nothing"> Nothing noticeable</label>
+    <label><input type="checkbox" name="change" value="didnt_check"> I didn't check</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>3. If I offered to keep the daily emails going for another month, would you want them?</legend>
+    <label><input type="radio" name="continue" value="yes" required> Yes, keep them coming</label>
+    <label><input type="radio" name="continue" value="maybe"> Maybe, with some changes</label>
+    <label><input type="radio" name="continue" value="no"> No thanks</label>
+    <div style="margin-top: 10px;">
+      <label for="continue_notes" style="padding: 0; font-weight: normal;">If "maybe" — what would need to change?</label>
+      <textarea id="continue_notes" name="continue_notes" placeholder="Optional"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>4. What was the most useful single email or action?</legend>
+    <textarea name="best" placeholder="One or two sentences is fine"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>5. What was the worst email or action — the one that annoyed you, bored you, or felt useless?</legend>
+    <textarea name="worst" placeholder="Be honest, that's the whole point"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>Anything else? (optional)</legend>
+    <textarea name="anything_else" placeholder="Optional"></textarea>
+  </fieldset>
+
+  <button type="submit">Send my feedback</button>
+
+</form>
+
+<div class="done" id="done">
+  <p><strong>Thanks. Got it.</strong></p>
+  <p>If you want to add anything, just reply to the Day 15 email. Either way, appreciate the honesty.</p>
+</div>
+
+<script>
+  // Submission path: POST to a Formspree-style endpoint, or mailto fallback.
+  // The FORMSPREE_ENDPOINT below needs to be set once Jay creates the form on formspree.io
+  // or any similar service that accepts form POSTs and forwards them to jobscout@barkerhrs.com.
+  // Until then, a mailto fallback gathers the answers into a pre-filled email.
+
+  const FORMSPREE_ENDPOINT = ''; // <-- paste endpoint URL here once set up
+
+  document.getElementById('feedback-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    if (FORMSPREE_ENDPOINT) {
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData,
+        });
+        if (res.ok) {
+          e.target.style.display = 'none';
+          document.getElementById('done').classList.add('shown');
+          return;
+        }
+      } catch (err) {
+        // fall through to mailto
+      }
+    }
+
+    // Mailto fallback
+    const lines = [];
+    for (const [key, value] of formData.entries()) {
+      lines.push(`${key}: ${value}`);
+    }
+    const body = encodeURIComponent(lines.join('\n\n'));
+    window.location.href = `mailto:jobscout@barkerhrs.com?subject=LinkedIn%20Habit%20Builder%20Feedback&body=${body}`;
+  });
+</script>
+
+</body>
+</html>

@@ -149,41 +149,55 @@
 </div>
 
 <script>
-  // Submission path: POST to a Formspree-style endpoint, or mailto fallback.
-  // The FORMSPREE_ENDPOINT below needs to be set once Jay creates the form on formspree.io
-  // or any similar service that accepts form POSTs and forwards them to jobscout@barkerhrs.com.
-  // Until then, a mailto fallback gathers the answers into a pre-filled email.
+  // Submission path: POST to the Apps Script form handler. It relays the
+  // answers to jobscout@barkerhrs.com with subject [HTML_FORM:habit_feedback]
+  // <token>, which the inbox orchestrator classifies and records. Same path
+  // every other client-facing HTML form in this system uses — no mailto, no
+  // third-party service, no dependency on the client's email app.
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec';
+  const FORM_TOKEN = '25dc443b-2733-4ab8-9592-aec2dfb66f5e';
 
-  const FORMSPREE_ENDPOINT = ''; // <-- paste endpoint URL here once set up
-
-  document.getElementById('feedback-form').addEventListener('submit', async (e) => {
+  document.getElementById('feedback-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
 
-    if (FORMSPREE_ENDPOINT) {
-      try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData,
-        });
-        if (res.ok) {
-          e.target.style.display = 'none';
-          document.getElementById('done').classList.add('shown');
-          return;
-        }
-      } catch (err) {
-        // fall through to mailto
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach(function (value, key) {
+      if (data[key] !== undefined) {
+        if (!Array.isArray(data[key])) data[key] = [data[key]];
+        data[key].push(value);
+      } else {
+        data[key] = value;
       }
-    }
+    });
 
-    // Mailto fallback
-    const lines = [];
-    for (const [key, value] of formData.entries()) {
-      lines.push(`${key}: ${value}`);
-    }
-    const body = encodeURIComponent(lines.join('\n\n'));
-    window.location.href = `mailto:jobscout@barkerhrs.com?subject=LinkedIn%20Habit%20Builder%20Feedback&body=${body}`;
+    const payload = {
+      action: 'formSubmission',
+      formType: 'habit_feedback',
+      token: FORM_TOKEN,
+      data: data
+    };
+
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors'
+    }).then(function () {
+      // no-cors resolves opaque on success; a real network failure rejects.
+      form.style.display = 'none';
+      document.getElementById('done').classList.add('shown');
+      window.scrollTo(0, 0);
+    }).catch(function (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send my feedback';
+      console.error('Feedback submission error:', err);
+      alert('Sorry — that did not go through. Please check your connection and try again, or just reply to the Day 15 email with your answers.');
+    });
   });
 </script>
 

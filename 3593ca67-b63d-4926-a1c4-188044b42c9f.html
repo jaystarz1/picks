@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Results &mdash; Nicola</title>
+<style>
+
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.timer-line {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.timer-active { background: #e8f5e9; color: var(--green); }
+.timer-warning { background: #fff8e1; color: var(--amber); }
+.timer-expired { background: #ffebee; color: var(--red); }
+
+/* Simplify tip banner */
+.simplify-tip {
+  background: #f4f7fb;
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #455a64;
+}
+.simplify-tip a { color: var(--brand-dark); font-weight: 600; }
+.tip-new {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1565c0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Intro */
+.intro-section {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-card);
+}
+.intro-section p { margin-bottom: 8px; }
+.intro-section p:last-child { margin-bottom: 0; }
+.home-note {
+  background: #e8f5e9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--green);
+}
+
+/* Track & Zone Headers */
+.track-section { margin-bottom: 24px; }
+.track-header {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.zone-header {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+/* Job Cards */
+.job-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.job-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 2px 8px rgba(15, 52, 96, 0.1);
+}
+.job-card.selected {
+  border-color: var(--border-selected);
+  background: var(--bg-selected);
+}
+.job-card.rejected {
+  opacity: 0.55;
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+}
+.job-card.rejected .job-title { text-decoration: line-through; color: var(--text-secondary); }
+.job-card.rejected .job-checkbox { opacity: 0.4; }
+.reject-btn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  color: var(--text-secondary);
+}
+.reject-btn:hover { border-color: var(--red); color: var(--red); }
+.reject-btn.active {
+  background: #ffebee;
+  border-color: var(--red);
+  color: var(--red);
+}
+.reject-count {
+  font-size: 13px;
+  color: var(--red);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.job-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.job-checkbox {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--brand-blue);
+}
+.job-content { flex: 1; min-width: 0; }
+.job-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.job-number { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.job-title { font-size: 16px; font-weight: 600; color: var(--brand-dark); }
+.job-employer { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.job-snippet { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-link {
+  font-size: 13px;
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.job-link:hover { text-decoration: underline; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-strong { background: #e8f5e9; color: var(--green); }
+.badge-considering { background: #fff8e1; color: var(--amber); }
+.badge-adjacent { background: #e3f2fd; color: #1565c0; }
+.badge-license { background: #fff8e1; color: #e65100; }
+.badge-license-red { background: #ffebee; color: #c62828; font-weight: 700; }
+.badge-ghp { background: #e8eaf6; color: #283593; }
+.badge-remote-ca { background: #e3f2fd; color: #1565c0; }
+.badge-remote-us { background: #fff3e0; color: #e65100; }
+.badge-remote-global { background: #e8f5e9; color: #2e7d32; }
+.badge-lmia-approved { background: #e0f2f1; color: #00695c; font-weight: 700; }
+.badge-lmia-requested { background: #f3e5f5; color: #6a1b9a; }
+.badge-lmia-exempt { background: #fff3e0; color: #e65100; }
+.liveness-warning { font-size: 12px; color: #e65100; margin-top: 4px; font-style: italic; }
+.adjacent-match-reason { font-size: 12px; color: #1565c0; margin-top: 4px; font-style: italic; }
+.pathway-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #e3f2fd;
+  color: var(--brand-blue);
+}
+
+/* Submit */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.selection-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+.button-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center; padding: 24px; background: #e8f5e9; border-radius: 8px; margin-top: 16px;
+}
+
+/* Widen Search */
+.widen-section {
+  text-align: center;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px dashed var(--border-card);
+  border-radius: 8px;
+  background: #fafafa;
+}
+.widen-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.widen-btn {
+  background: transparent;
+  color: var(--brand-blue);
+  border: 1px solid var(--brand-blue);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.widen-btn:hover { background: var(--brand-blue); color: white; }
+.widen-help {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Expiry Banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .job-title { font-size: 14px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Job Search Results for Nicola</h1>
+    <div class="meta-line">Generated: June 02, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="simplify-tip">If you want to save time filling out company sites, you can do it on a laptop using this free plug-in that pre-fills your information: <a href="https://chromewebstore.google.com/detail/simplify-job-application/pbanhockgagggenencehbnadejlgchfc" target="_blank" rel="noopener">Simplify</a>.</div>
+
+  <div class="intro-section">
+    <p>We&#x27;ve been searching for opportunities across the United States that match your background. Jobs near you come first, with options further out as well.</p>
+    <p class="home-note">We prepared application packages for 1 local job(s) &mdash; check your inbox for those.</p>
+    <p>We found <strong>15</strong> additional opportunities worth looking at. Check the ones you're interested in and we'll build application packages for your selections.</p>
+  </div>
+
+  <form id="page-form">
+    <input type="hidden" name="_client_email" value="">
+    <input type="hidden" name="client_name" value="Nicola_Jones">
+    <div class="cards-container">
+<div class="track-section">
+<h2 class="track-header">PRIMARY</h2>
+<h3 class="zone-header">Near You:</h3>
+<div class="job-card" data-job-id="1">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="1" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#1</span>
+        <span class="job-title">Travel/ Local RN -- Registered Nurse in New York State - NYS</span>
+        <button type="button" class="reject-btn" data-job-id="1" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Clover Health Services &middot; NY, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | weekly | **Registered Nurse in New York State**
+
+Facilities through the state of ***NY*** are looking for an experienced **Registered Nurse (RN)** for a 13\-week contract with the possibil</div>
+      <a href="https://www.indeed.com/viewjob?jk=08a8cbac72d6d6f9" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<h3 class="zone-header">Your Region:</h3>
+<div class="job-card" data-job-id="2">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="2" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#2</span>
+        <span class="job-title">Registered Nurse (RN) Pediatric Intensive Care Unit FT Days</span>
+        <button type="button" class="reject-btn" data-job-id="2" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">RWJBarnabas Health &middot; Newark, NJ</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$49.0-$66.0 | hourly | **Req \#:** 0000250096
+  
+
+**Category:** Pediatric Nursing
+  
+
+**Status:** Full\-Time
+  
+
+**Shift:** Day
+  
+
+**Facility:** Newark Beth Israel Medical Center
+  
+
+**Department:** </div>
+      <a href="https://www.indeed.com/viewjob?jk=471e7f445f019e77" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="3">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="3" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#3</span>
+        <span class="job-title">Staff Nurse-Radiology</span>
+        <button type="button" class="reject-btn" data-job-id="3" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">NYC Health + Hospitals &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">$nan-$nan | yearly | **About NYC Health \+ Hospitals**
+---------------------------------
+
+  
+
+
+Queens Hospital Center is making good on its promise to the people of southeastern and central Queens to </div>
+      <a href="https://www.indeed.com/viewjob?jk=9e25c5e1229c3c36" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="4">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="4" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#4</span>
+        <span class="job-title">Staff Nurse\- PACU \- Mount Sinai Hospital\- 11AM\-9:30PM\( 4 days per week\) \- Full\-Time</span>
+        <button type="button" class="reject-btn" data-job-id="4" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Mount Sinai Morningside &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">New York, NY | 6 days ago</div>
+      <a href="https://www.linkedin.com/jobs/view/clinical-coordinator-ii-rn-at-columbia-university-irving-medical-center-4417662236?position=39&amp;pageNum=0&amp;refId=jDW65UqAqRljtLpL53EYNw%3D%3D&amp;trackingId=Mqk2EkwaK7Pyp4bX9tp7Tg%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="5">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="5" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#5</span>
+        <span class="job-title">Registered Nurse</span>
+        <button type="button" class="reject-btn" data-job-id="5" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">LaserAway &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$50.0-$55.0 | hourly | **Aesthetic Registered Nurse**
+
+
+*$50/hr base \+ $5/hr weekend differential · Thursday \- Monday fixed schedule · No overnights*
+
+
+*You&#x27;ll be the clinical expert patients trust </div>
+      <a href="https://www.indeed.com/viewjob?jk=e29b5d47a2cada2d" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="6">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="6" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#6</span>
+        <span class="job-title">Registered Nurse (RN)- Operating Room (OR)</span>
+        <button type="button" class="reject-btn" data-job-id="6" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Northwell Health &middot; New York, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$64.0-$94.0 | hourly | Job Description
+
+
+Delivers and ensures patient care by assessing and diagnosing patient&#x27;s condition, developing plan of care and evaluating patient&#x27;s response to care. Participa</div>
+      <a href="https://www.indeed.com/viewjob?jk=5e6d55ccfd166dc6" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<h3 class="zone-header">Further afield:</h3>
+<div class="job-card" data-job-id="7">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="7" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#7</span>
+        <span class="job-title">Registered Nurse (RN, GN) - Bone &amp; Joint Inpatient</span>
+        <button type="button" class="reject-btn" data-job-id="7" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Hartford HealthCare &middot; Hartford, CT</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | **Location Detail:** 32 Seymour \- Bone \&amp; Joint Inst (10341\)
+
+
+Work where **every moment** matters.  
+
+  
+
+Every day, more than 40,000 Hartford HealthCare colleagues come to work w</div>
+      <a href="https://www.indeed.com/viewjob?jk=cee79869c126447e" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="8">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="8" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#8</span>
+        <span class="job-title">Registered Nurse (RN)</span>
+        <button type="button" class="reject-btn" data-job-id="8" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Hartford HealthCare &middot; Meriden, CT</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | **Location Detail:** 435 Lewis Avenue\-Midstate Med (10123\)
+
+**Shift Detail:** Multiple positions available across multiple nursing departments Various shifts and hours ( full time,</div>
+      <a href="https://www.indeed.com/viewjob?jk=460513ce410f117c" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="9">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="9" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#9</span>
+        <span class="job-title">Registered Nurse - Graduate Nurse (RN, GN) - Surgical A4</span>
+        <button type="button" class="reject-btn" data-job-id="9" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Hartford HealthCare &middot; Norwich, CT</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | **Location Detail:** Backus Hospital (10309\)
+
+**Shift Detail:** 7:00pm\-7:30am. 36 hours weekly. Rotating holidays. Every other weekend required
+
+
+Work where **every moment** matter</div>
+      <a href="https://www.indeed.com/viewjob?jk=900032c2b306a6f9" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="10">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="10" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#10</span>
+        <span class="job-title">Registered Nurse (RN) - Surgical A4</span>
+        <button type="button" class="reject-btn" data-job-id="10" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Hartford HealthCare &middot; Norwich, CT</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | **Location Detail:** Backus Hospital (10309\)
+
+**Shift Detail:** Per diem RN\- must meet per diem requirements for position
+
+
+Work where **every moment** matters.  
+
+
+
+Every day, mor</div>
+      <a href="https://www.indeed.com/viewjob?jk=70a5ad5e48e3d313" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="11">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="11" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#11</span>
+        <span class="job-title">Registered Nurse(RN) - Cardiac Lab</span>
+        <button type="button" class="reject-btn" data-job-id="11" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Hartford HealthCare &middot; New Britain, CT</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | **Location Detail:** 100 Grand Street New Britain (10126\)
+
+
+Registered Nurse (RN) \- Cardiac Laboratory
+
+
+Work where every **moment matters**.  
+
+Every day, more than 40,000 Hartfor</div>
+      <a href="https://www.indeed.com/viewjob?jk=de518eca81e4ed91" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="12">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="12" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#12</span>
+        <span class="job-title">Registered Nurse (RN) - Medical-Neuro ICU</span>
+        <button type="button" class="reject-btn" data-job-id="12" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Hartford HealthCare &middot; Hartford, CT</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$nan-$nan | nan | **Location Detail:** 79 Jefferson St HH Bliss Wing (10064\)
+
+**Shift Detail:** 36hr, D/N, EOW, EOH
+
+
+Work where **every moment** matters.  
+
+  
+
+Every day, more than 40,000 Hartford </div>
+      <a href="https://www.indeed.com/viewjob?jk=7f7bc7d4a0c4b374" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="13">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="13" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#13</span>
+        <span class="job-title">Registered Nurse</span>
+        <button type="button" class="reject-btn" data-job-id="13" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Premiere Healthcare Staffing &middot; Boonton, NJ</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$48.0-$62.0 | hourly | Overview:
+
+Position: Registered Nurse
+Location: Boonton Township, NJ
+Department: BH/ Psych
+Shifts Available: Full Time\- Nights
+Pay: up to $1,728 \- $2,241\.72 gross pay per wee</div>
+      <a href="https://www.indeed.com/viewjob?jk=6fc46eba96daca45" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="14">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="14" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#14</span>
+        <span class="job-title">Registered Nurse - RN - Emergency Department - Hudson Valley - Full Time - Mid Shift</span>
+        <button type="button" class="reject-btn" data-job-id="14" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">NewYork-Presbyterian Hospital &middot; Cortlandt Manor, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$55.0-$67.0 | hourly | **Where Amazing Works**
+
+**Registered Nurse \- RN \- Emergency Department \- Hudson Valley \- Full Time \- Mid Shift**
+
+
+Practice the art and science of evidence\-based nursing </div>
+      <a href="https://www.indeed.com/viewjob?jk=d6fb987b294404de" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="15">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="15" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#15</span>
+        <span class="job-title">Cath Lab Cardiac Access FT RN- ST. Peters Hospital</span>
+        <button type="button" class="reject-btn" data-job-id="15" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Trinity Health &middot; Albany, NY</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        <span class="badge badge-license">May require Canadian professional license</span>
+      </div>
+      <div class="job-snippet">$40.0-$53.0 | hourly | **Employment Type:**  
+
+Full time
+  
+  
+
+**Shift:**  
+
+Day Shift
+  
+  
+
+**Description:**  
+
+**Cardiac Access RN:**  
+
+Looking to utilize and expand your critical care experience</div>
+      <a href="https://www.indeed.com/viewjob?jk=d58c45bcf5512ffa" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+    </div>
+
+
+
+    <div class="submit-section" id="submit-section">
+      <div class="selection-count" id="selection-count">0 jobs selected</div>
+      <div class="reject-count" id="reject-count" style="display:none;">0 marked not a fit</div>
+      <div class="button-group">
+        <button type="button" class="save-draft-btn" id="save-draft-btn">Save for Later</button>
+        <button type="submit" class="submit-btn" id="submit-btn" disabled>
+          Submit My Selections
+        </button>
+      </div>
+      <p class="submit-help">Save your progress and come back later, or submit when ready. Marking jobs "not for me" helps us fine-tune the next search.</p>
+    </div>
+    <div id="draft-saved-message" class="draft-saved-message" style="display:none;">
+      <h3>Progress Saved</h3>
+      <p>We'll email you a link to pick up where you left off.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This search has expired.</strong> Jobs may have closed since this list was generated.
+    Contact Barker HRS for a new search.
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Reply to your search email.</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry48h = new Date("2026-06-04T05:41:30.218979+00:00");
+  var expiry7d  = new Date("2026-06-09T05:41:30.218979+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var submitBtn = document.getElementById("submit-btn");
+  var submitSection = document.getElementById("submit-section");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var selectionCount = document.getElementById("selection-count");
+  var rejectCount = document.getElementById("reject-count");
+  var checkboxes = document.querySelectorAll(".job-checkbox");
+  var rejectedIds = {};
+
+  function setRejected(jobId, on) {
+    var card = document.querySelector('.job-card[data-job-id="' + jobId + '"]');
+    if (!card) return;
+    if (on) {
+      rejectedIds[jobId] = true;
+      card.classList.add("rejected");
+      var cb = card.querySelector(".job-checkbox");
+      if (cb && cb.checked) {
+        cb.checked = false;
+        card.classList.remove("selected");
+      }
+    } else {
+      delete rejectedIds[jobId];
+      card.classList.remove("rejected");
+    }
+    var btn = card.querySelector(".reject-btn");
+    if (btn) btn.classList.toggle("active", !!on);
+    updateSelectionCount();
+  }
+
+  function bindRejectButtons(root) {
+    (root || document).querySelectorAll(".reject-btn").forEach(function(btn) {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = "1";
+      btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var jobId = btn.getAttribute("data-job-id");
+        setRejected(jobId, !rejectedIds[jobId]);
+      });
+    });
+  }
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry7d) {
+      timerLine.className = "timer-line timer-expired";
+      timerText.textContent = "This search has expired.";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Search Expired";
+      expiryBanner.style.display = "block";
+      return;
+    }
+    if (now >= expiry48h) {
+      timerLine.className = "timer-line timer-warning";
+      timerText.textContent = "Active window closed. Jobs may have been filled.";
+      return;
+    }
+    var diff = expiry48h - now;
+    var hours = Math.floor(diff / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    timerText.textContent = "Active for " + hours + "h " + mins + "m";
+    timerLine.className = "timer-line timer-active";
+  }
+
+  function updateSelectionCount() {
+    var count = document.querySelectorAll(".job-checkbox:checked").length;
+    selectionCount.textContent = count + " job" + (count !== 1 ? "s" : "") + " selected";
+    var rejCount = Object.keys(rejectedIds).length;
+    if (rejCount > 0) {
+      rejectCount.style.display = "block";
+      rejectCount.textContent = rejCount + " marked not a fit";
+    } else {
+      rejectCount.style.display = "none";
+    }
+    submitBtn.disabled = (count === 0 && rejCount === 0);
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener("change", function() {
+      var card = this.closest(".job-card");
+      card.classList.toggle("selected", this.checked);
+      if (this.checked) {
+        var jobId = this.value;
+        if (rejectedIds[jobId]) setRejected(jobId, false);
+      }
+      updateSelectionCount();
+    });
+  });
+
+  bindRejectButtons();
+
+  document.getElementById("page-form").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+      e.preventDefault();
+    }
+  });
+  document.getElementById("page-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var now = new Date();
+    if (now >= expiry7d) {
+      alert("This search has expired.");
+      return;
+    }
+    var selected = [];
+    document.querySelectorAll(".job-checkbox").forEach(function(cb) {
+      if (cb.checked) selected.push(cb.value);
+    });
+    var rejected = Object.keys(rejectedIds);
+    if (selected.length === 0 && rejected.length === 0) {
+      alert("Pick at least one job, or mark some as not a fit.");
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    var payload = {
+      action: "formSubmission",
+      formType: "pick_list",
+      token: "3593ca67-b63d-4926-a1c4-188044b42c9f",
+      data: {
+        selected_jobs: selected,
+        rejected_jobs: rejected,
+        _client_email: document.querySelector('input[name="_client_email"]').value,
+        client_name: document.querySelector('input[name="client_name"]').value
+      }
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      submitBtn.textContent = "Submitted \u2713";
+      submitBtn.style.background = "#2e7d32";
+    }).catch(function(err) {
+      submitBtn.textContent = "Error — Try Again";
+      submitBtn.style.background = "#c62828";
+      submitBtn.disabled = false;
+    });
+  });
+
+  // Widen search toggle
+  window.toggleWider = function() {
+    var el = document.getElementById("wider-results");
+    var btn = document.getElementById("widen-btn");
+    if (!el || !btn) return;
+    if (el.style.display === "none") {
+      el.style.display = "block";
+      btn.textContent = "Hide Extended Results";
+      // Bind wider checkboxes to selection counter
+      el.querySelectorAll(".job-checkbox").forEach(function(cb) {
+        cb.addEventListener("change", function() {
+          var card = this.closest(".job-card");
+          card.classList.toggle("selected", this.checked);
+          if (this.checked) {
+            var jobId = this.value;
+            if (rejectedIds[jobId]) setRejected(jobId, false);
+          }
+          updateSelectionCount();
+        });
+      });
+      bindRejectButtons(el);
+    } else {
+      el.style.display = "none";
+      btn.textContent = btn.getAttribute("data-show-text") || "Show More Opportunities";
+    }
+  };
+
+  // Save for Later button
+  var saveDraftBtn = document.getElementById("save-draft-btn");
+  if (saveDraftBtn) {
+    saveDraftBtn.addEventListener("click", function() {
+      saveDraftBtn.disabled = true;
+      saveDraftBtn.textContent = "Saving...";
+      var selected = [];
+      document.querySelectorAll(".job-checkbox").forEach(function(cb) {
+        if (cb.checked) selected.push(cb.value);
+      });
+      var rejected = Object.keys(rejectedIds);
+      var payload = {
+        action: "formSubmission",
+        formType: "form_draft",
+        token: "3593ca67-b63d-4926-a1c4-188044b42c9f",
+        data: {
+          selected_jobs: selected,
+          rejected_jobs: rejected,
+          _client_email: document.querySelector('input[name="_client_email"]').value,
+          client_name: document.querySelector('input[name="client_name"]').value,
+          originalFormType: "pick_list"
+        }
+      };
+      fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload),
+        mode: "no-cors"
+      }).then(function() {
+        saveDraftBtn.textContent = "Saved \u2713";
+        saveDraftBtn.style.borderColor = "#2e7d32";
+        saveDraftBtn.style.color = "#2e7d32";
+        var msg = document.getElementById("draft-saved-message");
+        if (msg) msg.style.display = "block";
+      }).catch(function(err) {
+        saveDraftBtn.textContent = "Error \u2014 Try Again";
+        saveDraftBtn.style.borderColor = "#c62828";
+        saveDraftBtn.style.color = "#c62828";
+        saveDraftBtn.disabled = false;
+      });
+    });
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 60000);
+  updateSelectionCount();
+})();
+</script>
+</body>
+</html>

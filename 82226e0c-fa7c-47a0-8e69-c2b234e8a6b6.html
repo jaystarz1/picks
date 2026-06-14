@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Results &mdash; Kerryann</title>
+<style>
+
+:root {
+  --brand-dark: #1a1a2e;
+  --brand-accent: #e94560;
+  --brand-blue: #0f3460;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-selected: #eef6ff;
+  --border-card: #e0e0e0;
+  --border-selected: #0f3460;
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--brand-dark);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.page-header h1 {
+  font-size: 24px;
+  color: var(--brand-dark);
+  margin-bottom: 4px;
+}
+.meta-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.timer-line {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.timer-active { background: #e8f5e9; color: var(--green); }
+.timer-warning { background: #fff8e1; color: var(--amber); }
+.timer-expired { background: #ffebee; color: var(--red); }
+
+/* Simplify tip banner */
+.simplify-tip {
+  background: #f4f7fb;
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #455a64;
+}
+.simplify-tip a { color: var(--brand-dark); font-weight: 600; }
+.tip-new {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1565c0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Intro */
+.intro-section {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-card);
+}
+.intro-section p { margin-bottom: 8px; }
+.intro-section p:last-child { margin-bottom: 0; }
+.home-note {
+  background: #e8f5e9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--green);
+}
+
+/* Track & Zone Headers */
+.track-section { margin-bottom: 24px; }
+.track-header {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--brand-dark);
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.zone-header {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+/* Job Cards */
+.job-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-card);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.job-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 2px 8px rgba(15, 52, 96, 0.1);
+}
+.job-card.selected {
+  border-color: var(--border-selected);
+  background: var(--bg-selected);
+}
+.job-card.rejected {
+  opacity: 0.55;
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+}
+.job-card.rejected .job-title { text-decoration: line-through; color: var(--text-secondary); }
+.job-card.rejected .job-checkbox { opacity: 0.4; }
+.reject-btn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  color: var(--text-secondary);
+}
+.reject-btn:hover { border-color: var(--red); color: var(--red); }
+.reject-btn.active {
+  background: #ffebee;
+  border-color: var(--red);
+  color: var(--red);
+}
+.reject-count {
+  font-size: 13px;
+  color: var(--red);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.job-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.job-checkbox {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--brand-blue);
+}
+.job-content { flex: 1; min-width: 0; }
+.job-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.job-number { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.job-title { font-size: 16px; font-weight: 600; color: var(--brand-dark); }
+.job-employer { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.job-snippet { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.job-link {
+  font-size: 13px;
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.job-link:hover { text-decoration: underline; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-strong { background: #e8f5e9; color: var(--green); }
+.badge-considering { background: #fff8e1; color: var(--amber); }
+.badge-adjacent { background: #e3f2fd; color: #1565c0; }
+.badge-license { background: #fff8e1; color: #e65100; }
+.badge-license-red { background: #ffebee; color: #c62828; font-weight: 700; }
+.badge-ghp { background: #e8eaf6; color: #283593; }
+.badge-remote-ca { background: #e3f2fd; color: #1565c0; }
+.badge-remote-us { background: #fff3e0; color: #e65100; }
+.badge-remote-global { background: #e8f5e9; color: #2e7d32; }
+.badge-lmia-approved { background: #e0f2f1; color: #00695c; font-weight: 700; }
+.badge-lmia-requested { background: #f3e5f5; color: #6a1b9a; }
+.badge-lmia-exempt { background: #fff3e0; color: #e65100; }
+.liveness-warning { font-size: 12px; color: #e65100; margin-top: 4px; font-style: italic; }
+.adjacent-match-reason { font-size: 12px; color: #1565c0; margin-top: 4px; font-style: italic; }
+.pathway-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #e3f2fd;
+  color: var(--brand-blue);
+}
+
+/* Submit */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.selection-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.submit-btn {
+  background: var(--brand-accent);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d63850; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+.button-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.save-draft-btn {
+  background: white;
+  color: var(--brand-accent);
+  border: 2px solid var(--brand-accent);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: #fff0f2; }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center; padding: 24px; background: #e8f5e9; border-radius: 8px; margin-top: 16px;
+}
+
+/* Widen Search */
+.widen-section {
+  text-align: center;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px dashed var(--border-card);
+  border-radius: 8px;
+  background: #fafafa;
+}
+.widen-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.widen-btn {
+  background: transparent;
+  color: var(--brand-blue);
+  border: 1px solid var(--brand-blue);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.widen-btn:hover { background: var(--brand-blue); color: white; }
+.widen-help {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Expiry Banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header h1 { font-size: 20px; }
+  .job-title { font-size: 14px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand">BARKER HR SOLUTIONS</div>
+    <h1>Job Search Results for Kerryann</h1>
+    <div class="meta-line">Generated: June 14, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+  <div class="simplify-tip">If you want to save time filling out company sites, you can do it on a laptop using this free plug-in that pre-fills your information: <a href="https://chromewebstore.google.com/detail/simplify-job-application/pbanhockgagggenencehbnadejlgchfc" target="_blank" rel="noopener">Simplify</a>.</div>
+
+  <div class="intro-section">
+    <p>We&#x27;ve been searching for opportunities that match your background. Jobs close to home, we package up right away. We also search further out across Canada for roles that fit your skills. We also flag remote opportunities separately when they come up.</p>
+    
+    <p>We found <strong>11</strong> additional opportunities worth looking at. Check the ones you're interested in and we'll build application packages for your selections.</p>
+  </div>
+
+  <form id="page-form">
+    <input type="hidden" name="_client_email" value="">
+    <input type="hidden" name="client_name" value="Kerryann_Thomas-Black">
+    <div class="cards-container">
+<div class="track-section">
+<h2 class="track-header">PRIMARY</h2>
+<h3 class="zone-header">Further afield:</h3>
+<div class="job-card" data-job-id="1">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="1" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#1</span>
+        <span class="job-title">Specialist, AEO/SEO &amp; Digital Marketing</span>
+        <button type="button" class="reject-btn" data-job-id="1" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">RBC &middot; Toronto, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">**Job Description**
+
+**What is the opportunity?**
+
+
+As a member of the Digital Marketing team, you will play a hands\-on role in growing RBC&#x27;s organic presence and digital reach across public\-facing </div>
+      <a href="https://ca.indeed.com/viewjob?jk=95a93ff0bc5c241c" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="2">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="2" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#2</span>
+        <span class="job-title">Digital Communications Specialist</span>
+        <button type="button" class="reject-btn" data-job-id="2" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">FortisBC &middot; -</div>
+      <div class="job-meta">
+        <span class="badge badge-strong">★★★★ Strong Fit</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">- | Surrey, British Columbia, Canada    3 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/marketing-manager-at-all-my-friends-agency-4426102210?position=54&amp;pageNum=0&amp;refId=%2FnPd3m59GWLEAnLuTPEwdg%3D%3D&amp;trackingId=caZjNzMJf4MZ0h3BtmU2%2Bg%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="3">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="3" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#3</span>
+        <span class="job-title">Content Manager</span>
+        <button type="button" class="reject-btn" data-job-id="3" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">nan &middot; Ottawa, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Content Manager
+
+Job Summary
+
+We are looking for a Content Manager to oversee the creation, publication, and optimization of digital content across our online platforms. The successful candidate will </div>
+      <a href="https://ca.indeed.com/viewjob?jk=228bc248f7d6bae6" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="4">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="4" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#4</span>
+        <span class="job-title">CRM Specialist</span>
+        <button type="button" class="reject-btn" data-job-id="4" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">The Brick &middot; Edmonton, AB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Is this job for you?:  
+
+The Brick is seeking a creative and detail\-oriented CRM Specialist to support the execution of our email and SMS marketing programs. Reporting to the Marketing Director, this</div>
+      <a href="https://ca.indeed.com/viewjob?jk=3b55b44dd6affce1" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="5">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="5" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#5</span>
+        <span class="job-title">Senior Growth Marketing Specialist</span>
+        <button type="button" class="reject-btn" data-job-id="5" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">ServiceTitan &middot; Winnipeg, MB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">**Ready to be a Titan?**
+
+
+We are looking for a Senior Growth Marketing Specialist to join our Demand Generation team and help drive expansion revenue across our existing customer base. This role is f</div>
+      <a href="https://ca.indeed.com/viewjob?jk=59a1507cd73b87af" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="6">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="6" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#6</span>
+        <span class="job-title">Senior Communications Officer \(English\-Services\) \(On\-Site\)</span>
+        <button type="button" class="reject-btn" data-job-id="6" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">CBC/Radio\-Canada &middot; Calgary, AB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Calgary, Alberta, Canada | 5 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/marketing-advisor-12-month-term-at-atco-4426150958?position=11&amp;pageNum=0&amp;refId=KhXjdlFdlMemZjbqzWnIIw%3D%3D&amp;trackingId=zMKbfcsCyc%2F6Jn8gf%2FtlZQ%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="7">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="7" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#7</span>
+        <span class="job-title">Senior Communications Officer \(English\-Services\) \(On\-Site\)</span>
+        <button type="button" class="reject-btn" data-job-id="7" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Radio\-Canada &middot; Calgary, AB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Calgary, Alberta, Canada | 5 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/marketing-manager-at-wajax-4386919922?position=13&amp;pageNum=0&amp;refId=KhXjdlFdlMemZjbqzWnIIw%3D%3D&amp;trackingId=Z7RX0LoJ94hdiOQfVGHO4A%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="8">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="8" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#8</span>
+        <span class="job-title">Senior Advisor, Employee Communications \(Temp 12 Months\)</span>
+        <button type="button" class="reject-btn" data-job-id="8" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">EPCOR &middot; Edmonton, AB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Edmonton, Alberta, Canada | 4 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/manager-marketing-transformation-at-ey-4422238103?position=22&amp;pageNum=0&amp;refId=KhXjdlFdlMemZjbqzWnIIw%3D%3D&amp;trackingId=IGnL1OuzQZN4LjpEpEXhTw%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="9">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="9" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#9</span>
+        <span class="job-title">Agent Principal ou Agente Principale des Communications \(Services Anglais\) \(Poste en Présentiel\)</span>
+        <button type="button" class="reject-btn" data-job-id="9" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">CBC/Radio\-Canada &middot; Calgary, AB</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Calgary, Alberta, Canada | 5 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/senior-paid-social-strategist-remote-canada-future-opening-at-directive-4398317676?position=51&amp;pageNum=0&amp;refId=KhXjdlFdlMemZjbqzWnIIw%3D%3D&amp;trackingId=hEZC19937R3oMDkxQ3Achg%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+<div class="job-card" data-job-id="10">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="10" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#10</span>
+        <span class="job-title">Manager, Communications &amp; Digital Engagement \(Maternity Leave Cover\)</span>
+        <button type="button" class="reject-btn" data-job-id="10" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Visions of Science &middot; Toronto, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Toronto, Ontario, Canada | 2 days ago</div>
+      <a href="https://ca.linkedin.com/jobs/view/marketing-and-communications-manager-at-fidelity-canada-4423154563?position=2&amp;pageNum=0&amp;refId=aKFhUGdPFIV7ileHFt4rUA%3D%3D&amp;trackingId=4D%2BGredvqsgpXmsBYcuG%2BQ%3D%3D" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+<div class="track-section">
+<h2 class="track-header">SECONDARY</h2>
+<h3 class="zone-header">Further afield:</h3>
+<div class="job-card" data-job-id="11">
+  <label class="job-checkbox-label">
+    <input type="checkbox" name="job" value="11" class="job-checkbox">
+    <div class="job-content">
+      <div class="job-header">
+        <span class="job-number">#11</span>
+        <span class="job-title">Email Marketing Consultant</span>
+        <button type="button" class="reject-btn" data-job-id="11" aria-label="Not for me" title="Not for me">&#128078;</button>
+      </div>
+      <div class="job-employer">Canadian Tire Corporation, Ltd. &middot; Toronto, ON</div>
+      <div class="job-meta">
+        <span class="badge badge-considering">★★★ Worth Considering</span>
+        
+        
+        
+        
+        
+      </div>
+      <div class="job-snippet">Reporting to the Manager, Digital Marketing \&amp; Journey Operations, the Email Marketing Specialist will play a pivotal role in creating, executing, and optimizing email marketing campaigns designed to </div>
+      <a href="https://ca.indeed.com/viewjob?jk=521e2fe4caacfb41" target="_blank" rel="noopener" class="job-link">View Posting &rarr;</a>
+    </div>
+  </label>
+</div>
+</div>
+    </div>
+
+
+
+    <div class="submit-section" id="submit-section">
+      <div class="selection-count" id="selection-count">0 jobs selected</div>
+      <div class="reject-count" id="reject-count" style="display:none;">0 marked not a fit</div>
+      <div class="button-group">
+        <button type="button" class="save-draft-btn" id="save-draft-btn">Save for Later</button>
+        <button type="submit" class="submit-btn" id="submit-btn" disabled>
+          Submit My Selections
+        </button>
+      </div>
+      <p class="submit-help">Save your progress and come back later, or submit when ready. Marking jobs "not for me" helps us fine-tune the next search.</p>
+    </div>
+    <div id="draft-saved-message" class="draft-saved-message" style="display:none;">
+      <h3>Progress Saved</h3>
+      <p>We'll email you a link to pick up where you left off.</p>
+    </div>
+  </form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This search has expired.</strong> Jobs may have closed since this list was generated.
+    Contact Barker HRS for a new search.
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Barker HRS</div>
+    <div class="footer-help">Questions? Reply to your search email.</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry48h = new Date("2026-06-16T05:25:37.191939+00:00");
+  var expiry7d  = new Date("2026-06-21T05:25:37.191939+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var submitBtn = document.getElementById("submit-btn");
+  var submitSection = document.getElementById("submit-section");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var selectionCount = document.getElementById("selection-count");
+  var rejectCount = document.getElementById("reject-count");
+  var checkboxes = document.querySelectorAll(".job-checkbox");
+  var rejectedIds = {};
+
+  function setRejected(jobId, on) {
+    var card = document.querySelector('.job-card[data-job-id="' + jobId + '"]');
+    if (!card) return;
+    if (on) {
+      rejectedIds[jobId] = true;
+      card.classList.add("rejected");
+      var cb = card.querySelector(".job-checkbox");
+      if (cb && cb.checked) {
+        cb.checked = false;
+        card.classList.remove("selected");
+      }
+    } else {
+      delete rejectedIds[jobId];
+      card.classList.remove("rejected");
+    }
+    var btn = card.querySelector(".reject-btn");
+    if (btn) btn.classList.toggle("active", !!on);
+    updateSelectionCount();
+  }
+
+  function bindRejectButtons(root) {
+    (root || document).querySelectorAll(".reject-btn").forEach(function(btn) {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = "1";
+      btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var jobId = btn.getAttribute("data-job-id");
+        setRejected(jobId, !rejectedIds[jobId]);
+      });
+    });
+  }
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry7d) {
+      timerLine.className = "timer-line timer-expired";
+      timerText.textContent = "This search has expired.";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Search Expired";
+      expiryBanner.style.display = "block";
+      return;
+    }
+    if (now >= expiry48h) {
+      timerLine.className = "timer-line timer-warning";
+      timerText.textContent = "Active window closed. Jobs may have been filled.";
+      return;
+    }
+    var diff = expiry48h - now;
+    var hours = Math.floor(diff / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    timerText.textContent = "Active for " + hours + "h " + mins + "m";
+    timerLine.className = "timer-line timer-active";
+  }
+
+  function updateSelectionCount() {
+    var count = document.querySelectorAll(".job-checkbox:checked").length;
+    selectionCount.textContent = count + " job" + (count !== 1 ? "s" : "") + " selected";
+    var rejCount = Object.keys(rejectedIds).length;
+    if (rejCount > 0) {
+      rejectCount.style.display = "block";
+      rejectCount.textContent = rejCount + " marked not a fit";
+    } else {
+      rejectCount.style.display = "none";
+    }
+    submitBtn.disabled = (count === 0 && rejCount === 0);
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener("change", function() {
+      var card = this.closest(".job-card");
+      card.classList.toggle("selected", this.checked);
+      if (this.checked) {
+        var jobId = this.value;
+        if (rejectedIds[jobId]) setRejected(jobId, false);
+      }
+      updateSelectionCount();
+    });
+  });
+
+  bindRejectButtons();
+
+  document.getElementById("page-form").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+      e.preventDefault();
+    }
+  });
+  document.getElementById("page-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var now = new Date();
+    if (now >= expiry7d) {
+      alert("This search has expired.");
+      return;
+    }
+    var selected = [];
+    document.querySelectorAll(".job-checkbox").forEach(function(cb) {
+      if (cb.checked) selected.push(cb.value);
+    });
+    var rejected = Object.keys(rejectedIds);
+    if (selected.length === 0 && rejected.length === 0) {
+      alert("Pick at least one job, or mark some as not a fit.");
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    var payload = {
+      action: "formSubmission",
+      formType: "pick_list",
+      token: "82226e0c-fa7c-47a0-8e69-c2b234e8a6b6",
+      data: {
+        selected_jobs: selected,
+        rejected_jobs: rejected,
+        _client_email: document.querySelector('input[name="_client_email"]').value,
+        client_name: document.querySelector('input[name="client_name"]').value
+      }
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      submitBtn.textContent = "Submitted \u2713";
+      submitBtn.style.background = "#2e7d32";
+    }).catch(function(err) {
+      submitBtn.textContent = "Error — Try Again";
+      submitBtn.style.background = "#c62828";
+      submitBtn.disabled = false;
+    });
+  });
+
+  // Widen search toggle
+  window.toggleWider = function() {
+    var el = document.getElementById("wider-results");
+    var btn = document.getElementById("widen-btn");
+    if (!el || !btn) return;
+    if (el.style.display === "none") {
+      el.style.display = "block";
+      btn.textContent = "Hide Extended Results";
+      // Bind wider checkboxes to selection counter
+      el.querySelectorAll(".job-checkbox").forEach(function(cb) {
+        cb.addEventListener("change", function() {
+          var card = this.closest(".job-card");
+          card.classList.toggle("selected", this.checked);
+          if (this.checked) {
+            var jobId = this.value;
+            if (rejectedIds[jobId]) setRejected(jobId, false);
+          }
+          updateSelectionCount();
+        });
+      });
+      bindRejectButtons(el);
+    } else {
+      el.style.display = "none";
+      btn.textContent = btn.getAttribute("data-show-text") || "Show More Opportunities";
+    }
+  };
+
+  // Save for Later button
+  var saveDraftBtn = document.getElementById("save-draft-btn");
+  if (saveDraftBtn) {
+    saveDraftBtn.addEventListener("click", function() {
+      saveDraftBtn.disabled = true;
+      saveDraftBtn.textContent = "Saving...";
+      var selected = [];
+      document.querySelectorAll(".job-checkbox").forEach(function(cb) {
+        if (cb.checked) selected.push(cb.value);
+      });
+      var rejected = Object.keys(rejectedIds);
+      var payload = {
+        action: "formSubmission",
+        formType: "form_draft",
+        token: "82226e0c-fa7c-47a0-8e69-c2b234e8a6b6",
+        data: {
+          selected_jobs: selected,
+          rejected_jobs: rejected,
+          _client_email: document.querySelector('input[name="_client_email"]').value,
+          client_name: document.querySelector('input[name="client_name"]').value,
+          originalFormType: "pick_list"
+        }
+      };
+      fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload),
+        mode: "no-cors"
+      }).then(function() {
+        saveDraftBtn.textContent = "Saved \u2713";
+        saveDraftBtn.style.borderColor = "#2e7d32";
+        saveDraftBtn.style.color = "#2e7d32";
+        var msg = document.getElementById("draft-saved-message");
+        if (msg) msg.style.display = "block";
+      }).catch(function(err) {
+        saveDraftBtn.textContent = "Error \u2014 Try Again";
+        saveDraftBtn.style.borderColor = "#c62828";
+        saveDraftBtn.style.color = "#c62828";
+        saveDraftBtn.disabled = false;
+      });
+    });
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 60000);
+  updateSelectionCount();
+})();
+</script>
+</body>
+</html>

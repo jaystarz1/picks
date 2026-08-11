@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Job Search Activation — Joleane &mdash; Joleane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F4EEDE;
+  --cream-2: #EDE5D0;
+  --forest: #2E4A34;
+  --forest-dark: #1A2620;
+  --terra: #C76B4A;
+  --terra-dark: #9B4A2B;
+  --stone: #A39C89;
+  --stone-light: #C5BFA8;
+  --rule: #D9CFB4;
+  --text-primary: var(--forest-dark);
+  --text-secondary: var(--stone);
+  --bg-page: var(--cream);
+  --bg-card: rgba(255, 252, 244, 0.86);
+  --bg-selected: rgba(199, 107, 74, 0.12);
+  --border-card: var(--rule);
+  --border-selected: var(--terra);
+  --green: #2e7d32;
+  --amber: #f57f17;
+  --red: #c62828;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.10), transparent 34rem),
+    var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Header */
+.page-header {
+  text-align: left;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.24), transparent 18rem),
+    var(--forest);
+  color: var(--cream);
+  box-shadow: 0 16px 40px rgba(26, 38, 32, 0.14);
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.brand-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--cream);
+  padding: 6px;
+  flex: 0 0 auto;
+}
+.brand-mark img,
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.brand-wordmark {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.brand-url {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--terra);
+  font-weight: 800;
+}
+.brand-url a {
+  color: var(--terra);
+  text-decoration: none;
+}
+.brand-url a:hover {
+  text-decoration: underline;
+}
+.page-header h1 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 0.98;
+  color: var(--cream);
+  margin-bottom: 4px;
+  letter-spacing: -0.03em;
+}
+.meta-line {
+  font-size: 14px;
+  color: rgba(244, 238, 222, 0.78);
+}
+
+/* Section cards */
+.section-card {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 10px 28px rgba(26, 38, 32, 0.06);
+}
+.section-card h2 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 18px;
+  color: var(--forest-dark);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--rule);
+}
+.section-card h3 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 15px;
+  color: var(--forest);
+  margin: 12px 0 8px;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.form-group .hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.form-group .prefill-hint {
+  font-size: 12px;
+  color: var(--forest);
+  margin-top: 4px;
+  font-style: italic;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--terra);
+  box-shadow: 0 0 0 3px rgba(199, 107, 74, 0.16);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.form-group .required::after {
+  content: " *";
+  color: var(--terra);
+}
+
+/* Radio / Checkbox groups */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--terra);
+}
+
+/* Grouped situation picker (chunked radios with subheadings) */
+.situation-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+.situation-chunk {
+  padding: 14px 16px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+}
+.situation-chunk h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Submit button */
+.submit-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  margin-top: 24px;
+}
+.submit-btn {
+  background: var(--terra);
+  color: var(--cream);
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: var(--terra-dark); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-help {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Copy button (for LinkedIn playbook) */
+.copy-btn {
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  float: right;
+  margin-top: -4px;
+}
+.copy-btn:hover { background: var(--forest-dark); }
+.copy-btn.copied {
+  background: var(--green);
+}
+.copyable-content {
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Expiry banner */
+.expiry-banner {
+  background: #ffebee;
+  color: var(--red);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Success message */
+.success-message {
+  background: #e8f5e9;
+  color: var(--green);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.success-message h2 {
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.footer-brand {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--forest);
+}
+
+/* Prep warning banner */
+.prep-warning {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid var(--amber);
+}
+.prep-warning h2 { color: #e65100; border-bottom-color: #ffe082; }
+.prep-warning ul {
+  margin: 8px 0 8px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Job section isolation */
+.job-section {
+  border-left: 4px solid var(--forest);
+}
+.job-section.current-role {
+  border-left-color: var(--green);
+}
+.tense-hint {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: #f0f4f8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Inline note fields */
+.inline-note {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.inline-note summary {
+  font-size: 12px;
+  color: var(--forest);
+  cursor: pointer;
+  user-select: none;
+}
+.inline-note summary:hover { text-decoration: underline; }
+.inline-note textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  resize: vertical;
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* Save draft button + button group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.save-draft-btn {
+  background: transparent;
+  color: var(--terra);
+  border: 2px solid var(--terra);
+  padding: 14px 32px;
+  font-size: 16px;
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.save-draft-btn:hover:not(:disabled) { background: rgba(199, 107, 74, 0.10); }
+.save-draft-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.draft-saved-message {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Step breadcrumb */
+.step-breadcrumb {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 8px;
+}
+.step-breadcrumb .step {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--cream-2);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.step-breadcrumb .step.done {
+  background: #e8f5e9;
+  color: var(--green);
+}
+.step-breadcrumb .step.active {
+  background: var(--terra);
+  color: var(--cream);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container { padding: 12px 8px; }
+  .page-header { padding: 18px; border-radius: 18px; }
+  .page-header h1 { font-size: 30px; }
+  .brand-mark { width: 48px; height: 48px; }
+  .brand-wordmark { font-size: 22px; }
+  .submit-btn { width: 100%; }
+  .save-draft-btn { width: 100%; }
+  .button-group { flex-direction: column; }
+  .copy-btn { float: none; display: block; margin: 8px 0 0; width: 100%; }
+  .step-breadcrumb { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true"><div data-source="brand/logo-compass.svg"><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Warm palette: cream #F4EEDE, forest #2E4A34, terra #C76B4A -->
+  <defs>
+    <clipPath id="lensClip">
+      <circle cx="430" cy="430" r="252"/>
+    </clipPath>
+  </defs>
+
+  <!-- Cream background, rounded square -->
+  <rect x="0" y="0" width="1024" height="1024" rx="160" ry="160" fill="#F4EEDE"/>
+
+  <!-- Magnifying glass handle: thicker, flat capsule cap -->
+  <g transform="translate(0,0) rotate(45 660 660)">
+    <!-- Handle shaft as rounded rect, oriented horizontally, then rotated -->
+    <rect x="610" y="630" width="260" height="80" rx="40" fill="#2E4A34"/>
+    <!-- Flatter terra end cap (small rounded rectangle at far end) -->
+    <rect x="838" y="640" width="40" height="60" rx="14" fill="#C76B4A"/>
+  </g>
+
+  <!-- Lens body fill (cream) -->
+  <circle cx="430" cy="430" r="252" fill="#F4EEDE"/>
+
+  <!-- Compass face inside lens (fills nearly the whole lens) -->
+  <g clip-path="url(#lensClip)">
+    <!-- Inner compass ring — thicker, closer to the rim -->
+    <circle cx="430" cy="430" r="234" fill="none" stroke="#2E4A34" stroke-width="14"/>
+
+    <!-- 12 tick marks around the inside of the inner ring -->
+    <g stroke="#C76B4A" stroke-width="8" stroke-linecap="round">
+      <line x1="430" y1="214" x2="430" y2="236"/>
+      <line x1="538" y1="240" x2="527" y2="259"/>
+      <line x1="617" y1="318" x2="598" y2="329"/>
+      <line x1="646" y1="430" x2="624" y2="430"/>
+      <line x1="617" y1="542" x2="598" y2="531"/>
+      <line x1="538" y1="620" x2="527" y2="601"/>
+      <line x1="430" y1="646" x2="430" y2="624"/>
+      <line x1="322" y1="620" x2="333" y2="601"/>
+      <line x1="243" y1="542" x2="262" y2="531"/>
+      <line x1="214" y1="430" x2="236" y2="430"/>
+      <line x1="243" y1="318" x2="262" y2="329"/>
+      <line x1="322" y1="240" x2="333" y2="259"/>
+    </g>
+
+    <!-- Cardinal direction arrows: bigger triangles pointing INWARD -->
+    <!-- North -->
+    <polygon points="430,238 408,288 452,288" fill="#C76B4A"/>
+    <!-- East -->
+    <polygon points="622,430 572,408 572,452" fill="#C76B4A"/>
+    <!-- South -->
+    <polygon points="430,622 408,572 452,572" fill="#C76B4A"/>
+    <!-- West -->
+    <polygon points="238,430 288,408 288,452" fill="#C76B4A"/>
+
+    <!-- Big diamond needle: forest top, terra bottom, prominent and centered -->
+    <polygon points="430,278 405,430 455,430" fill="#2E4A34"/>
+    <polygon points="430,582 405,430 455,430" fill="#C76B4A"/>
+
+    <!-- Center pivot -->
+    <circle cx="430" cy="430" r="18" fill="#2E4A34"/>
+    <circle cx="430" cy="430" r="8" fill="#F4EEDE"/>
+  </g>
+
+  <!-- Magnifying glass thick rim (over everything) -->
+  <circle cx="430" cy="430" r="252" fill="none" stroke="#2E4A34" stroke-width="60"/>
+
+  <!-- Subtle lens highlight -->
+  <ellipse cx="350" cy="350" rx="42" ry="22" fill="#F4EEDE" opacity="0.45" transform="rotate(-30 350 350)"/>
+</svg>
+</div></div>
+      <div>
+        <div class="brand-wordmark">JOB SCOUT</div>
+        <div class="brand-url"><a href="https://jobscout.live">jobscout.live</a></div>
+      </div>
+    </div>
+    <h1>Job Search Activation — Joleane</h1>
+    <div class="meta-line">Generated: August 11, 2026</div>
+    <div class="timer-line" id="timer-line">
+      <span class="timer-icon">&#9200;</span>
+      <span id="timer-text">Calculating...</span>
+    </div>
+  </header>
+
+<div class="form-intro">
+  <p>Hi Joleane, your resume is ready. Now we need to know where to focus the search and how to handle work authorization. This takes about 5 minutes. Answer only the questions that apply to your situation.</p>
+</div>
+<form id="page-form">
+  <input type="hidden" name="token" value="6d3077fe-1ccf-4965-8163-474ea865c51d">
+  <input type="hidden" name="client_name" value="Joleane_Anderson">
+  <input type="hidden" name="_client_email" value="ajoleane@yahoo.com">
+  <div class="section-card">
+    <h2>Where Are You Looking?</h2>
+<div class="form-group">
+  <label class="required">Where do you want to work?</label>
+  <div class="hint">Your answer determines which follow-up questions you&#x27;ll see. Pick the region you&#x27;re targeting for your next role.</div>
+  <div class="option-group">
+    <label><input type="radio" name="target_geography" value="Canada" required> Canada</label>
+    <label><input type="radio" name="target_geography" value="United States" required> United States</label>
+    <label><input type="radio" name="target_geography" value="Caribbean (Jamaica, Trinidad, Barbados, etc.)" required> Caribbean (Jamaica, Trinidad, Barbados, etc.)</label>
+    <label><input type="radio" name="target_geography" value="Outside North America / Caribbean" required> Outside North America / Caribbean</label>
+  </div>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>Canadian Work Authorization &amp; Pathway</h2>
+<div class="form-group">
+  <label>What&#x27;s your current immigration status?</label>
+  <div class="hint">This drives which Canadian pathways are realistic for you. If you&#x27;re working with an immigration consultant, pick what they&#x27;ve told you.</div>
+  <div class="option-group">
+    <label><input type="radio" name="ca_immigration_status" value="Canadian Citizen"> Canadian Citizen</label>
+    <label><input type="radio" name="ca_immigration_status" value="Canadian Permanent Resident"> Canadian Permanent Resident</label>
+    <label><input type="radio" name="ca_immigration_status" value="Open Work Permit (any employer)"> Open Work Permit (any employer)</label>
+    <label><input type="radio" name="ca_immigration_status" value="Employer-Specific Work Permit"> Employer-Specific Work Permit</label>
+    <label><input type="radio" name="ca_immigration_status" value="Post-Graduation Work Permit (PGWP)"> Post-Graduation Work Permit (PGWP)</label>
+    <label><input type="radio" name="ca_immigration_status" value="Student / Co-op Work Permit"> Student / Co-op Work Permit</label>
+    <label><input type="radio" name="ca_immigration_status" value="Visitor / No current work authorization"> Visitor / No current work authorization</label>
+    <label><input type="radio" name="ca_immigration_status" value="Applying from outside Canada (offshore visa)"> Applying from outside Canada (offshore visa)</label>
+    <label><input type="radio" name="ca_immigration_status" value="Other / Prefer not to answer"> Other / Prefer not to answer</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>How should we focus your search?</label>
+  <div class="hint">Only relevant if you&#x27;re a Visitor, Applying from outside Canada, or selected Other above. Citizens, PRs, and work-permit holders can skip this.</div>
+  <div class="option-group">
+    <label><input type="radio" name="ca_lmia_exempt_focus" value="LMIA-Exempt Focus only — Show me roles at RCIP-designated or AIP-designated employers ONLY. Smaller pool, highest predictability. Choose this if you and your immigration consultant have committed to an RCIP or AIP application."> LMIA-Exempt Focus only — Show me roles at RCIP-designated or AIP-designated employers ONLY. Smaller pool, highest predictability. Choose this if you and your immigration consultant have committed to an RCIP or AIP application.</label>
+    <label><input type="radio" name="ca_lmia_exempt_focus" value="Both LMIA-Exempt AND broader Canadian roles — Show me RCIP/AIP designated-employer jobs PLUS other Canadian roles that may require employer LMIA sponsorship or fit specialized pathways (provincial nominee streams, professional licensing routes). Choose this if you&#x27;re a regulated professional (nurse, physician, engineer, accountant) with multiple pathway options, or want to see the broader market with sponsorship risk clearly labelled."> Both LMIA-Exempt AND broader Canadian roles — Show me RCIP/AIP designated-employer jobs PLUS other Canadian roles that may require employer LMIA sponsorship or fit specialized pathways (provincial nominee streams, professional licensing routes). Choose this if you&#x27;re a regulated professional (nurse, physician, engineer, accountant) with multiple pathway options, or want to see the broader market with sponsorship risk clearly labelled.</label>
+    <label><input type="radio" name="ca_lmia_exempt_focus" value="I&#x27;m not sure yet — let me see both for now (we can narrow later)"> I&#x27;m not sure yet — let me see both for now (we can narrow later)</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>If you have a work permit, when does it expire? (e.g. Jan 2027)</label>
+  
+  <input type="text" name="ca_work_permit_expiry">
+  
+</div>
+<div class="form-group">
+  <label>Are you working with an immigration consultant?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="ca_immigration_consultant" value="Yes"> Yes</label>
+    <label><input type="radio" name="ca_immigration_consultant" value="No"> No</label>
+    <label><input type="radio" name="ca_immigration_consultant" value="Looking for a referral"> Looking for a referral</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>RCIP communities of interest (Rural Community Immigration Pilot)</label>
+  <div class="hint">Rural communities where designated employers can hire you without an LMIA. Select any that interest you.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="ca_rcip_communities" value="North Bay, Ontario"> North Bay, Ontario</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Sudbury, Ontario"> Sudbury, Ontario</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Timmins, Ontario"> Timmins, Ontario</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Sault Ste. Marie, Ontario"> Sault Ste. Marie, Ontario</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Thunder Bay, Ontario"> Thunder Bay, Ontario</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Brandon, Manitoba"> Brandon, Manitoba</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Steinbach, Manitoba"> Steinbach, Manitoba</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Altona / Rhineland, Manitoba"> Altona / Rhineland, Manitoba</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Moose Jaw, Saskatchewan"> Moose Jaw, Saskatchewan</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Claresholm, Alberta"> Claresholm, Alberta</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="West Kootenay, BC"> West Kootenay, BC</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="North Okanagan-Shuswap, BC"> North Okanagan-Shuswap, BC</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Peace Liard, BC"> Peace Liard, BC</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="Pictou County, Nova Scotia"> Pictou County, Nova Scotia</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="I&#x27;m open to any RCIP community"> I&#x27;m open to any RCIP community</label>
+    <label><input type="checkbox" name="ca_rcip_communities" value="None of these interest me"> None of these interest me</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>AIP provinces of interest (Atlantic Immigration Program)</label>
+  <div class="hint">Atlantic Canada employers can hire you via AIP without an LMIA. Select any that interest you.</div>
+  <div class="option-group">
+    <label><input type="checkbox" name="ca_aip_provinces" value="New Brunswick"> New Brunswick</label>
+    <label><input type="checkbox" name="ca_aip_provinces" value="Nova Scotia"> Nova Scotia</label>
+    <label><input type="checkbox" name="ca_aip_provinces" value="Prince Edward Island"> Prince Edward Island</label>
+    <label><input type="checkbox" name="ca_aip_provinces" value="Newfoundland and Labrador"> Newfoundland and Labrador</label>
+    <label><input type="checkbox" name="ca_aip_provinces" value="I&#x27;m open to any Atlantic province"> I&#x27;m open to any Atlantic province</label>
+    <label><input type="checkbox" name="ca_aip_provinces" value="None of these interest me"> None of these interest me</label>
+  </div>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>Where in Canada</h2>
+<div class="form-group">
+  <label>How should we define your search area?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="ca_region_mode" value="Within a distance of my home city"> Within a distance of my home city</label>
+    <label><input type="radio" name="ca_region_mode" value="Specific cities I&#x27;d work in"> Specific cities I&#x27;d work in</label>
+    <label><input type="radio" name="ca_region_mode" value="Anywhere in Canada"> Anywhere in Canada</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>If distance-based: how far?</label>
+  
+  <select name="ca_distance_radius_km">
+    <option value="">Select...</option>
+    <option value="25 km">25 km</option>
+    <option value="50 km">50 km</option>
+    <option value="100 km (about 1 hour)">100 km (about 1 hour)</option>
+    <option value="150 km">150 km</option>
+    <option value="200 km">200 km</option>
+    <option value="300 km">300 km</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>If specific cities: list up to 5 (one per line)</label>
+  <div class="hint">e.g. Toronto, Vancouver, Halifax</div>
+  <textarea name="ca_preferred_cities" rows="4"></textarea>
+  
+</div>
+<div class="form-group">
+  <label>Target salary range (CAD)</label>
+  
+  <select name="ca_salary_range">
+    <option value="">Select...</option>
+    <option value="Under $40K">Under $40K</option>
+    <option value="$40-60K">$40-60K</option>
+    <option value="$60-80K">$60-80K</option>
+    <option value="$80-100K">$80-100K</option>
+    <option value="$100-120K">$100-120K</option>
+    <option value="$120-150K">$120-150K</option>
+    <option value="$150K+">$150K+</option>
+    <option value="Flexible / Not sure">Flexible / Not sure</option>
+  </select>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>US Authorization &amp; Preferences</h2>
+<div class="form-group">
+  <label>What&#x27;s your US work authorization?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="us_work_authorization" value="US Citizen"> US Citizen</label>
+    <label><input type="radio" name="us_work_authorization" value="US Permanent Resident / Green Card"> US Permanent Resident / Green Card</label>
+    <label><input type="radio" name="us_work_authorization" value="TN Visa (CUSMA professional)"> TN Visa (CUSMA professional)</label>
+    <label><input type="radio" name="us_work_authorization" value="H-1B Visa"> H-1B Visa</label>
+    <label><input type="radio" name="us_work_authorization" value="O-1 / L-1 / E-2 / E-3 Visa"> O-1 / L-1 / E-2 / E-3 Visa</label>
+    <label><input type="radio" name="us_work_authorization" value="Student (F-1 / OPT / CPT)"> Student (F-1 / OPT / CPT)</label>
+    <label><input type="radio" name="us_work_authorization" value="Need employer sponsorship"> Need employer sponsorship</label>
+    <label><input type="radio" name="us_work_authorization" value="Other / Prefer not to answer"> Other / Prefer not to answer</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>Preferred US states or cities (one per line)</label>
+  <div class="hint">e.g. California, New York, Remote</div>
+  <textarea name="us_preferred_states" rows="4"></textarea>
+  
+</div>
+<div class="form-group">
+  <label>Target salary range (USD)</label>
+  
+  <select name="us_salary_range">
+    <option value="">Select...</option>
+    <option value="Under $50K">Under $50K</option>
+    <option value="$50-75K">$50-75K</option>
+    <option value="$75-100K">$75-100K</option>
+    <option value="$100-130K">$100-130K</option>
+    <option value="$130-160K">$130-160K</option>
+    <option value="$160-200K">$160-200K</option>
+    <option value="$200K+">$200K+</option>
+    <option value="Flexible / Not sure">Flexible / Not sure</option>
+  </select>
+</div>
+  </div>
+  <div class="section-card">
+    <h2>Caribbean Search</h2>
+<div class="form-group">
+  <label>Which Caribbean country are you in?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="carib_country" value="Jamaica"> Jamaica</label>
+    <label><input type="radio" name="carib_country" value="Trinidad and Tobago"> Trinidad and Tobago</label>
+    <label><input type="radio" name="carib_country" value="Barbados"> Barbados</label>
+    <label><input type="radio" name="carib_country" value="Bahamas"> Bahamas</label>
+    <label><input type="radio" name="carib_country" value="Cayman Islands"> Cayman Islands</label>
+    <label><input type="radio" name="carib_country" value="Dominican Republic"> Dominican Republic</label>
+    <label><input type="radio" name="carib_country" value="Haiti"> Haiti</label>
+    <label><input type="radio" name="carib_country" value="Other Caribbean"> Other Caribbean</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>Which city or area?</label>
+  <div class="hint">e.g. Kingston, Port of Spain, Bridgetown</div>
+  <input type="text" name="carib_city">
+  
+</div>
+<div class="form-group">
+  <label>Target salary range (local currency or USD)</label>
+  
+  <select name="carib_salary_range">
+    <option value="">Select...</option>
+    <option value="Flexible / Not sure">Flexible / Not sure</option>
+    <option value="Entry-level (local rate)">Entry-level (local rate)</option>
+    <option value="Mid-level (local rate)">Mid-level (local rate)</option>
+    <option value="Senior (local rate)">Senior (local rate)</option>
+    <option value="USD-denominated (specify in notes)">USD-denominated (specify in notes)</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Anything else we should know about your Caribbean search?</label>
+  
+  <textarea name="carib_notes" rows="3"></textarea>
+  
+</div>
+  </div>
+  <div class="section-card">
+    <h2>International Search</h2>
+<div class="form-group">
+  <label>Which country are you in?</label>
+  
+  <input type="text" name="intl_country">
+  
+</div>
+<div class="form-group">
+  <label>What kind of work are you looking for?</label>
+  
+  <div class="option-group">
+    <label><input type="radio" name="intl_search_mode" value="Remote work only (working from where I currently live)"> Remote work only (working from where I currently live)</label>
+    <label><input type="radio" name="intl_search_mode" value="Willing to relocate to Canada"> Willing to relocate to Canada</label>
+    <label><input type="radio" name="intl_search_mode" value="Willing to relocate to the US"> Willing to relocate to the US</label>
+    <label><input type="radio" name="intl_search_mode" value="Willing to relocate anywhere for the right role"> Willing to relocate anywhere for the right role</label>
+  </div>
+</div>
+<div class="form-group">
+  <label>Target salary range (USD or local)</label>
+  
+  <select name="intl_salary_range">
+    <option value="">Select...</option>
+    <option value="Flexible / Not sure">Flexible / Not sure</option>
+    <option value="Under $30K USD">Under $30K USD</option>
+    <option value="$30-60K USD">$30-60K USD</option>
+    <option value="$60-100K USD">$60-100K USD</option>
+    <option value="$100K+ USD">$100K+ USD</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Anything else we should know about your international search?</label>
+  
+  <textarea name="intl_notes" rows="3"></textarea>
+  
+</div>
+  </div>
+  <div class="submit-section">
+    <div class="button-group">
+      <button type="button" class="save-draft-btn" id="save-draft-btn">Save for Later</button>
+      <button type="submit" class="submit-btn" id="submit-btn">Tell Us Where to Search</button>
+    </div>
+    <p class="submit-help">Save your progress and come back later, or submit when ready.</p>
+  </div>
+  <div id="draft-saved-message" class="draft-saved-message" style="display:none;">
+    <h3>Progress Saved</h3>
+    <p>We'll email you a link to pick up where you left off.</p>
+  </div>
+</form>
+
+  <div id="expiry-banner" class="expiry-banner" style="display:none;">
+    <strong>This page has expired.</strong>
+    Contact Barker HRS for assistance.
+  </div>
+
+  <div id="success-message" class="success-message">
+    <h2>Submitted Successfully</h2>
+    <p>We received your information. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-brand">Job Scout</div>
+    <div class="footer-help">Questions? Email jobscout@barkerhrs.com</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  var expiry = new Date("2026-08-25T22:03:12.843091+00:00");
+  var timerText = document.getElementById("timer-text");
+  var timerLine = document.getElementById("timer-line");
+  var expiryBanner = document.getElementById("expiry-banner");
+  var submitBtn = document.getElementById("submit-btn");
+
+  function updateTimer() {
+    var now = new Date();
+    if (now >= expiry) {
+      if (timerLine) {
+        timerLine.className = "timer-line timer-expired";
+        timerText.textContent = "This page has expired.";
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Expired";
+      }
+      if (expiryBanner) expiryBanner.style.display = "block";
+      return;
+    }
+    var diff = expiry - now;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    if (timerLine) {
+      timerLine.className = "timer-line timer-active";
+      timerText.textContent = days + "d " + hours + "h remaining";
+    }
+  }
+  updateTimer();
+  setInterval(updateTimer, 60000);
+})();
+
+(function() {
+  var STORAGE_KEY = "form_autosave_6d3077fe-1ccf-4965-8163-474ea865c51d";
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  // Restore saved data on load
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) {
+        var el = form.elements[key];
+        if (!el) return;
+        if (el.type === "checkbox" || el.type === "radio") {
+          // Handle checkboxes/radios
+          if (el.length) {
+            for (var i = 0; i < el.length; i++) {
+              el[i].checked = Array.isArray(data[key])
+                ? data[key].indexOf(el[i].value) !== -1
+                : el[i].value === data[key];
+            }
+          } else {
+            el.checked = !!data[key];
+          }
+        } else if (el.tagName === "SELECT") {
+          el.value = data[key];
+        } else {
+          el.value = data[key];
+        }
+      });
+      console.log("Form data restored from autosave.");
+    }
+  } catch(e) { console.warn("Autosave restore failed:", e); }
+
+  // Save on input (debounced)
+  var saveTimer = null;
+  form.addEventListener("input", function() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function() {
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) {
+          if (data[key]) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch(e) { console.warn("Autosave failed:", e); }
+    }, 3000);
+  });
+
+  // Clear on successful submit
+  form.addEventListener("submit", function() {
+    setTimeout(function() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }, 2000);
+  });
+})();
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+  function update() {
+    var checked = form.querySelector('input[name="target_geography"]:checked');
+    var sel = checked ? checked.value : "";
+    document.querySelector("[name=\"ca_immigration_status\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_lmia_exempt_focus\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_work_permit_expiry\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_immigration_consultant\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_rcip_communities\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_aip_provinces\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_region_mode\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_distance_radius_km\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_preferred_cities\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+    document.querySelector("[name=\"ca_salary_range\"]").closest(".form-group").style.display = sel.indexOf("Canada") !== -1 ? "" : "none";
+  }
+  update();
+  form.addEventListener("change", function(e) {
+    if (e.target.name === "target_geography") update();
+  });
+})();
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+  function update() {
+    var checked = form.querySelector('input[name="target_geography"]:checked');
+    var sel = checked ? checked.value : "";
+    document.querySelector("[name=\"us_work_authorization\"]").closest(".form-group").style.display = sel.indexOf("United States") !== -1 ? "" : "none";
+    document.querySelector("[name=\"us_preferred_states\"]").closest(".form-group").style.display = sel.indexOf("United States") !== -1 ? "" : "none";
+    document.querySelector("[name=\"us_salary_range\"]").closest(".form-group").style.display = sel.indexOf("United States") !== -1 ? "" : "none";
+  }
+  update();
+  form.addEventListener("change", function(e) {
+    if (e.target.name === "target_geography") update();
+  });
+})();
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+  function update() {
+    var checked = form.querySelector('input[name="target_geography"]:checked');
+    var sel = checked ? checked.value : "";
+    document.querySelector("[name=\"carib_country\"]").closest(".form-group").style.display = sel.indexOf("Caribbean") !== -1 ? "" : "none";
+    document.querySelector("[name=\"carib_city\"]").closest(".form-group").style.display = sel.indexOf("Caribbean") !== -1 ? "" : "none";
+    document.querySelector("[name=\"carib_salary_range\"]").closest(".form-group").style.display = sel.indexOf("Caribbean") !== -1 ? "" : "none";
+    document.querySelector("[name=\"carib_notes\"]").closest(".form-group").style.display = sel.indexOf("Caribbean") !== -1 ? "" : "none";
+  }
+  update();
+  form.addEventListener("change", function(e) {
+    if (e.target.name === "target_geography") update();
+  });
+})();
+(function() {
+  var form = document.getElementById("page-form");
+  if (!form) return;
+  function update() {
+    var checked = form.querySelector('input[name="target_geography"]:checked');
+    var sel = checked ? checked.value : "";
+    document.querySelector("[name=\"intl_country\"]").closest(".form-group").style.display = sel.indexOf("Outside North America") !== -1 ? "" : "none";
+    document.querySelector("[name=\"intl_search_mode\"]").closest(".form-group").style.display = sel.indexOf("Outside North America") !== -1 ? "" : "none";
+    document.querySelector("[name=\"intl_salary_range\"]").closest(".form-group").style.display = sel.indexOf("Outside North America") !== -1 ? "" : "none";
+    document.querySelector("[name=\"intl_notes\"]").closest(".form-group").style.display = sel.indexOf("Outside North America") !== -1 ? "" : "none";
+  }
+  update();
+  form.addEventListener("change", function(e) {
+    if (e.target.name === "target_geography") update();
+  });
+})();
+// Prevent Enter key from submitting (mobile "Go"/"Done" button triggers this)
+document.getElementById("page-form").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.id !== "submit-btn") {
+    e.preventDefault();
+    // Move to next input instead
+    var inputs = Array.from(this.querySelectorAll("input, textarea, select"));
+    var idx = inputs.indexOf(e.target);
+    if (idx >= 0 && idx < inputs.length - 1) inputs[idx + 1].focus();
+  }
+});
+document.getElementById("page-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  var successMsg = document.getElementById("success-message");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  var formData = new FormData(this);
+  var data = {};
+  formData.forEach(function(value, key) {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  var payload = {
+    action: "formSubmission",
+    formType: "job_search_activation_form",
+    token: "6d3077fe-1ccf-4965-8163-474ea865c51d",
+    data: data
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(payload),
+    mode: "no-cors"
+  }).then(function() {
+    btn.textContent = "Submitted \u2713";
+    btn.style.background = "#2e7d32";
+    if (successMsg) successMsg.style.display = "block";
+    document.getElementById("page-form").style.display = "none";
+  }).catch(function(err) {
+    btn.textContent = "Error — Try Again";
+    btn.style.background = "#c62828";
+    btn.disabled = false;
+    console.error("Form submission error:", err);
+  });
+});
+(function() {
+  var btn = document.getElementById("save-draft-btn");
+  if (!btn) return;
+  var form = document.getElementById("page-form");
+  if (!form) return;
+
+  btn.addEventListener("click", function() {
+    btn.disabled = true;
+    btn.textContent = "Saving...";
+
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function(value, key) {
+      if (data[key]) {
+        if (!Array.isArray(data[key])) data[key] = [data[key]];
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
+    });
+
+    var payload = {
+      action: "formSubmission",
+      formType: "form_draft",
+      token: "6d3077fe-1ccf-4965-8163-474ea865c51d",
+      data: data
+    };
+    payload.data.originalFormType = "job_search_activation_form";
+
+    fetch("https://script.google.com/macros/s/AKfycbzzy-MWc3JQd4b-VnnwcOTpF46e2G0VUGbP5Z5yNlPu9Bihj4UaPCL-9EH86ijyXiq_/exec", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload),
+      mode: "no-cors"
+    }).then(function() {
+      btn.textContent = "Saved \u2713";
+      btn.style.borderColor = "#2e7d32";
+      btn.style.color = "#2e7d32";
+      var msg = document.getElementById("draft-saved-message");
+      if (msg) msg.style.display = "block";
+    }).catch(function(err) {
+      btn.textContent = "Error \u2014 Try Again";
+      btn.style.borderColor = "#c62828";
+      btn.style.color = "#c62828";
+      btn.disabled = false;
+      console.error("Save draft error:", err);
+    });
+  });
+})();
+</script>
+</body>
+</html>

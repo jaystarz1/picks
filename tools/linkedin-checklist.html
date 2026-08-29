@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Twelve LinkedIn profile steps Canadian recruiters actually check, with a live progress score. Free, saves in your browser.">
+<title>LinkedIn setup checklist | Job Scout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F4EEDE; --cream-2: #EDE5D0; --forest: #2E4A34;
+  --forest-dark: #1A2620; --terra: #C76B4A; --terra-dark: #9B4A2B;
+  --stone: #A39C89; --stone-light: #C5BFA8; --rule: #D9CFB4;
+  --bg-card: rgba(255, 252, 244, 0.86);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.10), transparent 34rem),
+    var(--cream);
+  color: var(--forest-dark);
+  line-height: 1.55;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+.page-header {
+  text-align: left; margin-bottom: 24px; padding: 24px; border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.24), transparent 18rem),
+    var(--forest);
+  color: var(--cream);
+  box-shadow: 0 16px 40px rgba(26, 38, 32, 0.14);
+}
+.brand-lockup { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.brand-mark {
+  width: 56px; height: 56px; border-radius: 14px; background: var(--cream);
+  padding: 6px; flex: 0 0 auto;
+}
+.brand-mark svg { width: 100%; height: 100%; display: block; }
+.brand-wordmark {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 26px; line-height: 1; letter-spacing: 0.08em;
+  color: var(--cream); font-weight: 800; margin-bottom: 4px;
+}
+.brand-url {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 13px; letter-spacing: 0.05em; color: var(--terra); font-weight: 800;
+}
+.brand-url a { color: var(--terra); text-decoration: none; }
+.brand-url a:hover { text-decoration: underline; }
+.tool-eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--terra); margin-bottom: 8px;
+}
+.tool-eyebrow a { color: rgba(244, 238, 222, 0.85); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; text-transform: none; }
+.tool-eyebrow a:hover { text-decoration: underline; }
+.page-header h1 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: clamp(28px, 6vw, 44px); line-height: 1.02; color: var(--cream);
+  margin-bottom: 8px; letter-spacing: -0.03em;
+}
+.meta-line { font-size: 15px; color: rgba(244, 238, 222, 0.78); max-width: 560px; }
+.section-card {
+  background: var(--bg-card); border-radius: 18px; padding: 22px;
+  margin-bottom: 16px; border: 1px solid var(--rule);
+  box-shadow: 0 10px 28px rgba(26, 38, 32, 0.06);
+}
+.section-card h2 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 18px; color: var(--forest-dark); margin-bottom: 12px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--rule);
+}
+.section-card p { margin-bottom: 12px; }
+.section-card p:last-child { margin-bottom: 0; }
+a { color: var(--terra-dark); }
+.btn {
+  display: inline-block; padding: 13px 24px; border-radius: 12px;
+  text-decoration: none; font-weight: 700; font-size: 15px;
+  font-family: "IBM Plex Sans", sans-serif; border: 0; cursor: pointer;
+}
+.btn-terra { background: var(--terra); color: #fff; }
+.btn-terra:hover { background: var(--terra-dark); }
+.btn-forest { background: var(--forest); color: var(--cream); }
+.btn-forest:hover { background: var(--forest-dark); }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.fineprint { font-size: 13px; color: var(--stone); margin-top: 14px; }
+.page-footer {
+  text-align: center; margin-top: 32px; padding-top: 18px;
+  border-top: 1px solid var(--rule); font-size: 13px; color: var(--stone);
+}
+.page-footer .footer-brand {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-weight: 800; letter-spacing: 0.08em; color: var(--forest);
+  font-size: 15px; margin-bottom: 6px;
+}
+.page-footer p { margin-bottom: 4px; }
+
+.progress-tile {
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.24), transparent 14rem),
+    var(--forest);
+  border-radius: 16px; padding: 20px 22px; color: var(--cream);
+  margin-bottom: 16px; position: sticky; top: 10px; z-index: 5;
+  box-shadow: 0 10px 28px rgba(26, 38, 32, 0.18);
+}
+.progress-tile .big {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: 34px; line-height: 1; color: var(--terra);
+}
+.progress-tile .lbl { font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-top: 4px; }
+.pbar { background: rgba(244, 238, 222, 0.18); height: 10px; border-radius: 6px;
+  margin-top: 12px; }
+.pbar div { background: var(--terra); height: 10px; border-radius: 6px;
+  min-width: 4px; transition: width .25s; }
+.chk { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0;
+  border-bottom: 1px solid var(--rule); cursor: pointer; }
+.chk:last-of-type { border-bottom: 0; }
+.chk input { width: 22px; height: 22px; accent-color: var(--terra);
+  flex: 0 0 auto; margin-top: 2px; cursor: pointer; }
+.chk .ct { font-weight: 600; }
+.chk .ch { font-size: 13px; color: var(--stone); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="page-header">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Warm palette: cream #F4EEDE, forest #2E4A34, terra #C76B4A -->
+  <defs>
+    <clipPath id="lensClip">
+      <circle cx="430" cy="430" r="252"/>
+    </clipPath>
+  </defs>
+
+  <!-- Cream background, rounded square -->
+  <rect x="0" y="0" width="1024" height="1024" rx="160" ry="160" fill="#F4EEDE"/>
+
+  <!-- Magnifying glass handle: thicker, flat capsule cap -->
+  <g transform="translate(0,0) rotate(45 660 660)">
+    <!-- Handle shaft as rounded rect, oriented horizontally, then rotated -->
+    <rect x="610" y="630" width="260" height="80" rx="40" fill="#2E4A34"/>
+    <!-- Flatter terra end cap (small rounded rectangle at far end) -->
+    <rect x="838" y="640" width="40" height="60" rx="14" fill="#C76B4A"/>
+  </g>
+
+  <!-- Lens body fill (cream) -->
+  <circle cx="430" cy="430" r="252" fill="#F4EEDE"/>
+
+  <!-- Compass face inside lens (fills nearly the whole lens) -->
+  <g clip-path="url(#lensClip)">
+    <!-- Inner compass ring — thicker, closer to the rim -->
+    <circle cx="430" cy="430" r="234" fill="none" stroke="#2E4A34" stroke-width="14"/>
+
+    <!-- 12 tick marks around the inside of the inner ring -->
+    <g stroke="#C76B4A" stroke-width="8" stroke-linecap="round">
+      <line x1="430" y1="214" x2="430" y2="236"/>
+      <line x1="538" y1="240" x2="527" y2="259"/>
+      <line x1="617" y1="318" x2="598" y2="329"/>
+      <line x1="646" y1="430" x2="624" y2="430"/>
+      <line x1="617" y1="542" x2="598" y2="531"/>
+      <line x1="538" y1="620" x2="527" y2="601"/>
+      <line x1="430" y1="646" x2="430" y2="624"/>
+      <line x1="322" y1="620" x2="333" y2="601"/>
+      <line x1="243" y1="542" x2="262" y2="531"/>
+      <line x1="214" y1="430" x2="236" y2="430"/>
+      <line x1="243" y1="318" x2="262" y2="329"/>
+      <line x1="322" y1="240" x2="333" y2="259"/>
+    </g>
+
+    <!-- Cardinal direction arrows: bigger triangles pointing INWARD -->
+    <!-- North -->
+    <polygon points="430,238 408,288 452,288" fill="#C76B4A"/>
+    <!-- East -->
+    <polygon points="622,430 572,408 572,452" fill="#C76B4A"/>
+    <!-- South -->
+    <polygon points="430,622 408,572 452,572" fill="#C76B4A"/>
+    <!-- West -->
+    <polygon points="238,430 288,408 288,452" fill="#C76B4A"/>
+
+    <!-- Big diamond needle: forest top, terra bottom, prominent and centered -->
+    <polygon points="430,278 405,430 455,430" fill="#2E4A34"/>
+    <polygon points="430,582 405,430 455,430" fill="#C76B4A"/>
+
+    <!-- Center pivot -->
+    <circle cx="430" cy="430" r="18" fill="#2E4A34"/>
+    <circle cx="430" cy="430" r="8" fill="#F4EEDE"/>
+  </g>
+
+  <!-- Magnifying glass thick rim (over everything) -->
+  <circle cx="430" cy="430" r="252" fill="none" stroke="#2E4A34" stroke-width="60"/>
+
+  <!-- Subtle lens highlight -->
+  <ellipse cx="350" cy="350" rx="42" ry="22" fill="#F4EEDE" opacity="0.45" transform="rotate(-30 350 350)"/>
+</svg>
+</div>
+      <div>
+        <div class="brand-wordmark">JOB SCOUT</div>
+        <div class="brand-url"><a href="https://jobscout.live">jobscout.live</a></div>
+      </div>
+    </div>
+    <div class="tool-eyebrow">Tool 3 of 6 &nbsp;&middot;&nbsp; <a href="index.html">All six tools</a></div>
+    <h1>Is your LinkedIn working for you?</h1>
+    <div class="meta-line">Twelve steps recruiters actually check. Tick them off and watch your readiness score climb. Nothing leaves your browser.</div>
+  </header>
+
+  <div class="progress-tile">
+    <div class="big"><span id="done">0</span>/12</div>
+    <div class="lbl">LinkedIn readiness</div>
+    <div class="pbar"><div id="pfill" style="width:0%"></div></div>
+    <div style="font-size:13px;color:rgba(244,238,222,0.85);margin-top:10px;"
+         id="pverdict">Tick items off as you fix them. Your progress saves in
+         this browser.</div>
+  </div>
+  <div class="section-card">
+    <p>Canadian recruiters check LinkedIn constantly. For many roles it is the
+    first place they look, sometimes before they open a resume. A thin or
+    empty profile quietly costs people opportunities they never hear about.
+    Work down this list and you show up as a real professional who is open to
+    work.</p>
+  </div>
+  <div class="section-card">
+    <h2>Foundation</h2>
+      <label class="chk"><input type="checkbox" data-k="li0">
+        <span><span class="ct">A clear, recent headshot</span><br><span class="ch">Face visible, decent light, no group crops. Profiles with photos get many times more views.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li1">
+        <span><span class="ct">A banner image that is not the default blue</span><br><span class="ch">Even a simple skyline or workspace image signals a maintained profile.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li2">
+        <span><span class="ct">A headline that says what you do and for whom</span><br><span class="ch">"Supply chain analyst | Retail and distribution" beats "Seeking opportunities" every time.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li3">
+        <span><span class="ct">Location set to your target Canadian city, industry filled in</span><br><span class="ch">Recruiters filter by location first. If you are moving, set where you are going.</span></span>
+      </label>
+  </div>
+  <div class="section-card">
+    <h2>Your story</h2>
+      <label class="chk"><input type="checkbox" data-k="li4">
+        <span><span class="ct">An About section of two to four short paragraphs</span><br><span class="ch">Who you are, what you have done, what you are looking for. Written in first person.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li5">
+        <span><span class="ct">Experience entries that match your resume</span><br><span class="ch">Same titles, same dates. Mismatches read as carelessness or worse.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li6">
+        <span><span class="ct">Education and certifications listed</span><br><span class="ch">Include credential evaluations (WES or similar) if you have them.</span></span>
+      </label>
+  </div>
+  <div class="section-card">
+    <h2>Findability</h2>
+      <label class="chk"><input type="checkbox" data-k="li7">
+        <span><span class="ct">At least 30 skills added, your top three pinned</span><br><span class="ch">Skills are search terms. Every one you skip is a search you do not appear in.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li8">
+        <span><span class="ct">Open to Work turned on</span><br><span class="ch">Visible to recruiters only, if you are currently employed.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li9">
+        <span><span class="ct">A custom profile URL</span><br><span class="ch">linkedin.com/in/yourname, set in your profile settings. Clean on a resume header.</span></span>
+      </label>
+      <label class="chk"><input type="checkbox" data-k="li10">
+        <span><span class="ct">Your target role's keywords in your headline and About</span><br><span class="ch">Recruiters search job titles and tools, not adjectives.</span></span>
+      </label>
+  </div>
+  <div class="section-card">
+    <h2>Momentum</h2>
+      <label class="chk"><input type="checkbox" data-k="li11">
+        <span><span class="ct">50+ connections and some weekly activity</span><br><span class="ch">Comment on posts in your field once or twice a week. The algorithm shows active profiles first.</span></span>
+      </label>
+  </div>
+
+  <div class="section-card" id="pack">
+    <h2>Ready for the full package?</h2>
+    <p>The Resume Starter Pack includes step-by-step LinkedIn setup instructions matched to your new resume, so your profile, resume, and cover letter all tell the same clear story.</p>
+    <p>The <strong>Resume Starter Pack</strong> is $199 CAD / $149 USD, one
+    time: a targeting memo you approve first, two master resumes and two
+    matching cover letters, LinkedIn setup instructions, 30 days where I find
+    and send roles that fit every other day, five tailored resume and cover
+    letter sets for the roles you pick, and a cloning guide for every
+    application after that.</p>
+    <div class="btn-row">
+      <a class="btn btn-terra" href="https://buy.stripe.com/9B68wP7ohcbybmC1TLcMM07" target="_blank" rel="noopener">Get started ($199 CAD)</a>
+      <a class="btn btn-forest" href="https://buy.stripe.com/4gM8wPbExb7u2Q62XPcMM0B" target="_blank" rel="noopener">Prefer USD? ($149 USD)</a>
+    </div>
+    <p class="fineprint">To be clear: this is not a placement service and no
+    one can guarantee you a job offer or an interview. What you get is
+    professional materials and a search with real direction behind it.</p>
+  </div>
+  <footer class="page-footer">
+    <div class="footer-brand">JOB SCOUT</div>
+    <p>Job Scout by Barker HRS. A job search service, not a placement agency.
+    We do not guarantee employment and we do not provide immigration advice.</p>
+    <p>Questions? Email <a href="mailto:jobscout@barkerhrs.com">jobscout@barkerhrs.com</a></p>
+    
+  </footer>
+</div>
+
+<script>
+(function () {
+  var TOTAL = 12;
+  var KEY = 'jobscout-linkedin-checklist';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  var boxes = document.querySelectorAll('.chk input');
+  function update() {
+    var n = 0;
+    boxes.forEach(function (b) { if (b.checked) n += 1; });
+    document.getElementById('done').textContent = n;
+    document.getElementById('pfill').style.width =
+      Math.round(n / TOTAL * 100) + '%';
+    var v;
+    if (n === TOTAL) {
+      v = 'Fully set up. Now keep the momentum item going weekly.';
+    } else if (n >= 9) {
+      v = 'Nearly there. The remaining items are quick wins.';
+    } else if (n >= 5) {
+      v = 'A solid start. Findability items move the needle fastest.';
+    } else {
+      v = 'Tick items off as you fix them. Your progress saves in this browser.';
+    }
+    document.getElementById('pverdict').textContent = v;
+  }
+  boxes.forEach(function (b) {
+    if (saved[b.dataset.k]) b.checked = true;
+    b.addEventListener('change', function () {
+      saved[b.dataset.k] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      update();
+    });
+  });
+  update();
+})();
+</script>
+</body>
+</html>

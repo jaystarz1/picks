@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ten-question self-check against Canadian resume conventions. Instant score, free, about two minutes.">
+<title>Is your resume Canadian-ready? | Job Scout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F4EEDE; --cream-2: #EDE5D0; --forest: #2E4A34;
+  --forest-dark: #1A2620; --terra: #C76B4A; --terra-dark: #9B4A2B;
+  --stone: #A39C89; --stone-light: #C5BFA8; --rule: #D9CFB4;
+  --bg-card: rgba(255, 252, 244, 0.86);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.10), transparent 34rem),
+    var(--cream);
+  color: var(--forest-dark);
+  line-height: 1.55;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+.page-header {
+  text-align: left; margin-bottom: 24px; padding: 24px; border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.24), transparent 18rem),
+    var(--forest);
+  color: var(--cream);
+  box-shadow: 0 16px 40px rgba(26, 38, 32, 0.14);
+}
+.brand-lockup { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.brand-mark {
+  width: 56px; height: 56px; border-radius: 14px; background: var(--cream);
+  padding: 6px; flex: 0 0 auto;
+}
+.brand-mark svg { width: 100%; height: 100%; display: block; }
+.brand-wordmark {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 26px; line-height: 1; letter-spacing: 0.08em;
+  color: var(--cream); font-weight: 800; margin-bottom: 4px;
+}
+.brand-url {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 13px; letter-spacing: 0.05em; color: var(--terra); font-weight: 800;
+}
+.brand-url a { color: var(--terra); text-decoration: none; }
+.brand-url a:hover { text-decoration: underline; }
+.tool-eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--terra); margin-bottom: 8px;
+}
+.tool-eyebrow a { color: rgba(244, 238, 222, 0.85); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; text-transform: none; }
+.tool-eyebrow a:hover { text-decoration: underline; }
+.page-header h1 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: clamp(28px, 6vw, 44px); line-height: 1.02; color: var(--cream);
+  margin-bottom: 8px; letter-spacing: -0.03em;
+}
+.meta-line { font-size: 15px; color: rgba(244, 238, 222, 0.78); max-width: 560px; }
+.section-card {
+  background: var(--bg-card); border-radius: 18px; padding: 22px;
+  margin-bottom: 16px; border: 1px solid var(--rule);
+  box-shadow: 0 10px 28px rgba(26, 38, 32, 0.06);
+}
+.section-card h2 {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-size: 18px; color: var(--forest-dark); margin-bottom: 12px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--rule);
+}
+.section-card p { margin-bottom: 12px; }
+.section-card p:last-child { margin-bottom: 0; }
+a { color: var(--terra-dark); }
+.btn {
+  display: inline-block; padding: 13px 24px; border-radius: 12px;
+  text-decoration: none; font-weight: 700; font-size: 15px;
+  font-family: "IBM Plex Sans", sans-serif; border: 0; cursor: pointer;
+}
+.btn-terra { background: var(--terra); color: #fff; }
+.btn-terra:hover { background: var(--terra-dark); }
+.btn-forest { background: var(--forest); color: var(--cream); }
+.btn-forest:hover { background: var(--forest-dark); }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.fineprint { font-size: 13px; color: var(--stone); margin-top: 14px; }
+.page-footer {
+  text-align: center; margin-top: 32px; padding-top: 18px;
+  border-top: 1px solid var(--rule); font-size: 13px; color: var(--stone);
+}
+.page-footer .footer-brand {
+  font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  font-weight: 800; letter-spacing: 0.08em; color: var(--forest);
+  font-size: 15px; margin-bottom: 6px;
+}
+.page-footer p { margin-bottom: 4px; }
+
+.q { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.q:last-of-type { border-bottom: 0; }
+.q .qt { font-weight: 600; margin-bottom: 4px; }
+.q .hint { font-size: 13px; color: var(--stone); margin-bottom: 10px; }
+.q .opts { display: flex; gap: 10px; }
+.q .opts button {
+  padding: 9px 26px; border-radius: 10px; border: 1.5px solid var(--rule);
+  background: #fff; font: 600 14px "IBM Plex Sans", sans-serif;
+  color: var(--forest-dark); cursor: pointer;
+}
+.q .opts button.sel-yes { background: var(--forest); border-color: var(--forest); color: var(--cream); }
+.q .opts button.sel-no { background: var(--terra); border-color: var(--terra); color: #fff; }
+#result { display: none; }
+.score-tile {
+  background:
+    radial-gradient(circle at top right, rgba(199, 107, 74, 0.24), transparent 14rem),
+    var(--forest);
+  border-radius: 16px; padding: 22px; text-align: center; color: var(--cream);
+  margin-bottom: 16px;
+}
+.score-tile .big {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: 52px; line-height: 1; color: var(--terra);
+}
+.score-tile .lbl { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cream); margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="page-header">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Warm palette: cream #F4EEDE, forest #2E4A34, terra #C76B4A -->
+  <defs>
+    <clipPath id="lensClip">
+      <circle cx="430" cy="430" r="252"/>
+    </clipPath>
+  </defs>
+
+  <!-- Cream background, rounded square -->
+  <rect x="0" y="0" width="1024" height="1024" rx="160" ry="160" fill="#F4EEDE"/>
+
+  <!-- Magnifying glass handle: thicker, flat capsule cap -->
+  <g transform="translate(0,0) rotate(45 660 660)">
+    <!-- Handle shaft as rounded rect, oriented horizontally, then rotated -->
+    <rect x="610" y="630" width="260" height="80" rx="40" fill="#2E4A34"/>
+    <!-- Flatter terra end cap (small rounded rectangle at far end) -->
+    <rect x="838" y="640" width="40" height="60" rx="14" fill="#C76B4A"/>
+  </g>
+
+  <!-- Lens body fill (cream) -->
+  <circle cx="430" cy="430" r="252" fill="#F4EEDE"/>
+
+  <!-- Compass face inside lens (fills nearly the whole lens) -->
+  <g clip-path="url(#lensClip)">
+    <!-- Inner compass ring — thicker, closer to the rim -->
+    <circle cx="430" cy="430" r="234" fill="none" stroke="#2E4A34" stroke-width="14"/>
+
+    <!-- 12 tick marks around the inside of the inner ring -->
+    <g stroke="#C76B4A" stroke-width="8" stroke-linecap="round">
+      <line x1="430" y1="214" x2="430" y2="236"/>
+      <line x1="538" y1="240" x2="527" y2="259"/>
+      <line x1="617" y1="318" x2="598" y2="329"/>
+      <line x1="646" y1="430" x2="624" y2="430"/>
+      <line x1="617" y1="542" x2="598" y2="531"/>
+      <line x1="538" y1="620" x2="527" y2="601"/>
+      <line x1="430" y1="646" x2="430" y2="624"/>
+      <line x1="322" y1="620" x2="333" y2="601"/>
+      <line x1="243" y1="542" x2="262" y2="531"/>
+      <line x1="214" y1="430" x2="236" y2="430"/>
+      <line x1="243" y1="318" x2="262" y2="329"/>
+      <line x1="322" y1="240" x2="333" y2="259"/>
+    </g>
+
+    <!-- Cardinal direction arrows: bigger triangles pointing INWARD -->
+    <!-- North -->
+    <polygon points="430,238 408,288 452,288" fill="#C76B4A"/>
+    <!-- East -->
+    <polygon points="622,430 572,408 572,452" fill="#C76B4A"/>
+    <!-- South -->
+    <polygon points="430,622 408,572 452,572" fill="#C76B4A"/>
+    <!-- West -->
+    <polygon points="238,430 288,408 288,452" fill="#C76B4A"/>
+
+    <!-- Big diamond needle: forest top, terra bottom, prominent and centered -->
+    <polygon points="430,278 405,430 455,430" fill="#2E4A34"/>
+    <polygon points="430,582 405,430 455,430" fill="#C76B4A"/>
+
+    <!-- Center pivot -->
+    <circle cx="430" cy="430" r="18" fill="#2E4A34"/>
+    <circle cx="430" cy="430" r="8" fill="#F4EEDE"/>
+  </g>
+
+  <!-- Magnifying glass thick rim (over everything) -->
+  <circle cx="430" cy="430" r="252" fill="none" stroke="#2E4A34" stroke-width="60"/>
+
+  <!-- Subtle lens highlight -->
+  <ellipse cx="350" cy="350" rx="42" ry="22" fill="#F4EEDE" opacity="0.45" transform="rotate(-30 350 350)"/>
+</svg>
+</div>
+      <div>
+        <div class="brand-wordmark">JOB SCOUT</div>
+        <div class="brand-url"><a href="https://jobscout.live">jobscout.live</a></div>
+      </div>
+    </div>
+    <div class="tool-eyebrow">Tool 1 of 6 &nbsp;&middot;&nbsp; <a href="index.html">All six tools</a></div>
+    <h1>Is your resume Canadian-ready?</h1>
+    <div class="meta-line">Ten yes-or-no questions against the conventions Canadian employers scan for. Instant score, nothing collected.</div>
+  </header>
+
+  <div class="section-card">
+    <h2>Answer honestly, with your current resume in front of you</h2>
+    <p>These are the ten conventions Canadian recruiters and applicant
+    tracking systems quietly screen for. A resume that worked well back home
+    usually breaks several of them. That gap, not a lack of skill, is the most
+    common reason strong candidates hear nothing back.</p>
+    
+    <div class="q" data-i="0">
+      <div class="qt">1. Is your resume free of a photo?</div>
+      <div class="hint">Canadian resumes never carry a photo. Employers here are trained to screen them out.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="1">
+      <div class="qt">2. Is it free of your date of birth, marital status, and nationality?</div>
+      <div class="hint">Personal details that are normal on resumes elsewhere are red flags to Canadian HR.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="2">
+      <div class="qt">3. Is it two pages or less?</div>
+      <div class="hint">One page early-career, two pages maximum for everyone else.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="3">
+      <div class="qt">4. Does every role use bullet points that start with an action verb?</div>
+      <div class="hint">Paragraphs of duties get skimmed past. Led, built, reduced, delivered.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="4">
+      <div class="qt">5. Do most bullets carry a number, a result, or a scale?</div>
+      <div class="hint">Team size, budget, percentage improved, volume handled. Numbers are what recruiters remember.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="5">
+      <div class="qt">6. Do you tailor the resume for each application?</div>
+      <div class="hint">One generic resume for every posting is the single most common mistake.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="6">
+      <div class="qt">7. Is the layout a simple single column, with no tables, text boxes, or graphics?</div>
+      <div class="hint">Applicant tracking systems misread tables and graphics, and your content silently disappears.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="7">
+      <div class="qt">8. Does your contact line show city and province only, with no full street address?</div>
+      <div class="hint">City and province is all a Canadian employer needs, and all you should give.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="8">
+      <div class="qt">9. Is it free of the line "References available upon request"?</div>
+      <div class="hint">Employers assume it. The line just spends space you need for results.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="q" data-i="9">
+      <div class="qt">10. Do your bullets describe what you achieved, not just what you were responsible for?</div>
+      <div class="hint">"Responsible for X" is a duty. "Delivered X, which did Y" is a hire.</div>
+      <div class="opts">
+        <button type="button" data-v="yes">Yes</button>
+        <button type="button" data-v="no">No</button>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:18px;">
+      <button type="button" class="btn btn-terra" id="scoreBtn">Score my resume</button>
+    </div>
+  </div>
+  <div id="result">
+    <div class="section-card">
+      <div class="score-tile">
+        <div class="big"><span id="scoreN">0</span>/10</div>
+        <div class="lbl">Canadian-ready score</div>
+      </div>
+      <p id="verdict"></p>
+      <p>Not sure where your background fits in the first place? The
+      <a href="https://docs.google.com/forms/d/e/1BkqsnFjJpGtq0vf1Z0RqZ6aR5hC-j7dL_1rcAsL4i6U/viewform" target="_blank" rel="noopener">free
+      check</a> takes about two minutes and emails you a personalized report
+      naming the Canadian roles you are most competitive for.</p>
+    </div>
+
+  <div class="section-card" id="pack">
+    <h2>Ready for the full package?</h2>
+    <p>Fixing the format is most of what the Resume Starter Pack is built to do: we take your real background and rebuild it around what this market actually scans for.</p>
+    <p>The <strong>Resume Starter Pack</strong> is $199 CAD / $149 USD, one
+    time: a targeting memo you approve first, two master resumes and two
+    matching cover letters, LinkedIn setup instructions, 30 days where I find
+    and send roles that fit every other day, five tailored resume and cover
+    letter sets for the roles you pick, and a cloning guide for every
+    application after that.</p>
+    <div class="btn-row">
+      <a class="btn btn-terra" href="https://buy.stripe.com/9B68wP7ohcbybmC1TLcMM07" target="_blank" rel="noopener">Get started ($199 CAD)</a>
+      <a class="btn btn-forest" href="https://buy.stripe.com/4gM8wPbExb7u2Q62XPcMM0B" target="_blank" rel="noopener">Prefer USD? ($149 USD)</a>
+    </div>
+    <p class="fineprint">To be clear: this is not a placement service and no
+    one can guarantee you a job offer or an interview. What you get is
+    professional materials and a search with real direction behind it.</p>
+  </div>
+  </div>
+  <footer class="page-footer">
+    <div class="footer-brand">JOB SCOUT</div>
+    <p>Job Scout by Barker HRS. A job search service, not a placement agency.
+    We do not guarantee employment and we do not provide immigration advice.</p>
+    <p>Questions? Email <a href="mailto:jobscout@barkerhrs.com">jobscout@barkerhrs.com</a></p>
+    
+  </footer>
+</div>
+
+<script>
+(function () {
+  var GOOD = ["yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes"];
+  var answers = new Array(GOOD.length).fill(null);
+  document.querySelectorAll('.q').forEach(function (qEl) {
+    var i = parseInt(qEl.dataset.i, 10);
+    qEl.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        answers[i] = btn.dataset.v;
+        qEl.querySelectorAll('button').forEach(function (b) {
+          b.classList.remove('sel-yes', 'sel-no');
+        });
+        btn.classList.add(btn.dataset.v === 'yes' ? 'sel-yes' : 'sel-no');
+      });
+    });
+  });
+  document.getElementById('scoreBtn').addEventListener('click', function () {
+    var unanswered = answers.indexOf(null);
+    if (unanswered !== -1) {
+      var qEl = document.querySelector('.q[data-i="' + unanswered + '"]');
+      qEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      qEl.style.background = 'rgba(199,107,74,0.10)';
+      setTimeout(function () { qEl.style.background = ''; }, 1600);
+      return;
+    }
+    var score = answers.reduce(function (n, a, i) {
+      return n + (a === GOOD[i] ? 1 : 0);
+    }, 0);
+    document.getElementById('scoreN').textContent = score;
+    var v;
+    if (score >= 9) {
+      v = 'Your format is in good shape. At this point the difference is ' +
+          'made by targeting and tailoring: sending the right story to the ' +
+          'right roles, one application at a time.';
+    } else if (score >= 6) {
+      v = 'Close, but the conventions you are missing are exactly the kind ' +
+          'that get a resume silently filtered out before a human reads it. ' +
+          'Each one above marked against you is fixable in an afternoon.';
+    } else {
+      v = 'Your resume is very likely being read the wrong way by Canadian ' +
+          'employers and their software, no matter how strong the experience ' +
+          'behind it is. The good news: format is the most fixable problem ' +
+          'in a job search.';
+    }
+    document.getElementById('verdict').textContent = v;
+    var r = document.getElementById('result');
+    r.style.display = 'block';
+    r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
+</body>
+</html>
